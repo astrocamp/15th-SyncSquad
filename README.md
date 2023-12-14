@@ -1,6 +1,7 @@
 # README
 
-- run bundle install and yarn install
+- run bundle install
+- run yarn install
 - run rails db:setup
 - run bin/dev, and check http://localhost:3000
 
