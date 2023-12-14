@@ -98,3 +98,5 @@ gem 'friendly_id', '~> 5.4.0'
 
 # 開啟多個伺服器
 gem "foreman", "~> 0.87.2"
+
+gem "tailwindcss-rails", "~> 2.0"
