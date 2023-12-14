@@ -95,3 +95,6 @@ gem "ransack", "~> 4.1"
 
 # URL 字串
 gem 'friendly_id', '~> 5.4.0'
+
+# 開啟多個伺服器
+gem "foreman", "~> 0.87.2"
