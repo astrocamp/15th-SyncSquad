@@ -68,3 +68,30 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# 會員
+gem "devise", "~> 4.9"
+
+# 軟刪除
+gem "paranoia", "~> 2.6"
+
+# 假資料
+gem "faker", "~> 3.2"
+
+# 縮圖
+gem "image_processing", "~> 1.12"
+
+# 狀態機
+gem "aasm", "~> 5.5"
+
+# 拖曳順序
+gem "acts_as_list", "~> 1.1"
+
+# 分頁
+gem "kaminari", "~> 1.2"
+
+# 後端搜尋
+gem "ransack", "~> 4.1"
+
+# URL 字串
+gem 'friendly_id', '~> 5.4.0'
