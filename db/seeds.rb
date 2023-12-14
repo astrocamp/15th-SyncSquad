@@ -12,7 +12,7 @@ def create_or_show_users(num_users)
     num_users.times do
         random_name = Faker::Name.name
         nick_name = random_name.split(' ').first
-        random_email = Faker::Internet.email(name: random_name, separators: ['-'], domain: 'sync-squad')
+        random_email = Faker::Internet.email(name: random_name, separators: ['-'], domain: 'sync.squad.com')
         existing_user = User.find_by(email: random_email)
         if existing_user
             puts "⛔ 信箱已註冊：#{existing_user.email}，暱稱：#{existing_user.nick_name}"
