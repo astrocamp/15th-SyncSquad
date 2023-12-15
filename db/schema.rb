@@ -49,6 +49,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_043708) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.integer "owner_id", null: false
+    t.datetime "delete_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["delete_at"], name: "index_projects_on_delete_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
