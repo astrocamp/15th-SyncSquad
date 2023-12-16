@@ -1,10 +1,10 @@
-class ProjectController < ApplicationController
+class ProjectsController < ApplicationController
     before_action :authenticate_user!
     before_action :find_project, only: %i[show update destroy]
     # before_action :find_own_project, only: %i[:show, :edit, :update, :destroy]
 
     def index
-        @projects = Project.order(id: :desc)
+        @projects = Project.all
     end
 
     def show
@@ -24,7 +24,7 @@ class ProjectController < ApplicationController
 
     def destroy
         @project.destroy
-        redirect_to project_index_path, alert: '專案已刪除。'
+        redirect_to projects_path, alert: '專案已刪除。'
     end
 
     private
