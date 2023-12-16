@@ -12,4 +12,3 @@ application.register("datepicker", DatepickerController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-
