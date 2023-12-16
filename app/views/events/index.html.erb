@@ -3,7 +3,8 @@
 
     <% @events.each do |event| %>
     <div>
-        <%= event %>
+        <%# 因為我行事曆要使用hash，已經有轉好了，這邊顯示先用這個方式 %>
+        <%= link_to  event[:title] , event_path(event[:id]) %>
     </div>
     <% end %>
 
