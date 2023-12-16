@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
 
   def index
-    @events = Event.order(id: :desc)
+    @events = Event.all.map(&:full_calendar_event)
     @event = Event.new
   end
 
