@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
     # before_action :find_own_project, only: %i[:show, :edit, :update, :destroy]
 
     def index
-        @projects = Project.all
+        @projects = Project.order(id: :desc)
+        @project = Project.new
     end
 
     def show
@@ -12,11 +13,17 @@ class ProjectsController < ApplicationController
     end
 
     def new
-        project = Project.new
+        render html: params
     end
 
     def create
-        project = Project.new(project_params)
+        @project = Project.new(project_params)
+
+        if @project.save
+            render json: @project, status: :created, location: @project
+        else
+            render json: @project.errors, status: :unprocessable_entity
+        end
     end
 
     def update
@@ -34,7 +41,7 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-        params.require(:project).permit(:title, :decription, :owner_id, :delete_at)
+        params.require(:project).permit(:title, :description, :owner_id, :delete_at)
     end
 
     def find_own_project
