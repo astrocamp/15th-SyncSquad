@@ -3,13 +3,13 @@
 <%= link_to t('show.Delete'), event_path, data:{turbo_method:'delete', turbo_confirm: '確定要刪除嗎'} %>
 
 <ul>
-    <li><%= t('show.Subject') %><%= @event.subject %></li>
-    <li><%= t('show.Location') %><%= @event.start_date %></li>
-    <li><%= @event.start_time %></li>
-    <li><%= @event.end_date %></li>
-    <li><%= @event.end_time %></li>
-    <li><%= @event.all_day_event %></li>
-    <li><%= @event.description %></li>
-    <li><%= t('show.Location') %><%= @event.location %></li>
-    <li><%= @event.private %></li>
+    <li><%= t('show.Subject') %>：<%= @event.subject %></li>
+    <li><%= t('show.Start Date') %>：<%= @event.start_date %></li>
+    <li><%= t('show.Start Time') %>：<%= @event.start_time %></li>
+    <li><%= t('show.End Date') %>：<%= @event.end_date %></li>
+    <li><%= t('show.End Time') %>：<%= @event.end_time %></li>
+    <li><%= t('show.All Day') %>：<%= @event.all_day_event %></li>
+    <li><%= t('show.Description') %>：<%= @event.description %></li>
+    <li><%= t('show.Location') %>：<%= @event.location %></li>
+    <li><%= t('show.Private') %>：<%= @event.private %></li>
 </ul>
