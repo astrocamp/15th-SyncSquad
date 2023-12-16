@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:edit, :update, :show, :destroy]
+  before_action :authenticate_user!
+  before_action :find_event, only: %i[edit update show destroy]
+
+
   def index
     @events = Event.order(id: :desc)
     @event = Event.new
@@ -11,6 +14,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
     if @event.save
       redirect_to events_path
     else
@@ -43,7 +47,7 @@ class EventsController < ApplicationController
   def event_params
     params
       .require(:event)
-      .permit(:subject, :start_date, :start_time, :end_date, :end_time, :all_day_event, :description, :location, :private)
+      .permit(:subject, :start_date, :start_time, :end_date, :end_time, :all_day_event, :description, :location, :private, :user_id)
   end
 
   def find_event

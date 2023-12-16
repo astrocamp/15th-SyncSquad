@@ -1,3 +1,10 @@
+<% if @event.errors.any? %>
+  <% @event.errors.full_messages.each do |message| %>
+   <%= message%>
+  <% end %>
+<% end %>
+
+
 <%= form_with model:@event, data:{turbo:false} do |form| %>
   <div class="grid gap-10 m-10 md:grid-cols-2 p-10">
     <div>
