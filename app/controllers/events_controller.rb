@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
+  before_action :find_event, only: [:edit, :update, :show, :destroy]
   def index
-    @events = Event.all
+    @events = Event.order(id: :desc)
+    @event = Event.new
   end
 
   def new
@@ -9,7 +11,31 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    
+    if @event.save
+      redirect_to events_path
+    else
+      render :new
+    end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    @event.update(event_params)
+    if @event.save
+      redirect_to event_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to events_path
   end
 
   private
@@ -19,4 +45,10 @@ class EventsController < ApplicationController
       .require(:event)
       .permit(:subject, :start_date, :start_time, :end_date, :end_time, :all_day_event, :description, :location, :private)
   end
+
+  def find_event
+    @event = Event.find(params[:id])
+  end
+
+
 end

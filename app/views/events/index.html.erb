@@ -1,4 +1,11 @@
-
-
-
 <%= link_to  '新增事件', new_event_path %>
+
+
+    <% @events.each do |event| %>
+    <div>
+        <%= link_to  event.subject, event_path(event) %>
+    </div>
+    <% end %>
+
+
+<%= render partial: 'form' %>
