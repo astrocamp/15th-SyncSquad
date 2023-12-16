@@ -38,6 +38,10 @@ class ProjectsController < ApplicationController
   def find_project
     @project = Project.find(params[:id])
   end
+  
+  def project_params
+      params.require(:project).permit(:title, :description, :owner_id, :delete_at)
+  end
 
   def find_current_user_affiliated_projects
     @projects = current_user.affiliated_projects.order(id: :desc)
