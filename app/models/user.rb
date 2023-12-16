@@ -13,6 +13,6 @@ class User < ApplicationRecord
   has_many :events
 
   #validation for room,name is unique and couldn't talk to youself 
-  validates_uniqueness_of :username
+  validates_uniqueness_of :name
   scope :all_except, ->(user) { where.not(id: user) }
 end
