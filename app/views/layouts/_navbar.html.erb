@@ -1,20 +1,12 @@
 <nav class="flex items-center justify-between px-3 py-3 bg-blue-500">
     <h1><%= link_to  "SyncSquad", root_path %></h1>
 
-    <div>
-        <ul>
-            <li>
-                <%= link_to t('navbar.events'), events_path %>
-            </li>
-        </ul>
-
-       
-    </div>
 
 
     <div>
         <ul class="flex gap-3">
             <% if current_user %>
+                <li><%= link_to t('navbar.events'), events_path %></li>
                 <li><%= link_to '設定', edit_user_registration_path %></li>
                 <li><%= link_to '登出', destroy_user_session_path %></li>
             <% else %>
