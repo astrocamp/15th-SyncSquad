@@ -2,7 +2,9 @@ class RoomsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@rooms = Room.all
+		@rooms = Room.public_rooms
+		#Get user without current_user
+		@user = User.all_except(current_user) 
 	end	
 	
 	def new
