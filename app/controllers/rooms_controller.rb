@@ -3,14 +3,9 @@ class RoomsController < ApplicationController
 
 	def index
 		@rooms = Room.public_rooms
-		#Get user without current_user
-		@user = User.all_except(current_user) 
+		@room = Room.new
 	end	
 	
-	def new
-		@room = Room.new
-  end
-
 	def create
 		@room = Room.new(room_params)
 		if @room.save
@@ -22,6 +17,11 @@ class RoomsController < ApplicationController
 
 	def show
 		find_room
+		#Get user without current_user
+		@users = User.all_except(current_user)
+		
+		#need to fix maybe add_column...
+		#@users = @users.select { |user| user_signed_in?(user) }
 	end
 
 	def edit

@@ -1,17 +1,15 @@
 <div class="flex gap-x-14 text-cyan-600">
-<h1 class="text-3xl">Start to Chat</h1>
-<h3 class="text-2xl pt-1"> 歡迎 <%= current_user.email .split("@").first%> ლ(╹◡╹ლ)</h3>
+  <h1 class="text-3xl">Start to Chat</h1>
+  <h3 class="text-2xl pt-1">歡迎 <%= current_user.email.split("@").first %> ლ(╹◡╹ლ)</h3>
 </div>
 
 <div class="mt-5">
-    <h3 class="text-2xl text-orange-400">房間列表</h3>
-    <ul>
-        <%@rooms.each do |room|%>
-    <li class="text-xl mt-3">(=´ω`=)  <%=link_to room.name, room_path(room)%></li>
-        <%end%>
-    </ul>
-</div>
-
-<div class="mt-7">
-<%= link_to "Create a Chat Room", new_room_path, class: "text-xl" %> 
+  <h3 class="text-2xl text-orange-400">房間列表</h3>
+    <%= turbo_stream_from "rooms"%>
+    <div id="rooms">
+    <%= render @rooms%>
+    </div>
+    <div class="mt-5">
+        <%= render "new_room_form" %>
+    </div>
 </div>
