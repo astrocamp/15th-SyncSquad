@@ -20,6 +20,9 @@ export default class extends Controller {
       events: "/events.json", //json
       timeZone: "auto",
       locale: "zh-tw",
+      droppable: true,
+      editable: true,
+      selectable: true,
     });
     calendar.render();
   }
