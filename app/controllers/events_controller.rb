@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
+  before_action :find_event, only: %i[show]
   before_action :authenticate_user!
-  before_action :find_event, only: %i[edit update show destroy]
+  before_action :find_owned_event, only: %i[edit update show destroy]
 
 
   def index
@@ -13,10 +14,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.user_id = current_user.id
+    @event = current_user.events.new(event_params)
+    # 直接for current user
     if @event.save
-      redirect_to events_path
+      redirect_to events_path, notice: '新增事件成功！'
     else
       render :new
     end
@@ -31,7 +32,7 @@ class EventsController < ApplicationController
   def update
     @event.update(event_params)
     if @event.save
-      redirect_to event_path
+      redirect_to event_path, notice: '更新事件成功！'
     else
       render :edit
     end
@@ -39,7 +40,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path
+    redirect_to events_path, alert: '事件已刪除！'
   end
 
   private
@@ -54,5 +55,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-
+  def find_owned_event
+    @event = current_user.events.find(params[:id])
+  end
 end
