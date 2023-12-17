@@ -10,7 +10,7 @@ export default class extends Controller {
     flatpickr(this.endTimeTarget, {
       enableTime: true,
       noCalendar: true, // 不用日期
-      defaultTime: "12:00",
+      defaultDate: "12:00",
       minuteIncrement: 30,
       time_24hr: true,
     });
@@ -33,7 +33,7 @@ export default class extends Controller {
     flatpickr(this.startTimeTarget, {
       enableTime: true,
       noCalendar: true, // 不用日期
-      defaultTime: "12:00",
+      defaultDate: "12:00",
       minuteIncrement: 30,
       time_24hr: true,
       // 選完開始時間就可以調整結束時間
@@ -41,7 +41,10 @@ export default class extends Controller {
         flatpickr(this.endTimeTarget, {
           enableTime: true,
           noCalendar: true, // 不用日期
-          defaultTime: selectedDates[0],
+          defaultDate:
+            this.startDateTarget.value == this.endDateTarget.value
+              ? selectedDates[0]
+              : "12:00",
           minTime:
             this.startDateTarget.value == this.endDateTarget.value
               ? selectedDates[0]
@@ -61,7 +64,10 @@ export default class extends Controller {
         flatpickr(this.endTimeTarget, {
           enableTime: true,
           noCalendar: true, // 不用日期
-          defaultTime: selectedDates[0],
+          defaultDate:
+            this.startDateTarget.value == this.endDateTarget.value
+              ? selectedDates[0]
+              : "12:00",
           minTime:
             this.startDateTarget.value == this.endDateTarget.value
               ? selectedDates[0]
