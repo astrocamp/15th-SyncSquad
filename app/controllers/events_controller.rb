@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
 
   def index
-    @events = Event.all.map(&:full_calendar_event)
+    @events = current_user.events.map(&:full_calendar_event)
     respond_to do |format|
       format.html
       format.json { render json: @events }

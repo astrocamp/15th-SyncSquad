@@ -18,6 +18,8 @@ export default class extends Controller {
         right: "dayGridMonth,timeGridWeek,listWeek",
       },
       events: "/events.json", //json
+      timeZone: "auto",
+      locale: "zh-tw",
     });
     calendar.render();
   }
