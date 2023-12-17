@@ -14,5 +14,7 @@ class User < ApplicationRecord
 
   #validation for room,name is unique and couldn't talk to youself 
   validates_uniqueness_of :name
+  #Get users without appointment/special user
   scope :all_except, ->(user) { where.not(id: user) }
+  
 end
