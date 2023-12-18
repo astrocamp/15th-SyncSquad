@@ -8,6 +8,4 @@ class User < ApplicationRecord
 
   # Relationship
   has_many :events
-
-
 end

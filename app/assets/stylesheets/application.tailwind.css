@@ -13,9 +13,6 @@
   @apply relative inline-flex items-center mb-5 cursor-pointer;
 }
 
-.form-toggle-layer-2 {
-}
-
 .form-toggle-layer-3 {
   @apply ms-3 text-sm font-medium text-gray-900 dark:text-gray-300;
 }
