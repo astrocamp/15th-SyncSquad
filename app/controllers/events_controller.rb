@@ -1,8 +1,8 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
   before_action :find_event, only: %i[show edit update destroy]
   before_action :authenticate_user!
-  before_action :find_owned_event, only: %i[edit update show destroy]
-
 
   def index
     @events = current_user.events.map(&:full_calendar_event)
@@ -27,11 +27,9 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @event.update(event_params)
@@ -48,18 +46,15 @@ class EventsController < ApplicationController
   end
 
   private
-  
+
   def event_params
     params
       .require(:event)
-      .permit(:subject, :start_date, :start_time, :end_date, :end_time, :all_day_event, :description, :location, :private)
+      .permit(
+        :subject, :start_date, :start_time, :end_date, :end_time, :all_day_event, :description, :location, :private)
   end
 
   def find_event
     @event = Event.find(params[:id])
-  end
-
-  def find_owned_event
-    @event = current_user.events.find(params[:id])
   end
 end

@@ -108,4 +108,4 @@ gem 'tailwindcss-rails', '~> 2.0'
 gem 'rubocop', '~> 1.59', require: false
 
 # 授權管理
-gem "pundit", "~> 2.3"
+gem 'pundit', '~> 2.3'
