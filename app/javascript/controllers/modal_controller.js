@@ -17,11 +17,11 @@ export default class extends Controller {
   //     });
 
   //     if (response.ok) {
-  //       // 处理成功提交表单后的逻辑
+  //       // 處理成功提交表單後的邏輯
   //       console.log("Form submitted successfully");
   //       this.closeModal();
   //     } else {
-  //       // 处理提交表单失败的逻辑
+  //       // 處理提交表單失敗的邏輯
   //       console.error("Form submission failed");
   //     }
   //   } catch (error) {
