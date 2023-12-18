@@ -1,5 +1,5 @@
 <li class="flex">
-    <div><%= link_to project.title, project_path(project.id) %></div>
+    <div><%= link_to project.title, project_path(project) %></div>
     <div><%= project.description %></div>
     <div><%= User.find(project.owner_id).nick_name %></div>
     <div>
