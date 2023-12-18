@@ -1,26 +1,25 @@
 class ProjectsController < ApplicationController
     before_action :authenticate_user!
     before_action :find_project, only: %i[show update destroy]
-    # before_action :find_own_project, only: %i[:show, :edit, :update, :destroy]
 
     def index
-        @projects = Project.order(id: :desc)
+        @projects = current_user.affiliated_projects.order(id: :desc)
         @project = current_user.affiliated_projects.new
-        @project.owner_id = current_user.id
+        @project.owner_id = current_user.id 
     end
 
     def create
         @project = current_user.affiliated_projects.build(project_params)
+        current_user.affiliated_projects << @project
     
         if @project.save
-            redirect_to projects_path
+            redirect_to project_path(@project)
         else
             render json: @project.errors, status: :unprocessable_entity
         end
     end
 
     def show
-        @project = Project.find(params[:id])
     end
 
     def update
@@ -41,12 +40,5 @@ class ProjectsController < ApplicationController
 
     def project_params
         params.require(:project).permit(:title, :description, :owner_id, :delete_at)
-    end
-
-    def find_own_project
-        @project = Project.owned_by_user(current_user).find(params[:id])
-        unless @project.owner_id == current_user.id
-            redirect_to projects_path, alert: 'You are not authorized to perform this action.'
-        end
     end
 end 

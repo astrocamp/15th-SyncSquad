@@ -1,6 +1,6 @@
 <%= @project.title %>
 <%= @project.description %>
-<%= User.find(@project.owner_id).nick_name %>
+<%= @project.owner.nick_name %>
 <%= link_to 'X', project_path(@project), data: { turbo_method: 'delete', turbo_confirm: '確定刪除專案嗎？'} %>
 
 <%= form_with(model: @project) do |form| %>
