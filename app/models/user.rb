@@ -8,5 +8,5 @@ class User < ApplicationRecord
   
   # Relations
   has_many :project_members
-  has_many :affilated_project, through: :project_members, source: :project
+  has_many :affiliated_projects, through: :project_members, source: :project
 end

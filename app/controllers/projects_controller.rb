@@ -5,25 +5,22 @@ class ProjectsController < ApplicationController
 
     def index
         @projects = Project.order(id: :desc)
-        @project = Project.new
+        @project = current_user.affiliated_projects.new
+        @project.owner_id = current_user.id
+    end
+
+    def create
+        @project = current_user.affiliated_projects.build(project_params)
+    
+        if @project.save
+            render json: @project, status: :created
+        else
+            render json: @project.errors, status: :unprocessable_entity
+        end
     end
 
     def show
         @project = Project.find(params[:id])
-    end
-
-    def new
-        render html: params
-    end
-
-    def create
-        @project = Project.new(project_params)
-
-        if @project.save
-            render json: @project, status: :created, location: @project
-        else
-            render json: @project.errors, status: :unprocessable_entity
-        end
     end
 
     def update
