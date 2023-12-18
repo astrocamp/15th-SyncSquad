@@ -81,10 +81,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_043708) do
     t.string "title", null: false
     t.text "description"
     t.integer "owner_id", null: false
-    t.datetime "delete_at", precision: nil
+    t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["delete_at"], name: "index_projects_on_delete_at"
+    t.index ["deleted_at"], name: "index_projects_on_deleted_at"
   end
 
   create_table "users", force: :cascade do |t|
