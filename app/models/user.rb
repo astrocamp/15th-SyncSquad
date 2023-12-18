@@ -12,9 +12,9 @@ class User < ApplicationRecord
   # Relationship
   has_many :events
 
-  #validation for room,name is unique and couldn't talk to youself 
+  # validation for room,name is unique and couldn't talk to youself
   validates_uniqueness_of :name
-  #Get users without appointment/special user
+  # Get users without appointment/special user
   scope :all_except, ->(user) { where.not(id: user) }
   after_create_commit { broadcast_append_to 'users' }
   has_many :messages
