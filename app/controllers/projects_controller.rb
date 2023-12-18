@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
         @project = current_user.affiliated_projects.build(project_params)
     
         if @project.save
-            render json: @project, status: :created
+            redirect_to projects_path
         else
             render json: @project.errors, status: :unprocessable_entity
         end
@@ -24,6 +24,8 @@ class ProjectsController < ApplicationController
     end
 
     def update
+        @project.update(project_params)
+        redirect_to project_path(@project)
     end
 
     def destroy
