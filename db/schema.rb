@@ -41,14 +41,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_043708) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "rooms", force: :cascade do |t|
-    t.string "name"
-    t.integer "max_participants"
-    t.boolean "is_private", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "project_members", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
@@ -66,6 +58,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_043708) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.integer "max_participants"
+    t.boolean "is_private", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
