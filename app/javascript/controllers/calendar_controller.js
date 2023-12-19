@@ -5,6 +5,8 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
 
+import { patch } from "@rails/request.js";
+
 // Connects to data-controller="calendar"
 export default class extends Controller {
   connect() {
@@ -23,6 +25,7 @@ export default class extends Controller {
       droppable: true,
       editable: true,
       selectable: true,
+      eventResize: adjust,
       eventDrop: adjust,
     });
     calendar.render();
@@ -30,5 +33,17 @@ export default class extends Controller {
 }
 
 async function adjust(e) {
-  console.log(e.event.start);
+  const start_at = e.event.start;
+  const end_at = e.event.end;
+  const start = new Date(start_at).toISOString().split("T");
+  const start_date = start[0];
+  const start_time = start[1].split(".")[0];
+  const end = new Date(end_at).toISOString().split("T");
+  const end_date = end[0];
+  const end_time = end[1].split(".")[0];
+  const id = e.event.id;
+  const url = `/events/${id}/drop`;
+  const data = { start_date, start_time, end_date, end_time };
+  console.log(data);
+  await patch(url, { body: JSON.stringify(data) });
 }

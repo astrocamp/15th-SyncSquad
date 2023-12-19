@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :find_event, only: %i[show edit update destroy]
+  before_action :find_event, only: %i[show edit drop update destroy]
   before_action :authenticate_user!
   before_action :find_owned_event, only: %i[edit update show destroy]
 
   def index
     @events = current_user.events.map(&:full_calendar_event)
-    @event = Event.new
     respond_to do |format|
       format.html
       format.json { render json: @events }
@@ -31,6 +30,10 @@ class EventsController < ApplicationController
   def show; end
 
   def edit; end
+
+  def drop
+    @event.update(event_params)
+  end
 
   def update
     @event.update(event_params)

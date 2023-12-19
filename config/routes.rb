@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get 'user/:id', to:'users#show',as: 'user'
   get 'main/home'
 
-  resources :events
+  resources :events do 
+    member do
+      patch :drop
+    end
+  end
   resources :projects do
     collection do
       post :aside_list
