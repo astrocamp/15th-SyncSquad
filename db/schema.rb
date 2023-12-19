@@ -14,15 +14,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_043708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "calendars", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "description"
-    t.string "color", null: false
-    t.string "timezone", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "subject", null: false
     t.date "start_date", null: false
