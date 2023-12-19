@@ -11,4 +11,7 @@ class Project < ApplicationRecord
   # Validates
   validates :title, presence: true
   validates :owner_id, presence: true, numericality: { only_integer: true }
+
+  # 
+  after_create_commit { broadcast_append_to 'projects'}
 end

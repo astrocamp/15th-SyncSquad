@@ -8,17 +8,14 @@ class ProjectsController < ApplicationController
     @projects = current_user.affiliated_projects.order(id: :desc)
     @project = current_user.affiliated_projects.new
     @project.owner_id = current_user.id
+    #
+    render 'index'
   end
 
   def create
+    #
     @project = current_user.affiliated_projects.build(project_params)
     current_user.affiliated_projects << @project
-
-    if @project.save
-      redirect_to project_path(@project)
-    else
-      render json: @project.errors, status: :unprocessable_entity
-    end
   end
 
   def show; end
