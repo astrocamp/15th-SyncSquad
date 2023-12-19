@@ -1,15 +1,15 @@
 <h1>專案列表</h1>
 
-<%= turbo_stream_from "prjects" %>
+
 
 <%# link_to 'Create New Project', new_project_path, data: { toggle: "modal", target: "#projectModal", action: "new" } %>
 <div id="modal_area">
     <%= render 'form' ,project: @project %>
 </div>
 
-
 <!-- Project list -->
-<ul id="prjects_area">
+<%= turbo_stream_from "projects" %>
+<ul id="projects">
     <%= render @projects %>
 </ul>
 
