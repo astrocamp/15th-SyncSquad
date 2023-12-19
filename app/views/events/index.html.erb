@@ -11,10 +11,10 @@
 
 
 <%# calendar + modal 讓新增放在行事曆上 %>
-<div data-controller="calendar" 
-     data-modal-target="crud-modal" 
+<div data-controller="calendar" >
+  <%#暫時關掉  data-modal-target="crud-modal" 
      data-modal-toggle="crud-modal"
-     class="w-full lg:w-2/3 mx-auto">
+     class="w-full lg:w-2/3 mx-auto">  
 
 </div>
 <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -34,7 +34,7 @@
                     <span class="sr-only">Close modal</span>
                     </button>
                 </div>
-                <%= render 'form', event: @event%>
+                <%= render 'form', event: @event
         </div>
-    </div>
+    </div> %>
 </div> 

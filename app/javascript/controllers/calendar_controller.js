@@ -23,7 +23,12 @@ export default class extends Controller {
       droppable: true,
       editable: true,
       selectable: true,
+      eventDrop: adjust,
     });
     calendar.render();
   }
+}
+
+async function adjust(e) {
+  console.log(e.event.start);
 }
