@@ -28,4 +28,12 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  navbar:
+    sign_in: 'Sign In'
+    sign_up: 'Sign Up'
+    log_out: 'Log Out'
+    edit: 'Edit'
+    events: 'Events'
+
+  calender:
+    event: 'Event'
