@@ -10,6 +10,9 @@ class Event < ApplicationRecord
   # 關聯
   belongs_to :user
 
+  # 使用軟刪除套件
+  acts_as_paranoid
+
   # 時間跟日期組合
   def local_start_datetime(date, time)
     Time.zone.parse("#{date} #{time}")
