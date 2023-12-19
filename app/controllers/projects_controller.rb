@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def index
     @project = current_user.affiliated_projects.new
+    @project.owner_id = current_user.id
   end
 
   def aside_list; end
@@ -14,7 +15,6 @@ class ProjectsController < ApplicationController
   def main_list; end
 
   def create
-    #
     @project = current_user.affiliated_projects.build(project_params)
     @project = current_user.affiliated_projects.build(project_params.merge(owner: current_user))
     current_user.affiliated_projects << @project
