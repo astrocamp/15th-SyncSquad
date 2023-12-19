@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
   def main_list; end
 
   def create
+    #
     @project = current_user.affiliated_projects.build(project_params)
     @project = current_user.affiliated_projects.build(project_params.merge(owner: current_user))
     current_user.affiliated_projects << @project
