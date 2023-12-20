@@ -2,10 +2,8 @@
 
 class TurboDeviseController < ApplicationController
   class Responder < ActionController::Responder
-    # 重寫了to_turbo_stream方法
     def to_turbo_stream
       controller.render(options.merge(formats: :html))
-      # 當沒有辦法找到對應的view
     rescue ActionView::MissingTemplate => e
       if get?
         raise e
