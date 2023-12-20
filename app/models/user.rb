@@ -12,9 +12,6 @@ class User < ApplicationRecord
   # Relationship
   has_many :events
 
-  # validation for room,name is unique and couldn't talk to youself
-  validates_uniqueness_of :name
-
   # Get users without appointment/special user
   # scope 是一個 Rails 中用於定義範圍的方法。
   # :all_except 是這個範圍的名稱。
