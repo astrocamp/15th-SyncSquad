@@ -27,6 +27,7 @@ export default class extends Controller {
       droppable: true,
       editable: true,
       selectable: true,
+      dateClick: DateClick,
       eventResize: adjust,
       eventDrop: adjust,
     });
@@ -46,4 +47,11 @@ async function adjust(e) {
   const url = `/events/${id}/drop`;
   const data = { start_date, start_time, end_date, end_time };
   await patch(url, { body: JSON.stringify(data) });
+}
+
+function DateClick(info) {
+  // 在點擊日期時，顯示跳出flowbite的modal且可新增事件視窗
+  const crudModal = document.querySelector('[data-modal-target="crud-modal"]');
+  crudModal.click();
+  return info.dateStr;
 }
