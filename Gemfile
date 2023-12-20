@@ -109,6 +109,3 @@ gem 'rubocop', '~> 1.59', require: false
 
 # 授權管理
 gem 'pundit', '~> 2.3'
-
-# 廣播、即時互動
-gem 'hotwire-rails', '~> 0.1.3'
