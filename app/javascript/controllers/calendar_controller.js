@@ -49,9 +49,9 @@ async function adjust(e) {
   await patch(url, { body: JSON.stringify(data) });
 }
 
-function DateClick(info) {
+async function DateClick(info) {
   // 在點擊日期時，顯示跳出flowbite的modal且可新增事件視窗
   const crudModal = document.querySelector('[data-modal-target="crud-modal"]');
   crudModal.click();
-  return info.dateStr;
+  console.log(info.dateStr);
 }
