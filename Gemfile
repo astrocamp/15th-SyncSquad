@@ -109,5 +109,3 @@ gem 'rubocop', '~> 1.59', require: false
 
 # 授權管理
 gem 'pundit', '~> 2.3'
-
-gem "hotwire-rails", "~> 0.1.3"
