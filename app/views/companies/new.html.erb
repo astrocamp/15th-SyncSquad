@@ -1,0 +1,46 @@
+
+<h1 class="font-bold text-2xl">公司註冊</h1>
+  
+<%= form_with model: @company,
+              data: { turbo: false } do |form| %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.label :gui %>
+    <%= form.number_field :gui, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.label :hr_name %>
+    <%= form.text_field :hr_name, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.label :hr_email %>
+    <%= form.email_field :hr_email, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.label :hr_password %>
+    <%= form.password_field :hr_password, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'bg-rose-700 text-white px-3 py-2' %>
+  </div>
+
+<% end %>
