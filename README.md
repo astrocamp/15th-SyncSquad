@@ -4,6 +4,6 @@
 - run yarn install
 - run rails db:setup
 - run bin/dev, and check http://localhost:3000
-- run brew service
+- Starting Redis
 
 # Set Steps
