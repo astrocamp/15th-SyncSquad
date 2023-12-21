@@ -115,3 +115,6 @@ gem 'ranked-model', '~> 0.4.9'
 
 # hotwire
 gem 'hotwire-rails', '~> 0.1.3'
+
+# markdown
+gem "redcarpet", "~> 3.6"
