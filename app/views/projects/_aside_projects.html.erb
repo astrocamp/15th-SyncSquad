@@ -1,0 +1,8 @@
+<% @projects.each do |project| %>
+  <li class="flex">
+    <div>
+      <%= link_to project.title, project %> <!-- Assuming project.title exists -->
+    </div>
+    <%= link_to 'Edit Project', edit_project_path(project), data: { toggle: "modal", target: "#projectModal", action: "edit" } %>
+  </li>
+<% end %>

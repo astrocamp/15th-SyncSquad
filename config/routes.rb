@@ -11,10 +11,15 @@ Rails.application.routes.draw do
   get 'main/home'
 
   resources :events
-  resources :projects
+
+  resources :projects do
+    collection do
+      post :aside_list
+      post :main_list
+    end
+  end
 
   resources :rooms do
     resources :messages
   end
-  
 end
