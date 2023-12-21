@@ -1,13 +1,11 @@
+# frozen_string_literal: true
+
 class CompaniesController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def edit
-  end
+  def edit; end
 
-  def show
-  end
-
+  def show; end
 
   def new
     @company = Company.new
@@ -25,10 +23,7 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :gui, :email, :password, :hr_name, :hr_email, :hr_password) 
+    params.require(:company)
+          .permit(:name, :gui, :email, :password, :password_confirmation, :hr_name, :hr_email, :hr_password, :hr_password_confirmation)
   end
-
-  
 end
-
-

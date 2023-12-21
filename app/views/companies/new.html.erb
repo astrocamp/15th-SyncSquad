@@ -25,6 +25,11 @@
   </div>
 
   <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
     <%= form.label :hr_name %>
     <%= form.text_field :hr_name, class: 'border-2 border-black' %>
   </div>
@@ -37,6 +42,11 @@
   <div>
     <%= form.label :hr_password %>
     <%= form.password_field :hr_password, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.label :hr_password_confirmation %>
+    <%= form.password_field :hr_password_confirmation, class: 'border-2 border-black' %>
   </div>
 
   <div>
