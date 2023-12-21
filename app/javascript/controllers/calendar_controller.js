@@ -28,6 +28,10 @@ export default class extends Controller {
       editable: true,
       selectable: true,
       dateClick: DateClick,
+      eventClick: function (info) {
+        // 在這裡處理點擊事件
+        alert("Event clicked: " + info.event.title);
+      },
       eventResize: adjust,
       eventDrop: adjust,
     });

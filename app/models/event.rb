@@ -19,7 +19,7 @@ class Event < ApplicationRecord
   def end_must_after_start
     start_at = local_start_datetime(start_date, start_time)
     end_at = local_start_datetime(end_date, end_time)
-    return unless end_at < start_at
+    return unless end_at.present? && start_at.present? && end_at < start_at
 
     errors.add(:end_date, 'must after the start time')
   end
