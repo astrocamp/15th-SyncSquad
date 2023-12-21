@@ -1,3 +1,9 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
+
+<% [:notice, :alert].each do |type| %>
+  <% if flash[type] %>
+    <div class="flash-<%= type %>">
+      <%= flash[type] %>
+    </div>
+  <% end %>
+<% end %>
