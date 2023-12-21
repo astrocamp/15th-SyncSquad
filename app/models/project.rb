@@ -10,5 +10,5 @@ class Project < ApplicationRecord
 
   # Validates
   validates :title, presence: true
-  validates :owner_id, presence: true, numericality: { only_integer: true }
+  validates :owner_id, numericality: { only_integer: true }
 end
