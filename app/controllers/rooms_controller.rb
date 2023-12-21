@@ -6,7 +6,6 @@ class RoomsController < ApplicationController
     @rooms = Room.public_rooms
     @room = Room.new
     @users = User.all_except(current_user)
-    render 'index'
   end
 
   def create
