@@ -1,16 +1,12 @@
 <div class="flex justify-between gap-x-20 text-cyan-600">
   <h1 class="text-3xl">Start to Chat</h1>
-  <h3 class="text-2xl pt-1 text-cyan-600">歡迎 <%= current_user.email.split("@").first %> ლ(╹◡╹ლ)</h3>
+  <h3 class="text-2xl pt-1 text-cyan-600">歡迎 <%= current_user.name %> ლ(╹◡╹ლ)</h3>
 </div>
 
-<%# turbo_stream_from的三種用法 %>
-<%# 訂閱單個資源、訂閱一個模型的所有實例、訂閱另一個模型的所有實例 %>
-  
 <div class="text-2xl flex justify-center items-center" id="room_container">
   <%if @single_room%>
   <div id="single_room">
         <h4 class="text-center"> <%= @user&.email || @single_room.name %> </h4>
-        <%# @single_room 相關的資訊發生變化時，觸發即時更新 %>
         <%= turbo_stream_from @single_room %>
         <div id="messages">
           <%= render @messages %>
@@ -22,7 +18,6 @@
 
 
 <h4> Users </h4>
-<%# User model 相關的資訊發生變化時，觸發即時更新 %>
 <%= turbo_stream_from "users" %>
     <div id="users">
       <%= render @users %>
@@ -30,7 +25,6 @@
   
 <div class="mt-5">
   <h3 class="text-2xl text-orange-400">房間列表</h3>
-  <%# Room model 相關的資訊發生變化時，觸發即時更新 %>
     <%= turbo_stream_from "rooms"%>
     <div id="rooms">
     <%= render @rooms%>
