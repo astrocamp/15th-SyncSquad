@@ -1,4 +1,17 @@
 <div>
-  <h1 class="font-bold text-4xl">Companies#show</h1>
-  <p>Find me in app/views/companies/show.html.erb</p>
+  <h1 class="font-bold text-4xl">基本資料</h1>
+  <h2 class="text-2xl">公司名稱：<%= @company.name %></h2>
+  <h2>公司統編：<%= @company.gui %></h2>
+  <h2>公司信箱：<%= @company.email %></h2>
+  <h2>公司密碼：<%= @company.password %></h2>
+  <h2>人資姓名：<%= @company.hr_name %></h2>
+  <h2>人資信箱：<%= @company.hr_email %></h2>
+  <h2>人資密碼：<%= @company.hr_password %></h2>
 </div>
+
+<div>
+  <%= link_to '編輯', edit_company_path(@company), class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+  <%= link_to '返回首頁', root_path, class: "focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %>
+</div>
+
+

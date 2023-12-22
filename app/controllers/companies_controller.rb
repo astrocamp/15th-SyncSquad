@@ -3,9 +3,13 @@
 class CompaniesController < ApplicationController
   def index; end
 
-  def edit; end
+  def edit
+    @company = Company.find(params[:id])
+  end
 
-  def show; end
+  def show
+    @company = Company.find(params[:id])
+  end
 
   def new
     @company = Company.new
@@ -17,6 +21,15 @@ class CompaniesController < ApplicationController
       redirect_to @company, notice: '創建公司成功'
     else
       render :new
+    end
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    if @company.update(company_params)
+      redirect_to @company, notice: '更新成功'
+    else
+      render :edit
     end
   end
 
