@@ -13,6 +13,8 @@
     "@hotwired/turbo-rails": "^8.0.0-beta.1",
     "@rails/request.js": "^0.0.9",
     "autoprefixer": "^10.4.16",
+    "dayjs": "^1.11.10",
+    "dayjs-plugin-utc": "^0.1.2",
     "esbuild": "^0.19.9",
     "flatpickr": "^4.6.13",
     "flowbite": "^2.2.0",

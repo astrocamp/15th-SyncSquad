@@ -4,6 +4,8 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 
 import { patch } from "@rails/request.js";
 
@@ -33,16 +35,16 @@ export default class extends Controller {
 }
 
 async function adjust(e) {
-  const start_at = e.event.start;
-  const end_at = e.event.end;
-  const start = new Date(start_at).toISOString().split("T");
-  const start_date = start[0];
-  const start_time = start[1].split(".")[0];
-  const end = new Date(end_at).toISOString().split("T");
-  const end_date = end[0];
-  const end_time = end[1].split(".")[0];
+  dayjs.extend(utc);
+  const start_at = dayjs.utc(e.event.start);
+  const end_at = dayjs.utc(e.event.end);
+  const start_date = start_at.format("YYYY-MM-DD");
+  const start_time = start_at.format("HH:mm:ss");
+  const end_date = end_at.format("YYYY-MM-DD");
+  const end_time = end_at.format("HH:mm:ss");
   const id = e.event.id;
   const url = `/events/${id}/drop`;
   const data = { start_date, start_time, end_date, end_time };
+  console.log(data);
   await patch(url, { body: JSON.stringify(data) });
 }
