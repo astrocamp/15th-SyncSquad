@@ -29,13 +29,13 @@
 
     <div data-controller = "datepicker" > 
       <%= form.label :start_date, t('form.Start Date'), class:'form-text' %>
-      <%= form.date_field :start_date, class:'form-input', required: true, data:{ datepicker_target:"startDate"} %>
+      <%= form.date_field :start_date, class:'form-input', value:event.start_date || Date.today, required: true, data:{ datepicker_target:"startDate"} %>
       <%= form.label :start_time, t('form.Start Time'), class:'form-text' %>
-      <%= form.time_field :start_time, class:'form-input', data:{ datepicker_target:"startTime"} %>
+      <%= form.time_field :start_time, class:'form-input', value:event.start_time || Time.now, data:{ datepicker_target:"startTime"} %>
       <%= form.label :end_date, t('form.End Date'), class:'form-text' %>
-      <%= form.date_field :end_date, class:'form-input', required: true, data:{ datepicker_target:"endDate"} %>
+      <%= form.date_field :end_date, class:'form-input', value:event.end_date || Date.today, required: true, data:{ datepicker_target:"endDate"} %>
       <%= form.label :end_time, t('form.End Time'), class:'form-text' %>
-      <%= form.time_field :end_time, class:'form-input', data:{ datepicker_target:"endTime"} %>
+      <%= form.time_field :end_time, class:'form-input', value:event.end_time || Time.now, data:{ datepicker_target:"endTime"} %>
 
       <div class="relative top-10">
         <%= form.label :all_day_event, class: 'form-toggle-layer-1' do %>
