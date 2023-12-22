@@ -28,6 +28,7 @@ export default class extends Controller {
         });
       },
     });
+
     // 開始時間調整結束時間
     flatpickr(this.startTimeTarget, {
       enableTime: true,
@@ -40,13 +41,13 @@ export default class extends Controller {
           enableTime: true,
           noCalendar: true, // 不用日期
           defaultDate:
-            this.startDateTarget.value == this.endDateTarget.value
+            this.startDateTarget.value === this.endDateTarget.value
               ? new Date(selectedDates[0]).setMinutes(
                   new Date(selectedDates[0]).getMinutes() + 5
                 )
               : "00:00",
           minTime:
-            this.startDateTarget.value == this.endDateTarget.value
+            this.startDateTarget.value === this.endDateTarget.value
               ? new Date(selectedDates[0]).setMinutes(
                   new Date(selectedDates[0]).getMinutes() + 5
                 )
@@ -66,13 +67,13 @@ export default class extends Controller {
           enableTime: true,
           noCalendar: true, // 不用日期
           defaultDate:
-            this.startDateTarget.value == this.endDateTarget.value
+            this.startDateTarget.value === this.endDateTarget.value
               ? new Date(selectedDates[0]).setMinutes(
                   new Date(selectedDates[0]).getMinutes() + 5
                 )
               : "00:00",
           minTime:
-            this.startDateTarget.value == this.endDateTarget.value
+            this.startDateTarget.value === this.endDateTarget.value
               ? new Date(selectedDates[0]).setMinutes(
                   new Date(selectedDates[0]).getMinutes() + 5
                 )
@@ -80,6 +81,7 @@ export default class extends Controller {
           minuteIncrement: 30,
           time_24hr: true,
         });
+        console.log(selectedDates[0]);
       },
     });
   }
