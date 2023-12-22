@@ -44,6 +44,5 @@ async function adjust(e) {
   const id = e.event.id;
   const url = `/events/${id}/drop`;
   const data = { start_date, start_time, end_date, end_time };
-  console.log(data);
   await patch(url, { body: JSON.stringify(data) });
 }
