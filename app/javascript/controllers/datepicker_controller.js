@@ -10,6 +10,7 @@ export default class extends Controller {
     flatpickr(this.endTimeTarget, {
       enableTime: true,
       noCalendar: true, // 不用日期
+      minTime: this.startTimeTarget.value,
       minuteIncrement: 30,
       time_24hr: true,
     });
