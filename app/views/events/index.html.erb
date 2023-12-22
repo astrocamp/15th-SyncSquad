@@ -1,18 +1,10 @@
 <%= link_to  '新增事件', new_event_path %>
-
-
     <% @events.each do |event| %>
     <div>
         <%# 因為我行事曆要使用hash，已經有轉好了，這邊顯示先用這個方式 %>
         <%= link_to  event[:title] , event_path(event[:id]) %>
     </div>
     <% end %>
-
-
-
-
 <div data-controller="calendar" 
      class="w-full lg:w-2/3 mx-auto">
 </div>
-
-
