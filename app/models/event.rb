@@ -24,8 +24,6 @@ class Event < ApplicationRecord
     errors.add(:end_date, 'must after the start time')
   end
 
-
-
   # 行事曆格式
   def full_calendar_event
     {
