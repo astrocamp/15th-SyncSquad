@@ -2,17 +2,20 @@
     <section class="flex flex-wrap-reverse max-w-screen-lg m-auto md:flex-wrap lg:flex-nowrap">
         <div class="flex-initial w-full md:w-2/3">
             <div class="grid grid-cols-8 grid-rows-4">
-                <div class="col-start-5 col-end-8 row-start-1 row-end-2 bg-gray-100">
+                <div class="col-start-5 col-end-8 row-start-1 row-end-2 p-2 pt-12">
                     <%= link_to '行事曆', '#', 
-                        class: "h-8 font-medium rounded-lg bg-[#3778EA]" %>
+                        class: "font-medium rounded-lg bg-[#3778EA] p-2 text-white block text-center" %>
+                    <div class="block w-0 h-0 ml-12 border-solid" style="border-width: 12px; border-color: #3778EA transparent transparent #3778EA;"></div>
                 </div>
-                <div class="col-start-3 col-end-7 row-start-2 row-end-3 bg-gray-100">
-                    <%= link_to '行事曆', '#', 
-                        class: "h-8 font-medium rounded-lg bg-[#E96F92]" %>
+                <div class="relative col-start-3 col-end-7 row-start-2 row-end-3 p-2 pr-20">
+                    <%= link_to '聊天室', '#', 
+                        class: "font-medium rounded-lg bg-[#E96F92] p-2 text-white block text-center" %>
+                    <div class="absolute right-0 block w-0 h-0 mr-32 border-solid" style="border-width: 12px; border-color: #E96F92 #E96F92 transparent transparent;"></div>
                 </div>
-                <div class="col-start-5 col-end-8 row-start-3 row-end-4 bg-gray-100">
-                    <%= link_to '行事曆', '#', 
-                        class: "h-8 font-medium rounded-lg bg-yellow-300" %>
+                <div class="relative col-start-5 col-end-8 row-start-3 row-end-4 pl-2 pr-16 sm:top-0 -top-12">
+                    <%= link_to '專案管理', '#', 
+                        class: "font-medium rounded-lg bg-[#fce95b] p-2 block text-center" %>
+                    <div class="absolute right-0 block w-0 h-0 mr-24 border-solid" style="border-width: 12px; border-color: #fce95b transparent transparent #fce95b;"></div>
                 </div>
                 <div class="col-start-2 col-end-8 row-start-2 row-end-5 -z-10">
                     <%= image_tag('laptop.png') %>
