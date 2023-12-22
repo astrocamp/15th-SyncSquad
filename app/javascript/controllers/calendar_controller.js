@@ -27,10 +27,16 @@ export default class extends Controller {
       droppable: true,
       editable: true,
       selectable: true,
-      dateClick: DateClick,
-      eventClick: function (info) {
-        // 在這裡處理點擊事件
-        alert("Event clicked: " + info.event.title);
+      dateClick: function dateClick(info) {
+        // 在點擊日期時，顯示跳出flowbite的modal且可新增事件視窗
+        const crudModal = document.querySelector(
+          '[data-modal-target="crud-modal"]'
+        );
+        const startDate = document.querySelector("#event_start_date");
+        const endDate = document.querySelector("#event_end_date");
+        startDate.value = info.dateStr;
+        endDate.value = info.dateStr;
+        crudModal.click();
       },
       eventResize: adjust,
       eventDrop: adjust,
@@ -51,11 +57,4 @@ async function adjust(e) {
   const url = `/events/${id}/drop`;
   const data = { start_date, start_time, end_date, end_time };
   await patch(url, { body: JSON.stringify(data) });
-}
-
-async function DateClick(info) {
-  // 在點擊日期時，顯示跳出flowbite的modal且可新增事件視窗
-  const crudModal = document.querySelector('[data-modal-target="crud-modal"]');
-  crudModal.click();
-  console.log(info.dateStr);
 }
