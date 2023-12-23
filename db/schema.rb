@@ -99,17 +99,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_27_060512) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "task_responsible_people", force: :cascade do |t|
-    t.bigint "task_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["task_id"], name: "index_task_responsible_people_on_task_id"
-    t.index ["user_id"], name: "index_task_responsible_people_on_user_id"
-  end
-
   create_table "tasks", force: :cascade do |t|
-    t.bigint "list_id", null: false
+    t.bigint "lists_id", null: false
     t.string "title"
     t.text "description"
     t.integer "priority"
@@ -156,7 +147,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_27_060512) do
   add_foreign_key "participants", "users"
   add_foreign_key "project_members", "projects"
   add_foreign_key "project_members", "users"
-  add_foreign_key "task_responsible_people", "tasks"
-  add_foreign_key "task_responsible_people", "users"
-  add_foreign_key "tasks", "lists"
+  add_foreign_key "tasks", "lists", column: "lists_id"
 end
