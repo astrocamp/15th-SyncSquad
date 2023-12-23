@@ -41,6 +41,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.index ["deleted_at"], name: "index_events_on_deleted_at"
   end
 
+  create_table "lists", force: :cascade do |t|
+    t.string "title"
+    t.bigint "projects_id", null: false
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["projects_id"], name: "index_lists_on_projects_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
@@ -87,6 +96,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "lists_id", null: false
+    t.string "title"
+    t.text "description"
+    t.integer "priority"
+    t.datetime "start_at", precision: nil
+    t.datetime "complete_at", precision: nil
+    t.integer "estimated_complete_at"
+    t.datetime "deleted_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lists_id"], name: "index_tasks_on_lists_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -112,10 +135,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lists", "projects", column: "projects_id"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "participants", "rooms"
   add_foreign_key "participants", "users"
   add_foreign_key "project_members", "projects"
   add_foreign_key "project_members", "users"
+  add_foreign_key "tasks", "lists", column: "lists_id"
 end
