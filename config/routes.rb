@@ -27,6 +27,11 @@ Rails.application.routes.draw do
       post :aside_list
       post :main_list
     end
+    member do
+      resources :lists do
+        resources :tasks
+      end
+    end
   end
 
   resources :rooms do
