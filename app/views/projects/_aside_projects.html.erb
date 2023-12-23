@@ -1,8 +1,12 @@
 <% @projects.each do |project| %>
-  <li class="flex">
+  <li class="flex justify-between p-2 mb-2 border border-black rounded-lg">
     <div>
-      <%= link_to project.title, project %> <!-- Assuming project.title exists -->
+      <%= link_to project.title, project, class: "grow" %>
     </div>
-    <%= link_to 'Edit Project', edit_project_path(project), data: { toggle: "modal", target: "#projectModal", action: "edit" } %>
+    <%= link_to edit_project_path(project),
+        data: { toggle: "modal", target: "#projectModal", action: "edit" },
+        class: "px-2"  do %>
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+    <% end %>
   </li>
 <% end %>

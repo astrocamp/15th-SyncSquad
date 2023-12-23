@@ -1,5 +1,5 @@
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
-import { faCamera } from '@fortawesome/free-solid-svg-icons'
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faCamera);
+library.add(faEllipsisVertical);
 dom.watch();
