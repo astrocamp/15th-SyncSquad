@@ -43,11 +43,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
-    t.bigint "projects_id", null: false
+    t.bigint "project_id", null: false
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["projects_id"], name: "index_lists_on_projects_id"
+    t.index ["project_id"], name: "index_lists_on_project_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -97,16 +97,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
   end
 
   create_table "task_responsible_people", force: :cascade do |t|
-    t.bigint "tasks_id", null: false
-    t.bigint "users_id", null: false
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tasks_id"], name: "index_task_responsible_people_on_tasks_id"
-    t.index ["users_id"], name: "index_task_responsible_people_on_users_id"
+    t.index ["task_id"], name: "index_task_responsible_people_on_task_id"
+    t.index ["user_id"], name: "index_task_responsible_people_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.bigint "lists_id", null: false
+    t.bigint "list_id", null: false
     t.string "title"
     t.text "description"
     t.integer "priority"
@@ -116,7 +116,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lists_id"], name: "index_tasks_on_lists_id"
+    t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -144,14 +144,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "lists", "projects", column: "projects_id"
+  add_foreign_key "lists", "projects"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "participants", "rooms"
   add_foreign_key "participants", "users"
   add_foreign_key "project_members", "projects"
   add_foreign_key "project_members", "users"
-  add_foreign_key "task_responsible_people", "tasks", column: "tasks_id"
-  add_foreign_key "task_responsible_people", "users", column: "users_id"
-  add_foreign_key "tasks", "lists", column: "lists_id"
+  add_foreign_key "task_responsible_people", "tasks"
+  add_foreign_key "task_responsible_people", "users"
+  add_foreign_key "tasks", "lists"
 end
