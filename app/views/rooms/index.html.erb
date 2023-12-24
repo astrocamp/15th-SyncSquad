@@ -1,3 +1,14 @@
+<style>
+      <%= ".msg-#{current_user&.id}" %> {
+      background-color: #007bff !important;
+      padding: 10px;
+      }
+      <%= ".cont-#{current_user&.id}" %> {
+      display: flex;
+        justify-content: flex-end
+      }
+</style>
+
 <div class="flex justify-between gap-x-20 text-cyan-600 p-3">
   <h1 class="text-3xl">Start to Chat</h1>
   <h3 class="text-2xl pt-1 text-cyan-600">歡迎 <%= current_user.name %> ლ(╹◡╹ლ)</h3>
@@ -29,14 +40,19 @@
 <div id="room_container" class="text-2xl w-9/12 ml-auto mr-auto pr-20" >
   <%if @single_room%>
   <div id="single_room">
+    
+    <% if @single_room.is_private%>
         <h4 class="text-center"> <%= @user&.email.split("@").first || @single_room.name %> </h4>
-        <%= turbo_stream_from @single_room %>
-        <div id="messages">
-          <%= render @messages %>
-        </div>
-        <%= render 'messages/new_message_form' %>
+    <% else %>
+        <h4 class="text-center"> <%= @user&.email || @single_room.name %> </h4>
+    <% end %>  
+
+    <%= turbo_stream_from @single_room %>
+      <div id="messages" class="mb-5">
+    <%= render @messages %>
       </div>
+    <%= render 'messages/new_message_form' %>
+  </div>
   <%end%>    
 </div>
-
 </div>
