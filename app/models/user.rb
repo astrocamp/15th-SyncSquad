@@ -9,6 +9,10 @@ class User < ApplicationRecord
   # Relationship
   belongs_to :company, optional: true
   has_many :events
+
+  # Relationship
+
+  has_many :events
   scope :all_except, ->(user) { where.not(id: user) }
   after_create_commit { broadcast_append_to 'users' }
   has_many :messages

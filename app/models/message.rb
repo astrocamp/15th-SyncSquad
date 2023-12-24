@@ -13,5 +13,4 @@ class Message < ApplicationRecord
     is_participant = Participant.where(user_id: user.id, room_id: room.id).first
     throw :abort unless is_participant
   end
-    
 end
