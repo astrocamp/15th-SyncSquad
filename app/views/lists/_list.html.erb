@@ -1,0 +1,15 @@
+<div class="w-48 border-2 border-gray-400">
+    <div>
+        <%= content_tag :h2, list.title, class: "font-bold" %>
+    </div>
+    <div>
+        <ul>
+            <% list.tasks.each do |task| %>
+                <li>
+                    <i>⭐️</i>
+                    <%= task.title %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
