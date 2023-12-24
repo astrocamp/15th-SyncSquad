@@ -9,14 +9,13 @@
 #   end
 
 def create_or_show_users(num_users)
-    num_users.times do
+
+    generated_emails = Set.new
+    while generated_emails.size < num_users do
         random_name = Faker::Name.name
         nick_name = random_name.split(' ').first
         random_email = Faker::Internet.email(name: random_name, separators: ['-'], domain: 'sync.squad.com')
-        existing_user = User.find_by(email: random_email)
-        if existing_user
-            puts "⛔ 信箱已註冊：#{existing_user.email}，暱稱：#{existing_user.nick_name}"
-        else
+        unless generated_emails.include?(random_email)
             begin
                 gender = Faker::Number.within(range: 0..1)
                 birthday = Faker::Date.birthday(min_age: 18, max_age: 65)
@@ -37,10 +36,67 @@ def create_or_show_users(num_users)
                     time_zone: time_zone
                 )
                 puts "✅ 註冊新信箱：#{new_user.email}，暱稱：#{new_user.nick_name}"
+                generated_emails << random_email
+                create_project(new_user)
             rescue ActiveRecord::RecordInvalid => e
                 puts "⚠️ 創建用戶時出現錯誤：#{e.message}"
             end
         end
+    end
+end
+
+def create_project(new_user)
+    generated_titles = Set.new
+    num_projects = Faker::Number.within(range: 3..7)
+    list_themes = [
+        ['Todo', 'Doing', 'Complete'],
+        ['Backlog', 'Doing', 'Review', 'Done'],
+        ['Stories', 'To Do', 'In Process', 'Testing', 'Done'],
+        ['Eliminate', 'Delegate', 'Schedule', 'Do'],
+        ['Collaborating', 'Accommodating', 'Compromise', 'Competing', 'Avoiding']
+    ]
+    
+    num_projects.times do
+        random_project_title = Faker::Marketing.buzzwords.capitalize
+        random_list_theme = Faker::Number.within(range: 0..(list_themes.length - 1))
+
+        while generated_titles.include?(random_project_title)
+            random_project_title = Faker::Marketing.buzzwords.capitalize
+        end
+        generated_titles << random_project_title
+
+        random_project_description = Faker::Lorem.paragraph
+        new_project = Project.create!(
+            title: random_project_title,
+            description: random_project_description,
+            owner_id: new_user.id
+        )
+        new_project.members << new_user
+        
+        lists = list_themes[random_list_theme].shuffle
+        random_color = Faker::Color.hex_color
+        lists.each do |list_title|
+            new_list = List.create!(
+                title: list_title,
+                project_id: new_project.id,
+                color: random_color
+            )
+
+            num_tasks = Faker::Number.within(range: 3..7)
+            num_tasks.times do
+                random_task_title = Faker::Lorem.sentence(word_count: 3)
+                while generated_titles.include?(random_task_title)
+                    random_task_title = Faker::Lorem.sentence(word_count: 3)
+                end
+                new_task = Task.create!(
+                    title: random_task_title,
+                    list_id: new_list.id
+                )
+                new_task.responsible_users << new_user
+                generated_titles << random_task_title
+            end
+        end
+        puts "　 - 建立專案：#{random_project_title}"
     end
 end
 
