@@ -1,0 +1,20 @@
+<h1 class="text-2xl">登入帳號</h1>
+
+<%= form_with(url: sessions_path,
+              scope: 'company',
+              data: {turbo: false}) do |form| %>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'border-2 border-black' %>
+  </div>
+
+  <div>
+    <%= form.submit '登入', class: 'bg-rose-700' %>
+  </div>
+<% end %>
