@@ -26,6 +26,12 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  resources :companies, except: [:destroy]
+  resources :companies, except: [:destroy] do
+    collection do
+      get :sign_in
+    end
+  end
+
+  resource :sessions, only: [:create, :destroy]
 
 end

@@ -13,6 +13,9 @@ class CompaniesController < ApplicationController
         end
       end
     
+      def sign_in
+      end
+      
       private
     
       def company_params
