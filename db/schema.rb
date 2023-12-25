@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "row_order"
     t.index ["project_id"], name: "index_lists_on_project_id"
   end
 
@@ -116,6 +117,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "row_order"
     t.index ["list_id"], name: "index_tasks_on_list_id"
   end
 

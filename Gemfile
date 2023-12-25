@@ -109,3 +109,5 @@ gem 'rubocop', '~> 1.59', require: false
 
 # 授權管理
 gem 'pundit', '~> 2.3'
+
+gem "ranked-model", "~> 0.4.9"

@@ -1,5 +1,9 @@
 class List < ApplicationRecord
 
+  # Rank
+  include RankedModel
+  ranks :row_order
+
   # Relations
   belongs_to :project
   has_many :tasks

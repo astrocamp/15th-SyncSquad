@@ -1,14 +1,12 @@
 <div class="w-48 border-2 border-gray-400">
     <div>
         <%= content_tag :h2, list.title, class: "font-bold" %>
+        <%= list.row_order %>
     </div>
     <div>
         <ul>
-            <% list.tasks.each do |task| %>
-                <li>
-                    <i>⭐️</i>
-                    <%= task.title %>
-                </li>
+            <% list.tasks.rank(:row_order).each do |task| %>
+                <%= render task %>
             <% end %>
         </ul>
     </div>
