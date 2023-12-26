@@ -13,7 +13,29 @@ class Users::Registrations::RegistrationsController < Devise::RegistrationsContr
   # def create
   #   super
   # end
+  before_action :configure_sign_up_params, only: [:create]
 
+  def create
+    
+    super do |resource|
+      if current_company 
+        resource.company_id = current_company.id
+        if resource.save
+          redirect_to root_path, notice: '員工建立成功'
+          
+        else
+          redirect_to root_path, alert: '員工建立失敗'
+        end
+      end
+    end
+  end
+
+  private
+
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation, :company_id])
+  end
+  end
   # GET /resource/edit
   # def edit
   #   super
@@ -59,4 +81,4 @@ class Users::Registrations::RegistrationsController < Devise::RegistrationsContr
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-end
+

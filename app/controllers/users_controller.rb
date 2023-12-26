@@ -11,7 +11,7 @@ class UsersController < Devise::RegistrationsController
           else
             redirect_to root_path, alert: '員工建立失敗'
           end
-          Rails.logger.info("Redirecting to root_path")
+          
     end
 
     def company_params
