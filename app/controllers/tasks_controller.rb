@@ -7,7 +7,7 @@ class TasksController < ApplicationController
         if @task.save
             redirect_to @list.project
         else
-            render :new
+            redirect_to @list.project, alert: '請填入代辦事項'
         end
     end
 

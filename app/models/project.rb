@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Project < ApplicationRecord
+  acts_as_paranoid
   scope :owned_by_user, ->(user) { where(user_id: user.id) }
 
   # Relations

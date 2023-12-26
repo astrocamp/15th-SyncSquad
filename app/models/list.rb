@@ -1,4 +1,5 @@
 class List < ApplicationRecord
+  acts_as_paranoid
 
   # Rank
   include RankedModel
