@@ -14,8 +14,10 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%= render 'layouts/flash' %>
-    <%= yield %>
+    <div class="relative">
+      <%= render 'layouts/toast' %>
+      <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>
