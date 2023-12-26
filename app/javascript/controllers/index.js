@@ -2,14 +2,16 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import CalendarController from "./calendar_controller"
-application.register("calendar", CalendarController)
+import CalendarController from "./calendar_controller";
+application.register("calendar", CalendarController);
 
-import DatepickerController from "./datepicker_controller"
-application.register("datepicker", DatepickerController)
+import DatepickerController from "./datepicker_controller";
+application.register("datepicker", DatepickerController);
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import ResetFormController from "./reset_form_controller";
+application.register("reset-form", ResetFormController);
 
+import HelloController from "./hello_controller";
+application.register("hello", HelloController);
