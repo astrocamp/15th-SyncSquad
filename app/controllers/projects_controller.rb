@@ -47,9 +47,4 @@ class ProjectsController < ApplicationController
   def find_current_user_affiliated_projects
     @projects = current_user.affiliated_projects.order(id: :desc)
   end
-
-  def find_current_user_affiliated_projects
-    @projects = current_user.affiliated_projects.order(id: :desc)
-  end
-
 end
