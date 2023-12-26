@@ -15,3 +15,6 @@ application.register("reset-form", ResetFormController);
 
 import HelloController from "./hello_controller";
 application.register("hello", HelloController);
+
+import NotificationController from "./notification_controller";
+application.register("notification", NotificationController);
