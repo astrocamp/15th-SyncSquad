@@ -7,7 +7,7 @@ class Project < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
   has_many :project_members, dependent: :destroy
   has_many :members, through: :project_members, source: :user
-  has_many :lists
+  has_many :lists, dependent: :destroy
 
   # Validates
   validates :title, presence: true

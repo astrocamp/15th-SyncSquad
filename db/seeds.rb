@@ -58,7 +58,6 @@ def create_project(new_user)
     
     num_projects.times do
         random_project_title = Faker::Marketing.buzzwords.capitalize
-        random_list_theme = Faker::Number.within(range: 0..(list_themes.length - 1))
 
         while generated_titles.include?(random_project_title)
             random_project_title = Faker::Marketing.buzzwords.capitalize
@@ -73,9 +72,9 @@ def create_project(new_user)
         )
         new_project.members << new_user
         
-        lists = list_themes[random_list_theme].shuffle
-        random_color = Faker::Color.hex_color
-        lists.each do |list_title|
+        selected_theme = list_themes.sample
+        selected_theme.each do |list_title|
+            random_color = Faker::Color.hex_color
             new_list = List.create!(
                 title: list_title,
                 project_id: new_project.id,

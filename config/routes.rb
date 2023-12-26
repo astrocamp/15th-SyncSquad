@@ -17,20 +17,20 @@ Rails.application.routes.draw do
   get 'user/:id', to:'users#show',as: 'user'
   get 'main/home'
 
+
   resources :events do 
     member do
       patch :drop
     end
   end
-  resources :projects do
-    collection do
-      post :aside_list
-      post :main_list
+
+  resources :projects, shallow: true do
+    resources :lists do
+      resources :tasks
     end
-    member do
-      resources :lists do
-        resources :tasks
-      end
+    collection do
+      post :aside_listed
+      post :main_listed
     end
   end
 
