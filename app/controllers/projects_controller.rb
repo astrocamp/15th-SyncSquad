@@ -14,13 +14,15 @@ class ProjectsController < ApplicationController
   def main_list; end
 
   def create
-    @project = current_user.affiliated_projects.build(project_params)
     @project = current_user.affiliated_projects.build(project_params.merge(owner: current_user))
     current_user.affiliated_projects << @project
     redirect_to projects_path, success: '專案新建成功。'
   end
 
-  def show; end
+  def show
+    @list = @project.lists
+    @new_task = Task.new
+  end
 
   def update
     @project.update(project_params)
@@ -50,7 +52,4 @@ class ProjectsController < ApplicationController
     @projects = current_user.affiliated_projects.order(id: :desc)
   end
 
-  def project_params
-    params.require(:project).permit(:title, :description, :owner_id, :delete_at)
-  end
 end

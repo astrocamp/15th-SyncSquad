@@ -6,7 +6,7 @@ class List < ApplicationRecord
 
   # Relations
   belongs_to :project
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   # Validates
   validates :title, presence: true

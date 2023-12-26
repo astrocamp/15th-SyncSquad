@@ -16,3 +16,9 @@
         <%= form.submit %>
     </div>
 <% end %>
+<hr>
+
+<%= link_to '新建列表', new_project_list_path(@project) %>
+<ul class="flex gap-2" data-controller="sortable">
+    <%= render partial: 'list', collection: @project.lists.rank(:row_order) %>
+</ul>
