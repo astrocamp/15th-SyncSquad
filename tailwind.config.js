@@ -1,3 +1,4 @@
+const tailwindMdBase = require("@geoffcodesthings/tailwind-md-base");
 module.exports = {
   content: [
     "./app/views/**/*.html.erb",
@@ -9,7 +10,7 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [require("flowbite/plugin"), tailwindMdBase()],
 
-  safelist: ["markdown-body"],
+  safelist: ["markdown"],
 };
