@@ -3,5 +3,8 @@
     <% unless message.room.is_private %>
       <h6 id="name"><%= message.user.email.split('@').first %> </h6>
     <% end %>
-    <%= raw markdown(message.body) %>
+    <div class="markdown-body">
+      <%= raw advanced_markdown(message.body) %>
+    </div>
   </div>
+</div>  
