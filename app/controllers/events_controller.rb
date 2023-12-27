@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
     # 直接for current user
     if @event.save
-      redirect_to events_path, notice: '新增事件成功！'
+      redirect_to events_path, success: '新增事件成功！'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class EventsController < ApplicationController
   def update
     @event.update(event_params)
     if @event.save
-      redirect_to event_path, notice: '更新事件成功！'
+      redirect_to event_path, success: '更新事件成功！'
     else
       render :edit
     end

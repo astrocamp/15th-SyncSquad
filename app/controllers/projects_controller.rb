@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     @project = current_user.affiliated_projects.build(project_params)
     @project = current_user.affiliated_projects.build(project_params.merge(owner: current_user))
     current_user.affiliated_projects << @project
-    redirect_to projects_path, notice: '專案新建成功。'
+    redirect_to projects_path, success: '專案新建成功。'
   end
 
   def show; end
