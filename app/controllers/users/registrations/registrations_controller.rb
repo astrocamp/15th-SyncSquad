@@ -20,14 +20,15 @@ class Users::Registrations::RegistrationsController < Devise::RegistrationsContr
     super do |resource|
       if current_company 
         resource.company_id = current_company.id
-        if resource.save
-          redirect_to root_path, notice: '員工建立成功'
-          
-        else
-          redirect_to root_path, alert: '員工建立失敗'
-        end
       end
     end
+
+    if current_company && resource.save
+      return root_url, notice: '員工建立成功' 
+    else
+      return root_url, alert: '員工建立失敗' 
+    end
+    
   end
 
   private
