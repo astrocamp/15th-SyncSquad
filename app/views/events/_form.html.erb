@@ -1,11 +1,13 @@
 <% if event.errors.any? %>
   <% event.errors.full_messages.each do |message| %>
-   <%= message%>
+    <div class="bg-red-400 flex justify-center">
+      <%= message%>
+    </div>
   <% end %>
 <% end %>
 
 
-<%= form_with model: event, data:{turbo: false} do |form| %>
+<%= form_with model: event do |form| %>
   <div class="grid gap-10 mb-10 md:grid-cols-2 p-10">
     <div>
       <%= form.label :subject, t('form.Subject'), class:'form-text'%>

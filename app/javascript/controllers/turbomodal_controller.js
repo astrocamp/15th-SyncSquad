@@ -12,15 +12,18 @@ export default class extends Controller {
       this.close();
     }
   }
+
   open() {
     this.element.showModal();
   }
+
+  close() {
+    this.element.close();
+  }
+
   clickOutside(e) {
     if (e.target === this.element) {
       this.close();
     }
-  }
-  close() {
-    this.element.close();
   }
 }
