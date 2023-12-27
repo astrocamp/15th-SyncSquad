@@ -1,9 +1,4 @@
 
 <ul class="flex w-24" data-controller="sortable">
-    <% @lists.each do |list| %>
-        <li>
-            <%= render list %>
-        </li>
-    <% end %>
-</ul>
-<%= debug @paramenters %>    
+  <%= render partial: 'projects/list', collection: @lists %>
+</ul>   

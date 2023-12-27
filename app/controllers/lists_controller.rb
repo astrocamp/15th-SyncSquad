@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 class ListsController < ApplicationController
+  before_action :find_project, only: %i[new create]
+
   def index
     @lists = Project.find(params[:project_id]).lists
-    @paramenters = params
   end
 
   def new
-    @project = Project.find(params[:project_id])
     @new_list = @project.lists.build
   end
 
   def create
-    @project = Project.find(params[:project_id])
     @new_list = @project.lists.build(list_params)
 
     if @new_list.save
@@ -29,7 +28,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update(list_params)
-      redirect_to project_path(@list.project.id)
+      redirect_to project_path(@list.project.id), notice: '列表新建成功'
     else
       render :edit
     end
@@ -48,5 +47,9 @@ class ListsController < ApplicationController
 
   def list_params
     params.require(:list).permit(:title, :color, :delete_at, :row_order)
+  end
+
+  def find_project
+    @project = Project.find(params[:project_id])
   end
 end

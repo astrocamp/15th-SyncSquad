@@ -8,9 +8,9 @@ class TasksController < ApplicationController
     @task = @list.tasks.build(task_params)
 
     if @task.save
-      redirect_to @list.project
+      redirect_to project_path(@list.project), notice: '待辦事項新增成功'
     else
-      redirect_to @list.project, alert: '請填入代辦事項'
+      redirect_to project_path(@list.project), alert: '請填入待辦事項'
     end
   end
 
@@ -32,7 +32,9 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :priority, :start_at, :estimated_complete_at)
+    params.require(:task)
+          .permit(:title, :description, :priority, :start_at, :estimated_complete_at)
+          .tap { |whitelisted| whitelisted[:priority] = whitelisted[:priority].to_i if whitelisted[:priority] }
   end
 
   def find_task

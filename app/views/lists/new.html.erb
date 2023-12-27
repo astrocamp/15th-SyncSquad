@@ -1,13 +1,13 @@
 <%= form_with model: @new_list, url: project_lists_path(params[:project_id]), data: {turbo: false} do |form| %>
-    <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </div>
-    <div>
-        <%= form.label :color %>
-        <%= form.color_field :color %>
-    </div>
-    <div>
-        <%= form.submit %>
-    </div>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :color %>
+    <%= form.color_field :color %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>

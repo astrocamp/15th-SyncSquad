@@ -19,10 +19,7 @@ class ProjectsController < ApplicationController
     redirect_to projects_path, success: '專案新建成功。'
   end
 
-  def show
-    @list = @project.lists
-    @new_task = Task.new
-  end
+  def show; end
 
   def update
     @project.update(project_params)

@@ -15,4 +15,12 @@ class Task < ApplicationRecord
 
   # Validates
   validates :title, presence: true
+
+  PRIORITY = {
+    critical: 1,
+    high: 2,
+    medium: 3,
+    low: 4
+  }.freeze
+  enum priority: PRIORITY
 end

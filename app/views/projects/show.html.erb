@@ -4,21 +4,21 @@
 <%= link_to 'X', project_path(@project), data: { turbo_method: 'delete', turbo_confirm: '確定刪除專案嗎？'} %>
 
 <%= form_with(model: @project) do |form| %>
-    <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </div>
-    <div>
-        <%= form.label :description %>
-        <%= form.text_area :description %>
-    </div>
-    <div>
-        <%= form.submit %>
-    </div>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>
 <hr>
 
 <%= link_to '新建列表', new_project_list_path(@project) %>
 <ul class="flex gap-2" data-controller="sortable">
-    <%= render partial: 'list', collection: @project.lists.rank(:row_order) %>
+  <%= render partial: 'list', collection: @project.lists.rank(:row_order) %>
 </ul>
