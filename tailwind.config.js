@@ -11,7 +11,5 @@ module.exports = {
   },
   plugins: [require("flowbite/plugin")],
 
-  safelist: ["markdown-body", "highlight", "rouge"],
-
-  corePlugins: { preflight: false },
+  safelist: ["markdown-body"],
 };
