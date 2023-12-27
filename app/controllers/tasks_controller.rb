@@ -33,8 +33,7 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task)
-          .permit(:title, :description, :priority, :start_at, :estimated_complete_at)
-          .tap { |whitelisted| whitelisted[:priority] = whitelisted[:priority].to_i if whitelisted[:priority] }
+          .permit(:title, :description, :priority, :start_at, :estimated_complete_at) 
   end
 
   def find_task

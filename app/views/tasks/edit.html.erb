@@ -13,7 +13,7 @@
   </div>
   <div>
     <%= form.label :priority %>
-    <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, value| [key.to_s.humanize, value] }, @task.priority), { prompt: "選擇優先級" }) %>
+    <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: "選擇優先級" }) %>
     <p><%= @task.priority %></p>
   </div>
   <div>
