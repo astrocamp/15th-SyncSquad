@@ -1,23 +1,24 @@
 <%= form_with model: @task, data: {turbo: false} do |form| %>
-    <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </div>
-    <div>
-        <%= form.label :description %>
-        <%= form.text_field :description %>
-    </div>
-    <div>
-        <%= form.label :start_at %>
-        <%= form.text_field :start_at %>
-    </div>
-    <div>
-        <%= form.label :priority %>
-        <%= form.text_field :priority %>
-    </div>
-    <div>
-        <%= form.label :estimated_complete_at %>
-        <%= form.text_field :estimated_complete_at %>
-    </div>
-    <%= form.submit %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :start_at %>
+    <%= form.time_field :start_at %>
+  </div>
+  <div>
+    <%= form.label :priority %>
+    <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, value| [key.to_s.humanize, value] }, @task.priority), { prompt: "選擇優先級" }) %>
+    <p><%= @task.priority %></p>
+  </div>
+  <div>
+		<%= form.label :estimated_complete_at %>
+		<%= form.text_field :estimated_complete_at %>
+  </div>
+  <%= form.submit %>
 <% end %>
