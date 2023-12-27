@@ -110,4 +110,8 @@ gem 'rubocop', '~> 1.59', require: false
 # 授權管理
 gem 'pundit', '~> 2.3'
 
+# 排列
 gem 'ranked-model', '~> 0.4.9'
+
+# hotwire
+gem 'hotwire-rails', '~> 0.1.3'
