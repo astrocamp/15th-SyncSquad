@@ -3,19 +3,19 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @rooms = Room.public_rooms
-    @room = Room.new
+    @room = Room.public_rooms
+    @new_room = Room.new
     @users = User.all_except(current_user)
   end
 
   def create
-    @room = Room.create(name: params['room']['name'])
+    @new_room = Room.create(name: params['room']['name'])
   end
 
   def show
     @single_room = Room.find(params[:id])
-    @rooms = Room.public_rooms
-    @room = Room.new
+    @room = Room.public_rooms
+    @new_room = Room.new
     @users = User.all_except(current_user)
 
     @message = Message.new
