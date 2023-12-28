@@ -21,9 +21,9 @@
         <ul>
             <li class="py-2"><%= t('show.Subject') %>：<%= @event.subject %></li>
             <li class="py-2"><%= t('show.Start Date') %>：<%= @event.start_date %></li>
-            <li class="py-2"><%= t('show.Start Time') %>：<%= @event.start_time %></li>
+            <li class="py-2"><%= t('show.Start Time') %>：<%= @event.start_time.strftime('%H:%M') %></li>
             <li class="py-2"><%= t('show.End Date') %>：<%= @event.end_date %></li>
-            <li class="py-2"><%= t('show.End Time') %>：<%= @event.end_time %></li>
+            <li class="py-2"><%= t('show.End Time') %>：<%= @event.end_time.strftime('%H:%M') %></li>
             <li class="py-2"><%= t('show.All Day') %>：<%= @event.all_day_event %></li>
             <li class="py-2"><%= t('show.Description') %>：<%= @event.description %></li>
             <li class="py-2"><%= t('show.Location') %>：<%= @event.location %></li>
