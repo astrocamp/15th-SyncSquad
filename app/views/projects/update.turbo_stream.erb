@@ -1,0 +1,13 @@
+<%# 主要list 用turbo_stream 呈現 %>
+<turbo-stream action="update" target="main_list">
+    <template>
+        <%= render partial: 'main_projects', locals:{projects: Project.order(id: :DESC)} %>
+    </template>
+</turbo-stream>
+
+<%# 旁邊list 用turbo_stream 呈現 %>
+<turbo-stream action="update" target="aside_list">
+    <template>
+        <%= render partial: 'aside_projects', locals:{projects: Project.order(id: :DESC)} %>
+    </template>
+</turbo-stream>

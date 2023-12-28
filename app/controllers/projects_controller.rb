@@ -2,7 +2,7 @@
 
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_project, only: %i[show update destroy]
+  before_action :find_project, only: %i[show update destroy edit]
   before_action :find_current_user_affiliated_projects, only: %i[index show]
 
   def index
@@ -13,17 +13,20 @@ class ProjectsController < ApplicationController
 
   def main_list; end
 
+  def new
+    @project = current_user.affiliated_projects.new
+  end
+
   def create
     @project = current_user.affiliated_projects.build(project_params.merge(owner: current_user))
     current_user.affiliated_projects << @project
-    redirect_to projects_path, success: '專案新建成功。'
   end
 
   def show; end
+  def edit; end
 
   def update
     @project.update(project_params)
-    redirect_to project_path(@project)
   end
 
   def destroy

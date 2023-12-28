@@ -1,0 +1,6 @@
+<%= content_for :modal_title do %>
+  編輯專案
+<% end %>
+<%= render 'shared/turbomodal' do %>
+<%= render 'form', project: @project %>
+<% end %>
