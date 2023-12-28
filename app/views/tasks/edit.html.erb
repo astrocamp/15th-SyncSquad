@@ -14,7 +14,6 @@
   <div>
     <%= form.label :priority %>
     <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: "選擇優先級" }) %>
-    <p><%= @task.priority %></p>
   </div>
   <div>
 		<%= form.label :estimated_complete_at %>

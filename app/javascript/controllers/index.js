@@ -7,14 +7,17 @@ import { application } from './application'
 import CalendarController from './calendar_controller'
 application.register('calendar', CalendarController)
 
+import ColorPickerController from './color_picker_controller'
+application.register('color-picker', ColorPickerController)
+
 import DatepickerController from './datepicker_controller'
 application.register('datepicker', DatepickerController)
 
-import ResetFormController from './reset_form_controller'
-application.register('reset-form', ResetFormController)
-
 import HelloController from './hello_controller'
 application.register('hello', HelloController)
+
+import ResetFormController from './reset_form_controller'
+application.register('reset-form', ResetFormController)
 
 import NotificationController from './notification_controller'
 application.register('notification', NotificationController)

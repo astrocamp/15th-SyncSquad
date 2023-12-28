@@ -1,3 +1,4 @@
+@import '@simonwep/pickr/dist/themes/classic.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +15,7 @@
 }
 
 .form-toggle-layer-3 {
-  @apply ms-3 text-sm font-medium text-gray-900 dark:text-gray-300;
+  @apply text-sm font-medium text-gray-900 ms-3 dark:text-gray-300;
 }
 
 .form-btn {
