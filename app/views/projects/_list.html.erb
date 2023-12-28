@@ -7,7 +7,7 @@
       <%= link_to '刪除', list_path(list), data: {turbo_method: 'delete'} %>
     </div>
     <div>
-      <ul data-controller="sortable">
+      <ul data-controller="sortable" data-sortable-group-value="tasks" data-sortable-id="<%= list.id %>">
         <%= render partial: 'tasks/task', collection: list.tasks.rank(:row_order) %>
       </ul>
     </div>
