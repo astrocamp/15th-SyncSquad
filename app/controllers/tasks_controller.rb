@@ -3,6 +3,12 @@
 class TasksController < ApplicationController
   before_action :find_task, only: %i[edit update destroy]
 
+  def sort
+    @task = Task.find(params[:task_id])
+    @task.update(row_order_position: params[:row_order_position])
+    head :no_content
+  end
+
   def create
     @list = List.find(params[:list_id])
     @task = @list.tasks.build(task_params)
