@@ -51,6 +51,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_participants_on_room_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
   create_table "project_members", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
@@ -68,15 +77,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
-  end
-
-  create_table "participants", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_participants_on_room_id"
-    t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -114,8 +114,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_25_201142) do
 
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "project_members", "projects"
-  add_foreign_key "project_members", "users"
   add_foreign_key "participants", "rooms"
   add_foreign_key "participants", "users"
+  add_foreign_key "project_members", "projects"
+  add_foreign_key "project_members", "users"
 end
