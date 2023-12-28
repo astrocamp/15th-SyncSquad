@@ -18,8 +18,8 @@ export default class extends ColorPicker {
 
       interaction: {
         input: true,
-        clear: true,
         save: true,
+        cancel: true,
       },
     }
   }
