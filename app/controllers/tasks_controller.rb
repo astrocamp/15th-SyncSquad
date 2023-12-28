@@ -5,7 +5,7 @@ class TasksController < ApplicationController
 
   def sort
     @task = Task.find(params[:task_id])
-    @task.update(row_order_position: params[:row_order_position])
+    @task.update(row_order_position: params[:row_order_position], list_id: params[:list_id])
     head :no_content
   end
 
