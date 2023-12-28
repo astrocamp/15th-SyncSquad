@@ -24,6 +24,7 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    <%= turbo_frame_tag :modal %>
     <div class="relative">
       <%= render 'layouts/toast' %>
       <%= yield %>

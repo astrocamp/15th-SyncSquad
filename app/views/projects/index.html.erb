@@ -1,20 +1,22 @@
 <div class="flex">
-	<aside class="flex-initial pt-2 flex-initail w-80">
-		<h2 class="px-8 pb-4 text-2xl text-gray-900 dark:text-white"><%= t('project.affiliated_projects') %></h2>
-		<ul id="aside_list">
-			<%= render 'aside_projects', project: @projects %>
-		</ul>
-	</aside>
-	<main class="flex-auto">
-		<header class="flex">
-			<%= content_tag(:h1, t('project.affiliated_projects'), class: "text-3xl text-gray-900 dark:text-white") %>
-		</header>
-		<div>
-			<%= render 'form', project: @project %>
-		</div>
-		<ul id="main_list">
-			<%= render 'main_projects', project: @projects %>
-		</ul>
-	</main>
+    <aside class="flex-initial pt-2 flex-initail w-80">
+        <h2 class="px-8 pb-4 text-2xl text-gray-900 dark:text-white"><%= t('project.affiliated_projects') %></h2>
+        <ul id="aside_list">
+            <%= render 'aside_projects', projects: @projects %>
+        </ul>
+    </aside>
+    <main class="flex-auto">
+        <header class="flex">
+            <%= content_tag(:h1, t('project.affiliated_projects'), class: "text-3xl text-gray-900 dark:text-white") %>
+        </header>
+        <div>
+            <%= link_to  new_project_path, data: { turbo_frame: "modal" } do%>
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+            <% end %>
+        </div>
+        <ul id="main_list">
+            <%= render 'main_projects', projects: @projects %>
+        </ul>
+    </main>
 </div>
 

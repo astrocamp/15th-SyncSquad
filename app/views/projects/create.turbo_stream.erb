@@ -1,0 +1,29 @@
+<%# 主要list 用turbo_stream 呈現 %>
+<turbo-stream action="prepend" target="main_list">
+    <template>
+        <li class="flex">
+            <div><%= link_to @project.title, project_path(@project) %></div>
+            <div><%= @project.description %></div>
+            <div><%= @project.owner.nick_name %></div>
+            <div>
+              <div><%= @project.created_at.strftime("%Y-%m-%d") %></div>
+              <div><%= @project.updated_at.strftime("%Y-%m-%d") %></div>
+            </div>
+            <%= link_to 'Edit Project', edit_project_path(@project),data:{turbo_frame: "modal"} %>
+        </li>
+    </template>
+</turbo-stream>
+
+<%# 旁邊list 用turbo_stream 呈現 %>
+<turbo-stream action="prepend" target="aside_list">
+    <template>
+        <li class="flex justify-between py-2">
+            <%= link_to @project.title, project_path(@project), class: "grow pl-8" %>
+            <%= link_to edit_project_path(@project),
+                data:{turbo_frame: "modal"},
+                class: "px-4"  do %>
+            <i class="fa-solid fa-ellipsis"></i>
+            <% end %>
+        </li>
+    </template>
+</turbo-stream>
