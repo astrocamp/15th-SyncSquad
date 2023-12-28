@@ -43,6 +43,7 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     @list.destroy
+    redirect_to project_path(@list.project.id)
   end
 
   private
