@@ -5,7 +5,7 @@ class List < ApplicationRecord
 
   # Rank
   include RankedModel
-  ranks :row_order
+  ranks :row_order, with_same: :project_id
 
   # Relations
   belongs_to :project

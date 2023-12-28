@@ -25,7 +25,10 @@ Rails.application.routes.draw do
 
   resources :projects, shallow: true do
     resources :lists do
-      resources :tasks
+      put :sort
+      resources :tasks do
+        put :sort
+      end
     end
     collection do
       post :aside_listed

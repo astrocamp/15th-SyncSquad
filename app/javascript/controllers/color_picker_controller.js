@@ -4,9 +4,6 @@ export default class extends ColorPicker {
   connect() {
     super.connect()
 
-    const aa = document.querySelector('.pcr-app')
-    console.log(aa)
-
     this.picker
   }
 

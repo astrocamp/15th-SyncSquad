@@ -21,6 +21,12 @@ class ListsController < ApplicationController
     end
   end
 
+  def sort
+    @list = List.find(params[:list_id])
+    @list.update(row_order_position: params[:row_order_position])
+    # debugger
+  end
+
   def edit
     @list = List.find(params[:id])
   end
