@@ -1,17 +1,17 @@
+# frozen_string_literal: true
+
 class HrsController < ApplicationController
-  before_action :find_user, only: [:update, :destroy] 
-  before_action :authenticate_user! 
-  before_action :authorize_hr!
+  before_action :find_user, only: %i[update destroy]
 
   def index
     @users = User.order(id: :desc)
-    @user = User.new 
+    @user = User.new
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to hrs_path, notice: '員工新增成功' 
+      redirect_to hrs_path, notice: '員工新增成功'
     else
       redirect_to hrs_path, alert: '無法新增員工'
     end
@@ -19,7 +19,7 @@ class HrsController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to hrs_path, notice: '員工資料更新' 
+      redirect_to hrs_path, notice: '員工資料更新'
     else
       redirect_to hrs_path, alert: '員工更新失敗'
     end
@@ -31,10 +31,6 @@ class HrsController < ApplicationController
   end
 
   private
-
-  def authorize_hr!
-    redirect_to root_path, alert: "Access Denied" unless current_user.hr?
-  end
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :role, :company_id)
