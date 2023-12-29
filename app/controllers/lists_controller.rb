@@ -2,6 +2,7 @@
 
 class ListsController < ApplicationController
   before_action :find_project, only: %i[new create]
+  before_action :find_list, only: %i[ edit update destroy]
 
   def index
     @lists = Project.find(params[:project_id]).lists
@@ -27,12 +28,9 @@ class ListsController < ApplicationController
     # debugger
   end
 
-  def edit
-    @list = List.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @list = List.find(params[:id])
     if @list.update(list_params)
       redirect_to project_path(@list.project.id), success: '列表更新成功'
     else
@@ -41,7 +39,6 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = List.find(params[:id])
     @list.destroy
     redirect_to project_path(@list.project.id)
   end
@@ -49,7 +46,7 @@ class ListsController < ApplicationController
   private
 
   def find_list
-    @list = List.find(params[:list_id])
+    @list = List.find(params[:id])
   end
 
   def list_params
