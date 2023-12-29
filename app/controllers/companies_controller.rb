@@ -8,8 +8,8 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      redirect_to root_path, notice: '公司創建成功'
-
+      session[:__company_ticket__] = @company.id
+      redirect_to root_path, notice: '公司創建成功, 已登入'
     else
       redirect_to new_company_path, alert: '公司創建失敗'
     end
