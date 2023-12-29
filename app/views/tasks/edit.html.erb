@@ -1,3 +1,9 @@
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |message| %>
+   <%= message%>
+  <% end %>
+<% end %>
+
 <%= form_with model: @task, data: {turbo: false} do |form| %>
   <div>
     <%= form.label :title %>
@@ -6,6 +12,11 @@
   <div>
     <%= form.label :description %>
     <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :user_id %>
+    <%= form.select :user_id, User.pluck(:email, :id) %> 
+    <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
   </div>
   <div>
     <%= form.label :start_at %>
