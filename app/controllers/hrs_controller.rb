@@ -1,5 +1,5 @@
 class HrsController < ApplicationController
-  before_action :find_user, only: [:update] 
+  before_action :find_user, only: [:update, :destroy] 
   #before_action :authenticate_user! 
   #before_action :authorize_hr!
 
@@ -23,6 +23,11 @@ class HrsController < ApplicationController
     else
       redirect_to hrs_path, alert: 'Unable to update user'
     end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to hrs_path, alert: '刪除離職員工'
   end
 
   private
