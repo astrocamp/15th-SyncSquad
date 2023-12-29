@@ -14,8 +14,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :project_members, dependent: :destroy
   has_many :affiliated_projects, through: :project_members, source: :project
-  has_many :task_responsible_people, dependent: :destroy
-  has_many :in_charge_of_tasks, through: :task_responsible_people, source: :task
+  has_many :tasks
 
   # Others
   scope :all_except, ->(user) { where.not(id: user) }

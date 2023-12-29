@@ -9,7 +9,7 @@ class Task < ApplicationRecord
 
   # Relations
   belongs_to :list
-  has_many :users
+  belongs_to :user, optional: true #task assign的人一開始可以不用填
 
   # Validates
   validates :title, presence: true
