@@ -807,20 +807,6 @@ source-map-js@^1.0.2:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
 
-stimulus-notification@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/stimulus-notification/-/stimulus-notification-2.2.0.tgz#4e950ad90558617e4598d152b6fcd2635287a5bb"
-  integrity sha512-i1Z5IHDuMzwrRxnjqaftQcIseybouMiKfiC0aeFvoznXOo14gx7LWE5a8lssbQJQhbTcxq1RSVOKztkcmrKxng==
-  dependencies:
-    stimulus-use "^0.51.1"
-
-stimulus-use@^0.51.1:
-  version "0.51.3"
-  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.51.3.tgz#d7ac671aff8d0db253296dec89d38aa6f4b27e2a"
-  integrity sha512-V4YETxMFL4/bpmcqlwFtaOaJg9sLF+XlWsvXrsoWVA5jffsqe7uAvV6gGPPQta7Hgx01vovA0yNsWUe2eU9Jmw==
-  dependencies:
-    hotkeys-js ">=3"
-    
 stimulus-color-picker@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/stimulus-color-picker/-/stimulus-color-picker-1.1.0.tgz#6b7fbfeda08928629c1a8bb6868045831ca3f49d"
@@ -828,10 +814,24 @@ stimulus-color-picker@^1.1.0:
   dependencies:
     "@simonwep/pickr" "1.8.2"
 
+stimulus-notification@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/stimulus-notification/-/stimulus-notification-2.2.0.tgz#4e950ad90558617e4598d152b6fcd2635287a5bb"
+  integrity sha512-i1Z5IHDuMzwrRxnjqaftQcIseybouMiKfiC0aeFvoznXOo14gx7LWE5a8lssbQJQhbTcxq1RSVOKztkcmrKxng==
+  dependencies:
+    stimulus-use "^0.51.1"
+
 stimulus-sortable@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/stimulus-sortable/-/stimulus-sortable-4.1.1.tgz#aa34e0f1ac53112cf568bc46e6b20acbf603c521"
   integrity sha512-UDpgzIIklvBL+X+KB4GuTQOnIvK3k2Zocwm946myA48xBS1vMPomkUhNLEAXpg1PWYDaQ3pyaS0mbKo2mLrTbQ==
+
+stimulus-use@^0.51.1:
+  version "0.51.3"
+  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.51.3.tgz#d7ac671aff8d0db253296dec89d38aa6f4b27e2a"
+  integrity sha512-V4YETxMFL4/bpmcqlwFtaOaJg9sLF+XlWsvXrsoWVA5jffsqe7uAvV6gGPPQta7Hgx01vovA0yNsWUe2eU9Jmw==
+  dependencies:
+    hotkeys-js ">=3"
 
 sucrase@^3.32.0:
   version "3.34.0"

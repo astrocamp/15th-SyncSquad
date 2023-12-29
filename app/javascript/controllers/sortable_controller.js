@@ -23,6 +23,5 @@ export default class extends Controller {
         list_id: event.to.dataset.sortableId,
       }),
     })
-    console.log(event.to.dataset.sortableId)
   }
 }

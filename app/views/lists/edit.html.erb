@@ -5,7 +5,7 @@
   </div>
   <div data-controller="color-picker">
     <%= form.label :color %>
-    <%= form.hidden_field :color, data: {color_picker_target: 'input'} %>
+    <%= form.hidden_field :color, data: {color_picker_target: 'input', color_update_url: list_path(@list), redirect_to_url: project_path(@list.project) } %>
     <div data-color-picker-target="button"></div>
   </div>
   <div>

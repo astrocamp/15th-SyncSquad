@@ -16,11 +16,11 @@ application.register('datepicker', DatepickerController)
 import HelloController from './hello_controller'
 application.register('hello', HelloController)
 
-import ResetFormController from './reset_form_controller'
-application.register('reset-form', ResetFormController)
-
 import NotificationController from './notification_controller'
 application.register('notification', NotificationController)
+
+import ResetFormController from './reset_form_controller'
+application.register('reset-form', ResetFormController)
 
 import SortableController from './sortable_controller'
 application.register('sortable', SortableController)
