@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-
-class UsersController < Devise::RegistrationsController
+class UsersController < ApplicationController
+ #公司建立
   def new
     @user = User.new
   end
@@ -24,9 +24,8 @@ class UsersController < Devise::RegistrationsController
     params.require(:user)
           .permit(:name, :email, :password, :password_confirmation)
   end
-end
 
-class UsersController < ApplicationController
+  # 單人聊天
   def show
     @user = User.find(params[:id])
     @users = User.all_except(current_user)
