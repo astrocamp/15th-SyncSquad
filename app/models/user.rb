@@ -3,7 +3,8 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+         
+  enum role: { staff: 0, hr: 1 }
   # Relationship
   belongs_to :company, optional: true
   has_many :events

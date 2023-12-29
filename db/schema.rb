@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_29_081256) do
     t.datetime "birthday", precision: nil
     t.string "phone"
     t.datetime "last_login_at", precision: nil
-    t.string "role"
+    t.integer "role"
     t.string "lang"
     t.string "time_zone"
     t.datetime "delete_at", precision: nil
