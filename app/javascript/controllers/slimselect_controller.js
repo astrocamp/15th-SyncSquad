@@ -3,5 +3,9 @@ import SlimSelect from "slim-select";
 
 // Connects to data-controller="slimselect"
 export default class extends Controller {
-  connect() {}
+  connect() {
+    new SlimSelect({
+      select: this.element,
+    });
+  }
 }

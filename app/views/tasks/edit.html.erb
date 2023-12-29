@@ -13,9 +13,9 @@
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-  <div>
+  <div class="w-[350px]">
     <%= form.label :user_id %>
-    <%= form.select :user_id, User.pluck(:email, :id) %> 
+    <%= form.select :user_id, User.pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect"} %> 
     <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
   </div>
   <div>
