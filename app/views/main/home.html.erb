@@ -3,11 +3,11 @@
     <ul class="flex gap-3">
     <% if company_signed_in? %>
     <li><%= link_to '登出', sessions_path, data: { turbo_method: 'delete' } %></li>
-    <li><%= link_to '創建員工', new_user_registration_path %></li>
-    <%else%>
-    <li><%= link_to '公司註冊', new_company_path %></li>
-    <li><%= link_to '公司登入', sign_in_companies_path %></li>
-    <%end%>
+    <li><%= link_to '創建員工', hrs_path %></li>
+      <% else %>
+        <li><%= link_to '公司註冊', new_company_path %></li>
+        <li><%= link_to '公司登入', sign_in_companies_path %></li>
+      <% end %>
     </ul>
   </div>
     <section class="flex flex-wrap-reverse max-w-screen-lg m-auto md:flex-wrap lg:flex-nowrap">
