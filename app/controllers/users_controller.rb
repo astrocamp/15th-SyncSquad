@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 class UsersController < ApplicationController
- #公司建立
+  # 公司建立
   def new
     @user = User.new
   end
