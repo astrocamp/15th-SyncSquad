@@ -7,6 +7,9 @@ import { application } from "./application";
 import CalendarController from "./calendar_controller";
 application.register("calendar", CalendarController);
 
+import ColorPickerController from "./color_picker_controller";
+application.register("color-picker", ColorPickerController);
+
 import DatepickerController from "./datepicker_controller";
 application.register("datepicker", DatepickerController);
 
@@ -19,5 +22,11 @@ application.register("notification", NotificationController);
 import ResetFormController from "./reset_form_controller";
 application.register("reset-form", ResetFormController);
 
-import TurbomodalController from "./turbomodal_controller";
-application.register("turbomodal", TurbomodalController);
+import SlimselectController from "./slimselect_controller";
+application.register("slimselect", SlimselectController);
+
+import ColorPickerController from "./color_picker_controller";
+application.register("color-picker", ColorPickerController);
+
+import SortableController from "./sortable_controller";
+application.register("sortable", SortableController);
