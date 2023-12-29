@@ -27,16 +27,19 @@ export default class extends Controller {
       droppable: true,
       editable: true,
       selectable: true,
-      dateClick: function dateClick(info) {
-        // 在點擊日期時，顯示跳出flowbite的modal且可新增事件視窗
-        const crudModal = document.querySelector(
-          '[data-modal-target="crud-modal"]'
-        );
-        const startDate = document.querySelector("#event_start_date");
-        const endDate = document.querySelector("#event_end_date");
-        startDate.value = info.dateStr;
-        endDate.value = info.dateStr;
-        crudModal.click();
+      select: function (info) {
+        dayjs.extend(utc);
+        const modal = document.querySelector('[data-turbo-frame="modal"]');
+        setTimeout(() => {
+          const startDate = document.querySelector("#event_start_date");
+          const endDate = document.querySelector("#event_end_date");
+
+          startDate.value = info.startStr;
+          endDate.value = dayjs(info.endStr)
+            .subtract(1, "day")
+            .format("YYYY-MM-DD");
+        }, 100);
+        modal.click();
       },
       eventResize: adjust,
       eventDrop: adjust,
