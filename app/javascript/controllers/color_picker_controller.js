@@ -8,18 +8,19 @@ export default class extends ColorPicker {
     super.connect()
 
     this.picker
+      .on('changestop', (source, instance) => {
+        instance._eventBindings[6][0].style.setProperty(
+          '--pcr-color',
+          instance.getColor().toHEXA().toString()
+        )
+      })
       .on('swatchselect', (color, instance) => {
         this.onSave(color)
         this.update(instance)
       })
       .on('hide', (instance) => {
-        console.log('Event: "hide"', instance)
-      })
-      .on('change', (color, source, instance) => {
-        console.log('Event: "change"', color, source, instance)
-      })
-      .on('changestop', (source, instance) => {
-        console.log('Event: "changestop"', source, instance)
+        this.onSave(instance.color)
+        this.update(instance)
       })
   }
 

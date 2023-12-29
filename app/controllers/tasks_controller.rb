@@ -3,8 +3,7 @@
 class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
 
-  def show
-  end
+  def show; end
 
   def sort
     @task = Task.find(params[:task_id])
@@ -42,7 +41,7 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task)
-          .permit(:title, :description, :priority, :start_at, :estimated_complete_at) 
+          .permit(:title, :description, :priority, :start_at, :estimated_complete_at)
   end
 
   def find_task
