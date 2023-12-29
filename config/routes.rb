@@ -47,5 +47,6 @@ Rails.application.routes.draw do
   end
 
   resource :sessions, only: [:create, :destroy]
+  resources :hrs, only: [:index, :create, :update, :destroy]
 
 end
