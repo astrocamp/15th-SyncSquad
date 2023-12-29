@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  before_action :find_task, only: %i[edit update destroy]
+  before_action :find_task, only: %i[show edit update destroy]
+
+  def show
+  end
 
   def sort
     @task = Task.find(params[:task_id])

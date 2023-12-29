@@ -3,11 +3,6 @@
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-  <div data-controller="color-picker">
-    <%= form.label :color %>
-    <%= form.hidden_field :color, value: '#3778EA', data: {color_picker_target: 'input'} %>
-    <div data-color-picker-target="button"></div>
-  </div>
   <div>
     <%= form.submit %>
   </div>

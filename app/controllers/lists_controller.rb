@@ -12,10 +12,10 @@ class ListsController < ApplicationController
   end
 
   def create
-    @new_list = @project.lists.build(list_params)
+    @new_list = @project.lists.build(list_params.merge(color: '#3778EA'))
 
     if @new_list.save
-      redirect_to @project, notice: '列表創建成功'
+      redirect_to @project, success: '列表創建成功'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update(list_params)
-      redirect_to project_path(@list.project.id), notice: '列表新建成功'
+      redirect_to project_path(@list.project.id), success: '列表更新成功'
     else
       render :edit
     end

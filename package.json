@@ -19,9 +19,9 @@
     "flatpickr": "^4.6.13",
     "flowbite": "^2.2.0",
     "postcss": "^8.4.32",
-    "stimulus-notification": "^2.2.0",
     "sortablejs": "^1.15.1",
     "stimulus-color-picker": "^1.1.0",
+    "stimulus-notification": "^2.2.0",
     "stimulus-sortable": "^4.1.1",
     "tailwindcss": "^3.3.6"
   },

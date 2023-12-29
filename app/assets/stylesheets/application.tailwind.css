@@ -1,4 +1,4 @@
-@import '@simonwep/pickr/dist/themes/classic.min.css';
+@import '@simonwep/pickr/dist/themes/nano.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

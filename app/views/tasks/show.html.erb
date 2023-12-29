@@ -1,0 +1,6 @@
+<h2><%= t('project.task.title') %>：<%= @task.title %></h2>
+<p><%= @task.description %></p>
+<p><%= @task.priority %></p>
+<p><%= @task.start_at %></p>
+<p><%= @task.estimated_complete_at %></p>
+<%= link_to t('project.task.edit'), edit_task_path(@task), data: { turbo: false} %>
