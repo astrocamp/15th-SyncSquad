@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:__company_ticket__)
-    redirect_to root_path, notice: '已登出'
+    redirect_to root_path, notice: '公司已登出'
   end
 end

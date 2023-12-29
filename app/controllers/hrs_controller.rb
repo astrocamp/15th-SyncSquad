@@ -1,7 +1,7 @@
 class HrsController < ApplicationController
   before_action :find_user, only: [:update, :destroy] 
-  #before_action :authenticate_user! 
-  #before_action :authorize_hr!
+  before_action :authenticate_user! 
+  before_action :authorize_hr!
 
   def index
     @users = User.order(id: :desc)
@@ -11,17 +11,17 @@ class HrsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to hrs_path, notice: 'User created' 
+      redirect_to hrs_path, notice: '員工新增成功' 
     else
-      redirect_to hrs_path, alert: 'Unable to create user'
+      redirect_to hrs_path, alert: '無法新增員工'
     end
   end
 
   def update
     if @user.update(user_params)
-      redirect_to hrs_path, notice: 'User updated' 
+      redirect_to hrs_path, notice: '員工資料更新' 
     else
-      redirect_to hrs_path, alert: 'Unable to update user'
+      redirect_to hrs_path, alert: '員工更新失敗'
     end
   end
 

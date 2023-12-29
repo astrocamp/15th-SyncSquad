@@ -1,28 +1,29 @@
-<h1 class="text-2xl">註冊帳號</h1>
+<h1 class="text-2xl">公司註冊</h1>
 
 <%= form_with model: @company, data: { turbo: false } do |form| %>
 
  <div>
-    <%= form.label :name %>
+    <%= form.label :name %><br />
     <%= form.text_field :name, class: 'border-2 border-black' %>
   </div>
 
   <div>
-    <%= form.label :email %>
+    <%= form.label :email %><br />
     <%= form.email_field :email, class: 'border-2 border-black' %>
   </div>
 
   <div>
-    <%= form.label :password %>
+    <%= form.label :password %><br />
     <%= form.password_field :password, class: 'border-2 border-black' %>
   </div>
 
   <div>
-    <%= form.label :password_confirmation %>
+    <%= form.label :password_confirmation %><br />
     <%= form.password_field :password_confirmation, class: 'border-2 border-black' %>
+     <%= form.submit "註冊", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
   </div>
 
-  <div>
-    <%= form.submit class: 'bg-rose-700' %>
-  </div>
+  
+   
+  
 <% end %>
