@@ -1,4 +1,30 @@
 <div>
-  <h1 class="font-bold text-4xl">Hrs#index</h1>
+  <h1 class="font-bold text-4xl">創建員工</h1>
   <p>Find me in app/views/hrs/index.html.erb</p>
 </div>
+
+<%= form_with(model: @user, url: hrs_path, method: :post) do |f| %>
+  <%= f.email_field :email, placeholder: "Email" %>
+  <%= f.select :role, User.roles.keys.map { |w| [w.humanize, w]}, include_blank: "職稱" %>
+  <br />
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+  <br />
+  <%= f.submit %>
+   <div class="field hidden">
+    <%= f.label :company_id %><br />
+    <%= f.text_field :company_id, value: current_company.id %>
+  </div>
+<% end %>
+
+<div>
+  <h1 class="font-bold text-4xl">員工列表</h1>
+  <p>Find me in app/views/hrs/index.html.erb</p>
+</div>
+
+<% @users.each do |user| %>
+  <%= form_for(user, url: hr_path(user), remote: true, method: :patch) do |f| %>
+    <p><%= f.text_field :email %> - <%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]})%> - <%= f.submit "Update" %></p>
+  <% end %>
+<% end %>
+
