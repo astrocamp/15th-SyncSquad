@@ -13,14 +13,14 @@ export default class extends Controller {
     }
   }
   open() {
-    this.element.showModal();
+    this.element.classList.add("visible");
   }
   clickOutside(e) {
-    if (e.target === this.element) {
+    if (!this.element.contains(e.target)) {
       this.close();
     }
   }
   close() {
-    this.element.close();
+    this.element.classList.add("hidden");
   }
 }
