@@ -6,7 +6,7 @@
 </turbo-stream>
 
 <%# 旁邊list 用turbo_stream 呈現 %>
-<turbo-stream action="replace" target="aside_list">
+<turbo-stream action="update" target="aside_list">
     <template>
         <%= render partial: 'aside_projects', locals:{projects: current_user.affiliated_projects.order(id: :asc)} %>
     </template>
