@@ -29,16 +29,24 @@ export default class extends Controller {
       selectable: true,
       select: function (info) {
         dayjs.extend(utc);
-        const modal = document.querySelector('[data-turbo-frame="modal"]');
+        const modal = document.querySelector(
+          'a[data-turbo-frame="modal"][href="/events/new"]'
+        );
         setTimeout(() => {
           const startDate = document.querySelector("#event_start_date");
           const endDate = document.querySelector("#event_end_date");
-
           startDate.value = info.startStr;
           endDate.value = dayjs(info.endStr)
             .subtract(1, "day")
             .format("YYYY-MM-DD");
         }, 100);
+        modal.click();
+      },
+      eventClick: function (info) {
+        const eventId = info.event.id;
+        const modal = document.querySelector(
+          `a[data-turbo-frame="modal"][href="/events/${eventId}"]`
+        );
         modal.click();
       },
       eventResize: adjust,
