@@ -28,7 +28,15 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :task_responsible_people, dependent: :destroy
   has_many :in_charge_of_tasks, through: :task_responsible_people, source: :task
+  
+  def avatar_thumbnail
+    avatar.variant(resize_to_limit: [150, 150]).processed
+  end
 
+  def chat_avatar
+    avatar.variant(resize_to_limit: [50, 50]).processed
+  end
+  
   private
 
   def add_default_avatar
