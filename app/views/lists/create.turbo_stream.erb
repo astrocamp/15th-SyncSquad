@@ -1,0 +1,8 @@
+<%# show頁面內 新增列表 用turbo_stream 呈現 %>
+<turbo-stream action="replace" target="all_list">
+    <template>
+        <ul id="all_list" class="flex gap-2" data-controller="sortable" >
+            <%= render partial: 'projects/list', collection: @project.lists.rank(:row_order)%> 
+        </ul>
+    </template>
+</turbo-stream>
