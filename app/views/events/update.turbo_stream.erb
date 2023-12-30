@@ -6,8 +6,8 @@
     </template>
 </turbo-stream>
 
-<turbo-stream action="replace" target="event">
+<turbo-stream action="update" target="event">
     <template>
-        <%= render partial: 'listed', locals:{events: Event.all } %>
+        <%= render partial: 'listed', locals:{events: current_user.events.all } %>
     </template>
 </turbo-stream>
