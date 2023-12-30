@@ -1,21 +1,12 @@
-<%= @project.title %>
-<%= @project.description %>
-<%= @project.owner.nick_name %>
-<%= link_to 'X', project_path(@project), data: { turbo_method: 'delete', turbo_confirm: '確定刪除專案嗎？'} %>
-
-<%= form_with(model: @project) do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<div id="project_show">
+  <%= @project.title %>
+  <%= @project.description %>
+  <%= @project.owner.nick_name %>
+  <%= link_to 'X', project_path(@project), data: { turbo_method: 'delete', turbo_confirm: '確定刪除專案嗎？'} %>
+  <%= link_to  edit_project_path, data: { turbo_frame: "modal" } do%>
+    <i class="fa-solid fa-ellipsis"></i>
+  <% end %>
+</div>
 <hr>
 
 <%= link_to '新建列表', new_project_list_path(@project) %>
