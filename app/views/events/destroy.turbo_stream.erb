@@ -6,8 +6,5 @@
     </template>
 </turbo-stream>
 
-<turbo-stream action="replace" target="event">
-    <template>
-        <%= render partial: 'listed', locals:{events: Event.all } %>
-    </template>
+<turbo-stream action="remove", target=<%= @event.id %>>
 </turbo-stream>
