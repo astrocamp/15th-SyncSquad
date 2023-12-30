@@ -6,13 +6,16 @@ Rails.application.routes.draw do
   get '/feature/chatroom', to: 'main#chatroom'
   get '/feature/project', to: 'main#project'
 
+  devise_for :users, controllers: {
+  sesions: 'users/sessions',
+  registrations: 'users/registrations'
+}
+
   devise_scope :user do
     get 'users', to: 'devise/sessions#new'
   end
-  get 'user/:id', to:'users#show',as: 'user'
 
-  get 'users/show'
-  devise_for :users, controllers: {registrations: 'users/registrations/registrations'}
+  get 'user/:id', to:'users#show',as: 'user'
 
   resources :events do 
     member do
@@ -27,6 +30,7 @@ Rails.application.routes.draw do
         put :sort
       end
     end
+
     collection do
       post :aside_listed
       post :main_listed
@@ -43,6 +47,7 @@ Rails.application.routes.draw do
     end
   end
 
+  # company session
   resource :sessions, only: [:create, :destroy]
   resources :hrs, only: [:index, :create, :update, :destroy]
 
