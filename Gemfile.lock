@@ -250,6 +250,7 @@ GEM
       i18n
     rdoc (6.6.1)
       psych (>= 4.0.0)
+    redcarpet (3.6.0)
     redis (5.0.8)
       redis-client (>= 0.17.0)
     redis-client (0.19.0)
@@ -261,6 +262,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
+    rouge (4.2.0)
     rubocop (1.59.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -353,7 +355,9 @@ DEPENDENCIES
   rails (~> 7.1.2)
   ranked-model (~> 0.4.9)
   ransack (~> 4.1)
+  redcarpet (~> 3.6)
   redis (>= 4.0.1)
+  rouge (~> 4.2)
   rubocop (~> 1.59)
   selenium-webdriver
   sprockets-rails
