@@ -169,6 +169,12 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus-webpack-helpers/-/stimulus-webpack-helpers-1.0.1.tgz#4cd74487adeca576c9865ac2b9fe5cb20cef16dd"
   integrity sha512-wa/zupVG0eWxRYJjC1IiPBdt3Lruv0RqGN+/DTMmUWUyMAEB27KXmVY6a8YpUVTM7QwVuaLNGW4EqDgrS2upXQ==
+"@geoffcodesthings/tailwind-md-base@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@geoffcodesthings/tailwind-md-base/-/tailwind-md-base-1.1.0.tgz#fda3c6de6e546d16e4267bf03da38d73b0f42606"
+  integrity sha512-wk4Si7Vlcn6au2m068tbjYfGdirXdLZ47Cmn7f+5GhjG88M7qblv3n5InLaNK9GSmg2Vo0uV9Flcxp+OUVdySg==
+  dependencies:
+    lodash "^4.17.15"
 
 "@hotwired/stimulus@^3.2.2":
   version "3.2.2"
@@ -602,6 +608,11 @@ lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
+
+lodash@^4.17.15:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 loose-envify@^1.1.0:
   version "1.4.0"
