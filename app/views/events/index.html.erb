@@ -9,6 +9,7 @@
         <%= link_to '', event_path(event[:id]), data:{turbo_method:'delete', turbo_confirm: '確定要刪除嗎'} %>
     </div>
     <% end %>
-<div data-controller="calendar" 
-     class="w-full lg:w-2/3 mx-auto">
+
+<div data-controller="calendar"
+     class="w-full lg:w-2/3 mx-auto" id="calendar">
 </div>
