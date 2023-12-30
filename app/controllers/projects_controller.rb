@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.affiliated_projects.build(project_params.merge(owner: current_user))
     current_user.affiliated_projects << @project
+    flash.now[:success] = "專案建立成功"
   end
 
   def show; end
@@ -27,6 +28,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
+    flash.now[:success] = "專案更新成功"
   end
 
   def destroy
