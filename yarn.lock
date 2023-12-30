@@ -165,6 +165,13 @@
   dependencies:
     "@fullcalendar/daygrid" "~6.1.10"
 
+"@geoffcodesthings/tailwind-md-base@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@geoffcodesthings/tailwind-md-base/-/tailwind-md-base-1.1.0.tgz#fda3c6de6e546d16e4267bf03da38d73b0f42606"
+  integrity sha512-wk4Si7Vlcn6au2m068tbjYfGdirXdLZ47Cmn7f+5GhjG88M7qblv3n5InLaNK9GSmg2Vo0uV9Flcxp+OUVdySg==
+  dependencies:
+    lodash "^4.17.15"
+
 "@hotwired/stimulus-webpack-helpers@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus-webpack-helpers/-/stimulus-webpack-helpers-1.0.1.tgz#4cd74487adeca576c9865ac2b9fe5cb20cef16dd"
