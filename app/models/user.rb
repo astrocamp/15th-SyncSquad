@@ -34,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def chat_avatar
-    avatar.variant(resize_to_limit: [50, 50]).processed
+    avatar.variant(resize_to_limit: [35, 35]).processed
   end
   
   private
