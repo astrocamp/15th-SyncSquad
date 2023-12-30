@@ -12,5 +12,5 @@ module.exports = {
   },
   plugins: [require("flowbite/plugin"), tailwindMdBase()],
 
-  safelist: ["markdown"],
+  safelist: ["markdown-body"],
 };
