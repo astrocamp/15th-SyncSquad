@@ -117,7 +117,7 @@ gem 'ranked-model', '~> 0.4.9'
 gem 'hotwire-rails', '~> 0.1.3'
 
 # markdown
-gem "redcarpet", "~> 3.6"
+gem 'redcarpet', '~> 3.6'
 
 # highlight 套件
 gem 'rouge', '~> 4.2'
