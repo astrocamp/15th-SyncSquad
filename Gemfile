@@ -121,3 +121,6 @@ gem 'redcarpet', '~> 3.6'
 
 # highlight 套件
 gem 'rouge', '~> 4.2'
+
+# 圖片處理
+gem "mini_magick", "~> 4.12"
