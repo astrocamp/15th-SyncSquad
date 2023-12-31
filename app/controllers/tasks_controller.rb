@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     @task.update(row_order_position: params[:row_order_position], list_id: params[:list_id])
     head :no_content
   end
-  
+
   def new
     @list = List.find(params[:list_id])
     @task = @list.tasks.new
@@ -21,9 +21,9 @@ class TasksController < ApplicationController
     @project = @list.project
     @task = @list.tasks.build(task_params)
     if @task.save
-      flash.now[:success] = "待辦事項新增成功"
+      flash.now[:success] = '待辦事項新增成功'
     else
-      flash.now[:alert] = "請填入待辦事項"
+      flash.now[:alert] = '請填入待辦事項'
     end
   end
 
