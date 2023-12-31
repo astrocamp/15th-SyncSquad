@@ -10,15 +10,22 @@ class TasksController < ApplicationController
     @task.update(row_order_position: params[:row_order_position], list_id: params[:list_id])
     head :no_content
   end
+  
+  def new
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.new
+  end
 
   def create
     @list = List.find(params[:list_id])
+    @project = @list.project
     @task = @list.tasks.build(task_params)
-
     if @task.save
-      redirect_to project_path(@list.project), notice: '待辦事項新增成功'
+      #redirect_to project_path(@list.project), notice: '待辦事項新增成功'
+      flash.now[:success] = "待辦事項新增成功"
     else
-      redirect_to project_path(@list.project), alert: '請填入待辦事項'
+      #redirect_to project_path(@list.project), alert: '請填入待辦事項'
+      flash.now[:alert] = "請填入待辦事項"
     end
   end
 
