@@ -7,9 +7,6 @@ import { application } from "./application";
 import CalendarController from "./calendar_controller";
 application.register("calendar", CalendarController);
 
-import ColorPickerController from "./color_picker_controller";
-application.register("color-picker", ColorPickerController);
-
 import DatepickerController from "./datepicker_controller";
 application.register("datepicker", DatepickerController);
 
