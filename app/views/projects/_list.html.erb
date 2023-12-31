@@ -12,11 +12,8 @@
       </ul>
     </div>
     <div>
-      <%= form_with model: [list, list.tasks.new], url: list_tasks_path(list.id), data: {turbo: false } do |form| %>
-        <div>
-          <%= form.text_field :title, class: "w-full" %>
-        </div>
-        <%= form.submit %>
+      <%= link_to new_list_task_path(list.id), data: { turbo_frame: "modal" } do%>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
       <% end %>
     </div>
   </div>
