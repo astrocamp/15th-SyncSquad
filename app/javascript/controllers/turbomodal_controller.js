@@ -16,7 +16,7 @@ export default class extends Controller {
     this.element.classList.add("visible");
   }
   clickOutside(e) {
-    if (!this.element.contains(e.target)) {
+    if (e.target === this.element) {
       this.close();
     }
   }
