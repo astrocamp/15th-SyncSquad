@@ -2,8 +2,13 @@
   <div class="w-48">
     <div>
       <div class="w-full h-1" style="background-color: <%= list.color %>;"></div>
-      <%= content_tag :h2, list.title, class: "font-bold" %><%= list.id %>
-      <%= link_to '編輯', edit_list_path(list.id) %>
+      <div class="flex">
+        <%= content_tag :h2, list.title, class: "font-bold pr-2" %>
+        <%= link_to  edit_list_path(list.id), data: { turbo_frame: "modal" } do%>
+          <i class="fa-solid fa-ellipsis"></i>
+        <% end %>
+      </div>
+      <%= list.id %>
       <%= link_to '刪除', list_path(list), data: {turbo_method: 'delete'} %>
     </div>
     <div>
