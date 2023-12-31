@@ -28,12 +28,17 @@
 #       enabled: "ON"
 
 en:
-  navbar:
+  main:
+    user_sign_in: 'User Sign In'
+    company_sign_in: 'Company Sign In'
     sign_in: 'Sign In'
     sign_up: 'Sign Up'
     log_out: 'Log Out'
     edit: 'Edit'
     events: 'Events'
+    calendar: 'Calendar'
+    project: 'Project'
+    chatroom: 'Chatroom'
 
   calender:
     event: 'Event'
