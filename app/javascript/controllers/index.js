@@ -22,6 +22,9 @@ application.register("reset-form", ResetFormController);
 import SlimselectController from "./slimselect_controller";
 application.register("slimselect", SlimselectController);
 
+import TurbomodalController from "./turbomodal_controller";
+application.register("turbomodal", TurbomodalController);
+
 import ColorPickerController from "./color_picker_controller";
 application.register("color-picker", ColorPickerController);
 
