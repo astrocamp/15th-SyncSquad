@@ -1,17 +1,1 @@
-<%# show頁面內 新增列表 用turbo_stream 呈現 %>
-<turbo-stream action="replace" target="all_list">
-  <template>
-    <ul id="all_list" class="flex gap-2" data-controller="sortable" >
-      <%= render partial: 'projects/list', collection: @project.lists.rank(:row_order)%> 
-    </ul>
-  </template>
-</turbo-stream>
-
-<%# toast 以 turbo_stream呈現 %>
-<div class="absolute top-10 right-0 px-5 py-2">
-  <%= render partial: 'shared/alert', locals: { message: flash[:alert]} %>
-  <%= render partial: 'shared/notice', locals: { message: flash[:notice]} %>
-  <%= render partial: 'shared/success', locals: { message: flash[:success]} %>
-  <%= render partial: 'shared/info', locals: { message: flash[:info]} %>
-  <%= render partial: 'shared/mail', locals: { message: flash[:mail]} %>
-</div>
+<%= render  "lists" %>
