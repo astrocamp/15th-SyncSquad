@@ -31,16 +31,17 @@ class ListsController < ApplicationController
   def edit; end
 
   def update
+    @project = @list.project
     if @list.update(list_params)
-      redirect_to project_path(@list.project.id), success: '列表更新成功'
+      flash.now[:success] = '列表更新成功'
     else
       render :edit
     end
   end
 
   def destroy
+    @project = @list.project
     @list.destroy
-    redirect_to project_path(@list.project.id)
   end
 
   private
