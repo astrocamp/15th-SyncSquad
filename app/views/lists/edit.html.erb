@@ -1,5 +1,5 @@
 <%= content_for :modal_title do %>
-  新建列表
+  編輯列表
 <% end %>
 <%= render 'shared/modal' do %>
   <%= form_with model: @list, url: list_path, method: 'PATCH' do |form| %>
