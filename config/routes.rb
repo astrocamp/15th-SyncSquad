@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
-  root "main#home"
-
-  get 'users/show'
-  resources :rooms do
-    resources :messages
-  end
-  
-  
-  devise_for :users, controllers: {
-  registrations: 'users/registrations/registrations'
-}
+  root 'main#home'
+  get '/about', to: 'main#about'
+  get '/privacy', to: 'main#privacy'
+  get '/feature/calendar', to: 'main#calendar'
+  get '/feature/chatroom', to: 'main#chatroom'
+  get '/feature/project', to: 'main#project'
 
   devise_scope :user do
     get 'users', to: 'devise/sessions#new'
   end
   get 'user/:id', to:'users#show',as: 'user'
 
+  get 'users/show'
+  devise_for :users, controllers: {registrations: 'users/registrations/registrations'}
 
   resources :events do 
     member do
