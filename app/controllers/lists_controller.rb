@@ -16,7 +16,7 @@ class ListsController < ApplicationController
     @new_list = @project.lists.build(list_params.merge(color: '#3778EA'))
 
     if @new_list.save
-      # redirect_to @project, success: '列表創建成功'
+      flash.now[:success] = '列表創建成功'
     else
       render :new
     end

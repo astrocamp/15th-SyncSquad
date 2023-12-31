@@ -21,10 +21,8 @@ class TasksController < ApplicationController
     @project = @list.project
     @task = @list.tasks.build(task_params)
     if @task.save
-      #redirect_to project_path(@list.project), notice: '待辦事項新增成功'
       flash.now[:success] = "待辦事項新增成功"
     else
-      #redirect_to project_path(@list.project), alert: '請填入待辦事項'
       flash.now[:alert] = "請填入待辦事項"
     end
   end
