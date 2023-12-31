@@ -31,14 +31,24 @@ class User < ApplicationRecord
   has_many :in_charge_of_tasks, through: :task_responsible_people, source: :task
   
   def avatar_thumbnail
-    avatar.variant(resize_to_limit: [150, 150]).processed
+    resize_avatar(150, 150)
   end
 
   def chat_avatar
-    avatar.variant(resize_to_limit: [35, 35]).processed
+    resize_avatar(35, 35)
   end
-  
+
   private
+
+  def resize_avatar(width, height)
+    resized_avatar = avatar.variant(resize_to_limit: [width, height])
+
+    if resized_avatar.send(:processed?)
+      resized_avatar.processed
+    else
+      resized_avatar
+    end
+  end
 
   def add_default_avatar
     return if avatar.attached?
