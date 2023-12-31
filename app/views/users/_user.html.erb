@@ -1,3 +1,20 @@
-<div class="text-xl mt-3">
-  <%= link_to user.email.split("@").first, user %>
+<% if @single_room && @single_room.participant?(@single_room, user) %>
+  <% isActive = 'active' %>
+<% else %>
+  <% isActive = '' %>
+<% end %>
+
+
+<div class="flex items-center mb-4 mt-4 gap-3 <%= isActive %> ">
+  <div>
+    <% if user.avatar.attached? %>
+    <%= link_to image_tag(user.chat_avatar, class: "w-12 h-12 rounded-full gap-2"), user %>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= link_to user.email.split("@").first, user, data: {turbo: "false"},class: "text-sm font-medium ml-auto mr-auro" %>
+  </div>
+
 </div>
+  
