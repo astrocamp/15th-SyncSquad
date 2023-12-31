@@ -1,8 +1,13 @@
 <div class="cont-<%= message.user.id %>">
   <div class="msg-<%= message.user.id %> mt-5 rounded-xl">
-    <% unless message.room.is_private %>
-      <h6 id="name"><%= message.user.email.split('@').first %> </h6>
-    <% end %>
+
+    <div class="flex content-center gap-2 mb-2">
+      <%= image_tag(message.user.chat_avatar, class: "w-12 h-12 rounded-full") %>
+      <div>
+        <div> <%= message.user.email %></div>
+      </div>
+    </div>
+
     <div class="markdown">
       <%= raw advanced_markdown(message.body) %>
     </div>
