@@ -8,7 +8,7 @@
 <div class="flex items-center mb-4 mt-4 gap-3 <%= isActive %> ">
   <div>
     <% if user.avatar.attached? %>
-    <%= link_to image_tag(user.chat_avatar, class: "w-12 h-12 rounded-full"), user %>
+      <%= link_to image_tag(user.chat_avatar, class: "w-12 h-12 rounded-full"), user %>
     <% end %>
   </div>
   
