@@ -30,16 +30,19 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
+    @project = @task.list.project
     if @task.update(task_params)
-      redirect_to project_path(@task.list.project.id)
+      redirect_to task_path(@task)
+      flash.now[:success] = '待辦事項更新成功'
     else
       render :edit
     end
   end
 
   def destroy
+    @project = @task.list.project
     @task.destroy
-    redirect_to project_path
+    flash.now[:alert] = '待辦事項已刪除'
   end
 
   private
