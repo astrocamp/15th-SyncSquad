@@ -2,7 +2,14 @@
   <div class="msg-<%= message.user.id %> mt-5 rounded-xl">
 
     <div class="flex content-center gap-2 mb-2">
-      <%= image_tag(message.user.chat_avatar, class: "w-12 h-12 rounded-full") %>
+      <% if message.user.avatar.attached? %>
+        <%= link_to image_tag(message.user.chat_avatar, 
+                              class: "w-8 h-8 rounded-full"), message.user %>
+      <% else %>
+        <%= image_tag("default_profile.png", 
+                      alt: "user default photo",
+                      class: "w-8 h-8 rounded-full") %>
+      <% end %>      
       <div>
         <div> <%= message.user.email.split("@").first.split("-").reverse.map(&:capitalize).join(" ") %></div>
       </div>
