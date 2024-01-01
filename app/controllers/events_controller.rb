@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     @event = current_user.events.new(event_params)
     # 直接for current user
     if @event.save
-      flash.now[:success] = "事件建立成功"
+      flash.now[:success] = '事件建立成功'
     else
       render :new
     end
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
   def update
     @event.update(event_params)
     if @event.save
-      flash.now[:success] = "事件更新成功"
+      flash.now[:success] = '事件更新成功'
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    flash.now[:alert] = "事件已刪除！"
+    flash.now[:alert] = '事件已刪除！'
   end
 
   private
