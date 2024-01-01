@@ -1,22 +1,53 @@
 <div class="flex">
-  <aside class="flex-initial pt-2 flex-initail w-80">
-    <h2 class="px-8 pb-4 text-2xl text-gray-900 dark:text-white"><%= t('project.affiliated_projects') %></h2>
-    <ul id="aside_list">
-      <%= render 'aside_projects', projects: @projects %>
-    </ul>
-  </aside>
-  <main class="flex-auto">
-    <header class="flex">
-      <%= content_tag(:h1, t('project.affiliated_projects'), class: "text-3xl text-gray-900 dark:text-white") %>
-    </header>
-    <div>
-      <%= link_to  new_project_path, data: { turbo_frame: "modal" } do%>
-        <i class="fa-solid fa-plus"></i>
-      <% end %>
-    </div>
-    <ul id="main_list">
-      <%= render 'main_projects', projects: @projects %>
-    </ul>
-  </main>
+    <aside>
+        <!-- drawer init and toggle -->
+        <div class="text-center">
+            <button type="button" 
+            data-drawer-target="drawer-example"
+            aria-controls="drawer-example"
+            data-drawer-toggle="drawer-example">
+            <!-- ⬆️ data-drawer-toggle 這個按鈕可以切換 -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z"/></svg>
+            </button>
+        </div>
+
+        <!-- drawer component -->
+        <div id="drawer-example" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label">
+            <h2 class="px-8 pb-4 text-2xl text-gray-900 dark:text-white"><%= t('project.affiliated_projects') %></h2>
+            <ul id="aside_list">
+                <%= render 'aside_projects', projects: @projects %>
+            </ul>
+
+            <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                </svg>
+                <span class="sr-only">Close menu</span>
+            </button>
+
+            <!-- 👇這邊button暫時重複用 -->
+            <button type="button" 
+            data-drawer-target="drawer-example"
+            aria-controls="drawer-example"
+            data-drawer-toggle="drawer-example">
+            <!-- ⬆️ data-drawer-toggle 這個按鈕可以切換 -->
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z"/></svg>
+            </button>
+        </div>
+    </aside>
+    
+    <main class="flex-auto">
+        <header class="flex">
+            <%= content_tag(:h1, t('project.affiliated_projects'), class: "text-3xl text-gray-900 dark:text-white") %>
+        </header>
+        <div>
+            <%= link_to  new_project_path, data: { turbo_frame: "modal" } do%>
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
+            <% end %>
+        </div>
+        <ul id="main_list">
+            <%= render 'main_projects', projects: @projects %>
+        </ul>
+    </main>
 </div>
 
