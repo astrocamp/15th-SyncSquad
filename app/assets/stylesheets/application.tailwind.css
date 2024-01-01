@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import '@simonwep/pickr/dist/themes/nano.min.css';
-@import './github.css';
+@import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "@simonwep/pickr/dist/themes/nano.min.css";
+@import "./github.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .body:not(.font-bevan) {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
 .font-bevan {
-  font-family: 'Bevan', serif;
+  font-family: "Bevan", serif;
   font-weight: normal;
 }
 
@@ -35,4 +35,19 @@ html {
 
 .form-btn {
   @apply inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+}
+
+.msg-form {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1000px;
+  z-index: 1000;
+  padding: 10px;
+}
+
+#messages {
+  padding-bottom: 100px;
 }

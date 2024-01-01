@@ -5,15 +5,15 @@
 <% end %>
 
 
-<div class="flex items-center mb-4 mt-4 gap-3 <%= isActive %> ">
+<div class="flex items-center mb-4 gap-3 pt-3 content-center hover:bg-sky-300 <%= isActive %> ">
   <div>
     <% if user.avatar.attached? %>
       <%= link_to image_tag(user.chat_avatar, 
-                            class: "w-8 h-8 rounded-full"), user %>
+                            class: "w-8 h-8 rounded-full ml-3"), user %>
     <% else %>
       <%= image_tag("default_profile.png", 
                     alt: "user default photo",
-                    class: "w-8 h-8 rounded-full") %>
+                    class: "w-8 h-8 rounded-full ml-3") %>
       <% end %>
   </div>
   

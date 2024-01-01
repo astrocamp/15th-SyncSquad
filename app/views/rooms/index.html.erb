@@ -3,31 +3,31 @@
     歡迎 <%= current_user.name %> ლ(╹◡╹ლ)</h3>
 </div>
 
-<div id="total" class="flex mt-10 pl-5 max-w-screen-2xl">
+<div id="total" class="flex mt-10 px-5 space-x-5 w-full">
 
-  <div id="left-side" class="mt-5 w-2/12">
+  <div id="left-side" class="w-2/12">
     <div id="chat-room" class="mt-5">
-      <div class="mt-8">
-        <%= render "layouts/new_room_form" %>
-      </div>
       <h3 class="text-2xl text-orange-400 mt-4">房間列表</h3>
       <%= turbo_stream_from "rooms"%>
       <div id="rooms">
         <%= render @room%>
       </div>
+            <div class="mt-8">
+        <%= render "layouts/new_room_form" %>
+      </div>
     </div>
   </div>
 
-  <div id="room_container" class="text-2xl w-9/12 flex justify-center" >
-    <div class="w-9/12">
+  <div id="room_container" class="flex-grow" >
+    <div class="w-full">
       <%= render partial: 'layouts/single_room', locals: { single_room: @single_room, messages: @messages, user: @user } if @single_room %>    
     </div>
   </div>
 
   <div id="user-list" class="w-2/12">
-        <h4 class= "text-2xl text-cyan-400 bg-slate-600	"> ALL CONTATS </h4>
+        <h4 class= "text-2xl text-cyan-400 bg-slate-600	text-center p-3"> ALL CONTATS </h4>
     <%= turbo_stream_from "users" %>
-    <div id="users" class="flex-wrap">
+    <div id="users" class="bg-cyan-200 p-0">
       <%= render @users %>
     </div>
   </div>
