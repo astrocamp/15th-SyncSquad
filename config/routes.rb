@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/feature/project', to: 'main#project'
 
   devise_for :users, controllers: {
-  sesions: 'users/sessions',
+  sessions: 'users/registrations/sessions',
   registrations: 'users/registrations/registrations'
 }
 
