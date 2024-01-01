@@ -342,7 +342,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.9)
-  dotenv-rails (~> 2.8)
+  dotenv-rails
   faker (~> 3.2)
   foreman (~> 0.87.2)
   friendly_id (~> 5.4.0)
