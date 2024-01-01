@@ -47,5 +47,4 @@ class User < ApplicationRecord
       resized_avatar
     end
   end
-
 end
