@@ -4,7 +4,7 @@
     <div class="flex content-center gap-2 mb-2">
       <%= image_tag(message.user.chat_avatar, class: "w-12 h-12 rounded-full") %>
       <div>
-        <div> <%= message.user.email %></div>
+        <div> <%= message.user.email.split("@").first.split("-").reverse.map(&:capitalize).join(" ") %></div>
       </div>
     </div>
 
