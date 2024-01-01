@@ -8,8 +8,13 @@
 <div class="flex items-center mb-4 mt-4 gap-3 <%= isActive %> ">
   <div>
     <% if user.avatar.attached? %>
-      <%= link_to image_tag(user.chat_avatar, class: "w-8 h-8 rounded-full"), user %>
-    <% end %>
+      <%= link_to image_tag(user.chat_avatar, 
+                            class: "w-8 h-8 rounded-full"), user %>
+    <% else %>
+      <%= image_tag("default_profile.png", 
+                    alt: "user default photo",
+                    class: "w-8 h-8 rounded-full") %>
+      <% end %>
   </div>
   
   <div class="text-xl">
