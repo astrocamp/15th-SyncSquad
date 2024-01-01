@@ -2,7 +2,7 @@
   <li class="flex justify-between py-2">
     <%= link_to project.title, project, class: "grow pl-4" %>
     <%= link_to edit_project_path(project),
-        data:{turbo_frame: "modal", drawer_toggle:"drawer-example"},
+        data:{turbo_frame: "modal", drawer_hide:"drawer"},
         class: "px-4" do %>
       <i class="fa-solid fa-ellipsis"></i>
     <% end %>
