@@ -1,12 +1,36 @@
-<% projects.each do |project| %>
-  <li class="flex">
-    <div><%= link_to project.title, project %></div>
-    <div><%= project.description %></div>
-    <div><%= project.owner.nick_name %></div>
-    <div>
-        <div><%= project.created_at.strftime("%Y-%m-%d") %></div>
-        <div><%= project.updated_at.strftime("%Y-%m-%d") %></div>
-    </div>
-    <%= link_to 'Edit Project', edit_project_path(project),data:{turbo_frame: "modal"} %>
-  </li>
+
+
+<%= search_form_for @q do |f| %>
+    <%= f.label :title %>
+    <%= f.search_field :title_cont %>
+
+    <%= f.label :owner_name %>
+    <%= f.search_field :owner_name_cont %>
+
+    <%= f.submit %>
 <% end %>
+
+
+
+<table>
+    <thead>
+        <th><%= sort_link(@q, :title, t('project.Title')) %> </th>
+        <th><%= sort_link(@q, :description, t('project.Description')) %></th>
+        <th><%= sort_link(@q, :owner_name, t('project.Name')) %></th>
+        <th><%= sort_link(@q, :created, t('project.Created Time')) %> </th>
+        <th><%= sort_link(@q, :updated, t('project.Updated Time')) %></th>
+        <th>Edit</th>
+    </thead>
+    <tbody>
+        <% projects.each do |project| %>
+        <tr>
+            <td><%= link_to project.title, project %></td>
+            <td><%= project.description %></td>
+            <td><%= project.owner.name %></td>
+            <td><%= project.created_at.strftime("%Y-%m-%d") %></td>
+            <td><%= project.updated_at.strftime("%Y-%m-%d") %></td>
+            <td><%= link_to 'Edit Project', edit_project_path(project),data:{turbo_frame: "modal"} %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
