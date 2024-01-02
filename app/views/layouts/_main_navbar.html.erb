@@ -1,67 +1,65 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900 ">
-    <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
-        <h1><%= link_to  "SyncSquad",
-                root_path , 
-                class: "mb-2 block tracking-wide self-center text-2xl italic whitespace-nowrap dark:text-white font-bevan" %></h1>
-        <!-- 會員設定區 -->
-        <div class="flex items-center space-x-1 md:ml-auto lg:m-0 md:order-2 md:space-x-0 rtl:space-x-reverse ">
-            <div class="hidden md:block">
-                <ul class="flex gap-3 mt-2 font-bold md:font-light lg:font-bold lg:mt-0">
-                    <% if user_signed_in? %>
-                        <li><%= link_to t('main.edit'), edit_user_registration_path,
-                                class:'block text-white bg-gradient-to-r word-wrap from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' %></li>
-                        <li><%= link_to t('main.log_out'), destroy_user_session_path, data:{turbo_method:'DELETE'},
-                                class: 'block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %></li>
-                    <% elsif company_signed_in? %>
-                        <li><%= link_to t('main.user_sign_up'), new_user_registration_path,
-                                class:'block text-white bg-gradient-to-r word-wrap from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' %></li>
-                        <li><%= link_to t('main.log_out'), sessions_path, data: {turbo_method: 'DELETE'},
-                                class: 'block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %></li>
-                    <% else %>
-                        <li><%= link_to t('main.sign_up'), new_company_path,
-                                class:'block text-white bg-gradient-to-r word-wrap from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' %></li>
-                        <li><%= link_to t('main.company_sign_in'), sign_in_companies_path,
-                                class: 'block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %></li>
-                        <li><%= link_to t('main.user_sign_in'), new_user_session_path,
-                                class: 'block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %></li>
-                    <% end %>
-                </ul>
-            </div>
-        <!-- 會員 -->
-            <%= render 'layouts/photo_dropdown' %>
-            <!-- ＲＷＤ 漢堡選單 -->
-            <button data-collapse-toggle="navbar-language" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-language" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                    </svg>
-            </button>
-        </div>
-        <!-- 主要選單 -->
-        <div class="items-center justify-between hidden w-full font-thin md:flex md:w-auto md:order-1 md:pl-5" id="navbar-language">
-            <ul class="flex flex-col p-4 mt-4 font-light border border-gray-100 rounded-lg lg:font-light md:p-0 bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"> 
-                <li>
-                    <%= link_to t('main.home'), root_path, 
-                        aria: { current: ('page' if current_page?(root_path)) },
-                        class: "block px-3 py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" %>
-                </li>
-                <li>
-                    <%= link_to t('main.about'), about_path,
-                        aria: { current: ('page' if current_page?(about_path)) },
-                        class: 'block px-3 py-2 tracking-wide text-gray-900 rounded md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' %>
-                </li>
-                <li>
-                    <%= link_to t('main.privacy'), privacy_path,
-                        aria: { current: ('page' if current_page?(privacy_path)) },
-                        class: 'block px-3 py-2 tracking-wide text-gray-900 rounded md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' %>
-                </li>
-                <li>
-                    <a href="#calendar"
-                        class="block px-3 py-2 tracking-wide text-gray-900 rounded md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                        <%= t('main.feature') %>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+	<div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
+		<h1><%= link_to  "SyncSquad",
+						root_path , 
+						class: "mb-2 block tracking-wide self-center text-2xl italic whitespace-nowrap dark:text-white font-bevan" %></h1>
+		<!-- 會員設定區 -->
+		<div class="flex items-center space-x-1 md:ml-auto lg:m-0 md:order-2 md:space-x-0 rtl:space-x-reverse ">
+			<div class="hidden md:block">
+				<ul class="flex gap-3 mt-2 font-bold md:font-light lg:font-bold lg:mt-0">
+					<% if user_signed_in? %>
+						<li><%= link_to t('main.edit'), edit_user_registration_path,
+										class:'block text-white bg-gradient-to-r word-wrap from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' %></li>
+						<li><%= link_to t('main.log_out'), destroy_user_session_path, data:{turbo_method:'DELETE'},
+										class: 'block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %></li>
+					<% elsif company_signed_in? %>
+						<li><%= link_to t('main.user_sign_up'), new_user_registration_path,
+										class:'block text-white bg-gradient-to-r word-wrap from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' %></li>
+						<li><%= link_to t('main.log_out'), sessions_path, data: {turbo_method: 'DELETE'},
+										class: 'block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %></li>
+					<% else %>
+						<li><%= link_to t('main.sign_up'), new_company_path,
+										class:'block text-white bg-gradient-to-r word-wrap from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2' %></li>
+						<li><%= link_to t('main.company_sign_in'), sign_in_companies_path,
+										class: 'block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %></li>
+						<li><%= link_to t('main.user_sign_in'), new_user_session_path,
+										class: 'block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %></li>
+					<% end %>
+				</ul>
+				</div>
+		<!-- 會員 -->
+				<%= render 'layouts/photo_dropdown' %>
+				<!-- ＲＷＤ 漢堡選單 -->
+				<button data-collapse-toggle="navbar-language" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-language" aria-expanded="false">
+					<span class="sr-only">Open main menu</span>
+					<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+					</svg>
+				</button>
+		</div>
+		<!-- 主要選單 -->
+		<div class="items-center justify-between hidden w-full font-thin md:flex md:w-auto md:order-1 md:pl-5" id="navbar-language">
+			<ul class="flex flex-col p-4 mt-4 font-light border border-gray-100 rounded-lg lg:font-light md:p-0 bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"> 
+				<li>
+					<%= link_to t('main.home'), root_path, 
+							aria: { current: ('page' if current_page?(root_path)) },
+							class: "block px-3 py-2 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" %>
+				</li>
+				<li>
+					<%= link_to t('main.about'), about_path,
+							aria: { current: ('page' if current_page?(about_path)) },
+							class: 'block px-3 py-2 tracking-wide text-gray-900 rounded md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' %>
+				</li>
+				<li>
+					<%= link_to t('main.privacy'), privacy_path,
+							aria: { current: ('page' if current_page?(privacy_path)) },
+							class: 'block px-3 py-2 tracking-wide text-gray-900 rounded md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' %>
+				</li>
+				<li>
+					<%= link_to t('main.feature'), "#{root_path}#calendar",
+							class: 'block px-3 py-2 tracking-wide text-gray-900 rounded md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' %>
+				</li>
+			</ul>
+		</div>
+	</div>
 </nav>
