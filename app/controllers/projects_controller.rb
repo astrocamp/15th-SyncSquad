@@ -7,8 +7,9 @@ class ProjectsController < ApplicationController
   before_action :find_company_projects, only: %i[index]
 
   def index
+    @project = current_user.affiliated_projects.all #current_user projects
     @q = @projects.ransack(params[:q])
-    @project = @q.result.includes(:owner)
+    @projects = @q.result.includes(:owner)
   end
 
   def aside_list; end
