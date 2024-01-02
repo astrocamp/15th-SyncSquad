@@ -1,12 +1,21 @@
 tw:
   main:
-    user_sign_in: '員工登入'
-    company_sign_in: '公司登入'
-    sign_in: '登入'
-    sign_up: '註冊'
-    log_out: '登出'
-    edit: '編輯'
-    events: '事件'
-    calendar: '行事曆'
-    project: '專案管理'
-    chatroom: '聊天室'
+    user_sign_in: "員工登入"
+    company_sign_in: "公司登入"
+    sign_in: "登入"
+    sign_up: "註冊"
+    log_out: "登出"
+    edit: "編輯"
+    events: "事件"
+    calendar: "行事曆"
+    project: "專案管理"
+    chatroom: "聊天室"
+
+  company:
+    creation_success: "公司創建成功"
+
+  helpers:
+    submit:
+      company:
+        create: 新增公司
+        update: 更新公司資料
