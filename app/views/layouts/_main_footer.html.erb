@@ -75,15 +75,23 @@
             <div class="flex mt-4 space-x-5 sm:justify-center md:mt-0 rtl:space-x-reverse">
                 <!-- 語言選項 -->
                 <div>
+                  <% if params[:lang] == "en" %>
                     <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center justify-center px-4 py-2 text-sm font-light text-gray-900 border-2 border-gray-200 rounded-lg cursor-pointer text-thin dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-white">
-                        <%= image_tag('lang_en_icon.svg', class: 'w-5 h-5 rounded-full me-3', alt: 'Description') %>
+                      <%= image_tag('lang_en_icon.svg', class: 'w-5 h-5 rounded-full me-3', alt: 'Description') %>
                     English (US)
                     </button>
+                  <% else  %>
+                    <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center justify-center px-4 py-2 text-sm font-light text-gray-900 border-2 border-gray-200 rounded-lg cursor-pointer text-thin dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <%= image_tag('lang_tw_icon.svg', class: 'w-5 h-5 rounded-full me-3', alt: 'Description') %>
+                    中文 (繁體)
+                    </button>
+                      
+                  <% end %>
                     <!-- Dropdown -->
                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700" id="language-dropdown-menu">
                         <ul class="py-2 font-medium" role="none">
                         <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100extra5dark:text-gray-400 lg:text-slate-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                            <a href="<%= url_for(lang: :en) %>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100extra5dark:text-gray-400 lg:text-slate-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
                             <div class="inline-flex items-center font-light">
                                 <%= image_tag('lang_en_icon.svg', class: 'h-3.5 w-3.5 rounded-full me-2') %>           
                                 English (US)
@@ -91,7 +99,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
+                            <a href="<%= url_for(lang: :tw) %>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
                             <div class="inline-flex items-center font-light">
                                 <%= image_tag('lang_tw_icon.svg', class: 'h-3.5 w-3.5 rounded-full me-2') %> 
                                 中文 (繁體)
