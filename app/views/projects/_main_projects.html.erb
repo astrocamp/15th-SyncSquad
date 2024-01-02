@@ -1,12 +1,12 @@
 <% projects.each do |project| %>
-    <li class="flex">
-        <div><%= link_to project.title, project %></div>
-        <div><%= project.description %></div>
-        <div><%= project.owner.nick_name %></div>
-        <div>
-            <div><%= project.created_at.strftime("%Y-%m-%d") %></div>
-            <div><%= project.updated_at.strftime("%Y-%m-%d") %></div>
-        </div>
-        <%= link_to 'Edit Project', edit_project_path(project),data:{turbo_frame: "modal"} %>
-    </li>
+  <li class="flex">
+    <div><%= link_to project.title, project %></div>
+    <div><%= project.description %></div>
+    <div><%= project.owner.nick_name %></div>
+    <div>
+        <div><%= project.created_at.strftime("%Y-%m-%d") %></div>
+        <div><%= project.updated_at.strftime("%Y-%m-%d") %></div>
+    </div>
+    <%= link_to 'Edit Project', edit_project_path(project),data:{turbo_frame: "modal"} %>
+  </li>
 <% end %>
