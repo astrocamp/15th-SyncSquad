@@ -18,7 +18,7 @@
 <turbo-stream action="append" target="aside_list">
   <template>
     <li class="flex justify-between py-2">
-      <%= link_to @project.title, project_path(@project), class: "grow pl-8" %>
+      <%= link_to @project.title, project_path(@project), class: "grow pl-4" %>
       <%= link_to edit_project_path(@project),
         data:{turbo_frame: "modal"},
         class: "px-4"  do %>
