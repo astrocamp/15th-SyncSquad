@@ -94,7 +94,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_15_074426) do
 
   create_table "lists", force: :cascade do |t|
     t.string "title"
-    t.bigint "projects_id", null: false
+    t.bigint "project_id", null: false
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
