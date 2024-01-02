@@ -14,7 +14,7 @@
     <div id="drawer" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label">
       <h2 class="px-8 pb-4 text-2xl text-gray-900 dark:text-white"><%= t('project.affiliated_projects') %></h2>
       <ul id="aside_list">
-          <%= render 'aside_projects', projects: @projects %>
+          <%= render 'aside_projects', projects: @project %>
       </ul>
 
       <button type="button" data-drawer-hide="drawer" aria-controls="drawer" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white" >
@@ -44,7 +44,7 @@
       <% end %>
     </div>
     <ul id="main_list">
-      <%= render 'main_projects', projects: @project %>
+      <%= render 'main_projects', projects: @projects %>
     </ul>
   </main>
 </div>
