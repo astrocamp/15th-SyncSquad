@@ -4,10 +4,10 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_project, only: %i[show update destroy edit]
   before_action :find_current_user_affiliated_projects, only: %i[index show]
+  before_action :find_company_projects, only: %i[index]
 
   def index
-    # @project = current_user.affiliated_projects.new
-    @q = Project.ransack(params[:q])
+    @q = @projects.ransack(params[:q])
     @project = @q.result.includes(:owner)
   end
 
@@ -50,5 +50,11 @@ class ProjectsController < ApplicationController
 
   def find_current_user_affiliated_projects
     @projects = current_user.affiliated_projects.order(id: :asc)
+  end
+
+  def find_company_projects
+    @company = Company.find(current_user.company_id)
+    @users = @company.users.ids
+    @projects = Project.where(owner: @users)
   end
 end
