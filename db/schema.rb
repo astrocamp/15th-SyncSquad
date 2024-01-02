@@ -110,7 +110,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_29_081256) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "row_order"
-    t.datetime "estimated_complete_at", precision: nil
+    t.datetime "estimated_complete_at"
     t.bigint "user_id"
     t.index ["deleted_at"], name: "index_tasks_on_deleted_at"
     t.index ["list_id"], name: "index_tasks_on_list_id"
