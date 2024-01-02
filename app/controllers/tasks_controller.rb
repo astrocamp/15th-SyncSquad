@@ -2,6 +2,7 @@
 
 class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
+  before_action :find_list, only: %i[new create]
 
   def show; end
 
@@ -12,12 +13,10 @@ class TasksController < ApplicationController
   end
 
   def new
-    @list = List.find(params[:list_id])
     @task = @list.tasks.new
   end
 
   def create
-    @list = List.find(params[:list_id])
     @project = @list.project
     @task = @list.tasks.build(task_params)
     if @task.save
@@ -30,7 +29,7 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
-    @project = @task.list.project
+    @project = @task.project
     if @task.update(task_params)
       redirect_to task_path(@task)
       flash.now[:success] = '待辦事項更新成功'
@@ -40,7 +39,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @project = @task.list.project
+    @project = @task.project
     @task.destroy
     flash.now[:alert] = '待辦事項已刪除'
   end
@@ -54,5 +53,9 @@ class TasksController < ApplicationController
 
   def find_task
     @task = Task.find(params[:id])
+  end
+
+  def find_list
+    @list = List.find(params[:list_id])
   end
 end
