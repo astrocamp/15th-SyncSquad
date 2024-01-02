@@ -5,7 +5,5 @@ import {
   faCircleChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faEllipsis);
-library.add(faPlus);
-library.add(faCircleChevronLeft);
+library.add({ faEllipsis, faPlus, faCircleChevronLeft });
 dom.watch();
