@@ -40,4 +40,8 @@ class User < ApplicationRecord
       resized_avatar
     end
   end
+  
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
 end
