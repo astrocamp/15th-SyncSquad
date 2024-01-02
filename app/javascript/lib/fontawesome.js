@@ -7,5 +7,5 @@ import {
   faBuilding,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faEllipsis, faPlus, faUser, faCircleChevronLeft, faBuilding);
+library.add({ faEllipsis, faBuilding, faUser, faPlus, faCircleChevronLeft });
 dom.watch();
