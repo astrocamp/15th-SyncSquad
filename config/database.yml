@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: sync_squad_production
   username: sync_squad
   password: <%= ENV["SYNC_SQUAD_DATABASE_PASSWORD"] %>
