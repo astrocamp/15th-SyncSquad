@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class ListsController < ApplicationController
-  before_action :find_project, only: %i[new create]
+  before_action :find_project, only: %i[new create index]
   before_action :find_list, only: %i[edit update destroy]
 
   def index
-    @lists = Project.find(params[:project_id]).lists
+    @lists = @project.lists
   end
 
   def new

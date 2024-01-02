@@ -9,6 +9,7 @@ class Task < ApplicationRecord
 
   # Relations
   belongs_to :list
+  delegate :project, to: :list
   belongs_to :user, optional: true # task assign的人一開始可以不用填
 
   # Validates
