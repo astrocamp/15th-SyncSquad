@@ -1,5 +1,11 @@
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faEllipsis, faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEllipsis,
+  faPlus,
+  faUser,
+  faCircleChevronLeft,
+  faBuilding,
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add({ faEllipsis, faBuilding, faUser, faPlus, faCircleChevronLeft });
+library.add(faEllipsis, faPlus, faUser, faCircleChevronLeft, faBuilding);
 dom.watch();
