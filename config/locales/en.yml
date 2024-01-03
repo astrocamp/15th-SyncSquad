@@ -1,6 +1,7 @@
 en:
   main:
     user_sign_in: "User Sign In"
+    new_user: "New Staff"
     company_sign_in: "Company Sign In"
     sign_in: "Sign In"
     company_sign_up: "Company Sign Up"
@@ -18,6 +19,7 @@ en:
     calendar: "Calendar"
     project: "Project"
     chatroom: "Chatroom"
+    setting: "Setting"
 
   calender:
     event: "Event"
@@ -43,3 +45,10 @@ en:
 
   hrs:
     new_user: "New Staff"
+    role: "Job Title"
+    email_placeholder: "Email Address"
+    password_placeholder: "Password"
+    password_confirmation_placeholder: "Confirm Password"
+    user_lists: "User Lists"
+    update: "Update"
+    delete: "Delete"

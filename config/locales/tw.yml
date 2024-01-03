@@ -1,6 +1,7 @@
 tw:
   main:
     user_sign_in: "員工登入"
+    new_user: "創建員工"
     company_sign_in: "公司登入"
     sign_in: "登入"
     company_sign_up: "公司註冊"
@@ -18,6 +19,7 @@ tw:
     calendar: "行事曆"
     project: "專案管理"
     chatroom: "聊天室"
+    setting: "設定"
 
   company:
     creation_success: "公司創建成功"
@@ -33,9 +35,11 @@ tw:
 
   helpers:
     submit:
+      user:
+        create: "新增"
       company:
-        create: 新增公司
-        update: 更新公司資料
+        create: "新增公司"
+        update: "更新公司資料"
 
   devise:
     user_sign_in: "員工登入"
@@ -46,3 +50,10 @@ tw:
 
   hrs:
     new_user: "創建員工"
+    role: "職稱"
+    email_placeholder: "輸入員工信箱"
+    password_placeholder: "輸入密碼"
+    password_confirmation_placeholder: "確認密碼"
+    user_lists: "員工列表"
+    update: "更新"
+    delete: "刪除"
