@@ -1,0 +1,8 @@
+<%= form_with(model: new_room) do |form| %>
+  <div>
+    <%= form.label :name, '房間名稱' %>
+    <%= form.text_field :name %>
+  </div>
+  <%= form.submit '建立房間' %>
+</div>
+<% end %>

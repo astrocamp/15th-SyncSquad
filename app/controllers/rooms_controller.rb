@@ -4,8 +4,11 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
     @room = Room.public_rooms
-    @new_room = Room.new
     @users = User.all_except(current_user)
+  end
+
+  def new
+    @new_room = Room.new
   end
 
   def create
@@ -17,7 +20,6 @@ class RoomsController < ApplicationController
     @room = Room.public_rooms
     @new_room = Room.new
     @users = User.all_except(current_user)
-
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
     render 'index'
