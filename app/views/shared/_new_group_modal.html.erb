@@ -1,0 +1,17 @@
+<%= form_with(model: new_room) do |form| %>
+  <div>
+    <%= form.label :name, '私人房間' %>
+    <%= form.text_field :name %>
+  </div>
+
+<div class="flex gap-3 mt-3">
+  <%= form.submit '建立房間' %>
+  <div>
+    <%= link_to "取消", "#", data: {
+      controller: "modals",
+      action: "modals#close"
+      } %>
+  </div>
+</div>
+<% end %>
+</div>
