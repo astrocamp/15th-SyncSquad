@@ -26,6 +26,10 @@ tw:
     password: "密碼"
     password_confirmation: "密碼確認"
     company_sign_up: "公司註冊"
+    not_registered: "尚未註冊"
+    please: "請先"
+    company_sign_in: "公司登入"
+    login: "登入"
 
   helpers:
     submit:

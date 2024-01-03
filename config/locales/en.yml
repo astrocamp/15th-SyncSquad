@@ -29,3 +29,7 @@ en:
     password: "Password"
     password_confirmation: "Password_confirmation"
     company_sign_up: "Company Sign Up"
+    not_registered: "Not registered"
+    please: "Please"
+    company_sign_in: "Company Sign In"
+    login: "Login"

@@ -1,19 +1,19 @@
-<h1 class="text-2xl">公司登入</h1>
+<h1 class="text-2xl"><%= t('company.company_sign_in') %></h1>
 
 <%= form_with(url: sessions_path,
               scope: 'company',
               data: {turbo: false}) do |form| %>
 
   <div>
-    <%= form.label :email %><br />
+    <%= form.label t('company.email') %><br />
     <%= form.email_field :email, class: 'border-2 border-black' %>
   </div>
 
   <div>
-    <%= form.label :password %><br />
+    <%= form.label t('company.password') %><br />
     <%= form.password_field :password, class: 'border-2 border-black' %>
-    <%= form.submit "登入", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-    尚未註冊? 請先<%= link_to '公司註冊', new_company_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= form.submit t('company.login'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= t('company.not_registered') %>? <%= t('company.please') %><%= link_to t('company.company_sign_up'), new_company_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
     
   </div>
 
