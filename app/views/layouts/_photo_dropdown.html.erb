@@ -9,7 +9,7 @@
                   <% if user_signed_in? %>
                       <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-user <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
                   <% else %>
-                      <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-building <%= 'lg:p-2 lg:h-6' if params[:controller] -= 'main' %>"></i>
+                      <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-building <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
                   <% end %>
               </div>
           </div>
