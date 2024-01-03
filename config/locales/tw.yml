@@ -43,3 +43,6 @@ tw:
     password: "密碼"
     remember_me: "記得我"
     login: "登入"
+
+  hrs:
+    new_user: "創建員工"
