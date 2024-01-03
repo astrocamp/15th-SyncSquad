@@ -1,15 +1,17 @@
-  <h1 class="font-bold text-4xl"><%= t('hrs.new_user') %></h1>
+  <h3 class="font-bold text-4xl"><%= t('hrs.new_user') %></h3>
   
 
 
 <%= form_with(model: @user, url: hrs_path, method: :post) do |f| %>
-  <%= f.email_field :email, placeholder: "Email" %>
+  <%= f.email_field :email, placeholder: t('hrs.email_placeholder') %>
+
+  <%= f.label t('hrs.role') %>
   <%= f.select :role, User.roles.keys.map { |w| [w.humanize, w]} %>
   <br />
-  <%= f.password_field :password, placeholder: "Password" %>
-  <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+  <%= f.password_field :password, placeholder: t('hrs.password_placeholder') %>
+  <%= f.password_field :password_confirmation, placeholder: t('hrs.password_confirmation_placeholder') %>
   
-  <%= f.submit "新增", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <%= f.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
    <div class="field hidden">
     <%= f.label :company_id %><br />
     <%= f.text_field :company_id, value: current_company.id %>
@@ -17,7 +19,7 @@
 <% end %>
 
 
-  <h1 class="font-bold text-4xl">員工列表</h1>
+  <h3 class="font-bold text-4xl"><%= t('hrs.user_lists') %></h3>
  
 
 <% @users.each do |user| %>
@@ -26,8 +28,8 @@
       
         <%= f.text_field :email %> - 
         <%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]}) %> - 
-        <%= f.submit "更新", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-        <%= link_to '刪除', hr_path(user), class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded", data: {
+        <%= f.submit t('hrs.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+        <%= link_to t('hrs.delete'), hr_path(user), class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded", data: {
                turbo_method: 'delete',
                turbo_confirm: '確認刪除？'
              } %>
