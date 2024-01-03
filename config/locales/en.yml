@@ -46,6 +46,9 @@ en:
     password: "Password"
     remember_me: "Remember Me"
     login: "Login"
+    sessions:
+      signed_in: "Signed in successfully"
+      signed_out: "Signed out successfully"
 
   hrs:
     new_user: "New Staff"

@@ -21,6 +21,9 @@ tw:
     chatroom: "聊天室"
     setting: "設定"
 
+  calender:
+    event: "活動"
+
   company:
     creation_success: "公司創建成功"
     creation_failed: "公司創建失敗"
@@ -37,20 +40,15 @@ tw:
     login_failed: "登入失敗"
     logout_success: "已登出"
 
-  helpers:
-    submit:
-      user:
-        create: "新增"
-      company:
-        create: "新增公司"
-        update: "更新公司資料"
-
   devise:
     user_sign_in: "員工登入"
     email: "信箱"
     password: "密碼"
     remember_me: "記得我"
     login: "登入"
+    sessions:
+      signed_in: "登入成功"
+      signed_out: "已登出"
 
   hrs:
     new_user: "創建員工"
@@ -66,3 +64,11 @@ tw:
     update_success: "員工資料更新"
     update_failed: "員工更新失敗"
     delete_staff: "刪除離職員工"
+
+  helpers:
+    submit:
+      user:
+        create: "新增"
+      company:
+        create: "新增公司"
+        update: "更新公司資料"
