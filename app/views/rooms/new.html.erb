@@ -1,13 +1,6 @@
-<%= turbo_frame_tag "modal" do %>
+<%= turbo_frame_tag "modal", class: "modal-backdrop hidden" do %>
   <div class="modal">
     <h1>創建聊天室</h1>
     <%= render "shared/new_room_modal" ,new_room:@new_room %>
-    <br>
-    <div>
-      <%= link_to "取消", "#", data: {
-        controller: "modals",
-        action: "modals#close"
-      } %>
-    </div>
   </div>
 <% end %>
