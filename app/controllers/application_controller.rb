@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
     { lang: I18n.locale }
   end
 
-  def switch_locale(&action)
+  def switch_locale(&)
     lang = params[:lang] || I18n.default_locale
-    I18n.with_locale(lang, &action)
+    I18n.with_locale(lang, &)
   end
-  
+
   def current_company
     Company.find_by(id: session[:__company_ticket__])
   end
