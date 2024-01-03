@@ -11,23 +11,23 @@ class HrsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to hrs_path, notice: '員工新增成功'
+      redirect_to hrs_path, notice: t('hrs.creation_success')
     else
-      redirect_to hrs_path, alert: '無法新增員工'
+      redirect_to hrs_path, alert: t('hrs.creation_failed')
     end
   end
 
   def update
     if @user.update(user_params)
-      redirect_to hrs_path, notice: '員工資料更新'
+      redirect_to hrs_path, notice: t('hrs.update_success')
     else
-      redirect_to hrs_path, alert: '員工更新失敗'
+      redirect_to hrs_path, alert: t('hrs.update_failed')
     end
   end
 
   def destroy
     @user.destroy
-    redirect_to hrs_path, alert: '刪除離職員工'
+    redirect_to hrs_path, alert: t('hrs.delete_staff')
   end
 
   private
