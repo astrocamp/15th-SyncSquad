@@ -33,3 +33,10 @@ en:
     please: "Please"
     company_sign_in: "Company Sign In"
     login: "Login"
+
+  devise:
+    user_sign_in: "User Sign In"
+    email: "Email"
+    password: "Password"
+    remember_me: "Remember Me"
+    login: "Login"
