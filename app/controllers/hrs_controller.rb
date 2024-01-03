@@ -11,7 +11,7 @@ class HrsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to hrs_path, notice: t('hrs.creation_success')
+      redirect_to hrs_path, success: t('hrs.creation_success')
     else
       redirect_to hrs_path, alert: t('hrs.creation_failed')
     end
@@ -19,7 +19,7 @@ class HrsController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to hrs_path, notice: t('hrs.update_success')
+      redirect_to hrs_path, success: t('hrs.update_success')
     else
       redirect_to hrs_path, alert: t('hrs.update_failed')
     end
@@ -27,7 +27,7 @@ class HrsController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to hrs_path, alert: t('hrs.delete_staff')
+    redirect_to hrs_path, success: t('hrs.delete_staff')
   end
 
   private

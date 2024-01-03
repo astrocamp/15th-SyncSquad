@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     if @company.save
       session[:__company_ticket__] = @company.id
-      redirect_to root_path, notice: t('company.creation_success')
+      redirect_to root_path, success: t('company.creation_success')
     else
       redirect_to new_company_path, alert: t('company.creation_failed')
     end
