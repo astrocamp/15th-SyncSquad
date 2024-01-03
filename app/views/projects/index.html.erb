@@ -1,15 +1,5 @@
 <div class="flex">
   <aside>
-    <!-- drawer init and toggle -->
-    <div class="text-center">
-      <button type="button" 
-      data-drawer-target="drawer"
-      aria-controls="drawer"
-      data-drawer-show="drawer">
-      <i class="fa-solid fa-circle-chevron-left"></i>
-      </button>
-    </div>
-
     <!-- drawer component -->
     <div id="drawer" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label">
       <h2 class="px-8 pb-4 text-2xl text-gray-900 dark:text-white"><%= t('project.affiliated_projects') %></h2>
@@ -35,17 +25,32 @@
   </aside>
 
   <main class="flex-auto">
-    <header class="flex">
-      <%= content_tag(:h1, t('project.affiliated_projects'), class: "text-3xl text-gray-900 dark:text-white") %>
-    </header>
+    <!-- 暫換button 位置 -->
     <div>
-      <%= link_to  new_project_path, data: { turbo_frame: "modal" } do%>
-          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
-      <% end %>
+      <!-- drawer init and toggle -->
+      <div class="text-center">
+      <button type="button" 
+      data-drawer-target="drawer"
+      aria-controls="drawer"
+      data-drawer-show="drawer">
+      <i class="fa-solid fa-circle-chevron-left"></i>
+      </button>
     </div>
+  </div>
+    <header class="flex justify-center items-center">
+      <%= content_tag(:h1, t('project.affiliated_projects'), class: "text-3xl text-gray-900 dark:text-white") %>
+      <div class="px-4"> 
+        <%= link_to  new_project_path, data: { turbo_frame: "modal" } do%>
+          <i class="fa-solid fa-plus"></i>
+        <% end %>
+    </div>
+    </header>
+
+  <div  class="flex justify-center">
     <ul id="main_list">
       <%= render 'main_projects', projects: @projects %>
     </ul>
+  </div>
   </main>
 </div>
 
