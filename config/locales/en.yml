@@ -4,7 +4,7 @@ en:
     new_user: "New Staff"
     company_sign_in: "Company Sign In"
     sign_in: "Sign In"
-    company_sign_up: "Company Sign Up"
+    new_company: "Company Sign Up"
     log_out: "Log Out"
     edit: "Edit"
     home: "Home"
