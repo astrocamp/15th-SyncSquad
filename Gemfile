@@ -123,4 +123,4 @@ gem 'redcarpet', '~> 3.6'
 gem 'rouge', '~> 4.2'
 
 # 圖片處理
-gem "mini_magick", "~> 4.12"
+gem 'mini_magick', '~> 4.12'
