@@ -7,9 +7,8 @@ class ProjectsController < ApplicationController
   before_action :find_company_projects, only: %i[index]
   before_action :search_project, only: %i[update create]
 
-
   def index
-    @project = current_user.affiliated_projects.all #current_user projects
+    @project = current_user.affiliated_projects.all # current_user projects
     @q = @projects.ransack(params[:q])
     @projects = @q.result.includes(:owner)
   end
