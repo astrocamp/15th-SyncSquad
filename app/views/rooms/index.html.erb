@@ -1,5 +1,6 @@
-<div class="flex justify-between gap-x-20 text-cyan-600">
-  <h3 class="text-2xl text-cyan-600">
+<div class="flex justify-between gap-x-20 text-cyan-600 p-3">
+  <h1 class="text-3xl"> <%= link_to "建立房間", new_room_path, data: { turbo_frame: "modal" } %></h1>
+  <h3 class="text-2xl pt-1 text-cyan-600">
     歡迎 <%= current_user.name %> ლ(╹◡╹ლ)</h3>
 </div>
 
@@ -15,9 +16,13 @@
           <%= render @room%>
         </div>
       </div>
+    </div>
 
-      <div class="mt-8">
-        <%= render "layouts/new_room_form" %>
+    <div id="chat-room" class="mt-5">
+      <h3 class="text-2xl text-orange-400 mt-4">房間列表</h3>
+      <%= turbo_stream_from "rooms"%>
+      <div id="rooms">
+        <%= render @room%>
       </div>
 
     </div>
