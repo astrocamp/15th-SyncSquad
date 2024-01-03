@@ -36,3 +36,10 @@ tw:
       company:
         create: 新增公司
         update: 更新公司資料
+
+  devise:
+    user_sign_in: "員工登入"
+    email: "信箱"
+    password: "密碼"
+    remember_me: "記得我"
+    login: "登入"
