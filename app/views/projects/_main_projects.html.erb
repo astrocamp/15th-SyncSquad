@@ -14,7 +14,7 @@
           <%# 跟使用者同一家公司內的成員 %>
     </div>
     <div class="flex items-center">
-      <%= link_to "清除篩選", request.path, 
+      <%= link_to "清除篩選", "", 
       class:"rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md", 
       data: {controller: "reset-form", action:"turbo:submit-end->reset-form#reset"}%> 
     </div>
