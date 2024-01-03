@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
       session[:__company_ticket__] = @company.id
       redirect_to root_path, notice: t('company.creation_success')
     else
-      redirect_to new_company_path, alert: '公司創建失敗'
+      redirect_to new_company_path, alert: t('company.creation_failed')
     end
   end
 
