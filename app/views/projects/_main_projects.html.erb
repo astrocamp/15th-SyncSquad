@@ -22,7 +22,7 @@
 <% end %>
 
 <div class="flex justify-center">
-  <%= turbo_frame_tag :results, data: {turbo_frame: "_top"} do %>
+  <%= turbo_frame_tag :results do %>
     <table>
       <thead>
         <th><%= sort_link(@q, :title, t('project.Title'), default_order: :desc) %> </th>
@@ -34,7 +34,7 @@
       <tbody>
         <% projects.each do |project| %>
         <tr>
-          <td><%= link_to project.title, project%></td>
+          <td><%= link_to project.title, project, data: {turbo_frame: "_top"}%></td>
           <td><%= project.description %></td>
           <td><%= project.owner.email %></td>
           <td><%= project.created_at.strftime("%Y-%m-%d") %></td>

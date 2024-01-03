@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: %i[show update destroy edit]
   before_action :find_current_user_affiliated_projects, only: %i[index show]
   before_action :find_company_projects, only: %i[index]
+  before_action :search_project, only: %i[update create]
+
 
   def index
     @project = current_user.affiliated_projects.all #current_user projects
@@ -57,5 +59,13 @@ class ProjectsController < ApplicationController
     @company = Company.find(current_user.company_id)
     @users = @company.users.ids
     @projects = Project.where(owner: @users)
+  end
+
+  def search_project
+    @company = Company.find(current_user.company_id)
+    @users = @company.users.ids
+    @projects = Project.where(owner: @users)
+    @q = @projects.ransack(params[:q])
+    @projects = @q.result.includes(:owner)
   end
 end

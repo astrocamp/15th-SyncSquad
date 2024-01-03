@@ -1,16 +1,7 @@
 <%# 主要list 用turbo_stream 呈現 %>
-<turbo-stream action="append" target="main_list">
+<turbo-stream action="update" target="main_list">
   <template>
-    <li class="flex">
-      <div><%= link_to @project.title, project_path(@project) %></div>
-      <div><%= @project.description %></div>
-      <div><%= @project.owner.nick_name %></div>
-      <div>
-        <div><%= @project.created_at.strftime("%Y-%m-%d") %></div>
-        <div><%= @project.updated_at.strftime("%Y-%m-%d") %></div>
-      </div>
-      <%= link_to 'Edit Project', edit_project_path(@project),data:{turbo_frame: "modal"} %>
-    </li>
+    <%= render partial: 'main_projects', locals:{projects: @projects} %>
   </template>
 </turbo-stream>
 
