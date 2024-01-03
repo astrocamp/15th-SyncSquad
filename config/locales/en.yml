@@ -40,3 +40,6 @@ en:
     password: "Password"
     remember_me: "Remember Me"
     login: "Login"
+
+  hrs:
+    new_user: "New Staff"
