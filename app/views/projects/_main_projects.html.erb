@@ -1,35 +1,47 @@
-
-
-<%= search_form_for @q do |f| %>
-  <%= f.label :title_cont %>
-  <%= f.search_field :title_cont %>
-
-  <%= f.label :owner_name_cont %>
-  <%= f.search_field :owner_name_cont %>
-
-  <%= f.submit %>
+<%= search_form_for @q, data: { turbo_frame: :results } do |f| %>
+  <div class="flex">
+    <div class="flex items-center"> 搜尋專案列表 </div>
+    <div class="flex items-center px-4">
+    <%= f.label :title_cont, t('project.Title'), class:"pr-2" %>
+    <%= f.search_field :title_cont, class:"form-input", oninput: 'this.form.requestSubmit();' %>
+    </div>
+    <div class="flex items-center px-4 w-96">
+      <%= f.label :owner_email_cont, t('project.Email'), class:"pr-2"  %>
+      <%= f.select :owner_email_cont, 
+          Company.find(current_user.company_id).users.pluck(:email), {include_blank: true}, 
+          data:{controller:"slimselect"},
+          onchange: 'this.form.requestSubmit();' %> 
+          <%# 跟使用者同一家公司內的成員 %>
+    </div>
+    <div class="flex items-center">
+      <%= link_to "清除篩選", request.path, 
+      class:"rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md", 
+      data: {controller: "reset-form", action:"turbo:submit-end->reset-form#reset"}%> 
+    </div>
+  </div>
 <% end %>
 
-
-  <table>
-    <thead>
-      <th><%= sort_link(@q, :title, t('project.Title')) %> </th>
-      <th><%= sort_link(@q, :description, t('project.Description')) %></th>
-      <th><%= sort_link(@q, :owner_name, t('project.Name')) %></th>
-      <th><%= sort_link(@q, :created, t('project.Created Time')) %> </th>
-      <th><%= sort_link(@q, :updated, t('project.Updated Time')) %></th>
-      <th>Edit</th>
-    </thead>
-    <tbody>
-      <% projects.each do |project| %>
-      <tr>
-        <td><%= link_to project.title, project %></td>
-        <td><%= project.description %></td>
-        <td><%= project.owner.name %></td>
-        <td><%= project.created_at.strftime("%Y-%m-%d") %></td>
-        <td><%= project.updated_at.strftime("%Y-%m-%d") %></td>
-        <td><%= link_to 'Edit Project', edit_project_path(project),data:{turbo_frame: "modal"} %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="flex justify-center">
+  <%= turbo_frame_tag :results, data: {turbo_frame: "_top"} do %>
+    <table>
+      <thead>
+        <th><%= sort_link(@q, :title, t('project.Title'), default_order: :desc) %> </th>
+        <th><%= sort_link(@q, :description, t('project.Description'), default_order: :desc) %></th>
+        <th><%= sort_link(@q, :owner_email, t('project.Email'), default_order: :desc) %></th>
+        <th><%= sort_link(@q, :created_at, t('project.Created Time'), default_order: :desc) %> </th>
+        <th><%= sort_link(@q, :updated_at, t('project.Updated Time'), default_order: :desc) %></th>
+      </thead>
+      <tbody>
+        <% projects.each do |project| %>
+        <tr>
+          <td><%= link_to project.title, project%></td>
+          <td><%= project.description %></td>
+          <td><%= project.owner.email %></td>
+          <td><%= project.created_at.strftime("%Y-%m-%d") %></td>
+          <td><%= project.updated_at.strftime("%Y-%m-%d") %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

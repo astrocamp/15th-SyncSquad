@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://unpkg.com/slim-select@latest/dist/slimselect.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://npmcdn.com/flatpickr/dist/themes/material_blue.css", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -20,7 +21,7 @@
         justify-content: flex-end
       }
     </style>
-    <%= stylesheet_link_tag "https://unpkg.com/slim-select@latest/dist/slimselect.css", "data-turbo-track": "reload" %>
+
   </head>
   <body>
     <%= render 'layouts/navbar' %>
