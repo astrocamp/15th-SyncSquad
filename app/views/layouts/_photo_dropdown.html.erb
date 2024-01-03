@@ -41,7 +41,7 @@
               <hr class="my-2 border-gray-100">
               <li>
                 <%= link_to t('main.setting'),
-                    #,
+                    user_signed_in? ? edit_user_registration_path : "#",
                     class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
               </li>
               <li>
