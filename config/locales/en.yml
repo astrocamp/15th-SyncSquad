@@ -26,6 +26,7 @@ en:
 
   company:
     creation_success: "Successfully registered the company"
+    creation_failed: "Creation Failed"
     name: "Name"
     email: "Email"
     password: "Password"
@@ -35,6 +36,9 @@ en:
     please: "Please"
     company_sign_in: "Company Sign In"
     login: "Login"
+    login_success: "Login Success"
+    login_failed: "Login Failed"
+    logout_success: "Logout Success"
 
   devise:
     user_sign_in: "User Sign In"
