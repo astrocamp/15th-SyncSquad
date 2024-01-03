@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module RoomsHelper
-	def format_user_email(user)
-    user.email.split("@").first.split("-").reverse.map(&:capitalize).join(" ")
+  def format_user_email(user)
+    user.email.split('@').first.split('-').reverse.map(&:capitalize).join(' ')
   end
 end
