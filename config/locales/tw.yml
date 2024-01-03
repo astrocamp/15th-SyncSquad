@@ -4,7 +4,7 @@ tw:
     new_user: "創建員工"
     company_sign_in: "公司登入"
     sign_in: "登入"
-    company_sign_up: "公司註冊"
+    new_company: "公司註冊"
     log_out: "登出"
     edit: "編輯"
     home: "首頁"
