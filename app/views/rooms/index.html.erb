@@ -7,10 +7,12 @@
 
   <div id="left-side" class="w-2/12 bg-yellow-300">
     <div id="chat-room">
-      <h3 class="text-2xl text-orange-400 text-center bg-amber-200 p-3">YOUR CHATROOMS</h3>
+      <h3 class="text-2xl text-orange-400 text-center p-3 bg-amber-200">YOUR CHATROOMS</h3>
       <%= turbo_stream_from "rooms"%>
       <div id="rooms">
-        <%= render @room%>
+        <div>
+          <%= render @room%>
+        </div>
       </div>
       <div class="mt-8">
         <%= render "layouts/new_room_form" %>
