@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   enum role: { staff: 0, hr: 1 }
   # Relationship
   belongs_to :company, optional: true
@@ -20,11 +20,6 @@ class User < ApplicationRecord
 
   # Chatroom avatar
   has_one_attached :avatar
-
-  # Project
-  has_many :project_members, dependent: :destroy
-  has_many :affiliated_projects, through: :project_members, source: :project
-  has_many :tasks
 
   def avatar_thumbnail
     resize_avatar(150, 150)
