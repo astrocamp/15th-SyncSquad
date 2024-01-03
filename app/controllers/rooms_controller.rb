@@ -9,6 +9,7 @@ class RoomsController < ApplicationController
 
   def new
     @new_room = Room.new
+    @modal_type = params[:modal_type]
   end
 
   def create
