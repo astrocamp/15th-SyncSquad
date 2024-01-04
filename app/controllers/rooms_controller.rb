@@ -9,11 +9,27 @@ class RoomsController < ApplicationController
 
   def new
     @new_room = Room.new
+    @new_private_group = Room.new
     @modal_type = params[:modal_type]
   end
 
   def create
-    @new_room = Room.create(name: params['room']['name'])
+    if params[:room][:is_private] == "true"
+      @new_private_group = Room.new(room_params)
+      @new_private_group.is_private = true
+
+      if @new_private_group.save
+        selected_user_ids = params[:room][:user_ids] || []
+        selected_user_ids << current_user.id unless
+                             selected_user_ids.include?(current_user.id)
+
+        selected_user_ids.each do |user_id|
+          Participant.create(room_id: @new_private_group.id, user_id: user_id)
+        end
+      end
+    else
+      @new_room = Room.create(name: params['room']['name'])
+    end
   end
 
   def show
@@ -25,4 +41,8 @@ class RoomsController < ApplicationController
     @messages = @single_room.messages.order(created_at: :asc)
     render 'index'
   end
+end
+
+def room_params
+  params.require(:room).permit(:name, :is_private)
 end

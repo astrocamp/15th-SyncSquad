@@ -159,6 +159,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_15_074426) do
     t.integer "room_type", default: 0
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.bigint "list_id", null: false
     t.string "title"
@@ -181,6 +187,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_15_074426) do
     t.index ["deleted_at"], name: "index_tasks_on_deleted_at"
     t.index ["list_id"], name: "index_tasks_on_list_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "user_tags", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_user_tags_on_tag_id"
+    t.index ["user_id"], name: "index_user_tags_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -220,4 +235,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_15_074426) do
   add_foreign_key "project_members", "projects"
   add_foreign_key "project_members", "users"
   add_foreign_key "tasks", "lists"
+  add_foreign_key "user_tags", "tags"
+  add_foreign_key "user_tags", "users"
 end
