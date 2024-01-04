@@ -21,14 +21,16 @@ class RoomsController < ApplicationController
       if @new_private_group.save
         selected_user_ids = params[:room][:user_ids] || []
         selected_user_ids << current_user.id unless
-                             selected_user_ids.include?(current_user.id)
+                            selected_user_ids.include?(current_user.id)
 
         selected_user_ids.each do |user_id|
           Participant.create(room_id: @new_private_group.id, user_id: user_id)
         end
+        close_modal
       end
     else
       @new_room = Room.create(name: params['room']['name'])
+      close_modal
     end
   end
 
@@ -43,6 +45,15 @@ class RoomsController < ApplicationController
   end
 end
 
+private
+
 def room_params
-  params.require(:room).permit(:name, :is_private, tag_ids: [])
+  params.require(:room).permit(:name, :is_private)
+end
+
+def close_modal
+  respond_to do |format|
+    format.turbo_stream { render turbo_stream: turbo_stream.remove('modal') }
+    format.html { redirect_to rooms_path, notice: 'Room was successfully created.' }
+  end
 end
