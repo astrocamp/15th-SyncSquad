@@ -14,14 +14,14 @@ Rails.application.routes.draw do
 
     devise_scope :user do
       get 'users', to: 'devise/sessions#new'
-      post 'users/import', to: 'users#import', as: 'import_users'
+      get 'users/import', to: 'users#index'
+      post 'users/import', to: 'users#import'
     end
 
     get 'user/:id', to:'users#show',as: 'user'
   
     get 'users/show'
     
-  
     resources :events do 
       member do
         patch :drop
