@@ -1,4 +1,4 @@
-<%= form_with(model: @new_private_group) do |form| %>
+<%= form_with(model: @new_private_group, data: { controller: "turbomodal", action: "turbo:submit-end->turbomodal#submitEnd" }) do |form| %>
   <div>
     <%= form.label :name, '私人房間' %>
     <%= form.text_field :name %>
