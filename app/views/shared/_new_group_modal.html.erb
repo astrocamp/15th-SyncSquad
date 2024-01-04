@@ -6,7 +6,7 @@
 
   <div>
     <%= form.label :user_ids, '選擇成員' %>
-    <%= form.select :user_ids, User.all_except(current_user).pluck(:name, :id), {}, { multiple: true, data: { controller: 'slim', slim_target: 'field' } } %>
+    <%= form.select :user_ids, User.all_except(current_user).pluck(:name, :id), {}, { multiple: true, data: { controller: 'slimselect', slim_target: 'field' } } %>
   </div>
 
   <%= form.hidden_field :is_private, value: true %>
