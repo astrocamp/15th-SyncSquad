@@ -2,17 +2,10 @@
   <div class="flex">
     <div class="flex items-center"> 搜尋專案列表 </div>
     <div class="flex items-center px-4">
-    <%= f.label :title_cont, t('project.Title'), class:"pr-2" %>
-    <%= f.search_field :title_cont, class:"form-input", oninput: 'this.form.requestSubmit();' %>
+      <%= f.label :title_or_owner_email_cont, t('project.Title or Email'), class:"pr-2 shrink-0" %>
+      <%= f.search_field :title_or_owner_email_cont, class:"form-input", oninput: 'this.form.requestSubmit();' %>
     </div>
-    <div class="flex items-center px-4 w-96">
-      <%= f.label :owner_email_cont, t('project.Email'), class:"pr-2"  %>
-      <%= f.select :owner_email_cont, 
-          Company.find(current_user.company_id).users.pluck(:email), {include_blank: true}, 
-          data:{controller:"slimselect"},
-          onchange: 'this.form.requestSubmit();' %> 
-          <%# 跟使用者同一家公司內的成員 %>
-    </div>
+
     <div class="flex items-center">
       <%= link_to "清除篩選", "", 
       class:"rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md", 
@@ -34,9 +27,9 @@
       <tbody>
         <% projects.each do |project| %>
         <tr>
-          <td><%= link_to project.title, project, data: {turbo_frame: "_top"}%></td>
+          <td> <%= link_to highlight(project.title, params.dig(:q, :title_or_owner_email_cont)), project, data: {turbo_frame: "_top"}%></td>
           <td><%= project.description %></td>
-          <td><%= project.owner.email %></td>
+          <td><%= highlight project.owner.email, params.dig(:q, :title_or_owner_email_cont)  %></td>
           <td><%= project.created_at.strftime("%Y-%m-%d") %></td>
           <td><%= project.updated_at.strftime("%Y-%m-%d") %></td>
         </tr>
