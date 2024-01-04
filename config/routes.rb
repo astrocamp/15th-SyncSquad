@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'user/:id', to:'users#show',as: 'user'
   
     get 'users/show'
-    devise_for :users, controllers: {registrations: 'users/registrations/registrations'}
+    
   
     resources :events do 
       member do
