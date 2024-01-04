@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def import
+    return redirect_to new_user_registration_path, notice: "只能傳CSV檔案" unless params[:file].content_type == "text/csv"
+    redirect_to new_user_registration_path, notice: "檔案匯入中"
+  end
+
   def company_params
     params.require(:company)
           .permit(:name, :email, :password, :password_confirmation)
