@@ -348,6 +348,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kaminari (~> 1.2)
+  mini_magick (~> 4.12)
   paranoia (~> 2.6)
   pg (~> 1.1)
   puma (>= 5.0)

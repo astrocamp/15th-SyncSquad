@@ -49,6 +49,9 @@ tw:
     sessions:
       signed_in: "登入成功"
       signed_out: "已登出"
+    failure:
+      not_found_in_database: "此帳號不存在或密碼錯誤"
+      invalid: "密碼錯誤"
 
   hrs:
     new_user: "創建員工"
