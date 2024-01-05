@@ -1,0 +1,16 @@
+<div class="flex">
+  <aside class="flex-initial p-6 text-white bg-gray-400">
+    <div class="w-64 h-screen">
+      <%= params %>
+      <% @tasks.each do |task| %>
+        <div>
+          <%= task.title %>
+        </div>
+      <% end %>
+    </div>
+  </aside>
+  <main class="flex-1 p-6">
+    <div data-controller="ccc" data-ccc-target="calendar">
+    </div>
+  </main>
+</div>

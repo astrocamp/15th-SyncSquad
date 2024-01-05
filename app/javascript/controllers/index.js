@@ -2,31 +2,34 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application";
+import { application } from './application'
 
-import CalendarController from "./calendar_controller";
-application.register("calendar", CalendarController);
+import CalendarController from './calendar_controller'
+application.register('calendar', CalendarController)
 
-import ColorPickerController from "./color_picker_controller";
-application.register("color-picker", ColorPickerController);
+import CccController from './ccc_controller'
+application.register('ccc', CccController)
 
-import DatepickerController from "./datepicker_controller";
-application.register("datepicker", DatepickerController);
+import ColorPickerController from './color_picker_controller'
+application.register('color-picker', ColorPickerController)
 
-import HelloController from "./hello_controller";
-application.register("hello", HelloController);
+import DatepickerController from './datepicker_controller'
+application.register('datepicker', DatepickerController)
 
-import NotificationController from "./notification_controller";
-application.register("notification", NotificationController);
+import HelloController from './hello_controller'
+application.register('hello', HelloController)
 
-import ResetFormController from "./reset_form_controller";
-application.register("reset-form", ResetFormController);
+import NotificationController from './notification_controller'
+application.register('notification', NotificationController)
 
-import SlimselectController from "./slimselect_controller";
-application.register("slimselect", SlimselectController);
+import ResetFormController from './reset_form_controller'
+application.register('reset-form', ResetFormController)
 
-import SortableController from "./sortable_controller";
-application.register("sortable", SortableController);
+import SlimselectController from './slimselect_controller'
+application.register('slimselect', SlimselectController)
 
-import TurbomodalController from "./turbomodal_controller";
-application.register("turbomodal", TurbomodalController);
+import SortableController from './sortable_controller'
+application.register('sortable', SortableController)
+
+import TurbomodalController from './turbomodal_controller'
+application.register('turbomodal', TurbomodalController)

@@ -48,7 +48,22 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task)
-          .permit(:title, :description, :priority, :start_at, :estimated_complete_at, :user_id)
+          .permit(:title, 
+                  :description, 
+                  :priority, 
+                  :start_date, 
+                  :start_datetime,
+                  :start_timezone,
+                  :end_date,
+                  :end_datetime,
+                  :end_timezone,
+                  :all_day_event,
+                  :private,
+                  :location,
+                  :source,
+                  :complete_at,
+                  :estimated_complete_at, 
+                  :user_id)
   end
 
   def find_task

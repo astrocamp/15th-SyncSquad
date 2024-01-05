@@ -9,12 +9,10 @@ export default class extends ColorPicker {
 
     this.picker
       .on('changestop', (source, instance) => {
-        instance._eventBindings[6][0].style.setProperty(
-          '--pcr-color',
-          instance.getColor().toHEXA().toString()
-        )
+        this.updateColorReview(instance)
       })
       .on('swatchselect', (color, instance) => {
+        this.updateColorReview(instance)
         this.onSave(color)
         this.update(instance)
       })
@@ -35,6 +33,13 @@ export default class extends ColorPicker {
       }),
     }).then(window.location.replace(this.inputTarget.dataset.redirectToUrl))
     // 之後不用跳轉
+  }
+
+  updateColorReview(instance) {
+    instance._eventBindings[6][0].style.setProperty(
+      '--pcr-color',
+      instance.getColor().toHEXA().toString()
+    )
   }
 
   get componentOptions() {

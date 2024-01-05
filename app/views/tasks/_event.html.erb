@@ -1,0 +1,7 @@
+<div id=<%= event[:id] %>>
+  <%# 因為我行事曆要使用hash，已經有轉好了，這邊顯示先用這個方式 %>
+  <%= link_to '' , event_path(event[:id]) %>
+  <%= link_to '', edit_event_path(event[:id]), data:{turbo_frame: "modal"} %>
+  <%= link_to '', event_path(event[:id]), data:{turbo_frame: "modal"} %>
+  <%= link_to '', event_path(event[:id]), data:{turbo_method:'delete', turbo_confirm: '確定要刪除嗎'} %>
+</div>
