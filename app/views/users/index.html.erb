@@ -1,0 +1,11 @@
+
+<%= form_with url: users_import_path(@user), method:"post" do |form| %>
+  <%= form.file_field :file, accept:".csv" %>
+  <%= form.button "Import" %>
+<% end %>
+
+<% @users.each do |u| %>
+  <div>
+    <%= u.email %>
+  </div>
+<% end %>
