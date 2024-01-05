@@ -2,8 +2,8 @@
 
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_project, only: %i[show update destroy edit]
-  before_action :find_current_user_affiliated_projects, only: %i[index show]
+  before_action :find_project, only: %i[show update destroy edit kanban_view calendar_view]
+  before_action :find_current_user_affiliated_projects, only: %i[index kanban_view calendar_view]
   before_action :find_company_projects, only: %i[index]
   before_action :search_project, only: %i[update create]
 
@@ -27,7 +27,29 @@ class ProjectsController < ApplicationController
     flash.now[:success] = t('projects.create_success')
   end
 
-  def show; end
+  def show
+    @tasks = @project.tasks
+
+    respond_to do |format|
+      format.html {
+        case session[:__last_view__]
+        when 'kanban' then render action: 'kanban_view'
+        when 'calendar' then render action: 'calendar_view'
+        else render action: 'kanban_view'
+        end
+      }
+      format.json { render json: @tasks }
+    end
+  end
+
+  def kanban_view
+    session[:__last_view__] = 'kanban'
+  end
+
+  def calendar_view
+    session[:__last_view__] = 'calendar'
+  end
+  
   def edit; end
 
   def update

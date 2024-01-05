@@ -40,8 +40,13 @@ Rails.application.routes.draw do
         post :aside_listed
         post :main_listed
       end
+      member do
+        get 'kanban', action: 'kanban_view'
+        get 'calendar', action: 'calendar_view'
+        patch :drop
+      end
     end
-  
+
     resources :rooms do
       resources :messages
     end
