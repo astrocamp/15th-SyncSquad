@@ -83,16 +83,16 @@ def create_project(new_user)
 
             num_tasks = Faker::Number.within(range: 3..7)
             num_tasks.times do
-                random_task_title = Faker::Lorem.sentence(word_count: 3)
-                while generated_titles.include?(random_task_title)
-                    random_task_title = Faker::Lorem.sentence(word_count: 3)
+                random_task_subject = Faker::Lorem.sentence(word_count: 3)
+                while generated_titles.include?(random_task_subject)
+                    random_task_subject = Faker::Lorem.sentence(word_count: 3)
                 end
                 new_task = Task.create!(
-                    title: random_task_title,
+                    subject: random_task_subject,
                     list_id: new_list.id
                 )
-                new_task.responsible_users << new_user
-                generated_titles << random_task_title
+                new_task.user = new_user
+                generated_titles << random_task_subject
             end
         end
         puts "　 - 建立專案：#{random_project_title}"
