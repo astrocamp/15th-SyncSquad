@@ -144,7 +144,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_05_160722) do
     t.string "title"
     t.text "description"
     t.integer "priority"
-    t.datetime "start_at", precision: nil
     t.datetime "complete_at", precision: nil
     t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
@@ -152,6 +151,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_05_160722) do
     t.integer "row_order"
     t.datetime "estimated_complete_at"
     t.bigint "user_id"
+    t.date "start_date"
+    t.datetime "start_datetime"
+    t.string "start_timezone"
+    t.date "end_date"
+    t.datetime "end_datetime"
+    t.string "end_timezone"
+    t.boolean "all_day_event", default: false
+    t.boolean "private", default: true
+    t.string "location"
+    t.string "source"
     t.index ["deleted_at"], name: "index_tasks_on_deleted_at"
     t.index ["list_id"], name: "index_tasks_on_list_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
