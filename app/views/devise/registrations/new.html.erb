@@ -1,7 +1,5 @@
 <h2>創建員工</h2>
 
-<%= link_to  "匯入員工", users_import_path, class:"rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md" %>
-
 <%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   

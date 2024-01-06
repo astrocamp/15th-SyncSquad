@@ -4,15 +4,18 @@ module UsersHelper
   require 'csv'
   def import
     file = params[:file]
-    return redirect_to users_import_path, notice: '只能傳CSV檔案' unless file.content_type == 'text/csv'
+    if file.nil? || file.content_type != 'text/csv'
+      return redirect_to users_import_path,
+                         notice: t('import.please_choose_file')
+    end
 
     csv_data = params[:file].read.force_encoding('utf-8')
     success = 0
     failed_records = []
-    CSV.parse(csv_data, headers: true) do |row|
-      user = User.find_by(email: row['Email'], company_id: current_company.id)
+    CSV.parse(csv_data, headers: true).each_with_index do |row, idx|
+      user = User.find_by(email: row['Email'])
       if user
-        failed_records << ["email: #{row['Email']} 存在於系統"]
+        failed_records << "Row #{idx + 1} - Email:#{row['Email']} exist in system"
       else
         data = User.new(
           email: row['Email'], password: row['Password'],
@@ -25,15 +28,14 @@ module UsersHelper
         if data.save
           success += 1
         else
-          failed_records << ["詳細錯誤：#{data.errors.full_messages.join(', ')}"]
+          failed_records << "Row #{idx + 1} - #{data.errors.full_messages.join(' & ')}"
         end
       end
     end
     Importrecord.create(file:, created_at: Time.current,
                         status: failed_records.empty? ? 'Records success' : 'Failures detected',
-                        total_count: success + failed_records.size, success_count: success, 
+                        total_count: success + failed_records.size, success_count: success,
                         error_messages: failed_records)
-    redirect_to users_import_path,
-                notice: "#{success} 筆 import 成功，但 #{failed_records.size} 筆失敗，詳細錯誤：#{failed_records.join(', ')}"
+    redirect_to users_import_records_path, notice: t('import.data_import_process')
   end
 end

@@ -128,6 +128,32 @@ tw:
     delete_staff: "刪除離職員工"
     delete_confirm: "確認刪除?"
 
+  import:
+    please_choose_file: "請選擇檔案"
+    data_import_process: "資料匯入流程"
+    field: "欄位"
+    instruction: "說明"
+    email: "電子郵件"
+    password: "密碼"
+    name: "姓名"
+    gender: "性別"
+    birthday: "生日"
+    phone: "電話"
+    role: "角色"
+    nick_name: "暱稱"
+    time_zone: "時區"
+    language: "語言"
+    template_instruction: "請下載範本檔案並編輯要匯入的資料。"
+    data_import: "資料匯入"
+    import: "匯入"
+    import_page: "匯入頁面"
+    import_records: "匯入記錄"
+    instruction_for_user_import: "使用者匯入說明"
+    required: "必填項目"
+    user_edit: "使用者在建立後可自行編輯"
+    role_for_staff: "請在檔案中填寫 hr 或 staff"
+    btn_download: "下載範本 CSV 檔案"
+
   helpers:
     submit:
       user:

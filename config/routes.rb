@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'users', to: 'devise/sessions#new'
       get 'users/import', to: 'users#index'
       post 'users/import', to: 'users#import'
+      get 'users/import/records', to: 'users#records'
     end
 
     get 'user/:id', to:'users#show',as: 'user'
