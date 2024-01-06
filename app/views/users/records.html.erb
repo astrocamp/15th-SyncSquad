@@ -1,0 +1,56 @@
+<div class="max-w-4xl mx-auto mt-5 mb-1">
+  <%= link_to t('import.import_page'), users_import_path, class: "tab-btn focus:outline-none px-4 py-2 bg-gray-200 text-gray-800 hover:bg-gray-300 border border-slate-400 border-b-0"%>
+  <%= link_to t('import.import_records'), users_import_records_path, class: "tab-btn focus:outline-none px-4 py-2 bg-gray-300 text-gray-800 border border-slate-400 border-b-0" %>
+</div>
+
+<div class="max-w-4xl mx-auto mb-20 bg-gray-200  border border-slate-400">
+
+  <div class="text-2xl py-4 flex justify-center"><%= t('import.import_records')%>
+  </div>
+  <div class="flex justify-center text-lg text-blue-700 pb-2">
+  <%= paginate @import_records %>
+  </div>
+
+  <div class="flex justify-center">
+    <table class="min-w-full bg-white border border-gray-300">
+      <thead>
+        <tr class="bg-blue-300">
+          <th class="py-2 px-4 border-b">ID</th>
+          <th class="py-2 px-4 border-b">Status</th>
+          <th class="py-2 px-4 border-b">File</th>
+          <th class="py-2 px-4 border-b">Imported Time</th>
+          <th class="py-2 px-4 border-b">All Records</th>
+          <th class="py-2 px-4 border-b">Success Records</th>
+          <th class="py-2 px-4 border-b">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @import_records.each do |import_record| %>
+          <tr>
+            <td class="py-2 px-4 border-b text-center"><%= import_record.id %></td>
+            <% if import_record.status == "Failures detected" %> 
+              <td class="py-2 px-4 border-b text-center bg-red-300">
+                <%= import_record.status%>
+              </td>
+            <% else %>
+              <td class="py-2 px-4 border-b text-center bg-green-300">
+                <%= import_record.status%>
+              </td>
+            <% end %>
+            <td class="py-2 px-4 border-b text-center"><%= link_to import_record.file.filename, rails_blob_path(import_record.file) %></td>
+            <td class="py-2 px-4 border-b text-center"><%= import_record.created_at %></td>
+            <td class="py-2 px-4 border-b text-center"><%= import_record.total_count %></td>
+            <td class="py-2 px-4 border-b text-center"><%= import_record.success_count %></td>  
+
+            <% if import_record.error_messages == "[]" %>
+              <td class="py-2 px-4 border-b text-center"></td>   
+            <% else %>
+              <td class="py-2 px-4 border-b"><%= import_record.error_messages.gsub(/[\[\]"]/,"").gsub(",","<br />").html_safe%>
+              </td>   
+            <% end %>
+          </tr>  
+        <% end %>
+      </tbody>
+    </table>   
+  </div>
+</div>
