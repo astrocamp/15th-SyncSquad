@@ -2,7 +2,7 @@
 
 module UsersHelper
   require 'csv'
-  def import
+  def import # rubocop:disable Metrics/MethodLength,Metrics/PerceivedComplexity
     file = params[:file]
     if file.nil? || file.content_type != 'text/csv'
       return redirect_to users_import_path,
