@@ -26,11 +26,9 @@ class RoomsController < ApplicationController
         selected_user_ids.each do |user_id|
           Participant.create(room_id: @new_private_group.id, user_id: user_id)
         end
-        close_modal
       end
     else
       @new_room = Room.create(name: params['room']['name'])
-      close_modal
     end
   end
 
@@ -49,11 +47,4 @@ private
 
 def room_params
   params.require(:room).permit(:name, :is_private)
-end
-
-def close_modal
-  respond_to do |format|
-    format.turbo_stream { render turbo_stream: turbo_stream.remove('modal') }
-    format.html { redirect_to rooms_path, notice: 'Room was successfully created.' }
-  end
 end
