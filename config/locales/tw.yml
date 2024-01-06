@@ -39,6 +39,7 @@ tw:
     login_success: "登入成功"
     login_failed: "登入失敗"
     logout_success: "已登出"
+    company_edit: "編輯資料"
 
   devise:
     user_sign_in: "員工登入"

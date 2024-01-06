@@ -39,6 +39,7 @@ en:
     login_success: "Login Success"
     login_failed: "Login Failed"
     logout_success: "Logout Success"
+    company_edit: "Company Edit"
 
   devise:
     user_sign_in: "User Sign In"
