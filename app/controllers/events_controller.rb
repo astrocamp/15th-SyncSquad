@@ -2,7 +2,7 @@
 
 class EventsController < ApplicationController
   before_action :find_event, only: %i[show edit drop update destroy]
-  before_action :authenticate_user_or_company!
+  before_action :authenticate_or_company_signed_in!
 
   def index
     if current_user

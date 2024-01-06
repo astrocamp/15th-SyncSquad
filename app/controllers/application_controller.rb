@@ -23,10 +23,8 @@ class ApplicationController < ActionController::Base
     current_company.present?
   end
 
-  def authenticate_user_or_company!
-    unless user_signed_in? || company_signed_in?
-      redirect_to root_path, alert: "請先登入=="
-    end
+  def authenticate_or_company_signed_in!
+    authenticate_user! unless company_signed_in?
   end
 
   def not_found

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RoomsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_or_company_signed_in!
   def index
     @room = Room.public_rooms
     @new_room = Room.new
@@ -22,4 +22,6 @@ class RoomsController < ApplicationController
     @messages = @single_room.messages.order(created_at: :asc)
     render 'index'
   end
+
+
 end
