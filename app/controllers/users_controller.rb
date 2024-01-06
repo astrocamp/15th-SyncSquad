@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.where(company_id: current_company.id)
+    @import_records = Importrecord.order(created_at: :desc).limit(10)
   end
 
   def company_params

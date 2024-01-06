@@ -36,6 +36,8 @@ module UsersHelper
       end
     end
 
+    import_record = Importrecord.create(file: file, created_at: Time.current, status: failed_records.size == 0 ? "All records processed successfully" : "Failures detected" , total_count: success + failed_records.size , success_count: success, error_messages: failed_records)
+
     redirect_to users_import_path,
                 notice: "#{success} 筆 import 成功，但 #{failed_records.size} 筆失敗，詳細錯誤：#{failed_records.join(', ')}"
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_30_081541) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_05_160722) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,18 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_30_081541) do
     t.integer "user_id"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_events_on_deleted_at"
+  end
+
+  create_table "importrecords", force: :cascade do |t|
+    t.string "status"
+    t.string "file"
+    t.integer "total_count"
+    t.integer "success_count"
+    t.text "error_messages"
+    t.integer "company_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lists", force: :cascade do |t|

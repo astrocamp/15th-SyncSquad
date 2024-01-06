@@ -1,4 +1,4 @@
-
+<div class="max-w-4xl mx-auto">
 <%= form_with url: users_import_path(@user), method:"post" do |form| %>
   <%= form.file_field :file, accept:".csv" %>
   <%= form.button "Import" %>
@@ -9,3 +9,33 @@
     <%= u.email %>
   </div>
 <% end %>
+</div>
+
+<div class="max-w-4xl mx-auto flex justify-center">
+  <table class="min-w-full bg-white border border-gray-300">
+    <thead>
+        <tr class="bg-blue-300">
+        <th class="py-2 px-4 border-b">ID</th>
+        <th class="py-2 px-4 border-b">Status</th>
+        <th class="py-2 px-4 border-b">File</th>
+        <th class="py-2 px-4 border-b">Imported Time</th>
+        <th class="py-2 px-4 border-b">All Records</th>
+        <th class="py-2 px-4 border-b">Success Records</th>
+        <th class="py-2 px-4 border-b">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @import_records.each do |import_record| %>
+        <tr>
+          <td class="py-2 px-4 border-b text-center"><%= import_record.id %></td>
+          <td class="py-2 px-4 border-b text-center"><%= import_record.status %></td>
+          <td class="py-2 px-4 border-b text-center"><%= link_to import_record.file.filename, rails_blob_path(import_record.file) %></td>
+          <td class="py-2 px-4 border-b text-center"><%= import_record.created_at %></td>
+          <td class="py-2 px-4 border-b text-center"><%= import_record.total_count %></td>
+          <td class="py-2 px-4 border-b text-center"><%= import_record.success_count %></td>  
+          <td class="py-2 px-4 border-b text-center"><%= import_record.error_messages %></td>   
+        </tr>  
+      <% end %>
+    </tbody>
+  </table>   
+</div>
