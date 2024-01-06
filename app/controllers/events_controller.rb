@@ -2,16 +2,46 @@
 
 class EventsController < ApplicationController
   before_action :find_event, only: %i[show edit drop update destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user_or_company!
 
   def index
-    @events = current_user.events.map(&:full_calendar_event)
+    if current_user
+      @events = current_user.events.map(&:full_calendar_event)
+    elsif current_company
+      @events = current_company.events.map(&:full_calendar_event)
+    else
+      redirect_to root_path, alert: "請先登入"
+    end
+    
     @event = Event.new
     respond_to do |format|
       format.html
       format.json { render json: @events }
     end
   end
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   def new
     @event = Event.new
