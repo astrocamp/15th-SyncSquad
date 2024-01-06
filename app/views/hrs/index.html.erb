@@ -12,10 +12,7 @@
   <%= f.password_field :password_confirmation, placeholder: t('hrs.password_confirmation_placeholder') %>
   
   <%= f.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-   <div class="field hidden">
-    <%= f.label :company_id %><br />
-    <%= f.text_field :company_id, value: current_company.id %>
-  </div>
+
 <% end %>
 
 
