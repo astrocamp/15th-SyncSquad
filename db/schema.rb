@@ -128,6 +128,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_15_074426) do
     t.bigint "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sort", default: 0
     t.index ["room_id"], name: "index_participants_on_room_id"
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
