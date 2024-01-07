@@ -5,6 +5,7 @@ class Room < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   scope :public_rooms, -> { where(is_private: false) }
   after_create_commit { broadcast_if_public }
+  # after_create_commit { broadcast_if_private_group }
   has_many :messages
   has_many :participants, dependent: :destroy
 
@@ -12,6 +13,14 @@ class Room < ApplicationRecord
 
   def broadcast_if_public
     broadcast_append_to 'rooms' unless is_private
+  end
+
+  def broadcast_if_private_group
+    if sort == 'private_room'
+      participants.each do |participant|
+        broadcast_append_to "private_rooms_for_user_#{participant.user_id}"
+      end
+    end
   end
 
   def self.create_private_room(users, room_name)

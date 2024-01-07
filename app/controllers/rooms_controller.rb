@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
   def index
     @room = Room.public_rooms
     @users = User.all_except(current_user)
+
     @private_groups = Room.joins(:participants)
                           .where(sort: 2,
                                  participants: { user_id: current_user.id })
@@ -28,7 +29,7 @@ class RoomsController < ApplicationController
                             selected_user_ids.include?(current_user.id)
 
         selected_user_ids.each do |user_id|
-          Participant.create(room_id: @new_private_group.id, user_id: user_id)
+          Participant.create(room_id: @new_private_group.id, user_id: user_id,sort: @new_private_group.sort)
         end
       end
     else
