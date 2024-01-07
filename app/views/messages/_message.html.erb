@@ -2,20 +2,17 @@
   <div class="msg-<%= message.user.id %> mt-5 rounded-xl">
 
     <div class="flex content-center gap-2 mb-2">
-      <% if message.user.avatar.attached? %>
-        <%= link_to image_tag(message.user.chat_avatar, 
-                              class: "w-8 h-8 rounded-full"), message.user %>
+     <% if message.user.avatar.attached? %>
+      <%= link_to image_tag(message.user.chat_avatar, 
+                            class: "w-8 h-8 rounded-full"), message.user %>
       <% else %>
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user 2xl"></i>
       <% end %>      
       <div>
         <div> <%= format_user_email(message.user) %></div>
       </div>
     </div>
 
-    <% unless message.room.room_type == 'single_room' %>
-      <h6 id="name"><%= message.user.email.split('@').first %> </h6>
-    <% end %>
     <div class="markdown">
       <%= raw advanced_markdown(message.body) %>
     </div>
