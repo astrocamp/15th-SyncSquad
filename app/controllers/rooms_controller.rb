@@ -5,6 +5,9 @@ class RoomsController < ApplicationController
   def index
     @room = Room.public_rooms
     @users = User.all_except(current_user)
+    @private_groups = Room.joins(:participants)
+                          .where(sort: 2,
+                                 participants: { user_id: current_user.id })
   end
 
   def new
@@ -36,6 +39,9 @@ class RoomsController < ApplicationController
   def show
     @single_room = Room.find(params[:id])
     @room = Room.public_rooms
+    @private_groups = Room.joins(:participants)
+                          .where(sort: 2,
+                                 participants: { user_id: current_user.id })
     @new_room = Room.new
     @users = User.all_except(current_user)
     @message = Message.new
