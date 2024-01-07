@@ -22,6 +22,4 @@ class RoomsController < ApplicationController
     @messages = @single_room.messages.order(created_at: :asc)
     render 'index'
   end
-
-
 end

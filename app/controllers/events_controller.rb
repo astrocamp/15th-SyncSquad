@@ -10,38 +10,15 @@ class EventsController < ApplicationController
     elsif current_company
       @events = current_company.events.map(&:full_calendar_event)
     else
-      redirect_to root_path, alert: "請先登入"
+      redirect_to root_path, alert: '請先登入'
     end
-    
+
     @event = Event.new
     respond_to do |format|
       format.html
       format.json { render json: @events }
     end
   end
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   def new
     @event = Event.new

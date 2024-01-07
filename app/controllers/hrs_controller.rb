@@ -42,8 +42,8 @@ class HrsController < ApplicationController
   end
 
   def require_hr_or_company
-    unless current_user&.hr? || company_signed_in?
-      redirect_to root_path, alert: t("hrs.not_authorized")
-    end
+    return if current_user&.hr? || company_signed_in?
+
+    redirect_to root_path, alert: t('hrs.not_authorized')
   end
 end

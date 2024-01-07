@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
   def find_current_user_affiliated_projects
     @projects = current_user&.affiliated_projects&.order(id: :asc)
   end
-  
+
   def find_company_projects
     @company = Company.find_by(id: current_user&.company_id)
     @users = @company&.users&.ids
