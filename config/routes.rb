@@ -43,7 +43,8 @@ Rails.application.routes.draw do
       member do
         get 'kanban', action: 'kanban_view'
         get 'calendar', action: 'calendar_view'
-        patch :drop
+        get :new_event
+        post :create_event
       end
     end
 

@@ -61,7 +61,6 @@ class TasksController < ApplicationController
                   :private,
                   :location,
                   :source,
-                  :complete_at,
                   :estimated_complete_at, 
                   :user_id)
   end
