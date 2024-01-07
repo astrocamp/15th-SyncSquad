@@ -17,6 +17,7 @@ class RoomsController < ApplicationController
     if params[:room][:is_private] == "true"
       @new_private_group = Room.new(room_params)
       @new_private_group.is_private = true
+      @new_private_group.sort = 2
 
       if @new_private_group.save
         selected_user_ids = params[:room][:user_ids] || []
