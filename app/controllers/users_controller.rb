@@ -53,7 +53,9 @@ class UsersController < ApplicationController
     @room = Room.public_rooms
     @room_name = get_name(@user, current_user)
     @single_room = Room.find_by(name: @room_name) || Room.create_private_room([@user, current_user], @room_name)
-
+    @private_groups = Room.joins(:participants)
+                          .where(sort: 2,
+                                 participants: { user_id: current_user.id })
     @message = Message.new
     @messages = @single_room.messages.order(:created_at)
     render 'rooms/index'
