@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @room_name = get_name(@user, current_user)
     @single_room = Room.find_by(name: @room_name) || Room.create_private_room([@user, current_user], @room_name)
     @private_groups = Room.joins(:participants)
-                          .where(room_type: 2,
+                          .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
     @message = Message.new
     @messages = @single_room.messages.order(:created_at)
