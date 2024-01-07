@@ -153,6 +153,13 @@ tw:
     user_edit: "使用者在建立後可自行編輯"
     role_for_staff: "請在檔案中填寫 hr 或 staff"
     btn_download: "下載範本 CSV 檔案"
+    id: "序號"
+    status: "狀態"
+    file: "檔案"
+    imported_time: "匯入時間"
+    all_records: "所有記錄"
+    success_records: "成功記錄"
+    details: "詳細資訊"
 
   helpers:
     submit:
