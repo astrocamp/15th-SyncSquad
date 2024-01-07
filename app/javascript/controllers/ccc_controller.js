@@ -14,6 +14,7 @@ export default class extends Controller {
   static targets = ['calendar']
 
   connect() {
+    console.log(this.calendarTarget.dataset.events)
     const calendar = new Calendar(this.calendarTarget, {
       plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
       initialView: 'dayGridMonth', //以month形式

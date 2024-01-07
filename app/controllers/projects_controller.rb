@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   before_action :find_current_user_affiliated_projects, only: %i[index kanban_view calendar_view]
   before_action :find_company_projects, only: %i[index]
   before_action :search_project, only: %i[update create]
+  before_action :find_events, only: %i[show calendar_view]
 
   def index
     @project = current_user.affiliated_projects.all # current_user projects
@@ -28,17 +29,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @tasks = @project.tasks
-
-    respond_to do |format|
-      format.html {
-        case session[:__last_view__]
-        when 'kanban' then render action: 'kanban_view'
-        when 'calendar' then render action: 'calendar_view'
-        else render action: 'kanban_view'
-        end
-      }
-      format.json { render json: @tasks }
+    case session[:__last_view__]
+    when 'kanban' then render action: 'kanban_view'
+    when 'calendar' then render action: 'calendar_view'
+    else render action: 'kanban_view'
     end
   end
 
@@ -88,5 +82,19 @@ class ProjectsController < ApplicationController
     @projects = Project.where(owner: @users)
     @q = @projects.ransack(params[:q])
     @projects = @q.result.includes(:owner)
+  end
+
+  def find_events
+    @tasks = @project.tasks
+    @events = @tasks.select { |task| task['start_date'] && task['end_date'] }.map do |task|
+      {
+        'id' => task['id'],
+        'list_id' => task['list_id'],
+        'start' => task['start_date'],
+        'end' => task['end_date'],
+        'all_day_event' => task['all_day_event'],
+        'description' => task['description']
+      }
+    end.to_json
   end
 end
