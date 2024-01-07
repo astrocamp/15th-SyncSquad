@@ -23,7 +23,7 @@
     </div>
 
     <div id="chat-room" class="mt-5">
-      <h3 class="text-2xl text-orange-400 mt-4">房間列表</h3>
+      <h3 class="text-2xl text-orange-400 mt-4">公開房間</h3>
       <%= turbo_stream_from "rooms"%>
       <div id="rooms">
         <%= render @room%>
@@ -36,6 +36,17 @@
     <div class="w-full">
       <%= render partial: 'layouts/single_room', locals: { single_room: @single_room, messages: @messages, user: @user } if @single_room %>    
     </div>
+  <div id="chat-room" class="mt-5">
+      <h3 class="text-2xl text-orange-400 mt-4">私人房間</h3>
+      <%# <%= turbo_stream_from "private_rooms"> %>
+      <div id="private_rooms">
+        <%= render @private_groups%>
+      </div>
+    </div>
+  </div>
+
+  <div id="room_container" class="text-2xl w-9/12 ml-auto mr-auto pr-20" >
+    <%= render partial: 'layouts/single_room', locals: { single_room: @single_room, messages: @messages, user: @user } if @single_room %>    
   </div>
 
   <div id="user-list" class="w-2/12 bg-cyan-200">
