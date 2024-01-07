@@ -68,6 +68,7 @@ tw:
     update_success: "員工資料更新"
     update_failed: "員工更新失敗"
     delete_staff: "刪除離職員工"
+    not_authorized: "沒有權限使用"
 
   helpers:
     submit:

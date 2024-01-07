@@ -68,3 +68,4 @@ en:
     update_success: "Staff File Renew"
     update_failed: "Update Failed"
     delete_staff: "Delete Staff"
+    not_authorized: "Not Authorized"

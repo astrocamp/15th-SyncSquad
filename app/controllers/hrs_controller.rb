@@ -2,6 +2,7 @@
 
 class HrsController < ApplicationController
   before_action :find_user, only: %i[update destroy]
+  before_action :require_hr_or_company
 
   def index
     @users = User.order(id: :desc)
@@ -38,5 +39,11 @@ class HrsController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+  end
+
+  def require_hr_or_company
+    unless current_user&.hr? || company_signed_in?
+      redirect_to root_path, alert: t("hrs.not_authorized")
+    end
   end
 end
