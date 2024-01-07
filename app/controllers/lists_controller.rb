@@ -52,7 +52,7 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:title, :color, :delete_at, :row_order)
+    params.require(:list).permit(:title, :color, :row_order)
   end
 
   def find_project
