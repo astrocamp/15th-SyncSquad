@@ -1,7 +1,7 @@
 en:
   main:
     user_sign_in: "User Sign In"
-    new_user: "New Staff"
+    new_user: "Staff management"
     company_sign_in: "Company Sign In"
     sign_in: "Sign In"
     new_company: "Company Sign Up"
@@ -55,7 +55,7 @@ en:
       invalid: "Invalid Password"
 
   hrs:
-    new_user: "New Staff"
+    new_user: "Add New User"
     role: "Job Title"
     email_placeholder: "Email Address"
     password_placeholder: "Password"

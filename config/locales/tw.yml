@@ -1,7 +1,7 @@
 tw:
   main:
     user_sign_in: "員工登入"
-    new_user: "創建員工"
+    new_user: "員工管理"
     company_sign_in: "公司登入"
     sign_in: "登入"
     new_company: "公司註冊"
@@ -55,7 +55,7 @@ tw:
       invalid: "密碼錯誤"
 
   hrs:
-    new_user: "創建員工"
+    new_user: "新增員工"
     role: "職稱"
     email_placeholder: "輸入員工信箱"
     password_placeholder: "輸入密碼"
