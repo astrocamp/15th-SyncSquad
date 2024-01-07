@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    if params[:room][:is_private] == "true"
+    if params[:room][:is_private] == 'true'
       @new_private_group = Room.new(room_params)
       @new_private_group.is_private = true
       @new_private_group.room_type = 'private_room'
@@ -29,7 +29,7 @@ class RoomsController < ApplicationController
                             selected_user_ids.include?(current_user.id)
 
         selected_user_ids.each do |user_id|
-          Participant.create(room_id: @new_private_group.id, user_id: user_id)
+          Participant.create(room_id: @new_private_group.id, user_id:)
         end
         @new_private_group.reload.broadcast_if_private_group
       end

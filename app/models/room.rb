@@ -15,10 +15,10 @@ class Room < ApplicationRecord
   end
 
   def broadcast_if_private_group
-    if private_room?
-      participants.each do |participant|
-        broadcast_append_to "private_rooms_for_user_#{participant.user_id}", target:"private_rooms"
-      end
+    return unless private_room?
+
+    participants.each do |participant|
+      broadcast_append_to "private_rooms_for_user_#{participant.user_id}", target: 'private_rooms'
     end
   end
 
