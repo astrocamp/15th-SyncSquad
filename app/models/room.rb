@@ -5,11 +5,10 @@ class Room < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   scope :public_rooms, -> { where(is_private: false) }
   after_create_commit { broadcast_if_public }
-  # after_create_commit { broadcast_if_private_group }
   has_many :messages
   has_many :participants, dependent: :destroy
 
-  enum sort: { public_room: 0, single_room: 1, private_room: 2 }
+  enum room_type: { public_room: 0, single_room: 1, private_room: 2 }
 
   def broadcast_if_public
     broadcast_append_to 'rooms' unless is_private
@@ -24,7 +23,7 @@ class Room < ApplicationRecord
   end
 
   def self.create_private_room(users, room_name)
-    single_room = Room.create(name: room_name, is_private: true, sort: 1)
+    single_room = Room.create(name: room_name, is_private: true, room_type: 1)
     users.each do |user|
       Participant.create(user_id: user.id, room_id: single_room.id)
     end
