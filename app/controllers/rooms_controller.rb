@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
     @users = User.all_except(current_user)
 
     @private_groups = Room.joins(:participants)
-                          .where(sort: 2,
+                          .where(room_type: 2,
                                  participants: { user_id: current_user.id })
   end
 
@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
     if params[:room][:is_private] == "true"
       @new_private_group = Room.new(room_params)
       @new_private_group.is_private = true
-      @new_private_group.sort = 2
+      @new_private_group.room_type = 2
 
       if @new_private_group.save
         selected_user_ids = params[:room][:user_ids] || []
@@ -42,7 +42,7 @@ class RoomsController < ApplicationController
     @single_room = Room.find(params[:id])
     @room = Room.public_rooms
     @private_groups = Room.joins(:participants)
-                          .where(sort: 2,
+                          .where(room_type: 2,
                                  participants: { user_id: current_user.id })
     @new_room = Room.new
     @users = User.all_except(current_user)

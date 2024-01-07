@@ -39,7 +39,6 @@
   <div id="chat-room" class="mt-5">
       <h3 class="text-2xl text-orange-400 mt-4">私人房間</h3>
       <%= turbo_stream_from "private_rooms_for_user_#{current_user.id}" %>
-      <%# <%= turbo_stream_from "private_rooms"> %>
       <div id="private_rooms">
         <%= render @private_groups %>
       </div>
