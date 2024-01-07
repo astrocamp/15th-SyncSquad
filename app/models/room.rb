@@ -8,6 +8,8 @@ class Room < ApplicationRecord
   has_many :messages
   has_many :participants, dependent: :destroy
 
+  enum sort: { public_room: 0, single_room: 1, private_room: 2 }
+
   def broadcast_if_public
     broadcast_append_to 'rooms' unless is_private
   end
