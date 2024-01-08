@@ -159,7 +159,7 @@ tw:
     imported_time: "匯入時間"
     all_records: "所有記錄"
     success_records: "成功記錄"
-    details: "詳細資訊"
+    failures_details: "失敗紀錄詳細資訊"
 
   helpers:
     submit:
