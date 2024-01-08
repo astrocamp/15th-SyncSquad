@@ -1,15 +1,3 @@
-<div class="flex">
-  <aside class="flex-initial p-6 text-white bg-gray-400">
-    <div class="w-64 h-screen">
-      <%= params %>
-      <% @tasks.each do |task| %>
-        <div>
-          <%= task.title %>
-        </div>
-      <% end %>
-    </div>
-  </aside>
-  <main class="flex-1 p-6">
-    <%= render partial: 'calendar', locals: { events: @events } %>
-  </main>
-</div>
+<main class="max-w-screen-lg p-6 m-auto">
+  <%= render partial: 'calendar', locals: { events: @events } %>
+</main>

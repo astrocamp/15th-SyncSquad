@@ -11,17 +11,12 @@ import { patch } from '@rails/request.js'
 
 // Connects to data-controller="calendar"
 export default class extends Controller {
-  static targets = [
-    'calendar',
-    'startDate',
-    'endDate',
-    'startDatetime',
-    'endDatetime',
-  ]
+  static targets = ['calendar']
 
   connect() {
     console.log(this.calendarTarget.dataset.events)
     const newEventUrl = this.calendarTarget.dataset.newEventUrl
+    const item = this.calendarTarget.dataset.item
     const events = JSON.parse(this.calendarTarget.dataset.events) // 获取事件数据 JSON 字符串
     const calendar = new Calendar(this.calendarTarget, {
       plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
@@ -50,15 +45,27 @@ export default class extends Controller {
 
       // TODO: 編輯 ＆ 刪除
       eventClick: function (info) {
-        alert('Event: ' + info.event.title)
-        info.el.style.borderColor = 'red'
-        Turbo.visit(newEventUrl, {
+        // alert('Event: ' + info.event.title)
+        info.el.style.color = 'red'
+        const itemURL = `/${item}/${info.event._def.publicId}`
+        console.log(itemURL)
+        Turbo.visit(itemURL, {
           frame: 'modal',
           method: 'POST',
         })
       },
-      eventResize: this.settingEvent,
-      eventDrop: this.settingEvent,
+      eventResize: function (info) {
+        alert(info.event.title + ' end is now ' + info.event.end.toISOString())
+
+        if (!confirm('is this okay?')) {
+          info.revert()
+        }
+      },
+      eventDrop: function (eventResizeInfo) {
+        console.log(eventResizeInfo)
+      },
+      // eventResize: this.settingEvent,
+      // eventDrop: this.settingEvent,
     })
     calendar.render()
   }
