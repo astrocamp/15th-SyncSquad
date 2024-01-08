@@ -1,166 +1,167 @@
 en:
   projects:
-    create_success: "Creation Success!"
-    update_success: "Update Success!"
-    destroy_success: "Delete Success!"
-    edit: "Edit Project"
-    index_affiliated: "Affiliated Projects"
-    new: "Create Project"
-    show_confirm: "Are You Sure You Want To Delete?"
-    form_title: "Title"
-    form_description: "Description"
-    form_cancel: "Cancel"
-    list_delete: "X"
-    main_search: "Search"
-    main_title_or_email: "Title/Email"
-    main_clear: "Clear"
-    main_title: "Title"
-    main_description: "Description"
-    main_email: "Email"
-    main_created_time: "Created Time"
-    main_updated_time: "Updated Time"
+    create_success: 'Creation Success!'
+    update_success: 'Update Success!'
+    destroy_success: 'Delete Success!'
+    edit: 'Edit Project'
+    index_affiliated: 'Affiliated Projects'
+    new: 'Create Project'
+    show_confirm: 'Are You Sure You Want To Delete?'
+    form_title: 'Title'
+    form_description: 'Description'
+    form_cancel: 'Cancel'
+    list_delete: 'X'
+    main_search: 'Search'
+    main_title_or_email: 'Title/Email'
+    main_clear: 'Clear'
+    main_title: 'Title'
+    main_description: 'Description'
+    main_email: 'Email'
+    main_created_time: 'Created Time'
+    main_updated_time: 'Updated Time'
+    delete_task: 'Deleted Task'
 
   lists:
-    create_success: "Creation Success!"
-    update_success: "Update Success!"
-    destroy_success: "Delete Success!"
-    new: "Create List"
-    new_title: "Title"
-    new_cancel: "Cancel"
-    edit: "Edit List"
-    edit_title: "Title"
-    edit_color: "Color"
-    edit_cancel: "Cancel"
-    edit_delete: "Delete"
-    edit_confirm: "Are You Sure You Want To Delete?"
+    create_success: 'Creation Success!'
+    update_success: 'Update Success!'
+    destroy_success: 'Delete Success!'
+    new: 'Create List'
+    new_title: 'Title'
+    new_cancel: 'Cancel'
+    edit: 'Edit List'
+    edit_title: 'Title'
+    edit_color: 'Color'
+    edit_cancel: 'Cancel'
+    edit_delete: 'Delete'
+    edit_confirm: 'Are You Sure You Want To Delete?'
 
   tasks:
-    create_success: "Creation Success!"
-    create_not_saved: "Please Fill in Completely."
-    update_success: "Update Success!"
-    destroy_success: "Delete Success!"
-    task_confirm: "Are You Sure You Want To Delete?"
-    edit: "Edit Task"
-    edit_title: "Title"
-    edit_description: "Description"
-    edit_user_id: "Member"
-    edit_start_at: "Start At"
-    edit_priority: "Priority"
-    edit_select: "Select"
-    edit_estimated_complete_at: "Estimated Completion Time"
-    edit_cancel: "Cancel"
-    new: "Create Task"
-    new_title: "Title"
-    new_cancel: "Cancel"
-    show: "Show Task"
-    show_title: "Title"
-    show_edit: "Edit"
+    create_success: 'Creation Success!'
+    create_not_saved: 'Please Fill in Completely.'
+    update_success: 'Update Success!'
+    destroy_success: 'Delete Success!'
+    task_confirm: 'Are You Sure You Want To Delete?'
+    edit: 'Edit Task'
+    edit_title: 'Title'
+    edit_description: 'Description'
+    edit_user_id: 'Member'
+    edit_start_at: 'Start At'
+    edit_priority: 'Priority'
+    edit_select: 'Select'
+    edit_estimated_complete_at: 'Estimated Completion Time'
+    edit_cancel: 'Cancel'
+    new: 'Create Task'
+    new_title: 'Title'
+    new_cancel: 'Cancel'
+    show: 'Show Task'
+    show_title: 'Title'
+    show_edit: 'Edit'
 
   main:
-    user_sign_in: "User Sign In"
-    new_user: "New Staff"
-    company_sign_in: "Company Sign In"
-    sign_in: "Sign In"
-    new_company: "Company Sign Up"
-    log_out: "Log Out"
-    edit: "Edit"
-    home: "Home"
-    about: "About"
-    privacy: "Privacy"
-    feature: "Feature"
-    name: "Name"
-    email: "Email"
-    password: "Password"
-    password_confirmation: "Password_confirmation"
-    events: "Events"
-    calendar: "Calendar"
-    project: "Project"
-    chatroom: "Chatroom"
-    setting: "Setting"
+    user_sign_in: 'User Sign In'
+    new_user: 'New Staff'
+    company_sign_in: 'Company Sign In'
+    sign_in: 'Sign In'
+    new_company: 'Company Sign Up'
+    log_out: 'Log Out'
+    edit: 'Edit'
+    home: 'Home'
+    about: 'About'
+    privacy: 'Privacy'
+    feature: 'Feature'
+    name: 'Name'
+    email: 'Email'
+    password: 'Password'
+    password_confirmation: 'Password_confirmation'
+    events: 'Events'
+    calendar: 'Calendar'
+    project: 'Project'
+    chatroom: 'Chatroom'
+    setting: 'Setting'
 
   calender:
-    event: "Event"
+    event: 'Event'
 
   company:
-    creation_success: "Successfully Registered the Company"
-    creation_failed: "Creation Failed"
-    name: "Name"
-    email: "Email"
-    password: "Password"
-    password_confirmation: "Password_confirmation"
-    company_sign_up: "Company Sign Up"
-    not_registered: "Not Registered"
-    please: "Please"
-    company_sign_in: "Company Sign In"
-    login: "Login"
-    login_success: "Login Success"
-    login_failed: "Login Failed"
-    logout_success: "Logout Success"
+    creation_success: 'Successfully Registered the Company'
+    creation_failed: 'Creation Failed'
+    name: 'Name'
+    email: 'Email'
+    password: 'Password'
+    password_confirmation: 'Password_confirmation'
+    company_sign_up: 'Company Sign Up'
+    not_registered: 'Not Registered'
+    please: 'Please'
+    company_sign_in: 'Company Sign In'
+    login: 'Login'
+    login_success: 'Login Success'
+    login_failed: 'Login Failed'
+    logout_success: 'Logout Success'
 
   devise:
-    user_sign_in: "User Sign In"
-    email: "Email"
-    password: "Password"
-    remember_me: "Remember Me"
-    login: "Login"
+    user_sign_in: 'User Sign In'
+    email: 'Email'
+    password: 'Password'
+    remember_me: 'Remember Me'
+    login: 'Login'
     sessions:
-      signed_in: "Signed in successfully"
-      signed_out: "Signed out successfully"
+      signed_in: 'Signed in successfully'
+      signed_out: 'Signed out successfully'
     failure:
-      not_found_in_database: "This Account Is Not For This Company or Invalid Password"
-      invalid: "Invalid Password"
+      not_found_in_database: 'This Account Is Not For This Company or Invalid Password'
+      invalid: 'Invalid Password'
     registrations:
-      updated: "Your account has been updated successfully."
+      updated: 'Your account has been updated successfully.'
 
   hrs:
-    new_user: "New Staff"
-    role: "Job Title"
-    email_placeholder: "Email Address"
-    password_placeholder: "Password"
-    password_confirmation_placeholder: "Confirm Password"
-    user_lists: "User Lists"
-    update: "Update"
-    delete: "Delete"
-    creation_success: "Successfully Registered the Staff"
-    creation_failed: "Creation Failed"
-    update_success: "Staff File Renew"
-    update_failed: "Update Failed"
-    delete_staff: "Delete Staff"
-    delete_confirm: "Are You Sure You Want To Delete?"
+    new_user: 'New Staff'
+    role: 'Job Title'
+    email_placeholder: 'Email Address'
+    password_placeholder: 'Password'
+    password_confirmation_placeholder: 'Confirm Password'
+    user_lists: 'User Lists'
+    update: 'Update'
+    delete: 'Delete'
+    creation_success: 'Successfully Registered the Staff'
+    creation_failed: 'Creation Failed'
+    update_success: 'Staff File Renew'
+    update_failed: 'Update Failed'
+    delete_staff: 'Delete Staff'
+    delete_confirm: 'Are You Sure You Want To Delete?'
 
   import:
-    please_choose_file: "Please choose file"
-    data_import_process: "Data import process"
-    field: "Field"
-    instruction: "Instruction"
-    email: "Email"
-    password: "Password"
-    name: "Name"
-    gender: "Gender"
-    birthday: "Birthday"
-    phone: "Phone"
-    role: "Role"
-    nick_name: "Nick Name"
-    time_zone: "Time Zone"
-    language: "Language"
-    template_instruction: "Please download the template file and edit the data to import."
-    data_import: "Data import"
-    import: "Import"
-    import_page: "import Page"
-    import_records: "import Records"
-    instruction_for_user_import: "Instruction for User Import"
+    please_choose_file: 'Please choose file'
+    data_import_process: 'Data import process'
+    field: 'Field'
+    instruction: 'Instruction'
+    email: 'Email'
+    password: 'Password'
+    name: 'Name'
+    gender: 'Gender'
+    birthday: 'Birthday'
+    phone: 'Phone'
+    role: 'Role'
+    nick_name: 'Nick Name'
+    time_zone: 'Time Zone'
+    language: 'Language'
+    template_instruction: 'Please download the template file and edit the data to import.'
+    data_import: 'Data import'
+    import: 'Import'
+    import_page: 'import Page'
+    import_records: 'import Records'
+    instruction_for_user_import: 'Instruction for User Import'
     required: "It's required"
-    user_edit: "Users can edit by themselves after created"
-    role_for_staff: "Please fill hr or staff in the file"
-    btn_download: "Download Template CSV File"
-    id: "ID"
-    status: "Status"
-    file: "File"
-    imported_time: "Imported Time"
-    all_records: "All Records"
-    success_records: "Success Records"
-    failures_details: "Failures Details"
-    exist_in_system: "exist in system"
+    user_edit: 'Users can edit by themselves after created'
+    role_for_staff: 'Please fill hr or staff in the file'
+    btn_download: 'Download Template CSV File'
+    id: 'ID'
+    status: 'Status'
+    file: 'File'
+    imported_time: 'Imported Time'
+    all_records: 'All Records'
+    success_records: 'Success Records'
+    failures_details: 'Failures Details'
+    exist_in_system: 'exist in system'
 
   activerecord:
     errors:
@@ -168,7 +169,7 @@ en:
         user:
           attributes:
             role:
-              inclusion: "is not correct"
+              inclusion: 'is not correct'
             password:
-              too_short: "is too short"
-              blank: "is blank"
+              too_short: 'is too short'
+              blank: 'is blank'

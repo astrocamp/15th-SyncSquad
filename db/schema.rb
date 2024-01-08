@@ -157,7 +157,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_05_160722) do
     t.date "end_date"
     t.datetime "end_datetime"
     t.string "end_timezone"
-    t.boolean "all_day_event", default: false
+    t.boolean "all_day_event", default: true
     t.boolean "private", default: true
     t.string "location"
     t.string "source"
