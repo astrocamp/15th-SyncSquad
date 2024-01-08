@@ -28,7 +28,7 @@
         <% @import_records.each do |import_record| %>
           <tr>
             <td class="py-2 px-4 border-b text-center"><%= import_record.id %></td>
-            <% if import_record.status == "Failures detected" %> 
+            <% if import_record.status == "Failures" %> 
               <td class="py-2 px-4 border-b text-center bg-red-300">
                 <%= import_record.status%>
               </td>

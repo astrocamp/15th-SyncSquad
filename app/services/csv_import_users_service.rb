@@ -1,15 +1,9 @@
 # frozen_string_literal: true
 
-module UsersHelper
+class CsvImportUsersService
   require 'csv'
-  def import # rubocop:disable Metrics/MethodLength,Metrics/PerceivedComplexity
-    file = params[:file]
-    if file.nil? || file.content_type != 'text/csv'
-      return redirect_to users_import_path,
-                         notice: t('import.please_choose_file')
-    end
-
-    csv_data = params[:file].read.force_encoding('utf-8')
+  def call(file) # rubocop:disable Metrics/MethodLength
+    csv_data = file.read.force_encoding('utf-8')
     success = 0
     failed_records = []
     CSV.parse(csv_data, headers: true).each_with_index do |row, idx|
@@ -32,10 +26,9 @@ module UsersHelper
         end
       end
     end
-    Importrecord.create(file:, created_at: Time.current,
-                        status: failed_records.empty? ? 'Records success' : 'Failures detected',
+    Importrecord.create(file:,
+                        status: failed_records.empty? ? 'Success' : 'Failures',
                         total_count: success + failed_records.size, success_count: success,
                         error_messages: failed_records)
-    redirect_to users_import_records_path, notice: t('import.data_import_process')
   end
 end

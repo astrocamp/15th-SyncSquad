@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  include UsersHelper
   # 公司建立
   def new
     @user = User.new
@@ -19,6 +18,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.where(company_id: current_company.id)
+  end
+
+  def import
+    file = params[:file]
+    if file.nil? || file.content_type != 'text/csv'
+      return redirect_to users_import_path,
+                         notice: t('import.please_choose_file')
+    end
+    CsvImportUsersService.new.call(file)
+    redirect_to users_import_records_path, notice: t('import.data_import_process')
   end
 
   def records
