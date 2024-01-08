@@ -2,7 +2,7 @@
 
 class CsvImportUsersService
   require 'csv'
-  def call(file) # rubocop:disable Metrics/MethodLength
+  def call(file, company) # rubocop:disable Metrics/MethodLength
     csv_data = file.read.force_encoding('utf-8')
     success = 0
     failed_records = []
@@ -17,7 +17,7 @@ class CsvImportUsersService
           birthday: row['Birthday'], phone: row['Phone'],
           role: row['Role'], lang: row['Language'],
           time_zone: row['Time Zone'], nick_name: row['Nick Name'],
-          company_id: current_company.id
+          company_id: company
         )
         if data.save
           success += 1
