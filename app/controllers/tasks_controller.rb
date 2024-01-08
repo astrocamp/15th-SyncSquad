@@ -23,6 +23,7 @@ class TasksController < ApplicationController
       flash.now[:success] = t('tasks.create_success')
     else
       flash.now[:alert] = t('tasks.create_not_saved')
+      render :new
     end
   end
 

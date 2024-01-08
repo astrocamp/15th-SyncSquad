@@ -13,7 +13,6 @@ class Project < ApplicationRecord
 
   # Validates
   validates :title, presence: true
-  validates :owner_id, numericality: { only_integer: true }
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[created_at deleted_at description id owner_id title updated_at]

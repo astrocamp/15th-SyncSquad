@@ -13,6 +13,14 @@ import { patch } from '@rails/request.js'
 export default class extends Controller {
   static targets = ['calendar']
 
+  initialize() {
+    this.calendar = nill
+  }
+
+  disconnect() {
+    this.calendar = null
+  }
+
   connect() {
     console.log(this.calendarTarget.dataset.events)
     const newEventUrl = this.calendarTarget.dataset.newEventUrl

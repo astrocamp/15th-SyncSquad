@@ -1,4 +1,3 @@
-<%# calendar 用 turbo_stream 呈現 %>
 <!-- TODO: 日曆即時更新 -->
 <turbo-stream action="replace" target="calendar">
   <template>
@@ -6,7 +5,6 @@
   </template>
 </turbo-stream>
 
-<%# toast 以 turbo_stream 呈現 %>
 <div class="absolute right-0 z-10 px-5 py-2 top-10">
   <%= render partial: 'shared/alert', locals: { message: flash[:alert]} %>
   <%= render partial: 'shared/notice', locals: { message: flash[:notice]} %>
