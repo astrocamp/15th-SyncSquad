@@ -20,9 +20,9 @@ class TasksController < ApplicationController
     @project = @list.project
     @task = @list.tasks.build(task_params)
     if @task.save
-      flash.now[:success] = '待辦事項新增成功'
+      flash.now[:success] = t('.success')
     else
-      flash.now[:alert] = '請填入待辦事項'
+      flash.now[:alert] = t('.not_saved')
     end
   end
 
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
     @project = @task.project
     if @task.update(task_params)
       redirect_to task_path(@task)
-      flash.now[:success] = '待辦事項更新成功'
+      flash.now[:success] = t('.success')
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   def destroy
     @project = @task.project
     @task.destroy
-    flash.now[:alert] = '待辦事項已刪除'
+    flash.now[:success] = t('.success')
   end
 
   private

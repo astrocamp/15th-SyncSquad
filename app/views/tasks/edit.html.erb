@@ -1,5 +1,5 @@
 <%= content_for :modal_title do %>
-  編輯任務
+  <%= t('.edit_task') %>
 <% end %>
 <%= render 'shared/modal' do %>
   <% if @task.errors.any? %>
@@ -11,33 +11,33 @@
   <%= form_with model: @task do |form| %>
     <div class="p-4 space-y-4 md:p-5">
       <div>
-        <%= form.label :title %>
+        <%= form.label t('tasks.edit.title') %>
         <%= form.text_field :title %>
       </div>
       <div>
-        <%= form.label :description %>
+        <%= form.label t('tasks.edit.description') %>
         <%= form.text_area :description %>
       </div>
       <div class="w-[350px]">
-        <%= form.label :user_id %>
+        <%= form.label t('tasks.edit.user_id') %>
         <%= form.select :user_id, User.pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect"} %> 
         <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
       </div>
       <div>
-        <%= form.label :start_at %>
+        <%= form.label t('tasks.edit.start_at') %>
         <%= form.datetime_field :start_at %>
       </div>
       <div>
-        <%= form.label :priority %>
-        <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: "選擇優先級" }) %>
+        <%= form.label t('tasks.edit.priority') %>
+        <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: t('tasks.edit.select') }) %>
       </div>
       <div>
-        <%= form.label :estimated_complete_at %>
+        <%= form.label t('tasks.edit.estimated_complete_at') %>
         <%= form.datetime_field :estimated_complete_at %>
       </div>
       <div class="flex items-center justify-end p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
       <%= form.submit class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
-      <button data-action="click->turbomodal#close" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">取消</button>
+      <button data-action="click->turbomodal#close" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"><%= t('tasks.edit.cancel') %></button>
       </div>
     </div>  
   <% end %>

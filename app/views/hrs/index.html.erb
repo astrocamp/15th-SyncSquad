@@ -1,6 +1,4 @@
-  <h3 class="font-bold text-4xl"><%= t('hrs.new_user') %></h3>
-  
-
+<h3 class="font-bold text-4xl"><%= t('hrs.new_user') %></h3>
 
 <%= form_with(model: @user, url: hrs_path, method: :post) do |f| %>
   <%= f.email_field :email, placeholder: t('hrs.email_placeholder') %>
@@ -12,29 +10,18 @@
   <%= f.password_field :password_confirmation, placeholder: t('hrs.password_confirmation_placeholder') %>
   
   <%= f.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-   <div class="field hidden">
-    <%= f.label :company_id %><br />
-    <%= f.text_field :company_id, value: current_company.id %>
-  </div>
 <% end %>
 
-
   <h3 class="font-bold text-4xl"><%= t('hrs.user_lists') %></h3>
- 
 
 <% @users.each do |user| %>
-  <%= form_for(user, url: hr_path(user), remote: true, method: :patch) do |f| %>
-    
-      
-        <%= f.text_field :email %> - 
-        <%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]}) %> - 
-        <%= f.submit t('hrs.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-        <%= link_to t('hrs.delete'), hr_path(user), class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded", data: {
-               turbo_method: 'delete',
-               turbo_confirm: '確認刪除？'
-             } %>
-      
-     
+  <%= form_for(user, url: hr_path(user), remote: true, method: :patch) do |f| %>      
+    <%= f.text_field :email %> - 
+    <%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]}) %> - 
+    <%= f.submit t('hrs.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= link_to t('hrs.delete'), hr_path(user), class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded", data: {turbo_method: 'delete',
+                                                    turbo_confirm: t('.delete_confirm')
+                                                    } %>
   <% end %>
 <% end %>
 

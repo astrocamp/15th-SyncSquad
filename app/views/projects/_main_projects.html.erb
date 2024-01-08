@@ -1,13 +1,13 @@
 <%= search_form_for @q, data: { turbo_frame: :results } do |f| %>
   <div class="flex">
-    <div class="flex items-center"> 搜尋專案列表 </div>
+    <div class="flex items-center"><%= t('.search') %></div>
     <div class="flex items-center px-4">
-      <%= f.label :title_or_owner_email_cont, t('project.Title or Email'), class:"pr-2 shrink-0" %>
+      <%= f.label :title_or_owner_email_cont, t('.title_or_email'), class:"pr-2 shrink-0" %>
       <%= f.search_field :title_or_owner_email_cont, class:"form-input", oninput: 'this.form.requestSubmit();' %>
     </div>
 
     <div class="flex items-center">
-      <%= link_to "清除篩選", "", 
+      <%= link_to t('.clear'), "", 
       class:"rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md", 
       data: {controller: "reset-form", action:"turbo:submit-end->reset-form#reset"}%> 
     </div>
@@ -18,11 +18,11 @@
   <%= turbo_frame_tag :results do %>
     <table>
       <thead>
-        <th><%= sort_link(@q, :title, t('project.Title'), default_order: :desc) %> </th>
-        <th><%= sort_link(@q, :description, t('project.Description'), default_order: :desc) %></th>
-        <th><%= sort_link(@q, :owner_email, t('project.Email'), default_order: :desc) %></th>
-        <th><%= sort_link(@q, :created_at, t('project.Created Time'), default_order: :desc) %> </th>
-        <th><%= sort_link(@q, :updated_at, t('project.Updated Time'), default_order: :desc) %></th>
+        <th><%= sort_link(@q, :title, t('.title'), default_order: :desc) %> </th>
+        <th><%= sort_link(@q, :description, t('.description'), default_order: :desc) %></th>
+        <th><%= sort_link(@q, :owner_email, t('.email'), default_order: :desc) %></th>
+        <th><%= sort_link(@q, :created_at, t('.created_time'), default_order: :desc) %> </th>
+        <th><%= sort_link(@q, :updated_at, t('.updated_time'), default_order: :desc) %></th>
       </thead>
       <tbody>
         <% projects.each do |project| %>
