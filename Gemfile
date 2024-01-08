@@ -63,6 +63,12 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # 開啟多個伺服器
+  gem 'foreman', '~> 0.87.2'
+
+  # ruby 程式風格審查
+  gem 'rubocop', '~> 1.59', require: false
 end
 
 group :test do
@@ -86,9 +92,6 @@ gem 'image_processing', '~> 1.12'
 # 狀態機
 gem 'aasm', '~> 5.5'
 
-# 拖曳順序
-gem 'acts_as_list', '~> 1.1'
-
 # 分頁
 gem 'kaminari', '~> 1.2'
 
@@ -98,23 +101,14 @@ gem 'ransack', '~> 4.1'
 # URL 字串
 gem 'friendly_id', '~> 5.4.0'
 
-# 開啟多個伺服器
-gem 'foreman', '~> 0.87.2'
-
 # flowbite 所需的 tailwind
 gem 'tailwindcss-rails', '~> 2.0'
-
-# ruby 程式風格審查
-gem 'rubocop', '~> 1.59', require: false
 
 # 授權管理
 gem 'pundit', '~> 2.3'
 
 # 排列
 gem 'ranked-model', '~> 0.4.9'
-
-# hotwire
-gem 'hotwire-rails', '~> 0.1.3'
 
 # markdown
 gem 'redcarpet', '~> 3.6'

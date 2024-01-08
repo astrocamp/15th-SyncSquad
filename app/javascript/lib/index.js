@@ -1,1 +1,2 @@
-import "./fontawesome"
+import './fontawesome'
+import 'flowbite/dist/flowbite.turbo.js'

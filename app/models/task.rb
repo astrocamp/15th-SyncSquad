@@ -11,11 +11,12 @@ class Task < ApplicationRecord
   # Relations
   belongs_to :list
   delegate :project, to: :list
-  belongs_to :user, optional: true # task assign的人一開始可以不用填
+  belongs_to :user, optional: true
 
   # Validates
   validates :title, presence: true
   validate :end_must_after_start
+  validate :validate!
 
   PRIORITY = {
     critical: 1,
@@ -29,6 +30,10 @@ class Task < ApplicationRecord
     priority = 3
     start_date = Date.current
     end_date = Date.current
+  end
+
+  def validate!
+    errors.add(:title, :blank, message: "cannot be nil") if title.nil?
   end
 
   # 時間跟日期組合
@@ -45,15 +50,15 @@ class Task < ApplicationRecord
     errors.add(:end_date, 'must after the start time')
   end
 
-  # 行事曆格式
-  def full_calendar_event
-    {
-      id:,
-      title: subject,
-      start: local_start_datetime(start_date, start_time),
-      end: local_start_datetime(end_date, end_time),
-      allDay: all_day_event,
-      description:
-    }
-  end
+  # # 行事曆格式
+  # def full_calendar_event
+  #   {
+  #     id:,
+  #     title: subject,
+  #     start: local_start_datetime(start_date, start_time),
+  #     end: local_start_datetime(end_date, end_time),
+  #     allDay: all_day_event,
+  #     description:
+  #   }
+  # end
 end

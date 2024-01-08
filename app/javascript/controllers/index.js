@@ -16,9 +16,6 @@ application.register('color-picker', ColorPickerController)
 import DatepickerController from './datepicker_controller'
 application.register('datepicker', DatepickerController)
 
-import HelloController from './hello_controller'
-application.register('hello', HelloController)
-
 import NotificationController from './notification_controller'
 application.register('notification', NotificationController)
 
