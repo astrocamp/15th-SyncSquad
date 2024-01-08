@@ -159,4 +159,4 @@ en:
     imported_time: "Imported Time"
     all_records: "All Records"
     success_records: "Success Records"
-    details: "Details"
+    failures_details: "Failures Details"
