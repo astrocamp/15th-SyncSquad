@@ -1,4 +1,83 @@
 tw:
+  projects:
+    create:
+      success: "新增成功"
+    update:
+      success: "更新成功"
+    destroy:
+      success: "刪除成功"
+    edit:
+      edit_project: "編輯專案"
+    index:
+      affiliated_projects: "專案看板"
+    new:
+      create_project: "新建專案"
+    show:
+      confirm: "確定刪除專案？"
+    form:
+      title: "名稱"
+      description: "說明"
+      cancel: "取消"
+    list:
+      delete: "刪除列表"
+    main_projects:
+      search: "搜尋專案"
+      title_or_email: "名稱/信箱"
+      clear: "清空"
+      title: "名稱"
+      description: "說明"
+      email: "信箱"
+      created_time: "建立時間"
+      updated_time: "更新時間"
+
+  lists:
+    create:
+      success: "新增成功"
+    update:
+      success: "更新成功"
+    destroy:
+      success: "刪除成功"
+    new:
+      create_list: "新建列表"
+      title: "名稱"
+      cancel: "取消"
+    edit:
+      edit_list: "編輯列表"
+      title: "名稱"
+      color: "顏色"
+      cancel: "取消"
+      delete: "刪除"
+      confirm: "確定刪除列表？"
+
+  tasks:
+    create:
+      success: "新增成功"
+      not_saved: "請填寫完整"
+    update:
+      success: "更新成功"
+    destroy:
+      success: "刪除成功"
+    task:
+      confirm: "確定刪除任務?"
+    edit:
+      edit_task: "編輯任務"
+      title: "名稱"
+      description: "說明"
+      user_id: "成員"
+      start_at: "開始時間"
+      priority: "順位"
+      select: "選擇"
+      estimated_complete_at: "預計完成時間"
+      cancel: "取消"
+    new:
+      create_task: "新建任務"
+      title: "名稱"
+      cancel: "取消"
+    show:
+      show_task: "顯示任務"
+      title: "名稱"
+      edit: "編輯任務"
+
   main:
     user_sign_in: "員工登入"
     new_user: "創建員工"
@@ -62,11 +141,13 @@ tw:
     user_lists: "員工列表"
     update: "更新"
     delete: "刪除"
-    creation_success: "員工新增成功"
+    creation_success: "員工新增成功@@"
     creation_failed: "無法新增員工"
     update_success: "員工資料更新"
     update_failed: "員工更新失敗"
     delete_staff: "刪除離職員工"
+    index:
+      delete_confirm: "確認刪除?"
 
   helpers:
     submit:
@@ -75,3 +156,12 @@ tw:
       company:
         create: "新增公司"
         update: "更新公司資料"
+      project:
+        create: "新增專案"
+        update: "更新專案"
+      list:
+        create: "新增列表"
+        update: "更新列表"
+      task:
+        create: "新增任務"
+        update: "更新任務"

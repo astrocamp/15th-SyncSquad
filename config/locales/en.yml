@@ -1,4 +1,83 @@
 en:
+  projects:
+    create:
+      success: "Creation Success!"
+    update:
+      success: "Update Success!"
+    destroy:
+      success: "Delete Success!"
+    edit:
+      edit_project: "Edit Project"
+    index:
+      affiliated_projects: "Affiliated Projects"
+    new:
+      create_project: "Create Project"
+    show:
+      confirm: "Are You Sure You Want To Delete?"
+    form:
+      title: "Title"
+      description: "Description"
+      cancel: "Cancel"
+    list:
+      delete: "X"
+    main_projects:
+      search: "Search"
+      title_or_email: "Title/Email"
+      clear: "Clear"
+      title: "Title"
+      description: "Description"
+      email: "Email"
+      created_time: "Created Time"
+      updated_time: "Updated Time"
+
+  lists:
+    create:
+      success: "Creation Success!"
+    update:
+      success: "Update Success!"
+    destroy:
+      success: "Delete Success!"
+    new:
+      create_list: "Create List"
+      title: "Title"
+      cancel: "Cancel"
+    edit:
+      edit_list: "Edit List"
+      title: "Title"
+      color: "Color"
+      cancel: "Cancel"
+      delete: "Delete"
+      confirm: "Are You Sure You Want To Delete?"
+
+  tasks:
+    create:
+      success: "Creation Success!"
+      not_saved: "Please Fill in Completely."
+    update:
+      success: "Update Success!"
+    destroy:
+      success: "Delete Success!"
+    task:
+      confirm: "Are You Sure You Want To Delete?"
+    edit:
+      edit_task: "Edit Task"
+      title: "Title"
+      description: "Description"
+      user_id: "Member"
+      start_at: "Start At"
+      priority: "Priority"
+      select: "Select"
+      estimated_complete_at: "Estimated Completion Time"
+      cancel: "Cancel"
+    new:
+      create_task: "Create Task"
+      title: "Title"
+      cancel: "Cancel"
+    show:
+      show_task: "Show Task"
+      title: "Title"
+      edit: "Edit"
+
   main:
     user_sign_in: "User Sign In"
     new_user: "New Staff"
@@ -67,3 +146,5 @@ en:
     update_success: "Staff File Renew"
     update_failed: "Update Failed"
     delete_staff: "Delete Staff"
+    index:
+      delete_confirm: "Are You Sure You Want To Delete?"

@@ -1,6 +1,9 @@
 <%= content_for :modal_title do %>
-  編輯專案
+  <%= t('.edit_project') %>
 <% end %>
 <%= render 'shared/modal' do %>
   <%= render 'form', project: @project %>
 <% end %>
+
+
+    
