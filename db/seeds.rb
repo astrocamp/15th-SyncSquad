@@ -20,7 +20,7 @@ def create_or_show_users(num_users)
                 gender = Faker::Number.within(range: 0..1)
                 birthday = Faker::Date.birthday(min_age: 18, max_age: 65)
                 phone = Faker::PhoneNumber.phone_number_with_country_code
-                role = nil
+                role = "hr"
                 lang = 'en'
                 time_zone = '+0800'
                 new_user = User.create!(
