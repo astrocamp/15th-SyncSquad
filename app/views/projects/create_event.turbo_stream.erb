@@ -1,5 +1,5 @@
 <!-- TODO: 日曆即時更新 -->
-<turbo-stream action="replace" target="calendar">
+<turbo-stream action="update" target="calendar">
   <template>
     <%= render partial: 'calendar', locals: { events: @events } %>
   </template>
