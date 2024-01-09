@@ -3,18 +3,16 @@ import { Calendar } from '@fullcalendar/core'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
-import interactionPlugin, { Draggable } from '@fullcalendar/interaction'
+import interactionPlugin from '@fullcalendar/interaction'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
-
-import { patch } from '@rails/request.js'
 
 // Connects to data-controller="calendar"
 export default class extends Controller {
   static targets = ['calendar']
 
   initialize() {
-    this.calendar = nill
+    this.calendar = null
   }
 
   disconnect() {
@@ -42,18 +40,24 @@ export default class extends Controller {
       eventResizableFromStart: true,
       selectable: true,
       unselectCancel: '.unsetTime', //在選擇狀態下點選（指定元素），選擇不會消失。
-      select: async function (info) {
+      select: async (info) => {
         console.log('selected ' + info.startStr + ' to ' + info.endStr)
-        const newURL = `${newEventUrl}?startDate=${info.startStr}&endDate=${info.endStr}`
+        const oneDayInMilliseconds = 24 * 60 * 60 * 1000 // 一天的毫秒数
+        const startDate = this.toDateObject('start', info.startStr)
+        const endDate = this.toDateObject('end', info.endStr)
+        const timestampDifference = endDate.timestamp - startDate.timestamp
+        console.log(startDate, endDate)
+        const newURL =
+          timestampDifference > oneDayInMilliseconds
+            ? `${newEventUrl}?startDate=${startDate.string}&endDate=${endDate.string}&allDay=true`
+            : `${newEventUrl}?startDate=${startDate.string}&endDate=${endDate.string}`
+        console.log(timestampDifference > oneDayInMilliseconds)
         await Turbo.visit(newURL, {
           frame: 'modal',
           method: 'POST',
         })
       },
-
-      // TODO: 編輯 ＆ 刪除
       eventClick: function (info) {
-        // alert('Event: ' + info.event.title)
         info.el.style.color = 'red'
         const itemURL = `/${item}/${info.event._def.publicId}`
         console.log(itemURL)
@@ -64,7 +68,6 @@ export default class extends Controller {
       },
       eventResize: function (info) {
         alert(info.event.title + ' end is now ' + info.event.end.toISOString())
-
         if (!confirm('is this okay?')) {
           info.revert()
         }
@@ -72,23 +75,31 @@ export default class extends Controller {
       eventDrop: function (eventResizeInfo) {
         console.log(eventResizeInfo)
       },
-      // eventResize: this.settingEvent,
-      // eventDrop: this.settingEvent,
     })
     calendar.render()
   }
 
-  async settingEvent(e) {
-    dayjs.extend(utc)
-    const start_at = dayjs.utc(e.event.start)
-    const end_at = dayjs.utc(e.event.end)
-    const start_date = start_at.format('YYYY-MM-DD')
-    const start_time = start_at.format('HH:mm:ss')
-    const end_date = end_at.format('YYYY-MM-DD')
-    const end_time = end_at.format('HH:mm:ss')
-    const id = e.event.id
-    const url = `/events/${id}/drop`
-    const data = { start_date, start_time, end_date, end_time }
-    await patch(url, { body: JSON.stringify(data) })
+  toDateObject(dateType, dateString) {
+    let dateTimestamp
+    let date
+    if (dateType === 'start') {
+      dateTimestamp = new Date(dateString).getTime()
+      date = this.formatTimestampToDate(dateTimestamp).toString()
+    }
+    if (dateType === 'end') {
+      dateTimestamp = new Date(dateString).getTime()
+      date = this.formatTimestampToDate(
+        dateTimestamp - 24 * 60 * 60 * 1000
+      ).toString()
+    }
+    return { string: date, timestamp: dateTimestamp }
+  }
+
+  formatTimestampToDate(timestamp) {
+    const dateObject = new Date(timestamp)
+    const year = dateObject.getFullYear()
+    const month = ('0' + (dateObject.getMonth() + 1)).slice(-2) // 月份是从 0 开始的，因此要加 1
+    const day = ('0' + dateObject.getDate()).slice(-2)
+    return `${year}-${month}-${day}`
   }
 }
