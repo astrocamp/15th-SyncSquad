@@ -3,7 +3,7 @@
 class Task < ApplicationRecord
   acts_as_paranoid
   after_initialize :set_defaults
-  
+
   # Rank
   include RankedModel
   ranks :row_order, with_same: :list_id
@@ -33,7 +33,7 @@ class Task < ApplicationRecord
   end
 
   def validate!
-    errors.add(:title, :blank, message: "cannot be nil") if title.nil?
+    errors.add(:title, :blank, message: 'cannot be nil') if title.nil?
   end
 
   # 時間跟日期組合
