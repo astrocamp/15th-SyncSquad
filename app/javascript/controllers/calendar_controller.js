@@ -23,10 +23,10 @@ export default class extends Controller {
     console.log(this.calendarTarget.dataset.events)
     const newEventUrl = this.calendarTarget.dataset.newEventUrl
     const item = this.calendarTarget.dataset.item
-    const events = JSON.parse(this.calendarTarget.dataset.events) // 获取事件数据 JSON 字符串
+    const events = JSON.parse(this.calendarTarget.dataset.events)
     const calendar = new Calendar(this.calendarTarget, {
       plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
-      initialView: 'dayGridMonth', //以month形式
+      initialView: 'dayGridMonth',
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
@@ -39,10 +39,10 @@ export default class extends Controller {
       editable: true,
       eventResizableFromStart: true,
       selectable: true,
-      unselectCancel: '.unsetTime', //在選擇狀態下點選（指定元素），選擇不會消失。
+      unselectCancel: '.unsetTime',
       select: async (info) => {
         console.log('selected ' + info.startStr + ' to ' + info.endStr)
-        const oneDayInMilliseconds = 24 * 60 * 60 * 1000 // 一天的毫秒数
+        const oneDayInMilliseconds = 24 * 60 * 60 * 1000
         const startDate = this.toDateObject('start', info.startStr)
         const endDate = this.toDateObject('end', info.endStr)
         const timestampDifference = endDate.timestamp - startDate.timestamp
@@ -98,7 +98,7 @@ export default class extends Controller {
   formatTimestampToDate(timestamp) {
     const dateObject = new Date(timestamp)
     const year = dateObject.getFullYear()
-    const month = ('0' + (dateObject.getMonth() + 1)).slice(-2) // 月份是从 0 开始的，因此要加 1
+    const month = ('0' + (dateObject.getMonth() + 1)).slice(-2)
     const day = ('0' + dateObject.getDate()).slice(-2)
     return `${year}-${month}-${day}`
   }
