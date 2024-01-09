@@ -27,6 +27,10 @@
       <%= form.label :end_datetime %>
       <%= form.datetime_field :end_datetime %>
     </div>
+    <div>
+      <%= form.label :all_day_event %>
+      <%= form.check_box :all_day_event, checked: params[:allDay] == "true" %>
+    </div>
     <!-- Modal footer -->
     <div class="flex items-center justify-end p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
       <%= form.submit class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
