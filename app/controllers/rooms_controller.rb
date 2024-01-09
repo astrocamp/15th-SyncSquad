@@ -31,7 +31,7 @@ class RoomsController < ApplicationController
         selected_user_ids.each do |user_id|
           Participant.create(room_id: @new_private_group.id, user_id:)
         end
-        @new_private_group.reload.broadcast_if_private_group
+        @new_private_group.broadcast_if_private_group
       end
     else
       @new_room = Room.create(name: params['room']['name'])
