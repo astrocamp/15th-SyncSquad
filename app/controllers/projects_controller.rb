@@ -36,8 +36,8 @@ class ProjectsController < ApplicationController
     @event = current_user.tasks.build(event_params)
     if @event.save
       flash.now[:success] = '事件建立成功'
-      find_project()
-      find_events()
+      find_project
+      find_events
     else
       flash.now[:alert] = '事件新增失敗'
       render :new_event
@@ -61,7 +61,7 @@ class ProjectsController < ApplicationController
     @params = params
     session[:__last_view__] = 'calendar'
   end
-  
+
   def edit; end
 
   def update

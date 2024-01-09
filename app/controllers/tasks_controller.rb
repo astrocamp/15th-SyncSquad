@@ -49,10 +49,10 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task)
-          .permit(:title, 
-                  :description, 
-                  :priority, 
-                  :start_date, 
+          .permit(:title,
+                  :description,
+                  :priority,
+                  :start_date,
                   :start_datetime,
                   :start_timezone,
                   :end_date,
@@ -62,7 +62,7 @@ class TasksController < ApplicationController
                   :private,
                   :location,
                   :source,
-                  :estimated_complete_at, 
+                  :estimated_complete_at,
                   :user_id)
   end
 
