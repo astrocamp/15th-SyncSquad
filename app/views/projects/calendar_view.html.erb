@@ -1,3 +1,6 @@
-<main class="max-w-screen-lg p-6 m-auto">
+<div class="max-w-screen-lg p-6 m-auto">
+  <div>
+    <%= render partial: 'head', locals: {project: @project} %>
+  </div>
   <%= render partial: 'calendar', locals: { events: @events } %>
-</main>
+</div>

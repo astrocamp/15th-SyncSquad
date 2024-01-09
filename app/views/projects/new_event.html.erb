@@ -1,9 +1,8 @@
 <%= content_for :modal_title do %>
-  新增事件
+  <%= t('project.new_task') %>
 <% end %>
 <%= render 'shared/modal' do %>
   <%= form_with modal: @event, url: create_event_project_path do |form| %>
-  <%= params %>
     <div>
       <%= form.label :title %>
       <%= form.text_field :title %>

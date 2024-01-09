@@ -7,9 +7,6 @@ import { application } from './application'
 import CalendarController from './calendar_controller'
 application.register('calendar', CalendarController)
 
-import CccController from './ccc_controller'
-application.register('ccc', CccController)
-
 import ColorPickerController from './color_picker_controller'
 application.register('color-picker', ColorPickerController)
 

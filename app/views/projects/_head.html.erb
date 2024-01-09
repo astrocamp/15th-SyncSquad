@@ -1,0 +1,27 @@
+<div class="flex justify-between">
+  <div>
+    <div>
+      <h2>
+        <%= project.title %>
+        <%= link_to 'X', project_path(project), data: { turbo_method: 'delete', turbo_confirm: '確定刪除專案嗎？'} %>
+        <%= link_to  edit_project_path, data: { turbo_frame: "modal" } do%>
+          <i class="fa-solid fa-ellipsis"></i>
+        <% end %>
+      </h2>
+    </div>
+    <%= project.description %>
+    <%= project.owner.nick_name %>
+    
+  </div>
+  <div>
+    
+    <%= link_to kanban_project_path(project) do %>
+      <i class="fa-solid fa-chart-simple"></i>
+      <%= t('project.kanban') %>
+    <% end %>
+    <%= link_to calendar_project_path(project) do %>
+      <i class="fa-regular fa-calendar"></i>
+      <%= t('project.calendar') %>
+    <% end %>
+  </div>
+</div>

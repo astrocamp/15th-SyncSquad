@@ -3,6 +3,7 @@
   "private": "true",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fullcalendar/core": "^6.1.10",
     "@fullcalendar/daygrid": "^6.1.10",
@@ -19,8 +20,8 @@
     "flowbite": "^2.2.0",
     "slim-select": "^2.8.0",
     "sortablejs": "^1.15.1",
-    "stimulus-color-picker": "^1.1.0",
     "stimulus": "^3.2.2",
+    "stimulus-color-picker": "^1.1.0",
     "stimulus-notification": "^2.2.0",
     "stimulus-sortable": "^4.1.1"
   },
@@ -30,8 +31,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
+    "esbuild": "^0.19.9",
     "postcss": "^8.4.32",
-    "tailwindcss": "^3.3.6",
-    "esbuild": "^0.19.9"
+    "tailwindcss": "^3.3.6"
   }
 }
