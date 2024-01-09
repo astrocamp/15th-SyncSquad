@@ -141,7 +141,7 @@ tw:
     user_lists: "員工列表"
     update: "更新"
     delete: "刪除"
-    creation_success: "員工新增成功@@"
+    creation_success: "員工新增成功"
     creation_failed: "無法新增員工"
     update_success: "員工資料更新"
     update_failed: "員工更新失敗"
