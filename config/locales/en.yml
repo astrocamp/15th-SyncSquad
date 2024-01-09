@@ -160,3 +160,15 @@ en:
     all_records: "All Records"
     success_records: "Success Records"
     failures_details: "Failures Details"
+    exist_in_system: "exist in system"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            role:
+              inclusion: "is not correct"
+            password:
+              too_short: "is too short"
+              blank: "is blank"

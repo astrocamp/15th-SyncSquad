@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: { staff: 0, hr: 1 }
-  validates :role, inclusion: { in: %w[staff hr] }
+  validates :role, presence: true, inclusion: { in: %w[staff hr] }
   
   # Relationship
   belongs_to :company, optional: true
