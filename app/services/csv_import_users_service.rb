@@ -10,7 +10,7 @@ class CsvImportUsersService
       user = User.find_by(email: row['Email'])
       if user
         failed_records << "Row #{idx + 1} - Email:#{row['Email']} exist in system"
-      else
+      elsif %w[staff hr].include?(row['Role'])
         data = User.new(
           email: row['Email'], password: row['Password'],
           name: row['Name'], gender: row['Gender'],
@@ -24,6 +24,8 @@ class CsvImportUsersService
         else
           failed_records << "Row #{idx + 1} - #{data.errors.full_messages.join(' & ')}"
         end
+      else
+        failed_records << "Row #{idx + 1} - Role should be staff or hr"
       end
     end
     Importrecord.create(file:,

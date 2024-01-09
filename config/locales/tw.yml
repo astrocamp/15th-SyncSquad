@@ -160,6 +160,18 @@ tw:
     all_records: "所有記錄"
     success_records: "成功記錄"
     failures_details: "失敗紀錄詳細資訊"
+    exist_in_system: "存在於系統"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            role:
+              inclusion: "不正確的角色"
+            password:
+              too_short: "太短"
+              blank: "為空白"
 
   helpers:
     submit:
