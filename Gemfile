@@ -111,3 +111,5 @@ gem 'mini_magick', '~> 4.12'
 gem 'geocoder', '~> 1.8'
 
 gem 'httparty', '~> 0.21.0'
+# 下載 AWS S3
+gem "aws-sdk-s3", require: false
