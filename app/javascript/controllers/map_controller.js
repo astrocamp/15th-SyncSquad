@@ -57,6 +57,13 @@ export default class extends Controller {
     });
     this.updateLocation(changeLat, changeLng);
   }
+  resetLocation(event) {
+    event.preventDefault();
+    this.fieldTarget.value = "";
+    this.updateLocation(null, null);
+    this.mapTarget.style.height = "0";
+  }
+
   async updateLocation(latitude, longitude) {
     const id = this.mapTarget.dataset.mapId;
     const url = `/tasks/${id}/update_location`;

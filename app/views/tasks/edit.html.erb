@@ -51,6 +51,7 @@
       <div>
         <%= form.label :location%>
         <%= form.text_field :location, data:{ map_target:"field" }%>
+        <button data-action="click->map#resetLocation" class="rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md">reset</button>
       </div>
 
       <div id="map" data-map-target="map" data-map-location="<%= @location %>" data-map-latitude="<%= @latitude %>" data-map-longitude="<%= @longitude %>" data-map-id="<%= @task.id %>">
