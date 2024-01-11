@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-    devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/registrations/omniauth_callbacks' }
 
     scope "(:lang)", lang: /en|tw/ do
       root 'main#home'
