@@ -1,20 +1,24 @@
 Rails.application.routes.draw do
-  scope "(:lang)", lang: /en|tw/ do
-    root 'main#home'
-    get '/about', to: 'main#about'
-    get '/privacy', to: 'main#privacy'
-    get '/feature/calendar', to: 'main#calendar'
-    get '/feature/chatroom', to: 'main#chatroom'
-    get '/feature/project', to: 'main#project'
   
-    devise_for :users, controllers: {
-      sessions: 'users/registrations/sessions',
-      registrations: 'users/registrations/registrations'
-    }
+    devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+    scope "(:lang)", lang: /en|tw/ do
+      root 'main#home'
+      get '/about', to: 'main#about'
+      get '/privacy', to: 'main#privacy'
+      get '/feature/calendar', to: 'main#calendar'
+      get '/feature/chatroom', to: 'main#chatroom'
+      get '/feature/project', to: 'main#project'
+
+      devise_for :users, skip: :omniauth_callbacks, controllers: {
+        sessions: 'users/registrations/sessions',
+        registrations: 'users/registrations/registrations',
+      }
 
     devise_scope :user do
       get 'users', to: 'devise/sessions#new'
     end
+
     get 'user/:id', to:'users#show',as: 'user'
   
     get 'users/show'
