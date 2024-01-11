@@ -27,7 +27,10 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @latitude = @task.latitude
+    @longitude = @task.longitude
+  end
 
   def update
     @project = @task.project
@@ -57,6 +60,7 @@ class TasksController < ApplicationController
                   :all_day_event,
                   :source,
                   :estimated_completed_at,
+                  :location,
                   :user_id)
   end
 
