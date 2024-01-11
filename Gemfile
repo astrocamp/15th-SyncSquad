@@ -52,8 +52,8 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
-  #處理機密 放在測試跟開發：
-  gem "dotenv-rails", "~> 2.8"
+  # 處理機密 放在測試跟開發：
+  gem 'dotenv-rails', '~> 2.8'
 end
 
 group :development do
@@ -105,5 +105,5 @@ gem 'rouge', '~> 4.2'
 
 gem 'mini_magick', '~> 4.12'
 
-#處理地址對應的地理坐標
-gem "geocoder", "~> 1.8"
+# 處理地址對應的地理坐標
+gem 'geocoder', '~> 1.8'

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  before_action :find_task, only: %i[show edit update destroy]
+  before_action :find_task, only: %i[show edit update destroy update_location]
   before_action :find_list, only: %i[new create]
 
   def show; end
@@ -27,7 +27,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def update_location
+    if @task.update(location_params)
+      render json: { status: 'success' }
+    else
+      render json: { errors: @task.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   def edit
+    @location = @task.location
     @latitude = @task.latitude
     @longitude = @task.longitude
   end
@@ -70,5 +79,9 @@ class TasksController < ApplicationController
 
   def find_list
     @list = List.find(params[:list_id])
+  end
+
+  def location_params
+    params.require(:task).permit(:latitude, :longitude)
   end
 end
