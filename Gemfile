@@ -124,3 +124,8 @@ gem 'rouge', '~> 4.2'
 
 # 圖片處理
 gem 'mini_magick', '~> 4.12'
+
+# 第三方認證 & gmail登入
+gem "omniauth", "~> 2.1"
+gem "omniauth-google-oauth2", "~> 1.1"
+gem "omniauth-rails_csrf_protection", "~> 1.0"
