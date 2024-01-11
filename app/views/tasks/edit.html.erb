@@ -8,7 +8,7 @@
     <% end %>
   <% end %>
 
-  <%= form_with model: @task do |form| %>
+  <%= form_with model: @task, data: { controller: "map" } do |form| %>
     <div class="p-4 space-y-4 md:p-5">
       <%= @task.all_day_event %>
       <div>
@@ -50,7 +50,10 @@
       </div>
       <div>
         <%= form.label :location%>
-        <%= form.text_field :location%>
+        <%= form.text_field :location, data:{ map_target:"field" }%>
+      </div>
+
+      <div id="map" data-map-target="map" data-map-location="<%= @location %>" data-map-latitude="<%= @latitude %>" data-map-longitude="<%= @longitude %>" data-map-id="<%= @task.id %>">
       </div>
 
       <div class="flex items-center justify-end p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
@@ -60,6 +63,4 @@
       </div>
     </div>  
   <% end %>
-      <div id="map" class="h-96" data-controller="map" data-map-latitude="<%= @latitude %>" data-map-longitude="<%= @longitude %>">
-      </div>
 <% end %>

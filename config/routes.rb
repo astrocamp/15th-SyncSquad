@@ -34,6 +34,9 @@ Rails.application.routes.draw do
         put :sort
         resources :tasks do
           put :sort
+          member do
+            patch :update_location
+          end
         end
       end
       collection do

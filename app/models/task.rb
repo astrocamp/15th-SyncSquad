@@ -18,7 +18,7 @@ class Task < ApplicationRecord
   validate :ended_at_must_after_started_at
 
   geocoded_by :location
-  after_validation :geocode
+  after_validation :geocode, if: :location_changed?
 
   PRIORITY = {
     critical: 1,
