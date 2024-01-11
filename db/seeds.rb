@@ -112,6 +112,7 @@ def create_project(new_user)
                     ended_at: random_task_ended_at,
                     priority: random_priority,
                 )
+                new_task.user = new_user
                 generated_titles << random_task_title
             end
         end
