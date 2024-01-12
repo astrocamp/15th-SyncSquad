@@ -6,11 +6,9 @@ class CommentsController < ApplicationController
     task = Task.find(params[:task_id])
     comment = task.comments.new(comment_params)
     @comments = task.comments
-    if comment.save
+    return if comment.save
 
-    else
-      redirect_to tasks_path(task)
-    end
+    redirect_to tasks_path(task)
   end
 
   def destroy
