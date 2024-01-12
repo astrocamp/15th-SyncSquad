@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    flash.now[:success] =  t('projects.update_success')
+    flash.now[:success] = t('projects.update_success')
   end
 
   def destroy
