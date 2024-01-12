@@ -1,14 +1,14 @@
 <%= content_for :modal_title do %>
-  <%= t('.show_task') %>
+  <%= t('tasks.show') %>
 <% end %>
 <%= render 'shared/modal' do %>
   <div class="p-4 space-y-4 md:p-5">
-    <h2><%= t('tasks.show.title') %>：<%= @task.title %></h2>
+    <h2><%= t('tasks.show_title') %>：<%= @task.title %></h2>
     <p><%= @task.description %></p>
     <p><%= @task.priority %></p>
     <p><%= @task.start_at %></p>
     <p><%= @task.estimated_complete_at %></p>
     <p><%= @task.user&.email %></p>
-    <%= link_to t('tasks.show.edit'), edit_task_path(@task), data: { turbo_frame: "modal" }, class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
+    <%= link_to t('tasks.show_edit'), edit_task_path(@task), data: { turbo_frame: "modal" }, class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
   </div>
 <% end %>

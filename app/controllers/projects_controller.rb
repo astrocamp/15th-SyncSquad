@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.affiliated_projects.build(project_params.merge(owner: current_user))
     current_user.affiliated_projects << @project
-    flash.now[:success] = t('.success')
+    flash.now[:success] = t('projects.create_success')
   end
 
   def show; end
@@ -32,12 +32,12 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    redirect_to projects_path, success: t('.success')
+    flash.now[:success] =  t('projects.update_success')
   end
 
   def destroy
     @project.destroy
-    redirect_to projects_path, notice: t('.success')
+    redirect_to projects_path, success: t('projects.destroy_success')
   end
 
   private

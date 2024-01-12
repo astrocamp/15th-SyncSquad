@@ -9,7 +9,7 @@
         <% end %>
       </div>
       <%= list.id %>
-      <%= link_to t('.delete'), list_path(list), data: {turbo_method: 'delete'} %>
+      <%= link_to t('projects.list_delete'), list_path(list), data: {turbo_method: 'delete'} %>
     </div>
     <div>
       <ul data-controller="sortable" data-sortable-group-value="tasks" data-sortable-id="<%= list.id %>">

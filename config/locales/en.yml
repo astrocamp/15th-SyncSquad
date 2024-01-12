@@ -1,82 +1,60 @@
 en:
   projects:
-    create:
-      success: "Creation Success!"
-    update:
-      success: "Update Success!"
-    destroy:
-      success: "Delete Success!"
-    edit:
-      edit_project: "Edit Project"
-    index:
-      affiliated_projects: "Affiliated Projects"
-    new:
-      create_project: "Create Project"
-    show:
-      confirm: "Are You Sure You Want To Delete?"
-    form:
-      title: "Title"
-      description: "Description"
-      cancel: "Cancel"
-    list:
-      delete: "X"
-    main_projects:
-      search: "Search"
-      title_or_email: "Title/Email"
-      clear: "Clear"
-      title: "Title"
-      description: "Description"
-      email: "Email"
-      created_time: "Created Time"
-      updated_time: "Updated Time"
+    create_success: "Creation Success!"
+    update_success: "Update Success!"
+    destroy_success: "Delete Success!"
+    edit: "Edit Project"
+    index_affiliated: "Affiliated Projects"
+    new: "Create Project"
+    show_confirm: "Are You Sure You Want To Delete?"
+    form_title: "Title"
+    form_description: "Description"
+    form_cancel: "Cancel"
+    list_delete: "X"
+    main_search: "Search"
+    main_title_or_email: "Title/Email"
+    main_clear: "Clear"
+    main_title: "Title"
+    main_description: "Description"
+    main_email: "Email"
+    main_created_time: "Created Time"
+    main_updated_time: "Updated Time"
 
   lists:
-    create:
-      success: "Creation Success!"
-    update:
-      success: "Update Success!"
-    destroy:
-      success: "Delete Success!"
-    new:
-      create_list: "Create List"
-      title: "Title"
-      cancel: "Cancel"
-    edit:
-      edit_list: "Edit List"
-      title: "Title"
-      color: "Color"
-      cancel: "Cancel"
-      delete: "Delete"
-      confirm: "Are You Sure You Want To Delete?"
+    create_success: "Creation Success!"
+    update_success: "Update Success!"
+    destroy_success: "Delete Success!"
+    new: "Create List"
+    new_title: "Title"
+    new_cancel: "Cancel"
+    edit: "Edit List"
+    edit_title: "Title"
+    edit_color: "Color"
+    edit_cancel: "Cancel"
+    edit_delete: "Delete"
+    edit_confirm: "Are You Sure You Want To Delete?"
 
   tasks:
-    create:
-      success: "Creation Success!"
-      not_saved: "Please Fill in Completely."
-    update:
-      success: "Update Success!"
-    destroy:
-      success: "Delete Success!"
-    task:
-      confirm: "Are You Sure You Want To Delete?"
-    edit:
-      edit_task: "Edit Task"
-      title: "Title"
-      description: "Description"
-      user_id: "Member"
-      start_at: "Start At"
-      priority: "Priority"
-      select: "Select"
-      estimated_complete_at: "Estimated Completion Time"
-      cancel: "Cancel"
-    new:
-      create_task: "Create Task"
-      title: "Title"
-      cancel: "Cancel"
-    show:
-      show_task: "Show Task"
-      title: "Title"
-      edit: "Edit"
+    create_success: "Creation Success!"
+    create_not_saved: "Please Fill in Completely."
+    update_success: "Update Success!"
+    destroy_success: "Delete Success!"
+    task_confirm: "Are You Sure You Want To Delete?"
+    edit: "Edit Task"
+    edit_title: "Title"
+    edit_description: "Description"
+    edit_user_id: "Member"
+    edit_start_at: "Start At"
+    edit_priority: "Priority"
+    edit_select: "Select"
+    edit_estimated_complete_at: "Estimated Completion Time"
+    edit_cancel: "Cancel"
+    new: "Create Task"
+    new_title: "Title"
+    new_cancel: "Cancel"
+    show: "Show Task"
+    show_title: "Title"
+    show_edit: "Edit"
 
   main:
     user_sign_in: "User Sign In"
@@ -146,5 +124,4 @@ en:
     update_success: "Staff File Renew"
     update_failed: "Update Failed"
     delete_staff: "Delete Staff"
-    index:
-      delete_confirm: "Are You Sure You Want To Delete?"
+    delete_confirm: "Are You Sure You Want To Delete?"
