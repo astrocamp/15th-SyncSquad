@@ -12,6 +12,7 @@ class Task < ApplicationRecord
   belongs_to :list
   delegate :project, to: :list
   belongs_to :user, optional: true
+  has_many :comments
 
   # Validates
   validates :title, presence: true

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
         patch :drop
       end
     end
-  
+    
     resources :projects, shallow: true do
       resources :lists do
         put :sort
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
           member do
             patch :update_location
           end
+          resources :comments, only: [:create, :destroy]
         end
       end
       collection do
