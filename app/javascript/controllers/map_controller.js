@@ -5,9 +5,9 @@ import { patch } from "@rails/request.js";
 export default class extends Controller {
   static targets = ["field", "map"];
   connect() {
-    const location = this.mapTarget.dataset.mapLocation;
-    const lat = Number(this.mapTarget.dataset.mapLatitude);
-    const lng = Number(this.mapTarget.dataset.mapLongitude);
+    const { location, latitude, longitude } = this.mapTarget.dataset;
+    const lat = Number(latitude);
+    const lng = Number(longitude);
     if (location) {
       this.mapTarget.style.height = "400px";
       this.locationMap(lat, lng);
@@ -65,7 +65,7 @@ export default class extends Controller {
   }
 
   async updateLocation(latitude, longitude) {
-    const id = this.mapTarget.dataset.mapId;
+    const { id } = this.mapTarget.dataset;
     const url = `/tasks/${id}/update_location`;
     const data = { latitude: latitude, longitude: longitude };
     const result = await patch(url, {
