@@ -4,7 +4,10 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy update_location]
   before_action :find_list, only: %i[new create]
 
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @task.comments
+  end
 
   def sort
     @task = Task.find(params[:task_id])
