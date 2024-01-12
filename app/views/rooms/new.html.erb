@@ -3,5 +3,5 @@
              new_room: @new_room if params[:modal_type] == "public" %>
 
   <%= render "shared/new_group_modal",
-             new_private_group: @new_private_group if params[:modal_type] == "private" %>
+             new_private_group: @new_room if params[:modal_type] == "private" %>
 <% end %>

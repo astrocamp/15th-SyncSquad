@@ -13,7 +13,6 @@ class RoomsController < ApplicationController
 
   def new
     @new_room = Room.new
-    @new_private_group = Room.new
   end
 
   def create
