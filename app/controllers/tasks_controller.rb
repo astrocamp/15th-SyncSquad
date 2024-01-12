@@ -20,9 +20,9 @@ class TasksController < ApplicationController
     @project = @list.project
     @task = @list.tasks.build(task_params)
     if @task.save
-      flash.now[:success] = t('.success')
+      flash.now[:success] = t('tasks.create_success')
     else
-      flash.now[:alert] = t('.not_saved')
+      flash.now[:alert] = t('tasks.create_not_saved')
     end
   end
 
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
     @project = @task.project
     if @task.update(task_params)
       redirect_to task_path(@task)
-      flash.now[:success] = t('.success')
+      flash.now[:success] = t('tasks.update_success')
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   def destroy
     @project = @task.project
     @task.destroy
-    flash.now[:success] = t('.success')
+    flash.now[:success] = t('tasks.destroy_success')
   end
 
   private

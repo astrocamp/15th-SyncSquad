@@ -2,7 +2,7 @@
   <aside>
     <!-- drawer component -->
     <div id="drawer" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label">
-      <h2 class="px-8 pb-4 text-2xl text-gray-900 dark:text-white"><%= t('.affiliated_projects') %></h2>
+      <h2 class="px-8 pb-4 text-2xl text-gray-900 dark:text-white"><%= t('projects.index_affiliated') %></h2>
       <ul id="aside_list">
           <%= render 'aside_projects', projects: @project %>
       </ul>
@@ -38,7 +38,7 @@
     </div>
   </div>
     <header class="flex justify-center items-center">
-      <%= content_tag(:h1, t('.affiliated_projects'), class: "text-3xl text-gray-900 dark:text-white") %>
+      <%= content_tag(:h1, t('projects.index_affiliated'), class: "text-3xl text-gray-900 dark:text-white") %>
       <div class="px-4"> 
         <%= link_to  new_project_path, data: { turbo_frame: "modal" } do%>
           <i class="fa-solid fa-plus"></i>

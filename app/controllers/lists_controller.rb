@@ -16,7 +16,7 @@ class ListsController < ApplicationController
     @new_list = @project.lists.build(list_params.merge(color: '#3778EA'))
 
     if @new_list.save
-      flash.now[:success] = t('.success')
+      flash.now[:success] = t('lists.create_success')
     else
       render :new
     end
@@ -33,7 +33,7 @@ class ListsController < ApplicationController
   def update
     @project = @list.project
     if @list.update(list_params)
-      flash.now[:success] = t('.success')
+      flash.now[:success] = t('lists.update_success')
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class ListsController < ApplicationController
   def destroy
     @project = @list.project
     @list.destroy
-    flash.now[:success] = t('.success')
+    flash.now[:success] = t('lists.destroy_success')
   end
 
   private
