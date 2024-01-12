@@ -14,7 +14,6 @@ class RoomsController < ApplicationController
   def new
     @new_room = Room.new
     @new_private_group = Room.new
-    @modal_type = params[:modal_type]
   end
 
   def create
