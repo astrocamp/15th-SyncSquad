@@ -1,0 +1,17 @@
+<turbo-stream action="update" target="comment_area">
+  <template>
+  <% @comments.each do |comment| %>
+    <ul class="space-y-4 mb-6">
+      <span class="text-lg text-gray-800"><%= comment.user.email %> </span>
+      <span> <%= comment.created_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></span>
+      <li class="bg-gray-100 p-4 rounded-lg">
+        <div class="prose max-w-none">
+          <p class="markdown"><%= advanced_markdown(comment.content) %></p>
+        </div>
+      </li>
+      <div><%= link_to "Delete", comment_path(comment), data:{turbo_method:"delete"}, class:"bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-300 ease-in-out"%></div>
+    </ul>
+  <% end %>
+  </template>
+</turbo-stream>
+

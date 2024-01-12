@@ -18,6 +18,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.scrollable-modal {
+  @apply max-h-64 overflow-y-auto;
+}
+
 .form-text {
   @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
 }

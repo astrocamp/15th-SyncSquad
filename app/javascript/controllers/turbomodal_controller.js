@@ -5,6 +5,9 @@ export default class extends Controller {
   connect() {
     this.open();
   }
+  reset() {
+    this.element.reset();
+  }
 
   //如果 表單填寫成功送出 關掉modal
   submitEnd(e) {
