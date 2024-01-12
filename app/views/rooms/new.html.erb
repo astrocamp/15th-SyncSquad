@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "modal", class: "modal-backdrop hidden" do %>
-    <% if @modal_type == "public" %>
-      <%= render "shared/new_room_modal" ,new_room:@new_room %>
-    <% elsif @modal_type == "private" %>
-      <%= render "shared/new_group_modal" ,new_private_group:@new_private_group %>
-    <% end %>  
+  <%= render "shared/new_room_modal",
+             new_room: @new_room if params[:modal_type] == "public" %>
+
+  <%= render "shared/new_group_modal",
+             new_private_group: @new_private_group if params[:modal_type] == "private" %>
 <% end %>
