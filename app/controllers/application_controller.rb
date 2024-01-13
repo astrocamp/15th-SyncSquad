@@ -4,15 +4,14 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   add_flash_types :success, :info, :mail
   helper_method :current_company
-  around_action :switch_locale
-
+  before_action :set_locale
+  
   def default_url_options
     { lang: I18n.locale }
   end
 
-  def switch_locale(&)
-    lang = params[:lang] || I18n.default_locale
-    I18n.with_locale(lang, &)
+  def set_locale
+    I18n.locale = params[:lang] 
   end
 
   def current_company

@@ -109,6 +109,8 @@ en:
     failure:
       not_found_in_database: "This Account Is Not For This Company or Invalid Password"
       invalid: "Invalid Password"
+    registrations:
+      updated: "Your account has been updated successfully."
 
   hrs:
     new_user: "New Staff"
