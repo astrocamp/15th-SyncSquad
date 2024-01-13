@@ -109,6 +109,8 @@ tw:
     failure:
       not_found_in_database: "此帳號不存在或密碼錯誤"
       invalid: "密碼錯誤"
+    registrations:
+      updated: "更新成功"
 
   hrs:
     new_user: "創建員工"
