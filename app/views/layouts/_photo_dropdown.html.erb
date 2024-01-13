@@ -4,11 +4,15 @@
       <button type="button" class="flex ml-5 text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
           <span class="sr-only">Open user menu</span>
           <div class="w-8 h-8 bg-gray-200 rounded-full <%= 'lg:w-10 lg:h-10' if params[:controller] == 'main' %>" alt="<%= user_signed_in? ? "user photo" : "company photo" %>">
-              <!-- TODO: 加入 img tag 顯示會員照片 -->
+              
               <div class="aspect-auto">
                   <% if user_signed_in? %>
-                      <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-user <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
-                  <% else %>
+                    <% if current_user.avatar.attached? %>
+                        <%= image_tag(current_user.avatar, class: "w-full h-full object-cover rounded-full #{'lg:w-10 lg:h-10' if params[:controller] == 'main'}") %>
+                    <% else %>
+                        <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-user <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
+                    <% end %>
+                 <% else %>
                       <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-building <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
                   <% end %>
               </div>
