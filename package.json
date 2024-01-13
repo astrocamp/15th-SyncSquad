@@ -23,7 +23,8 @@
     "stimulus": "^3.2.2",
     "stimulus-color-picker": "^1.1.0",
     "stimulus-notification": "^2.2.0",
-    "stimulus-sortable": "^4.1.1"
+    "stimulus-sortable": "^4.1.1",
+    "tippy.js": "^6.3.7"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets",
