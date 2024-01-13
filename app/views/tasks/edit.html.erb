@@ -19,34 +19,22 @@
         <%= form.label t('tasks.edit_description') %>
         <%= form.text_area :description %>
       </div>
+      <div>
+        <%= form.label :priority %>
+        <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: "選擇優先級" }) %>
+      </div>
       <div class="w-[350px]">
         <%= form.label t('tasks.edit_user_id') %>
         <%= form.select :user_id, User.pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect"} %> 
         <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
       </div>
       <div>
-        <%= form.label :start_date %>
-        <%= form.date_field :start_date %>
+        <%= form.label :started_at%>
+        <%= form.datetime_field :started_at %>
       </div>
       <div>
-        <%= form.label :start_datetime %>
-        <%= form.datetime_field :start_datetime %>
-      </div>
-      <div>
-        <%= form.label :start_timezone %>
-        <%= form.text_field :start_timezone %>
-      </div>
-      <div>
-        <%= form.label :end_date %>
-        <%= form.date_field :end_date %>
-      </div>
-      <div>
-        <%= form.label :end_datetime %>
-        <%= form.datetime_field :end_datetime %>
-      </div>
-      <div>
-        <%= form.label :end_timezone %>
-        <%= form.text_field :end_timezone %>
+        <%= form.label :ended_at %>
+        <%= form.datetime_field :ended_at %>
       </div>
       <div>
         <%= form.label :all_day_event %>

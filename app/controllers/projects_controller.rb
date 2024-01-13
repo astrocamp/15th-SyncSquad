@@ -2,11 +2,11 @@
 
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_project, only: %i[new_event show update destroy edit kanban_view calendar_view create_event]
-  before_action :find_current_user_affiliated_projects, only: %i[index kanban_view calendar_view]
+  before_action :find_project, only: %i[new_task show update destroy edit kanban calendar create_task]
+  before_action :find_current_user_affiliated_projects, only: %i[index kanban calendar]
   before_action :find_company_projects, only: %i[index]
   before_action :search_project, only: %i[update create]
-  before_action :find_events, only: %i[show calendar_view create_event]
+  before_action :find_tasks, only: %i[show calendar create_task]
 
   def index
     @project = current_user.affiliated_projects.all # current_user projects
@@ -22,8 +22,8 @@ class ProjectsController < ApplicationController
     @project = current_user.affiliated_projects.new
   end
 
-  def new_event
-    @event = @project.tasks.new
+  def new_task
+    @task = @project.tasks.new
   end
 
   def create
@@ -32,32 +32,28 @@ class ProjectsController < ApplicationController
     flash.now[:success] = t('projects.create_success')
   end
 
-  def create_event
-    @event = current_user.tasks.build(event_params)
-    if @event.save
+  def create_task
+    @task = current_user.tasks.build(task_params)
+    if @task.save
       flash.now[:success] = '事件建立成功'
       find_project
-      find_events
+      find_tasks
     else
       flash.now[:alert] = '事件新增失敗'
-      render :new_event
+      render :new_task
     end
   end
 
   def show
     @params = params
-    case session[:__last_view__]
-    when 'kanban' then render action: 'kanban_view'
-    when 'calendar' then render action: 'calendar_view'
-    else render action: 'kanban_view'
-    end
+    render action: session[:__last_view__] || 'kanban'
   end
 
-  def kanban_view
+  def kanban
     session[:__last_view__] = 'kanban'
   end
 
-  def calendar_view
+  def calendar
     @params = params
     session[:__last_view__] = 'calendar'
   end
@@ -88,8 +84,8 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:title, :description, :owner_id)
   end
 
-  def event_params
-    params.permit(:title, :list_id, :start_date, :start_datetime, :end_date, :end_datetime)
+  def task_params
+    params.permit(:title, :list_id, :started_at, :ended_at)
   end
 
   def find_current_user_affiliated_projects
@@ -110,18 +106,17 @@ class ProjectsController < ApplicationController
     @projects = @q.result.includes(:owner)
   end
 
-  def find_events
-    @tasks = @project.tasks
-    @events = @tasks.select { |task| task[:start_date] && task[:end_date] }.map do |task|
+  def find_tasks
+    @tasks = @project.tasks.select { |task| task[:started_at] && task[:ended_at] }.map do |task|
       {
         'id' => task[:id],
         'projectId' => task.project.id,
         'title' => task[:title],
         'color' => task.list.color,
-        'start' => task[:start_date],
-        'startTime' => task[:star_datetime],
-        'end' => task[:end_date],
-        'endTime' => task[:end_datetime],
+        'start' => task[:started_at],
+        'startTime' => task[:stared_at],
+        'end' => task[:ended_at],
+        'endTime' => task[:ended_at],
         'allDay' => task[:all_day_event],
         'description' => task[:description]
       }

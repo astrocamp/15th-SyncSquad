@@ -41,11 +41,11 @@ Rails.application.routes.draw do
         post :main_listed
       end
       member do
-        get 'kanban', action: 'kanban_view'
-        get 'calendar', action: 'calendar_view'
-        get :new_event
-        post :create_event
-        patch :edit_event
+        get :kanban
+        get :calendar
+        get :new_task
+        post :create_task
+        patch :edit_task
       end
     end
 
