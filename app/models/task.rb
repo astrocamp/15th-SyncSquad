@@ -33,8 +33,7 @@ class Task < ApplicationRecord
 
   def ended_at_must_after_started_at
     return unless ended_at.present? && started_at.present? && ended_at < started_at
-  
-    errors.add(:ended_at, 'must be after the start time')
-  end  
 
+    errors.add(:ended_at, 'must be after the start time')
+  end
 end
