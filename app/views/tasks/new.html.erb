@@ -6,24 +6,36 @@
   <%= form_with model: [@list, @list.tasks.new], url: list_tasks_path(@list.id) do |form| %>
     <div class="p-4 space-y-4 md:p-5">
       <div>
-      <%= form.label t('tasks.new_title') %>
+      <%= form.label :title, t('tasks.new_title') %>
       <%= form.text_field :title, required: true %>
       </div>
       <div>
-      <%= form.label :start_date %>
-      <%= form.date_field :start_date, required: true %>
+        <%= form.label :description %>
+        <%= form.text_area :description %>
       </div>
       <div>
-      <%= form.label :start_datetime %>
-      <%= form.datetime_field :start_datetime%>
+        <%= form.label :priority %>
+        <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: "選擇優先級" }) %>
       </div>
       <div>
-      <%= form.label :end_date %>
-      <%= form.date_field :end_date, required: true %>
+        <%= form.label :started_at %>
+        <%= form.datetime_field :started_at, required: true %>
       </div>
       <div>
-      <%= form.label :end_datetime %>
-      <%= form.datetime_field :end_datetime%>
+        <%= form.label :ended_at %>
+        <%= form.datetime_field :ended_at, required: true %>
+      </div>
+      <div>
+        <%= form.label :all_day_event %>
+        <%= form.check_box :all_day_event, { checked: @task.all_day_event == true } %>
+      </div>
+      <div>
+        <%= form.label :completed_at %>
+        <%= form.datetime_field :completed_at %>
+      </div>
+      <div>
+        <%= form.label :estimated_completed_at %>
+        <%= form.datetime_field :estimated_completed_at %>
       </div>
       <!-- Modal footer -->
       <div class="flex items-center justify-end p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">

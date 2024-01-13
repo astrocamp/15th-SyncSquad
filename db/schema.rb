@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_05_160722) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_30_081541) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,18 +67,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_05_160722) do
     t.integer "user_id"
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_events_on_deleted_at"
-  end
-
-  create_table "importrecords", force: :cascade do |t|
-    t.string "status"
-    t.string "file"
-    t.integer "total_count"
-    t.integer "success_count"
-    t.text "error_messages"
-    t.integer "company_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "lists", force: :cascade do |t|
@@ -144,23 +132,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_05_160722) do
     t.string "title"
     t.text "description"
     t.integer "priority"
-    t.datetime "complete_at", precision: nil
+    t.datetime "started_at", precision: nil
+    t.datetime "completed_at", precision: nil
+    t.datetime "estimated_completed_at", precision: nil
     t.datetime "deleted_at", precision: nil
+    t.datetime "ended_at", precision: nil
+    t.boolean "all_day_event"
+    t.string "source"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "row_order"
-    t.datetime "estimated_complete_at"
     t.bigint "user_id"
-    t.date "start_date"
-    t.datetime "start_datetime"
-    t.string "start_timezone"
-    t.date "end_date"
-    t.datetime "end_datetime"
-    t.string "end_timezone"
-    t.boolean "all_day_event", default: true
-    t.boolean "private", default: true
-    t.string "location"
-    t.string "source"
     t.index ["deleted_at"], name: "index_tasks_on_deleted_at"
     t.index ["list_id"], name: "index_tasks_on_list_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"

@@ -5,10 +5,13 @@ class CreateTasks < ActiveRecord::Migration[7.1]
       t.string :title
       t.text :description
       t.integer :priority
-      t.timestamp :start_at
-      t.timestamp :complete_at
-      t.integer :estimated_complete_at
+      t.timestamp :started_at
+      t.timestamp :completed_at
+      t.timestamp :estimated_completed_at
       t.timestamp :deleted_at
+      t.timestamp :ended_at
+      t.boolean :all_day_event
+      t.string :source
 
       t.timestamps
     end

@@ -9,7 +9,5 @@ class FixListsAndTasks < ActiveRecord::Migration[7.1]
     add_column :lists, :deleted_at, :datetime
     add_index :lists, :deleted_at
     add_index :tasks, :deleted_at
-    remove_column :tasks, :estimated_complete_at, :integer
-    add_column :tasks, :estimated_complete_at, :datetime
   end
 end
