@@ -4,6 +4,8 @@ class HrsController < ApplicationController
   before_action :find_user, only: %i[update destroy]
 
   def index
+    @current_company = current_company
+    authorize current_company, policy_class: HrsPolicy
     @users = User.order(id: :desc)
     @user = User.new
   end
@@ -35,7 +37,7 @@ class HrsController < ApplicationController
   def user_params
     params.require(:user)
           .permit(:email, :password, :password_confirmation, :role)
-          .merge(company: current_company)
+          .merge(company_id: current_user ? current_user.company_id : current_company.id)
   end
 
   def find_user
