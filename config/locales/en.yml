@@ -174,3 +174,12 @@ en:
             password:
               too_short: "is too short"
               blank: "is blank"
+  rooms:
+    groups: "Chat Rooms"
+    contacts: "Contacts"
+
+  layouts:
+    room_submit: "✚"
+
+  messages:
+    msg_submit: "➤"
