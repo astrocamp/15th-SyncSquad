@@ -4,7 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
-import tippy, { followCursor } from 'tippy.js'
+import tippy from 'tippy.js'
 import 'tippy.js/animations/perspective-subtle.css'
 import 'tippy.js/animations/scale.css'
 import 'tippy.js/themes/light-border.css'
@@ -50,15 +50,14 @@ export default class extends Controller {
         const timestampDifference = endDate.timestamp - startDate.timestamp
         const newURL =
           timestampDifference > oneDayInMilliseconds
-            ? `${newTaskUrl}?startedAt=${startDate.string}&endAt=${endDate.string}&allDay=true`
-            : `${newTaskUrl}?startedat=${startDate.string}&endAt=${endDate.string}`
+            ? `${newTaskUrl}?startedAt=${startDate.string}&endedAt=${endDate.string}&allDay=true`
+            : `${newTaskUrl}?startedAt=${startDate.string}&endedAt=${endDate.string}`
         await Turbo.visit(newURL, {
           frame: 'modal',
           method: 'POST',
         })
       },
       eventClick: function (info) {
-        info.el.style.color = 'red'
         const itemURL = `/${item}/${info.event._def.publicId}`
         Turbo.visit(itemURL, {
           frame: 'modal',
@@ -66,44 +65,40 @@ export default class extends Controller {
         })
       },
       eventDidMount: function (info) {
-        const itemURL = `/${item}/${info.event._def.publicId}`
+        const list_color = info.event.extendedProps.color
         tippy(info.el, {
           content: `
-            <div class="bg-white rounded p-2 shadow-md">
-              <header>
-                <h3>${info.event.title}</h3>
-              <header>
-              <div>
+            <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48">
+              <header class="bg-[${list_color}] rounded-t-lg p-2 flex justify-between text-lg">
+                <h3 class="font-bold mr-auto">${info.event.title}</h3>
+                <div class="font-bold text-green-500 bg-white w-7 text-center aspect-auto rounded-full">${
+                  info.event.extendedProps.completed_at !== null ? '✓' : ''
+                }</div>
+              </header>
+              <div class="p-2 text-gray-900 text-sm">
+                <div class="text-[${list_color}] font-bold">> ${
+            info.event.extendedProps.list_title
+          }</div>
                 <p>${
                   info.event.extendedProps.description == null
                     ? ''
                     : info.event.extendedProps.description
                 }</p>
               </div>
-              <div>
-                <a data-turbo-frame="modal"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                href="${itemURL}">show</a>
-              </div>
             <div>
           `,
           allowHTML: true,
           placement: 'top',
-          interactive: true,
+          interactive: false,
           animation: 'perspective-subtle',
           theme: 'light-border',
           duration: [500, 0],
-          followCursor: 'horizontal',
           trigger: 'mouseenter',
-          maxWidth: 350,
-          plugins: [followCursor],
         })
       },
       eventResize: function (info) {
         alert(info.event.title + ' end is now ' + info.event.end.toISOString())
-        if (!confirm('is this okay?')) {
-          info.revert()
-        }
+        info.revert()
       },
       eventDrop: function (taskResizeInfo) {
         console.log(taskResizeInfo)
