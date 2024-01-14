@@ -1,5 +1,6 @@
-class Order < ApplicationRecord
+# frozen_string_literal: true
 
+class Order < ApplicationRecord
   belongs_to :user
   validates :serial_num, uniqueness: true
 
