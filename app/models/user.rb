@@ -31,8 +31,8 @@ class User < ApplicationRecord
     resize_avatar(35, 35)
   end
 
-  def self.ransackable_attributes(_auth_object = nil)
-    %w[name email]
+  def is_role?(role)
+    self.role == role
   end
 
   private
