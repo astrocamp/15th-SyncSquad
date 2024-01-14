@@ -105,5 +105,6 @@ gem 'rouge', '~> 4.2'
 
 gem 'mini_magick', '~> 4.12'
 
-# 處理地址對應的地理坐標
 gem 'geocoder', '~> 1.8'
+
+gem "httparty", "~> 0.21.0"
