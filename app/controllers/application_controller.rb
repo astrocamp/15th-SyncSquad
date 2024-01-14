@@ -5,13 +5,13 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :mail
   helper_method :current_company
   before_action :set_locale
-  
+
   def default_url_options
     { lang: I18n.locale }
   end
 
   def set_locale
-    I18n.locale = params[:lang] 
+    I18n.locale = params[:lang]
   end
 
   def current_company
