@@ -189,3 +189,13 @@ tw:
       task:
         create: "新增任務"
         update: "更新任務"
+
+  rooms:
+    groups: "聊天群組"
+    contacts: "聯絡人"
+
+  layouts:
+    room_submit: "✚"
+
+  messages:
+    msg_submit: "➤"
