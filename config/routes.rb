@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :orders, only: [:index, :create]
+
   scope "(:lang)", lang: /en|tw/ do
     root 'main#home'
     get '/about', to: 'main#about'
