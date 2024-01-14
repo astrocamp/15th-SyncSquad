@@ -2,7 +2,6 @@
   <%= t('project.new_task') %>
 <% end %>
 <%= render 'shared/modal' do %>
-<%= params %>
   <%= form_with modal: @task, url: create_task_project_path do |form| %>
     <div>
       <%= form.label :title %>
@@ -14,11 +13,11 @@
     </div>
     <div>
       <%= form.label :started_at %>
-      <%= form.datetime_field :started_at, value: params[:startedAt] %>
+      <%= form.datetime_field :started_at, value: @started_at_value %>
     </div>
     <div>
       <%= form.label :ended_at %>
-      <%= form.datetime_field :ended_at, value: params[:endedAt] %>
+      <%= form.datetime_field :ended_at, value: @ended_at_value %>
     </div>
     <div>
       <%= form.label :all_day_event %>

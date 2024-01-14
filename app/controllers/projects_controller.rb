@@ -23,6 +23,8 @@ class ProjectsController < ApplicationController
   end
 
   def new_task
+    @started_at_value = DateTime.parse(params["startedAt"])
+    @ended_at_value = DateTime.parse(params["endedAt"])
     @task = @project.tasks.new
   end
 
@@ -118,7 +120,16 @@ class ProjectsController < ApplicationController
         'end' => task[:ended_at],
         'endTime' => task[:ended_at],
         'allDay' => task[:all_day_event],
-        'description' => task[:description]
+        'description' => task[:description],
+        'extendedProps' => {
+          'priority' => task[:priority],
+          'completed_at' => task[:completed_at],
+          'estimated_completed_at' => task[:estimated_completed_at],
+          'source' => task[:source],
+          'user_nick_name' => task.user.nick_name,
+          'list_title' => task.list.title,
+          'color' => task.list.color,
+        },
       }
     end.to_json
   end
