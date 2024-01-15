@@ -26,7 +26,7 @@
         <tr class=" hover:bg-gray-100">
           <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 truncate text-xs sm:px-2 sm:py-3 sm:text-sm"> <%= link_to highlight(project.title, params.dig(:q, :title_or_owner_email_cont)), project, data: {turbo_frame: "_top"} %></td>
           <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 truncate text-xs sm:px-2 sm:py-3 sm:text-sm"><%= project.description %></td>
-          <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 text-xs sm:px-2 sm:py-3 sm:text-sm"><%= highlight project.owner.email, params.dig(:q, :title_or_owner_email_cont) %></td>
+          <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 truncate text-xs sm:px-2 sm:py-3 sm:text-sm"><%= highlight project.owner.email, params.dig(:q, :title_or_owner_email_cont) %></td>
           <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 text-xs sm:px-2 sm:py-3 sm:text-sm"><%= project.created_at.strftime("%Y-%m-%d") %></td>
           <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 text-xs sm:px-2 sm:py-3 sm:text-sm"><%= project.updated_at.strftime("%Y-%m-%d") %></td>
         </tr>
