@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   enum role: { staff: 0, hr: 1 }
   validates :role, presence: true, inclusion: { in: %w[staff hr] }
-  
+
   # Relationship
   belongs_to :company, optional: true
   has_many :events
