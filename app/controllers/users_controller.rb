@@ -49,8 +49,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = User.all_except(current_user)
 
-    @new_room = Room.new
-    @room = Room.public_rooms
+    @room = Room.new
+    @rooms = Room.public_rooms
     @room_name = get_name(@user, current_user)
     @single_room = Room.find_by(name: @room_name) || Room.create_private_room([@user, current_user], @room_name)
     @private_groups = Room.joins(:participants)
