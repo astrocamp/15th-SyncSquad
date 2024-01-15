@@ -1,16 +1,16 @@
 databases:
   - name: postgres
-    plan: free
+    
 
 services:
   - type: redis
     name: cache
     ipAllowList: []
-    plan: free
+    
     maxmemoryPolicy: allkeys-lfu
   - type: web
     name: rails
-    plan: free
+    
       runtime: ruby
       buildCommand: "./bin/render-build.sh"
       startCommand: bundle exec rails s
