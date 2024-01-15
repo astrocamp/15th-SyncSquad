@@ -87,7 +87,7 @@ class ProjectsController < ApplicationController
   end
 
   def task_params
-    params.permit(:title, :list_id, :started_at, :ended_at)
+    params.permit(:title, :list_id, :started_at, :ended_at, :all_day_event)
   end
 
   def find_current_user_affiliated_projects
@@ -116,7 +116,7 @@ class ProjectsController < ApplicationController
         'title' => task[:title],
         'color' => task.list.color,
         'start' => task[:started_at],
-        'startTime' => task[:stared_at],
+        'startTime' => task[:started_at],
         'end' => task[:ended_at],
         'endTime' => task[:ended_at],
         'allDay' => task[:all_day_event],
@@ -132,5 +132,5 @@ class ProjectsController < ApplicationController
         },
       }
     end.to_json
-  end
+  end  
 end
