@@ -2,6 +2,7 @@
 
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
     @rooms = Room.where(room_type: 'public_room')
     @users = User.all_except(current_user)
@@ -45,6 +46,7 @@ class RoomsController < ApplicationController
     @users = User.all_except(current_user)
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
+    authorize @room, :show_public_room, policy_class: RoomPolicy
     render 'index'
   end
 end
