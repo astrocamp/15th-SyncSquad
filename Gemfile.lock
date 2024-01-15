@@ -342,6 +342,7 @@ DEPENDENCIES
   faker (~> 3.2)
   foreman (~> 0.87.2)
   friendly_id (~> 5.4.0)
+  geocoder (~> 1.8)
   image_processing (~> 1.12)
   jbuilder
   jsbundling-rails

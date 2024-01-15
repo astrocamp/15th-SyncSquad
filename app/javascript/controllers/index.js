@@ -13,9 +13,6 @@ application.register("color-picker", ColorPickerController);
 import DatepickerController from "./datepicker_controller";
 application.register("datepicker", DatepickerController);
 
-import HelloController from "./hello_controller";
-application.register("hello", HelloController);
-
 import MapController from "./map_controller";
 application.register("map", MapController);
 
