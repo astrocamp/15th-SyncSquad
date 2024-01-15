@@ -8,7 +8,7 @@ class Message < ApplicationRecord
   before_create :confirm_participant
 
   def confirm_participant
-    return unless room.is_private
+    return if room.room_type == 'public_room'
 
     is_participant = Participant.find_by(user_id: user.id, room_id: room.id)
     throw :abort unless is_participant

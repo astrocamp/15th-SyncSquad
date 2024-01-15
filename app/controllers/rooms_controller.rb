@@ -3,7 +3,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @rooms = Room.public_rooms
+    @rooms = Room.where(room_type: 'public_room')
     @users = User.all_except(current_user)
 
     @private_groups = Room.joins(:participants)
@@ -16,9 +16,8 @@ class RoomsController < ApplicationController
   end
 
   def create
-    if params[:room][:is_private] == 'true'
+    if params[:room][:room_type] == 'private_room'
       @new_private_group = Room.new(room_params)
-      @new_private_group.is_private = true
       @new_private_group.room_type = 'private_room'
 
       if @new_private_group.save
@@ -38,7 +37,7 @@ class RoomsController < ApplicationController
 
   def show
     @single_room = Room.find(params[:id])
-    @rooms = Room.public_rooms
+    @rooms = Room.where(room_type: 'public_room')
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
@@ -53,5 +52,5 @@ end
 private
 
 def room_params
-  params.require(:room).permit(:name, :is_private)
+  params.require(:room).permit(:name, :room_type)
 end
