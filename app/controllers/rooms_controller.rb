@@ -3,7 +3,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @room = Room.public_rooms
+    @rooms = Room.public_rooms
     @users = User.all_except(current_user)
 
     @private_groups = Room.joins(:participants)
@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
   end
 
   def new
-    @new_room = Room.new
+    @room = Room.new
   end
 
   def create
@@ -32,17 +32,17 @@ class RoomsController < ApplicationController
         @new_private_group.broadcast_if_private_group
       end
     else
-      @new_room = Room.create(name: params['room']['name'])
+      @room = Room.create(name: params['room']['name'])
     end
   end
 
   def show
     @single_room = Room.find(params[:id])
-    @room = Room.public_rooms
+    @rooms = Room.public_rooms
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
-    @new_room = Room.new
+    @room = Room.new
     @users = User.all_except(current_user)
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
