@@ -45,7 +45,6 @@ Rails.application.routes.draw do
         get :calendar
         get :new_task
         post :create_task
-        patch :edit_task
       end
     end
 
