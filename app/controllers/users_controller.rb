@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     @users = User.all_except(current_user)
 
     @room = Room.new
-    @rooms = Room.public_rooms
+    @rooms = Room.where(room_type: 'public_room')
     @room_name = get_name(@user, current_user)
     @single_room = Room.find_by(name: @room_name) || Room.create_private_room([@user, current_user], @room_name)
     @private_groups = Room.joins(:participants)
