@@ -127,6 +127,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -350,13 +354,13 @@ PLATFORMS
 
 DEPENDENCIES
   aasm (~> 5.5)
-  acts_as_list (~> 1.1)
   aws-sdk-s3
   bootsnap
   capybara
   cssbundling-rails
   debug
   devise (~> 4.9)
+  dotenv-rails (~> 2.8)
   faker (~> 3.2)
   foreman (~> 0.87.2)
   friendly_id (~> 5.4.0)
