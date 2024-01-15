@@ -9,10 +9,8 @@ Rails.application.routes.draw do
     get '/feature/chatroom', to: 'main#chatroom'
     get '/feature/project', to: 'main#project'
   
-    devise_for :users, controllers: {
-      sessions: 'users/registrations/sessions',
-      registrations: 'users/registrations/registrations'
-    }
+
+    devise_for :users, path: 'auth', only: %i[sessions registrations password]
 
     devise_scope :user do
       get 'users', to: 'devise/sessions#new'
@@ -23,8 +21,6 @@ Rails.application.routes.draw do
 
     get 'user/:id', to:'users#show',as: 'user'
   
-    get 'users/show'
-    
     resources :events do 
       member do
         patch :drop
@@ -54,9 +50,9 @@ Rails.application.routes.draw do
         post :create_task
       end
     end
-
-    resources :rooms do
-      resources :messages
+  
+    resources :rooms, only: %i[index create show] do
+      resources :messages, only: %i[create]
     end
   
     resources :companies, except: [:destroy] do

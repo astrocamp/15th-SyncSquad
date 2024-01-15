@@ -1,24 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  # 公司建立
-  def new
-    @user = User.new
-  end
-
-  def create
-    @company = Company.find(params[:company_id])
-    @user = @company.users.build(user_params) # 創建與公司關聯的用戶
-    if @user.save
-      redirect_to root_path, notice: '員工建立成功'
-    else
-      redirect_to root_path, alert: '員工建立失敗'
-    end
-  end
-
-  def index
-    @users = User.where(company_id: current_company.id)
-  end
 
   def import
     file = params[:file]
@@ -34,20 +16,10 @@ class UsersController < ApplicationController
     @import_records = Importrecord.order(created_at: :desc).page(params[:page]).per(10)
   end
 
-  def company_params
-    params.require(:company)
-          .permit(:name, :email, :password, :password_confirmation)
-  end
-
-  def user_params
-    params.require(:user)
-          .permit(:name, :email, :password, :password_confirmation)
-  end
-
   # 單人聊天
   def show
     @user = User.find(params[:id])
-    @users = User.all_except(current_user)
+    @users = User.where(company: current_user.company).all_except(current_user)
 
     @room = Room.new
     @rooms = Room.where(room_type: 'public_room')
@@ -57,7 +29,17 @@ class UsersController < ApplicationController
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
     @message = Message.new
-    @messages = @single_room.messages.order(:created_at)
+
+    begin
+      @single_room = Room.find_by!(name: @room_name) || Room.create_private_room([@user, current_user], @room_name)
+      @messages = @single_room.messages.includes(:user).order(:created_at)
+    rescue ActiveRecord::RecordNotFound
+      not_found
+      return
+    end
+
+    @rooms = current_user.rooms
+    authorize @rooms, :show_private_room?, policy_class: RoomPolicy
     render 'rooms/index'
   end
 

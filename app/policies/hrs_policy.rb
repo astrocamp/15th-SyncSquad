@@ -1,27 +1,19 @@
+# frozen_string_literal: true
+
 class HrsPolicy < ApplicationPolicy
-
-  attr_reader :user, :record
-
-  def initialize(user, record)
-    @user = user
-    @record = record
-  end
-
   def index?
-    return !@record.nil? || user.is_role?('hr')
-    false
+    !@record.nil? || user.role?('hr')
   end
 
-  def create
+  def create?
     index?
   end
 
-  def update
+  def update?
     index?
   end
 
-  def destroy
+  def destroy?
     index?
   end
-  
 end

@@ -44,13 +44,16 @@ module Users
 
       # If you have extra params to permit, append them to the sanitizer.
       def configure_sign_up_params
-        devise_parameter_sanitizer.permit(:sign_up, keys: %i[email password password_confirmation company_id avatar])
+        devise_parameter_sanitizer.permit(:sign_up,
+                                          keys: %i[email password password_confirmation
+                                                   avatar]).merge(company_id: current_company.id)
       end
 
       # If you have extra params to permit, append them to the sanitizer.
       def configure_account_update_params
         devise_parameter_sanitizer.permit(:account_update,
-                                          keys: %i[email password password_confirmation company_id avatar])
+                                          keys: %i[email password password_confirmation
+                                                   avatar]).merge(company_id: current_company.id)
       end
 
       # The path used after sign up.

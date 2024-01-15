@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :project_members, dependent: :destroy
   has_many :affiliated_projects, through: :project_members, source: :project
   has_many :tasks
+  has_many :participants
+  has_many :rooms, through: :participants
 
   # Chatroom messages
   scope :all_except, ->(user) { where.not(id: user) }
@@ -31,8 +33,12 @@ class User < ApplicationRecord
     resize_avatar(35, 35)
   end
 
-  def is_role?(role)
+  def role?(role)
     self.role == role
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name email]
   end
 
   private

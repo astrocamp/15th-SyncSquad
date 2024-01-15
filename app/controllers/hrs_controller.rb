@@ -4,9 +4,8 @@ class HrsController < ApplicationController
   before_action :find_user, only: %i[update destroy]
 
   def index
-    @current_company = current_company
     authorize current_company, policy_class: HrsPolicy
-    @users = User.order(id: :desc)
+    @users = User.where(company: current_company).order(id: :desc)
     @user = User.new
   end
 
