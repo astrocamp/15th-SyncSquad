@@ -1,133 +1,134 @@
 tw:
   projects:
-    create_success: '新增成功!'
-    update_success: '更新成功!'
-    destroy_success: '刪除成功!'
-    edit: '編輯專案'
-    index_affiliated: '專案看板'
-    new: '新建專案'
-    show_confirm: '確定刪除專案？'
-    form_title: '名稱'
-    form_description: '說明'
-    form_cancel: '取消'
-    list_delete: 'X'
-    main_search: '搜尋專案'
-    main_title_or_email: '名稱/信箱'
-    main_clear: '清空'
-    main_title: '名稱'
-    main_description: '說明'
-    main_email: '信箱'
-    main_created_time: '建立時間'
-    main_updated_time: '更新時間'
-    delete_task: '刪除任務'
+    create_success: "新增成功!"
+    update_success: "更新成功!"
+    destroy_success: "刪除成功!"
+    edit: "編輯專案"
+    index_affiliated: "專案看板"
+    new: "新建專案"
+    show_confirm: "確定刪除專案？"
+    form_title: "名稱"
+    form_description: "說明"
+    form_cancel: "取消"
+    list_delete: "X"
+    main_search: "搜尋專案"
+    main_title_or_email: "名稱/信箱"
+    main_clear: "清空"
+    main_title: "名稱"
+    main_description: "說明"
+    main_email: "信箱"
+    main_created_time: "建立時間"
+    main_updated_time: "更新時間"
+    delete_task: "刪除任務"
 
   lists:
-    create_success: '新增成功!'
-    update_success: '更新成功!'
-    destroy_success: '刪除成功!'
-    new: '新建列表'
-    new_title: '名稱'
-    new_cancel: '取消'
-    edit: '編輯列表'
-    edit_title: '名稱'
-    edit_color: '顏色'
-    edit_cancel: '取消'
-    edit_delete: '刪除'
-    edit_confirm: '確定刪除列表？'
+    create_success: "新增成功!"
+    update_success: "更新成功!"
+    destroy_success: "刪除成功!"
+    new: "新建列表"
+    new_title: "名稱"
+    new_cancel: "取消"
+    edit: "編輯列表"
+    edit_title: "名稱"
+    edit_color: "顏色"
+    edit_cancel: "取消"
+    edit_delete: "刪除"
+    edit_confirm: "確定刪除列表？"
 
   tasks:
-    create_success: '新增成功!'
-    create_not_saved: '請填寫完整'
-    update_success: '更新成功!'
-    destroy_success: '刪除成功!'
-    task_confirm: '確定刪除任務?'
-    edit: '編輯任務'
-    edit_title: '名稱'
-    edit_description: '說明'
-    edit_user_id: '成員'
-    edit_start_at: '開始時間'
-    edit_priority: '順位'
-    edit_select: '選擇'
-    edit_estimated_complete_at: '預計完成時間'
-    edit_cancel: '取消'
-    new: '新建任務'
-    new_title: '名稱'
-    new_cancel: '取消'
-    show: '顯示任務'
-    show_title: '名稱'
-    show_edit: '編輯任務'
+    create_success: "新增成功!"
+    create_not_saved: "請填寫完整"
+    update_success: "更新成功!"
+    destroy_success: "刪除成功!"
+    task_confirm: "確定刪除任務?"
+    edit: "編輯任務"
+    edit_title: "名稱"
+    edit_description: "說明"
+    edit_user_id: "成員"
+    edit_start_at: "開始時間"
+    edit_priority: "順位"
+    edit_select: "選擇"
+    edit_estimated_complete_at: "預計完成時間"
+    edit_Location: "地點"
+    edit_cancel: "取消"
+    new: "新建任務"
+    new_title: "名稱"
+    new_cancel: "取消"
+    show: "顯示任務"
+    show_title: "名稱"
+    show_edit: "編輯任務"
 
   main:
-    user_sign_in: '員工登入'
-    new_user: '創建員工'
-    company_sign_in: '公司登入'
-    sign_in: '登入'
-    new_company: '公司註冊'
-    log_out: '登出'
-    edit: '編輯'
-    home: '首頁'
-    about: '關於我們'
-    privacy: '隱私權'
-    feature: '功能簡介'
-    name: '公司名稱'
-    email: '信箱'
-    password: '密碼'
-    password_confirmation: '密碼確認'
-    events: '事件'
-    calendar: '行事曆'
-    project: '專案管理'
-    chatroom: '聊天室'
-    setting: '設定'
+    user_sign_in: "員工登入"
+    new_user: "創建員工"
+    company_sign_in: "公司登入"
+    sign_in: "登入"
+    new_company: "公司註冊"
+    log_out: "登出"
+    edit: "編輯"
+    home: "首頁"
+    about: "關於我們"
+    privacy: "隱私權"
+    feature: "功能簡介"
+    name: "公司名稱"
+    email: "信箱"
+    password: "密碼"
+    password_confirmation: "密碼確認"
+    events: "事件"
+    calendar: "行事曆"
+    project: "專案管理"
+    chatroom: "聊天室"
+    setting: "設定"
 
   calender:
-    event: '活動'
+    event: "活動"
 
   company:
-    creation_success: '公司創建成功'
-    creation_failed: '公司創建失敗'
-    name: '公司名稱'
-    email: '信箱'
-    password: '密碼'
-    password_confirmation: '密碼確認'
-    company_sign_up: '公司註冊'
-    not_registered: '尚未註冊'
-    please: '請先'
-    company_sign_in: '公司登入'
-    login: '登入'
-    login_success: '登入成功'
-    login_failed: '登入失敗'
-    logout_success: '已登出'
+    creation_success: "公司創建成功"
+    creation_failed: "公司創建失敗"
+    name: "公司名稱"
+    email: "信箱"
+    password: "密碼"
+    password_confirmation: "密碼確認"
+    company_sign_up: "公司註冊"
+    not_registered: "尚未註冊"
+    please: "請先"
+    company_sign_in: "公司登入"
+    login: "登入"
+    login_success: "登入成功"
+    login_failed: "登入失敗"
+    logout_success: "已登出"
 
   devise:
-    user_sign_in: '員工登入'
-    email: '信箱'
-    password: '密碼'
-    remember_me: '記得我'
-    login: '登入'
+    user_sign_in: "員工登入"
+    email: "信箱"
+    password: "密碼"
+    remember_me: "記得我"
+    login: "登入"
     sessions:
-      signed_in: '登入成功'
-      signed_out: '已登出'
+      signed_in: "登入成功"
+      signed_out: "已登出"
     failure:
-      not_found_in_database: '此帳號不存在或密碼錯誤'
-      invalid: '密碼錯誤'
+      not_found_in_database: "此帳號不存在或密碼錯誤"
+      invalid: "密碼錯誤"
     registrations:
-      updated: '更新成功'
+      updated: "更新成功"
 
   hrs:
-    new_user: '創建員工'
-    role: '職稱'
-    email_placeholder: '輸入員工信箱'
-    password_placeholder: '輸入密碼'
-    password_confirmation_placeholder: '確認密碼'
-    user_lists: '員工列表'
-    update: '更新'
-    delete: '刪除'
-    creation_success: '員工新增成功'
-    creation_failed: '無法新增員工'
-    update_success: '員工資料更新'
-    update_failed: '員工更新失敗'
-    delete_staff: '刪除離職員工'
-    delete_confirm: '確認刪除?'
+    new_user: "創建員工"
+    role: "職稱"
+    email_placeholder: "輸入員工信箱"
+    password_placeholder: "輸入密碼"
+    password_confirmation_placeholder: "確認密碼"
+    user_lists: "員工列表"
+    update: "更新"
+    delete: "刪除"
+    creation_success: "員工新增成功"
+    creation_failed: "無法新增員工"
+    update_success: "員工資料更新"
+    update_failed: "員工更新失敗"
+    delete_staff: "刪除離職員工"
+    delete_confirm: "確認刪除?"
 
   import:
     please_choose_file: "請選擇檔案"
@@ -177,16 +178,16 @@ tw:
   helpers:
     submit:
       user:
-        create: '新增'
+        create: "新增"
       company:
-        create: '新增公司'
-        update: '更新公司資料'
+        create: "新增公司"
+        update: "更新公司資料"
       project:
-        create: '新增專案'
-        update: '更新專案'
+        create: "新增專案"
+        update: "更新專案"
       list:
-        create: '新增列表'
-        update: '更新列表'
+        create: "新增列表"
+        update: "更新列表"
       task:
-        create: '新增任務'
-        update: '更新任務'
+        create: "新增任務"
+        update: "更新任務"
