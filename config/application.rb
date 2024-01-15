@@ -25,8 +25,8 @@ module SyncSquad
     # config.eager_load_paths << Rails.root.join("extras")
     
     # Load dotenv only in development or test environment
-    if ['development', 'test'].include? ENV['RAILS_ENV']
-      Dotenv::Railtie.load
-    end
+    #if ['development', 'test'].include? ENV['RAILS_ENV']
+     # Dotenv::Railtie.load
+    #end
   end
 end
