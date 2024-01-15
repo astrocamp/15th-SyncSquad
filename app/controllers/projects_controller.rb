@@ -23,8 +23,8 @@ class ProjectsController < ApplicationController
   end
 
   def new_task
-    @started_at_value = DateTime.parse(params["startedAt"])
-    @ended_at_value = DateTime.parse(params["endedAt"])
+    @started_at_value = DateTime.parse(params['startedAt'])
+    @ended_at_value = DateTime.parse(params['endedAt'])
     @task = @project.tasks.new
   end
 
@@ -128,9 +128,9 @@ class ProjectsController < ApplicationController
           'source' => task[:source],
           'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
           'list_title' => task.list.title,
-          'color' => task.list.color,
-        },
+          'color' => task.list.color
+        }
       }
     end.to_json
-  end  
+  end
 end

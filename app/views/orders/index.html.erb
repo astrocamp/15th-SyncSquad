@@ -1,3 +1,39 @@
-<h1>訂閱方案</h1>
-<p>一個月699開啟所有權限</p>
-<%= button_to "開啟VIP功能", orders_path, method: :post, data: { turbo: false }%>
+<div class="flex justify-center">
+  <div class="m-8 p-8 border-2 rounded-lg shadow-2xl">
+    <div class="mb-12">
+      <h1 class="text-2xl font-bold">SyncSquad 方案</h1>
+      <p class="text-lg text-gray-600">優質商務方案，隨時可以取消，更換方案！</p>
+    </div>
+    <div class="grid grid-cols-2 gap-8">
+      <div class="bg-white p-8 border-2 rounded">
+        <div class="text-center mb-8">
+          <span class="text-lg text-gray-600">頂級會員價</span>
+          <div class="text-4xl font-bold">$699/<span class="text-xl">月</span></div>
+          <span class="text-md text-gray-600">每年付款 $8388，前14天免費</span>
+        </div>
+        <%= button_to "免費體驗", orders_path, class: "bg-purple-600 text-white w-full py-3 rounded-lg", method: :post, data: { turbo: false } %>
+        <ul class="mt-8 text-md">
+          <li>✓ 專案限制無上限</li>
+          <li>✓ 聊天室無限制</li>
+          <li>✓ 專案建立無限制</li>
+          <li>✓ 會員無限制</li>
+          <li>✓ 會員大頭貼隨你換</li>
+          <li>✓ 開放csv建立會員</li>
+        </ul>
+      </div>
+      <div class="bg-white p-8 border-2 rounded">
+        <div class="text-center mb-8">
+          <span class="text-lg text-gray-600">基本會員</span>
+          <div class="text-4xl font-bold">$0/<span class="text-xl">月</span></div>
+          <span class="text-md text-gray-600">永久免費使用</span>
+        </div>
+        <%= button_to "立即加入", '#', class: "bg-gray-500 text-white w-full py-3 rounded-lg", method: :post %>
+        <ul class="mt-8 text-md">
+          <li>✓ 專案上限3項</li>
+          <li>✓ 會員限制5人</li>
+          <li>✓ 聊天室房間限制5個</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
