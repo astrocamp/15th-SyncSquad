@@ -1,7 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  Rails.application.routes.default_url_options = { host: 'syncsquad.s3.amazonaws.com' }
+  
+  Rails.application.routes.default_url_options = { host: 'www.syncsquad.online', protocol: 'https' }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
