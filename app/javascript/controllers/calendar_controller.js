@@ -71,19 +71,15 @@ export default class extends Controller {
             <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48">
               <header class="bg-[${list_color}] rounded-t-lg p-2 flex justify-between text-lg">
                 <h3 class="font-bold mr-auto">${info.event.title}</h3>
-                <div class="font-bold text-green-500 bg-white w-7 text-center aspect-auto rounded-full">${
-                  info.event.extendedProps.completed_at !== null ? '✓' : ''
-                }</div>
+                <div class="font-bold text-green-500 bg-white w-7 text-center aspect-auto rounded-full">${info.event.extendedProps.completed_at}</div>
               </header>
               <div class="p-2 text-gray-900 text-sm">
-                <div class="text-[${list_color}] font-bold">> ${
-            info.event.extendedProps.list_title
-          }</div>
-                <p>${
-                  info.event.extendedProps.description == null
-                    ? ''
-                    : info.event.extendedProps.description
-                }</p>
+                <div class="text-[${list_color}] font-bold">> ${info.event.extendedProps.list_title}</div>
+                <p>${info.event.extendedProps.description}</p>
+              </div>
+              <div class="bg-gray-100 flex justify-center items-center rounded-b-lg">
+                <i class="h-4 p-2 text-center text-gray-400 fa-solid fa-user"></i>
+                <p class="text-gray-900">${info.event.extendedProps.user_nick_name}</p>
               </div>
             <div>
           `,
