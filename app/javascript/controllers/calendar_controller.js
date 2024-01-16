@@ -25,6 +25,7 @@ export default class extends Controller {
   }
 
   connect() {
+    const { locale } = this.calendarTarget.dataset;
     const newTaskUrl = this.calendarTarget.dataset.newTaskUrl;
     const item = this.calendarTarget.dataset.item;
     const tasks = JSON.parse(this.calendarTarget.dataset.tasks);
@@ -38,7 +39,12 @@ export default class extends Controller {
       },
       events: tasks,
       timeZone: "auto",
-      locale: "zh-tw",
+      locale: locale,
+      eventTimeFormat: {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      },
       droppable: true,
       editable: true,
       eventResizableFromStart: true,
