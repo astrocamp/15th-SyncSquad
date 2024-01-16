@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
       Rails.logger.info "Redirecting to LINE Pay at #{payment_url}"
       flash[:success] = t('orders.create_success')
       respond_to do |format|
-        format.turbo_stream
         format.html { redirect_to payment_url, allow_other_host: true } # 導向 LINE Pay 支付頁面
       end
 
