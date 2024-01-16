@@ -46,6 +46,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    authorize @project
     @params = params
     render action: session[:__last_view__] || 'kanban'
   end
@@ -57,10 +58,6 @@ class ProjectsController < ApplicationController
   def calendar
     @params = params
     session[:__last_view__] = 'calendar'
-  end
-
-  def show
-    authorize @project
   end
 
   def edit

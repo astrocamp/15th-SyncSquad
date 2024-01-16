@@ -9,10 +9,12 @@ class ListsController < ApplicationController
   end
 
   def new
+    authorize @project, policy_class: ListPolicy
     @new_list = @project.lists.build
   end
 
   def create
+    authorize @project, policy_class: ListPolicy
     @new_list = @project.lists.build(list_params.merge(color: '#3778EA'))
 
     if @new_list.save
@@ -24,13 +26,16 @@ class ListsController < ApplicationController
 
   def sort
     @list = List.find(params[:list_id])
+    authorize @list
     @list.update(row_order_position: params[:row_order_position])
-    # debugger
   end
 
-  def edit; end
+  def edit
+    authorize @list
+  end
 
   def update
+    authorize @list
     @project = @list.project
     if @list.update(list_params)
       flash.now[:success] = t('lists.update_success')
@@ -40,6 +45,7 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    authorize @list
     @project = @list.project
     @list.destroy
     flash.now[:success] = t('lists.destroy_success')

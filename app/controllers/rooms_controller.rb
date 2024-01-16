@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_company_users, only: %i[index show]
   before_action :find_current_company_public_rooms, only: %i[index show]
-  
+
   def index
     @rooms = Room.where(room_type: 'public_room', company: current_user.company)
     @users = User.where(company: current_user.company).all_except(current_user)
@@ -49,7 +49,7 @@ class RoomsController < ApplicationController
     @users = User.where(company: current_user.company).all_except(current_user)
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
-    
+
     render 'index'
   end
 
@@ -60,7 +60,7 @@ class RoomsController < ApplicationController
   end
 
   def find_current_company_public_rooms
-    @room = Room.where(room_type: 'public_room',company: current_user.company)
+    @room = Room.where(room_type: 'public_room', company: current_user.company)
   end
 end
 

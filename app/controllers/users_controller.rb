@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-
   def import
     file = params[:file]
     if file.nil? || file.content_type != 'text/csv'
@@ -24,14 +23,16 @@ class UsersController < ApplicationController
     @room = Room.new
     @rooms = Room.where(room_type: 'public_room', company: current_user.company)
     @room_name = get_name(@user, current_user)
-    @single_room = Room.find_by(name: @room_name) || Room.create_private_room(current_user, [@user, current_user], @room_name)
+    @single_room = Room.find_by(name: @room_name) || Room.create_private_room(current_user, [@user, current_user],
+                                                                              @room_name)
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
     @message = Message.new
 
     begin
-      @single_room = Room.create_private_room(current_user, [@user, current_user], @room_name) || Room.find_by!(name: @room_name)
+      @single_room = Room.create_private_room(current_user, [@user, current_user],
+                                              @room_name) || Room.find_by!(name: @room_name)
     rescue ActiveRecord::RecordNotFound
       not_found
       return

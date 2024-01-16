@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   before_action :find_list, only: %i[new create]
 
   def show
+    authorize @task
     @comment = Comment.new
     @comments = @task.comments
   end
@@ -15,15 +16,19 @@ class TasksController < ApplicationController
 
   def sort
     @task = Task.find(params[:task_id])
+    authorize @task
+
     @task.update(row_order_position: params[:row_order_position], list_id: params[:list_id])
     head :no_content
   end
 
   def new
+    authorize @list, policy_class: TaskPolicy
     @task = @list.tasks.new
   end
 
   def create
+    authorize @list, policy_class: TaskPolicy
     @project = @list.project
     @task = @list.tasks.build(task_params)
     if @task.save
@@ -35,6 +40,7 @@ class TasksController < ApplicationController
   end
 
   def update_location
+    authorize @task
     if @task.update(location_params)
       render json: { status: 'success' }
     else
@@ -43,12 +49,14 @@ class TasksController < ApplicationController
   end
 
   def edit
+    authorize @task
     @location = @task.location
     @latitude = @task.latitude
     @longitude = @task.longitude
   end
 
   def update
+    authorize @task
     @project = @task.project
     if @task.update(task_params)
       flash.now[:success] = t('tasks.update_success')
@@ -59,6 +67,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    authorize @task
     @project = @task.project
     @task.destroy
     find_tasks
