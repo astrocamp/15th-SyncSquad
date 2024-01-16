@@ -6,7 +6,7 @@ class LinePayService
     @merchant_id = Rails.application.credentials.line_pay[:merchant_id].to_s
     @merchant_key = Rails.application.credentials.line_pay[:merchant_key]
 
-    @uri = 'https://sandbox-api-pay.line.me' # 沙箱測試環境
+    @uri = 'https://sandbox-api-pay.line.me'
   end
 
   def request_payment
@@ -22,7 +22,7 @@ class LinePayService
       amount: 699,
       currency: 'TWD',
       confirmUrl: confirm_url,
-      orderId: SecureRandom.uuid # 生成唯一的訂單ID
+      orderId: SecureRandom.uuid
     }
 
     response = HTTParty.post("#{@uri}/v2/payments/request", headers:, body: body.to_json)
@@ -30,7 +30,7 @@ class LinePayService
     if response.code == 200
       response
     else
-      nil # 或者您可以返回一個錯誤信息
+      nil
     end
   end
 end
