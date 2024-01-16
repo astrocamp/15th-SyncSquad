@@ -30,8 +30,9 @@ class Task < ApplicationRecord
   enum priority: PRIORITY
 
   def set_defaults
-    Date.current
-    Date.current
+    priority = 3
+    started_date = Date.current
+    ended_date = Date.current
   end
 
   def ended_at_must_after_started_at

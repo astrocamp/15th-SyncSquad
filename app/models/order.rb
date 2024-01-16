@@ -13,11 +13,8 @@ class Order < ApplicationRecord
   end
 
   def serial_generator(digits = 6)
-    now = Time.current
-    year = now.year
-    month = format('%02d', now.month)
-    day = format('%02d', now.day)
-    code = SecureRandom.alphanumeric.upcase[0..digits - 1]
+    format_date = Time.current.strftime('%Y%m%d')
+    code = SecureRandom.alphanumeric(6)
 
     "Sync#{year}#{month}#{day}#{code}"
   end
