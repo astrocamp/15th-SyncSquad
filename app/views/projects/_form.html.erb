@@ -1,11 +1,11 @@
 <%= form_with model: project do |form| %>
   <div class="p-4 space-y-4 md:p-5">
     <div>
-      <%= form.label t('projects.form_title') %>
+      <%= form.label :title, t('projects.form_title') %>
       <%= form.text_field :title, :required => true %>
     </div>
     <div>
-      <%= form.label t('projects.form_description') %>
+      <%= form.label :description, t('projects.form_description') %>
       <%= form.text_area :description %>
     </div>
   </div>
