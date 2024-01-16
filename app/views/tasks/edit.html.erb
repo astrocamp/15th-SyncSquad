@@ -12,19 +12,15 @@
     <div class="p-4 space-y-4 md:p-5">
       <%= @task.all_day_event %>
       <div>
-        <%= form.label t('tasks.edit_title') %>
+        <%= form.label :title, t('tasks.edit_title') %>
         <%= form.text_field :title %>
       </div>
       <div>
-        <%= form.label t('tasks.edit_description') %>
+        <%= form.label :description, t('tasks.edit_description') %>
         <%= form.text_area :description %>
       </div>
-      <div>
-        <%= form.label :priority %>
-        <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: "選擇優先級" }) %>
-      </div>
       <div class="w-[350px]">
-        <%= form.label t('tasks.edit_user_id') %>
+        <%= form.label :user_id, t('tasks.edit_user_id') %>
         <%= form.select :user_id, User.pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect"} %> 
         <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
       </div>
@@ -41,15 +37,15 @@
         <%= form.check_box :all_day_event, { checked: @task.all_day_event == true } %>
       </div>
       <div>
-        <%= form.label t('tasks.edit_priority') %>
+        <%= form.label :priority, t('tasks.edit_priority') %>
         <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: t('tasks.edit_select') }) %>
       </div>
       <div>
-        <%= form.label t('tasks.edit_estimated_complete_at') %>
+        <%= form.label :estimated_complete_at, t('tasks.edit_estimated_complete_at') %>
         <%= form.datetime_field :estimated_complete_at %>
       </div>
       <div>
-        <%= form.label t('tasks.edit_Location')%>
+        <%= form.label :location, t('tasks.edit_Location')%>
         <%= form.text_field :location, data:{ map_target:"field" }%>
         <button data-action="click->map#resetLocation" class="rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md">reset</button>
       </div>
