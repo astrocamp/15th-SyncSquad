@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class ProjectPolicy < ApplicationPolicy
-  
   def show?
     user.company == User.find(record.owner_id).company
   end
@@ -15,5 +16,4 @@ class ProjectPolicy < ApplicationPolicy
   def destroy
     edit?
   end
-
 end

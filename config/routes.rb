@@ -28,9 +28,9 @@ Rails.application.routes.draw do
     end
     
     resources :projects, shallow: true do
-      resources :lists do
+      resources :lists, except: :index do
         put :sort
-        resources :tasks do
+        resources :tasks, except: :index do
           put :sort
           member do
             patch :update_location
