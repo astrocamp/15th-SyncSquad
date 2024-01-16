@@ -37,7 +37,7 @@
                         <%= render 'signup_company' %>
                     </div>
                 <% else %>
-                    <p class="font-light leading-8 tracking-wide text-black md:text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis eum error aliquam rerum distinctio harum officiis recusandae id quam hic voluptate officia perspiciatis maxime ullam neque eligendi, sapiente iure magnam.。</p>
+                    <p class="text-sm font-light leading-7 tracking-wide text-black lg:text-base md:leading-7 lg:leading-9 md:text-white"><%= t('main.overall_intro') %></p>
                 <% end %>
             </div>  
         </div>
@@ -53,7 +53,7 @@
                         feature_calendar_path,
                         class: 'block bg-[#3778EA] mb-6 py-2 px-8 md:px-16 rounded font-bold mt-8 md:mt-0 md:font-black text-2xl',
                         style: 'clip-path: polygon(10% 0%, 100% 0, 90% 100%, 0% 100%)' %>
-                    <p class="w-full px-10 mx-auto font-light leading-8 tracking-wide text-white md:px-0 md:w-56 lg:w-96">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis eum error aliquam rerum distinctio harum officiis recusandae id quam hic voluptate officia perspiciatis maxime ullam neque eligendi, sapiente iure magnam.</p>
+                    <p class="w-full px-10 mx-auto text-sm font-light leading-7 tracking-wide text-white lg:text-base md:leading-7 lg:leading-9 md:px-0 md:w-56 lg:w-96"><%= t('main.calendar_intro') %></p>
                 </div>
             </div>
             <div class="flex flex-col items-center justify-center w-full pl-10 pr-10 md:pl-0 md:pr-10 lg:p-0 md:w-1/2 justify-items-center">
@@ -69,19 +69,19 @@
                     <%= link_to t('main.project'), feature_project_path,
                         class: 'block px-8 py-2 mt-8 mb-6 text-2xl font-bold text-white bg-black rounded md:mt-0 md:font-black md:px-16',
                         style: 'clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);' %>
-                    <p class="px-10 mx-auto font-light leading-8 tracking-wide text-white md:px-0 md:w-56">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis eum error aliquam rerum distinctio harum officiis recusandae id quam hic voluptate officia perspiciatis maxime ullam neque eligendi, sapiente iure magnam.</p>
+                    <p class="px-10 mx-auto text-sm font-light leading-7 tracking-wide text-white lg:text-base md:leading-7 lg:leading-9 md:px-0 md:w-56"><%= t('main.project_intro') %></p>
                 </div>
             </div>
         </section>
     </div>
     <section id="chatroom" class="bg-gradient-to-b from-[#3779eaa3] via-transparent via-60% to-100% to-transparent">
-        <div class="relative max-w-screen-lg px-10 pt-6 pb-24 m-auto mb-12 sm:mb-0 sm:pb-12" style="aspect-ratio: 969/725;">
+        <div class="relative max-w-screen-lg px-10 pt-6 pb-24 m-auto mb-12 md:mb-0 md:pb-12" style="aspect-ratio: 969/725;">
             <%= image_tag('chatroom', class: 'object-cover') %>
-            <div class="absolute inset-x-0 mt-12 text-center lg:mt-24 top-36 sm:top-48">
+            <div class="absolute inset-x-0 mt-12 text-center lg:mt-24 top-36 md:top-48">
                 <%= link_to t('main.chatroom'), feature_chatroom_path,
                         class: 'mb-6 px-8 py-2 text-2xl font-bold inline-block text-white bg-black rounded md:mt-0 md:font-black md:px-16',
                         style: 'clip-path: polygon(10% 0%, 100% 0, 90% 100%, 0% 100%)' %>
-                <p class="w-56 p-4 mx-auto font-light leading-8 tracking-wide bg-white rounded-lg lg:w-96 sm:bg-transparent sm:px-0">id quam hic voluptate officia perspiciatis maxime ullam neque eligendi, sapiente iure magnam.</p>
+                <p class="p-4 mx-auto text-sm font-light leading-7 tracking-wide bg-white rounded-lg w-96 sm:w-80 lg:text-base md:leading-7 lg:leading-9 lg:w-96 md:bg-transparent md:px-0"><%= t('main.chatroom_intro') %></p>
             </div>
         </div>
     </section>
