@@ -20,7 +20,7 @@ class LinePayService
       productName: '升級為VIP',
       amount: 699,
       currency: 'TWD',
-      confirmUrl: 'http://localhost:5000/',
+      confirmUrl: 'www.syncsquad.online' || 'http://localhost:5000/',
       orderId: SecureRandom.uuid # 生成唯一的訂單ID
     }
 
