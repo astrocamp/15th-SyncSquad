@@ -76,12 +76,12 @@ export default class extends Controller {
         tippy(info.el, {
           content: `
             <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48">
-              <header class="bg-[${list_color}] rounded-t-lg p-2 flex justify-between text-lg">
+              <header class="rounded-t-lg p-2 flex justify-between text-lg text-white" style="background-color: ${list_color};">
                 <h3 class="font-bold mr-auto">${info.event.title}</h3>
-                <div class="font-bold text-green-500 bg-white w-7 text-center aspect-auto rounded-full">${info.event.extendedProps.completed_at}</div>
+                <div class="font-bold text-green-500 bg-white w-7 text-center h-7 rounded-full shrink-0">${info.event.extendedProps.completed_at}</div>
               </header>
               <div class="p-2 text-gray-900 text-sm">
-                <div class="text-[${list_color}] font-bold">> ${info.event.extendedProps.list_title}</div>
+                <div class="font-bold" style="color: ${list_color};">> ${info.event.extendedProps.list_title}</div>
                 <p>${info.event.extendedProps.description}</p>
               </div>
               <div class="bg-gray-100 flex justify-center items-center rounded-b-lg">
