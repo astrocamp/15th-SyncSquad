@@ -12,8 +12,8 @@ class Order < ApplicationRecord
     self.serial_num = serial_generator
   end
 
-  def serial_generator(digits = 6)
-    format_date = Time.current.strftime('%Y%m%d')
+  def serial_generator(_digits = 6)
+    Time.current.strftime('%Y%m%d')
     code = SecureRandom.alphanumeric(6)
 
     "Sync#{year}#{month}#{day}#{code}"
