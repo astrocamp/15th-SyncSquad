@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   before_action :find_tasks, only: %i[show calendar create_task]
 
   def index
-    @project = current_user.affiliated_projects.all # current_user projects
+    @project = current_user.affiliated_projects.all
     @q = @projects.ransack(params[:q])
     @projects = @q.result.includes(:owner)
   end
@@ -110,27 +110,15 @@ class ProjectsController < ApplicationController
 
   def find_tasks
     @tasks = @project.tasks.select { |task| task[:started_at] && task[:ended_at] }.map do |task|
-      {
-        'id' => task[:id],
-        'projectId' => task.project.id,
-        'title' => task[:title],
-        'color' => task.list.color,
-        'start' => task[:started_at],
-        'startTime' => task[:started_at],
-        'end' => task[:ended_at],
-        'endTime' => task[:ended_at],
-        'allDay' => task[:all_day_event],
-        'description' => task[:description].nil? ? '' : task[:description],
-        'extendedProps' => {
-          'priority' => task[:priority],
-          'completed_at' => task[:completed_at].nil? ? '' : '✓',
-          'estimated_completed_at' => task[:estimated_completed_at],
-          'source' => task[:source],
-          'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
-          'list_title' => task.list.title,
-          'color' => task.list.color
-        }
-      }
+      { 'id' => task[:id], 'projectId' => task.project.id,
+        'title' => task[:title], 'color' => task.list.color,
+        'start' => task[:started_at], 'startTime' => task[:started_at],
+        'end' => task[:ended_at], 'endTime' => task[:ended_at],
+        'allDay' => task[:all_day_event], 'description' => task[:description].nil? ? '' : task[:description],
+        'extendedProps' => { 'priority' => task[:priority], 'completed_at' => task[:completed_at].nil? ? '' : '✓',
+                             'estimated_completed_at' => task[:estimated_completed_at], 'source' => task[:source],
+                             'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
+                             'list_title' => task.list.title, 'color' => task.list.color } }
     end.to_json
   end
 end
