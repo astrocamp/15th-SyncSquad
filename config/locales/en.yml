@@ -79,6 +79,7 @@ en:
     project: "Project"
     chatroom: "Chatroom"
     setting: "Setting"
+    upgrade: "Upgrade"
 
   calender:
     event: "Event"
@@ -174,6 +175,7 @@ en:
             password:
               too_short: "is too short"
               blank: "is blank"
+
   rooms:
     groups: "Chat Rooms"
     contacts: "Contacts"
@@ -183,3 +185,6 @@ en:
 
   messages:
     msg_submit: "➤"
+
+  orders:
+    create_success: "Thank You For Your Purchase!"

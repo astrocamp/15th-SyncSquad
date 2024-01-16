@@ -79,6 +79,7 @@ tw:
     project: "專案管理"
     chatroom: "聊天室"
     setting: "設定"
+    upgrade: "升級方案"
 
   calender:
     event: "活動"
@@ -175,23 +176,6 @@ tw:
               too_short: "太短"
               blank: "為空白"
 
-  helpers:
-    submit:
-      user:
-        create: "新增"
-      company:
-        create: "新增公司"
-        update: "更新公司資料"
-      project:
-        create: "新增專案"
-        update: "更新專案"
-      list:
-        create: "新增列表"
-        update: "更新列表"
-      task:
-        create: "新增任務"
-        update: "更新任務"
-
   rooms:
     groups: "聊天群組"
     contacts: "聯絡人"
@@ -201,3 +185,23 @@ tw:
 
   messages:
     msg_submit: "➤"
+
+orders:
+  create_success: "付款成功！感谢您的購買"
+
+helpers:
+  submit:
+    user:
+      create: "新增"
+    company:
+      create: "新增公司"
+      update: "更新公司資料"
+    project:
+      create: "新增專案"
+      update: "更新專案"
+    list:
+      create: "新增列表"
+      update: "更新列表"
+    task:
+      create: "新增任務"
+      update: "更新任務"
