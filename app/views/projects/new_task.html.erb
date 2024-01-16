@@ -1,5 +1,5 @@
 <%= content_for :modal_title do %>
-  <%= t('project.new_task') %>
+  <%= t('tasks.new') %>
 <% end %>
 <%= render 'shared/modal' do %>
   <%= form_with modal: @task, url: create_task_project_path do |form| %>
@@ -9,7 +9,7 @@
     </div>
     <div>
       <%= form.label :list_id, t('tasks.new_list_id')%>
-      <%= form.text_field :list_id %>
+      <%= form.select :list_id, @project.lists.pluck(:title, :id), {include_blank: true} , data:{controller: "slimselect"} %>
     </div>
     <div data-controller="datepicker">
       <div>

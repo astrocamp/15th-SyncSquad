@@ -56,7 +56,7 @@ tw:
     edit_cancel: "取消"
     new: "新建任務"
     new_title: "名稱"
-    new_list_id: "列表編號"
+    new_list_id: "列表名稱"
     new_started_at: "開始時間"
     new_ended_at: "結束時間"
     new_all_day_event: "整日活動"
