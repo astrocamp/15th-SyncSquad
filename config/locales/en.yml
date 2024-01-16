@@ -56,7 +56,7 @@ en:
     edit_cancel: "Cancel"
     new: "Create Task"
     new_title: "Title"
-    new_list_id: "List ID"
+    new_list_id: "List"
     new_started_at: "Start At"
     new_ended_at: "End At"
     new_all_day_event: "All Day Event"
