@@ -1,1 +1,8 @@
 <%= render "/lists/lists" %>
+
+<!-- TODO: 日曆即時更新 -->
+<turbo-stream action="update" target="calendar">
+  <template>
+    <%= render partial: '/projects/calendar', locals: { tasks: @tasks } %>
+  </template>
+</turbo-stream>
