@@ -76,9 +76,7 @@ class TasksController < ApplicationController
                   :ended_at,
                   :all_day_event,
                   :source,
-                  :estimated_completed_at,
-                  :location,
-                  :user_id)
+                  :estimated_completed_at, :location, :user_id)
   end
 
   def find_task
@@ -113,9 +111,9 @@ class TasksController < ApplicationController
           'source' => task[:source],
           'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
           'list_title' => task.list.title,
-          'color' => task.list.color,
-        },
+          'color' => task.list.color
+        }
       }
     end.to_json
-  end  
+  end
 end

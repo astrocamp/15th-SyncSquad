@@ -26,15 +26,15 @@
       </div>
       <div data-controller="datepicker">
         <div>
-          <%= form.label :started_at%>
+          <%= form.label :started_at, t('tasks.edit_started_at')%>
           <%= form.datetime_field :started_at , data:{datepicker_target:"startedAt"} %>
         </div>
         <div>
-          <%= form.label :ended_at %>
+          <%= form.label :ended_at, t('tasks.edit_ended_at')%>
           <%= form.datetime_field :ended_at, data:{datepicker_target:"endedAt"} %>
         </div>
         <div>
-          <%= form.label :all_day_event %>
+          <%= form.label :all_day_event, t('tasks.edit_all_day_event') %>
           <%= form.check_box :all_day_event, data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"}%>
         </div>
       <div>
@@ -42,13 +42,13 @@
         <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: t('tasks.edit_select') }) %>
       </div>
       <div>
-        <%= form.label :estimated_complete_at, t('tasks.edit_estimated_complete_at') %>
-        <%= form.datetime_field :estimated_complete_at %>
+        <%= form.label :estimated_completed_at, t('tasks.edit_estimated_complete_at') %>
+        <%= form.datetime_field :estimated_completed_at %>
       </div>
       <div>
         <%= form.label :location, t('tasks.edit_Location')%>
         <%= form.text_field :location, data:{ map_target:"field" }%>
-        <button data-action="click->map#resetLocation" class="rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md">reset</button>
+        <button data-action="click->map#resetLocation" class="rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md"><%= t('tasks.edit_Location_reset') %></button>
       </div>
 
       <div id="map" data-map-target="map" data-location="<%= @location %>" data-latitude="<%= @latitude %>" data-longitude="<%= @longitude %>" data-id="<%= @task.id %>">
@@ -56,7 +56,7 @@
 
       <div class="flex items-center justify-end p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
       <%= form.submit class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
-      <%= link_to t('project.delete_task'), task_path(@task), data: {turbo_method: 'DELETE', action: 'click->turbomodal#close'} %>
+      <%= link_to t('projects.delete_task'), task_path(@task), data: {turbo_method: 'DELETE', action: 'click->turbomodal#close'}, class: 'ms-3 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800' %>
       <button data-action="click->turbomodal#close" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">取消</button>
       </div>
     </div>  
