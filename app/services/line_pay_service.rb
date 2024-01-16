@@ -15,12 +15,13 @@ class LinePayService
       'X-LINE-ChannelId' => @merchant_id,
       'X-LINE-ChannelSecret' => @merchant_key
     }
+    confirm_url = Rails.env.production? ? 'https://www.syncsquad.online' : 'http://localhost:5000'
 
     body = {
       productName: '升級為VIP',
       amount: 699,
       currency: 'TWD',
-      confirmUrl: 'www.syncsquad.online' || 'http://localhost:5000/',
+      confirmUrl: confirm_url,
       orderId: SecureRandom.uuid # 生成唯一的訂單ID
     }
 
