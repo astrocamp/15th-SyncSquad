@@ -38,6 +38,7 @@ Rails.application.routes.draw do
           put :sort
           member do
             patch :update_location
+            patch :drop
           end
           resources :comments, only: [:create, :destroy]
         end

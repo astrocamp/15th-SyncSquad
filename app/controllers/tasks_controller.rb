@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  before_action :find_task, only: %i[show edit update destroy update_location]
+  before_action :find_task, only: %i[show edit update destroy update_location drop]
   before_action :find_list, only: %i[new create]
 
   def show
     @comment = Comment.new
     @comments = @task.comments
+  end
+
+  def drop
+    @task.update(task_params)
   end
 
   def sort
@@ -47,8 +51,8 @@ class TasksController < ApplicationController
   def update
     @project = @task.project
     if @task.update(task_params)
-      redirect_to task_path(@task)
       flash.now[:success] = t('tasks.update_success')
+      find_tasks
     else
       render :edit
     end
@@ -57,6 +61,7 @@ class TasksController < ApplicationController
   def destroy
     @project = @task.project
     @task.destroy
+    find_tasks
     flash.now[:success] = t('tasks.destroy_success')
   end
 
@@ -87,4 +92,30 @@ class TasksController < ApplicationController
   def location_params
     params.require(:task).permit(:latitude, :longitude)
   end
+
+  def find_tasks
+    @tasks = @project.tasks.select { |task| task[:started_at] && task[:ended_at] }.map do |task|
+      {
+        'id' => task[:id],
+        'projectId' => task.project.id,
+        'title' => task[:title],
+        'color' => task.list.color,
+        'start' => task[:started_at],
+        'startTime' => task[:started_at],
+        'end' => task[:ended_at],
+        'endTime' => task[:ended_at],
+        'allDay' => task[:all_day_event],
+        'description' => task[:description].nil? ? '' : task[:description],
+        'extendedProps' => {
+          'priority' => task[:priority],
+          'completed_at' => task[:completed_at].nil? ? '' : '✓',
+          'estimated_completed_at' => task[:estimated_completed_at],
+          'source' => task[:source],
+          'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
+          'list_title' => task.list.title,
+          'color' => task.list.color,
+        },
+      }
+    end.to_json
+  end  
 end
