@@ -4,24 +4,24 @@
 <%= render 'shared/modal' do %>
   <%= form_with modal: @task, url: create_task_project_path do |form| %>
     <div>
-      <%= form.label :title %>
+      <%= form.label :title, t('tasks.new_title') %>
       <%= form.text_field :title %>
     </div>
     <div>
-      <%= form.label :list_id %>
+      <%= form.label :list_id, t('tasks.new_list_id')%>
       <%= form.text_field :list_id %>
     </div>
     <div data-controller="datepicker">
       <div>
-        <%= form.label :started_at %>
+        <%= form.label :started_at, t('tasks.new_started_at')%>
         <%= form.datetime_field :started_at, value: @started_at_value, data:{datepicker_target:"startedAt"} %>
       </div>
       <div>
-        <%= form.label :ended_at %>
+        <%= form.label :ended_at, t('tasks.new_ended_at') %>
         <%= form.datetime_field :ended_at, value: @ended_at_value, data:{datepicker_target:"endedAt"}  %>
       </div>
       <div>
-        <%= form.label :all_day_event %>
+        <%= form.label :all_day_event, t('tasks.new_all_day_event') %>
         <%= form.check_box :all_day_event, checked: params[:allDay] == "true", data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"} %>
       </div>
     </div>
