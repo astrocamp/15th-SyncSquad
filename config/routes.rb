@@ -51,7 +51,7 @@ Rails.application.routes.draw do
       end
     end
   
-    resources :rooms, only: %i[index create show] do
+    resources :rooms, only: %i[index create show new] do
       resources :messages, only: %i[create]
     end
   

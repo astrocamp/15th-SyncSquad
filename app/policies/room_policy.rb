@@ -9,7 +9,7 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def show_public_room
-    true
+    user.company == room.company
   end
 
   def show_private_room?
@@ -17,6 +17,6 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def create_message?
-    show_private_room?
+    room.exists? { |r| r.participants.exists?(user_id: user.id) }
   end
 end

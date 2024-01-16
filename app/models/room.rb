@@ -7,6 +7,7 @@ class Room < ApplicationRecord
   has_many :messages
   has_many :participants, dependent: :destroy
   has_many :users, through: :participants
+  belongs_to :company
 
   enum room_type: { public_room: 0, single_room: 1, private_room: 2 }
 
@@ -26,19 +27,26 @@ class Room < ApplicationRecord
     end
   end
 
-  def self.create_private_room(users, room_name)
-    return nil unless users.map(&:company_id).uniq.length == 1
-    single_room = Room.create(name: room_name, room_type: 'single_room')
+  def self.create_private_room(current_user, users, room_name)
 
-    users.each do |user|
-      Participant.create(user_id: user.id, room_id: single_room.id)
+    if users.map(&:company_id).uniq.length == 1
+
+      single_room = Room.create(name: room_name, room_type: 'private_room', company: current_user.company)
+
+      users.each do |user|
+        Participant.create(user_id: user.id, room_id: single_room.id)
+      end
+
+      if single_room.save
+        single_room
+      else
+        nil
+      end
+
     end
-
-    single_room
   end
 
   def participant?(room, user)
-    room.participants.where(user:).exists?
-    Participant.where(user_id: user.id, room_id: room.id).exists?
+    room.participants.exists?(user: user)
   end
 end
