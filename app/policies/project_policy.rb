@@ -16,4 +16,20 @@ class ProjectPolicy < ApplicationPolicy
   def destroy
     edit?
   end
+
+  def new_task?
+    show?
+  end
+
+  def create_task?
+    show?
+  end
+
+  def kanban?
+    show?
+  end
+
+  def calendar?
+    show?
+  end
 end

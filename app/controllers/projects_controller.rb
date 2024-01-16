@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
   end
 
   def new_task
+    authorize @project
     @started_at_value = DateTime.parse(params['startedAt'])
     @ended_at_value = DateTime.parse(params['endedAt'])
     @task = @project.tasks.new
@@ -34,6 +35,7 @@ class ProjectsController < ApplicationController
   end
 
   def create_task
+    authorize @project
     @task = current_user.tasks.build(task_params)
     if @task.save
       flash.now[:success] = '事件建立成功'
@@ -52,10 +54,12 @@ class ProjectsController < ApplicationController
   end
 
   def kanban
+    authorize @project
     session[:__last_view__] = 'kanban'
   end
 
   def calendar
+    authorize @project
     @params = params
     session[:__last_view__] = 'calendar'
   end
@@ -65,11 +69,13 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    authorize @project
     @project.update(project_params)
     flash.now[:success] = t('projects.update_success')
   end
 
   def destroy
+    authorize @project
     @project.destroy
     redirect_to projects_path, success: t('projects.destroy_success')
   end
