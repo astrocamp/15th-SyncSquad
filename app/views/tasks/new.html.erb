@@ -17,18 +17,20 @@
         <%= form.label :priority %>
         <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: "選擇優先級" }) %>
       </div>
-      <div>
-        <%= form.label :started_at %>
-        <%= form.datetime_field :started_at, required: true %>
-      </div>
-      <div>
-        <%= form.label :ended_at %>
-        <%= form.datetime_field :ended_at, required: true %>
-      </div>
-      <div>
-        <%= form.label :all_day_event %>
-        <%= form.check_box :all_day_event, { checked: @task.all_day_event == true } %>
-      </div>
+      <div data-controller="datepicker">
+        <div>
+          <%= form.label :started_at %>
+          <%= form.datetime_field :started_at, required: true, value: Date.today, data:{datepicker_target:"startedAt"} %>
+        </div>
+        <div>
+          <%= form.label :ended_at %>
+          <%= form.datetime_field :ended_at, required: true, value: Date.today , data:{datepicker_target:"endedAt"} %>
+        </div>
+        <div>
+          <%= form.label :all_day_event %>
+          <%= form.check_box :all_day_event, checked: true, data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"}%>
+        </div>
+      </div>      
       <div>
         <%= form.label :completed_at %>
         <%= form.datetime_field :completed_at %>

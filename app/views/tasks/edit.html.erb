@@ -24,18 +24,19 @@
         <%= form.select :user_id, User.pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect"} %> 
         <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
       </div>
-      <div>
-        <%= form.label :started_at%>
-        <%= form.datetime_field :started_at %>
-      </div>
-      <div>
-        <%= form.label :ended_at %>
-        <%= form.datetime_field :ended_at %>
-      </div>
-      <div>
-        <%= form.label :all_day_event %>
-        <%= form.check_box :all_day_event, { checked: @task.all_day_event == true } %>
-      </div>
+      <div data-controller="datepicker">
+        <div>
+          <%= form.label :started_at%>
+          <%= form.datetime_field :started_at , data:{datepicker_target:"startedAt"} %>
+        </div>
+        <div>
+          <%= form.label :ended_at %>
+          <%= form.datetime_field :ended_at, data:{datepicker_target:"endedAt"} %>
+        </div>
+        <div>
+          <%= form.label :all_day_event %>
+          <%= form.check_box :all_day_event, data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"}%>
+        </div>
       <div>
         <%= form.label :priority, t('tasks.edit_priority') %>
         <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: t('tasks.edit_select') }) %>
