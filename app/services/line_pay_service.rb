@@ -27,10 +27,8 @@ class LinePayService
 
     response = HTTParty.post("#{@uri}/v2/payments/request", headers:, body: body.to_json)
 
-    if response.code == 200
-      response
-    else
-      nil
-    end
+    return unless response.code == 200
+
+    response
   end
 end
