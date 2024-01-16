@@ -143,6 +143,7 @@ GEM
     geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hiredis (0.6.3)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -365,6 +366,7 @@ DEPENDENCIES
   foreman (~> 0.87.2)
   friendly_id (~> 5.4.0)
   geocoder (~> 1.8)
+  hiredis
   httparty (~> 0.21.0)
   image_processing (~> 1.12)
   jbuilder
