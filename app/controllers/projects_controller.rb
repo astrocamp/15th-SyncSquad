@@ -2,9 +2,8 @@
 
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_project, only: %i[new_task show update destroy edit kanban calendar create_task]
-  before_action :find_current_user_affiliated_projects, only: %i[index kanban calendar]
-  before_action :find_company_projects, only: %i[index]
+  before_action :find_project, only: %i[show update destroy edit kanban calendar create_task new_task]
+  before_action :find_current_company_projects, only: %i[index show kanban calendar]
   before_action :search_project, only: %i[update create]
   before_action :find_tasks, only: %i[show calendar create_task]
 
@@ -60,7 +59,13 @@ class ProjectsController < ApplicationController
     session[:__last_view__] = 'calendar'
   end
 
-  def edit; end
+  def show
+    authorize @project
+  end
+
+  def edit
+    authorize @project
+  end
 
   def update
     @project.update(project_params)
@@ -90,14 +95,8 @@ class ProjectsController < ApplicationController
     params.permit(:title, :list_id, :started_at, :ended_at, :all_day_event)
   end
 
-  def find_current_user_affiliated_projects
-    @projects = current_user.affiliated_projects.order(id: :asc)
-  end
-
-  def find_company_projects
-    @company = Company.find(current_user.company_id)
-    @users = @company.users.ids
-    @projects = Project.where(owner: @users)
+  def find_current_company_projects
+    @projects = Project.where(owner_id: User.where(company: current_user.company).pluck(:id)).order(id: :asc)
   end
 
   def search_project
