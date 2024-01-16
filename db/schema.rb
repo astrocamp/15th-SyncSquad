@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_15_074426) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_15_092300) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -157,6 +157,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_15_074426) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "room_type", default: 0
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_rooms_on_company_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -225,5 +227,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_15_074426) do
   add_foreign_key "participants", "users"
   add_foreign_key "project_members", "projects"
   add_foreign_key "project_members", "users"
+  add_foreign_key "rooms", "companies"
   add_foreign_key "tasks", "lists"
 end
