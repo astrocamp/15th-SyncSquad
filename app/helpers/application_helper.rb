@@ -4,9 +4,9 @@ module ApplicationHelper
   def locale_full_calendar
     case I18n.locale
     when :en
-      "en-us"
+      'en-us'
     when :tw
-      "zh-tw"
+      'zh-tw'
     end
   end
 end

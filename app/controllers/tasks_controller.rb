@@ -91,29 +91,19 @@ class TasksController < ApplicationController
     params.require(:task).permit(:latitude, :longitude)
   end
 
-  def find_tasks
+  def find_tasks # rubocop:disable Metrics/CyclomaticComplexity
     @tasks = @project.tasks.select { |task| task[:started_at] && task[:ended_at] }.map do |task|
-      {
-        'id' => task[:id],
-        'projectId' => task.project.id,
-        'title' => task[:title],
-        'color' => task.list.color,
-        'start' => task[:started_at],
-        'startTime' => task[:started_at],
-        'end' => task[:ended_at],
-        'endTime' => task[:ended_at],
-        'allDay' => task[:all_day_event],
+      end_date = task[:all_day_event] ? (task[:ended_at] + 1.day) : task[:ended_at]
+      { 'id' => task[:id], 'projectId' => task.project.id,
+        'title' => task[:title], 'color' => task.list.color,
+        'start' => task[:started_at], 'startTime' => task[:started_at],
+        'end' => end_date,
+        'endTime' => task[:ended_at], 'allDay' => task[:all_day_event],
         'description' => task[:description].nil? ? '' : task[:description],
-        'extendedProps' => {
-          'priority' => task[:priority],
-          'completed_at' => task[:completed_at].nil? ? '' : '✓',
-          'estimated_completed_at' => task[:estimated_completed_at],
-          'source' => task[:source],
-          'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
-          'list_title' => task.list.title,
-          'color' => task.list.color
-        }
-      }
+        'extendedProps' => { 'priority' => task[:priority], 'completed_at' => task[:completed_at].nil? ? '' : '✓',
+                             'estimated_completed_at' => task[:estimated_completed_at], 'source' => task[:source],
+                             'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
+                             'list_title' => task.list.title, 'color' => task.list.color } }
     end.to_json
   end
 end
