@@ -24,7 +24,7 @@
         </div>
         <div>
           <%= form.label :ended_at %>
-          <%= form.datetime_field :ended_at, required: true, value: Date.today , data:{datepicker_target:"endedAt"} %>
+          <%= form.datetime_field :ended_at, required: true, value: Date.today + 1.day , data:{datepicker_target:"endedAt"} %>
         </div>
         <div>
           <%= form.label :all_day_event %>

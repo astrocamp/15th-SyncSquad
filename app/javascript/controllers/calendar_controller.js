@@ -104,11 +104,17 @@ export default class extends Controller {
     });
     this.calendar.render();
     async function adjust(taskResizeInfo) {
+      dayjs.extend(utc);
       const id = taskResizeInfo.event._def.publicId;
       const url = `/tasks/${id}/drop`;
       const started_at = taskResizeInfo.event.startStr;
-      const ended_at = taskResizeInfo.event.endStr;
-      const data = { started_at, ended_at };
+      let ended_at =
+        taskResizeInfo.event.endStr || taskResizeInfo.event.startStr;
+      const all_day_event = taskResizeInfo.event.allDay;
+      if (all_day_event && started_at == ended_at) {
+        ended_at = dayjs(ended_at).add(1, "day").format("YYYY-MM-DD");
+      }
+      const data = { started_at, ended_at, all_day_event };
       await patch(url, { body: JSON.stringify(data) });
     }
   }
