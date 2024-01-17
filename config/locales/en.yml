@@ -75,7 +75,7 @@ en:
     password: 'Password'
     password_confirmation: 'Password_confirmation'
     events: 'Events'
-    overall_intro: 'SanySquad is designed to make project collaboration easy and efficient for teams and businesses. With a user-friendly design and practical features, our aim is to help you manage projects effortlessly, improve team efficiency, and achieve successful project outcomes.'
+    overall_intro: 'SyncSquad is designed to make project collaboration easy and efficient for teams and businesses. With a user-friendly design and practical features, our aim is to help you manage projects effortlessly, improve team efficiency, and achieve successful project outcomes.'
     calendar: 'Calendar'
     calendar_intro: "Calendar seamlessly works with your Google Calendar and displays all project tasks clearly. This ensures a quick view of team members' schedules, making it easy for everyone to participate and complete tasks on time. Real-time updates let you track project progress instantly."
     project: 'Project'

@@ -75,7 +75,7 @@ tw:
     password: '密碼'
     password_confirmation: '密碼確認'
     events: '事件'
-    overall_intro: 'SanySquad 為團隊及企業提供友善的操作體驗，以及高效率的協作環境，協助您輕鬆管理專案、提升團隊效能，順利實現專案理想成果。'
+    overall_intro: 'SyncSquad 為團隊及企業提供友善的操作體驗，以及高效率的協作環境，協助您輕鬆管理專案、提升團隊效能，順利實現專案理想成果。'
     calendar: '行事曆'
     calendar_intro: '行事曆清晰呈現所有專案任務，並且整合 Google Calendar，確保您快速查看團隊成員的日程安排，使得每個人都能輕鬆參與並按時完成任務。即時更新與同步資料，讓您隨時追蹤專案進度。'
     project: '專案管理'
