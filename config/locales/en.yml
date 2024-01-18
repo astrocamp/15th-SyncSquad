@@ -20,8 +20,8 @@ en:
     main_created_time: "Created Time"
     main_updated_time: "Updated Time"
     delete_task: "Delete Task"
-    kanban: 'Kanban'
-    calendar: 'Calendar'
+    kanban: "Kanban"
+    calendar: "Calendar"
     delete_confirm: "Are you sure you want to delete the project?"
 
   lists:
@@ -146,8 +146,9 @@ en:
     password_confirmation: "Password_confirmation"
     company_sign_up: "Company Sign Up"
     not_registered: "Not Registered"
-    please: "Please"
+    please: "Please "
     company_sign_in: "Company Sign In"
+    create_account: "Create Account"
     login: "Login"
     login_success: "Login Success"
     login_failed: "Login Failed"
@@ -284,13 +285,13 @@ en:
       blank: "此欄位不能為空"
       too_short: "密碼太短"
       invalid: "信息不正確"
-            role:
-              inclusion: "is not correct"
-            password:
-              too_short: "is too short"
-              blank: "is blank"
-            current_password:
-              blank: "is blank"
+        role:
+          inclusion: "is not correct"
+        password:
+          too_short: "is too short"
+          blank: "is blank"
+        current_password:
+          blank: "is blank"
 
   search_placeholder: "Search"
 
