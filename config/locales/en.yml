@@ -19,7 +19,7 @@ en:
     main_email: "Email"
     main_created_time: "Created Time"
     main_updated_time: "Updated Time"
-    delete_task: "Deleted Task"
+    delete_task: "Delete Task"
 
   lists:
     create_success: "Creation Success!"
@@ -36,6 +36,8 @@ en:
     edit_confirm: "Are You Sure You Want To Delete?"
 
   tasks:
+    priority_prompt: "Select Priority"
+    location_placeholder: "Enter a location"
     create_success: "Creation Success!"
     create_not_saved: "Please Fill in Completely."
     update_success: "Update Success!"
@@ -45,21 +47,26 @@ en:
     edit_title: "Title"
     edit_description: "Description"
     edit_user_id: "Member"
-    edit_start_at: "Start At"
+    edit_started_at: "Start At"
     edit_ended_at: "End At"
     edit_all_day_event: "All Day Event"
     edit_priority: "Priority"
     edit_select: "Select"
-    edit_estimated_complete_at: "Estimated Completion Time"
-    edit_Location: "Location"
-    edit_Location_reset: "Reset"
+    edit_estimated_completed_at: "Estimated Completion Time"
+    edit_location: "Location"
+    edit_location_reset: "Reset"
     edit_cancel: "Cancel"
     new: "Create Task"
     new_title: "Title"
     new_list_id: "List"
+    new_description: "Description"
+    new_priority: "Priority"
     new_started_at: "Start At"
     new_ended_at: "End At"
     new_all_day_event: "All Day Event"
+    new_estimated_completed_at: "Estimated Completion Time"
+    new_location: "Location"
+    new_location_reset: "Reset"
     new_cancel: "Cancel"
     show: "Show Task"
     show_title: "Title"
@@ -71,8 +78,8 @@ en:
     show_all_day_event: "All Day Event"
     show_priority: "Priority"
     show_select: "Select"
-    show_estimated_complete_at: "Estimated Completion Time"
-    show_Location: "Location"
+    show_estimated_completed_at: "Estimated Completion Time"
+    show_location: "Location"
 
   comments:
     create_comment: "Create Comment"
@@ -200,6 +207,8 @@ en:
             password:
               too_short: "is too short"
               blank: "is blank"
+
+  search_placeholder: "Search"
 
   rooms:
     groups: "Chat Rooms"
