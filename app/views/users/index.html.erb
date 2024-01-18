@@ -8,8 +8,8 @@
   <div class="flex justify-center py-4 text-2xl"><%= t('import.instruction_for_user_import') %>
   </div>
 
-<div class="flex justify-center">
-    <table class="bg-white border border-gray-300">
+<div class="flex justify-center overflow-x-auto">
+    <table class="min-w-full bg-white border border-gray-300">
       <thead>
         <tr class="bg-blue-300">
           <th class="px-4 py-2 border-b"><%= t('import.field') %></th>
@@ -18,12 +18,12 @@
       </thead>
       <tbody>
           <tr>
-            <td class="px-4 py-2 text-center border-b"><%= t('import.email') %></td>
-            <td class="px-4 py-2 text-center border-b"><%= t('import.required') %></td>  
+            <td class="py-2 px-4 border-b text-center"><span class="text-red-600">*</span><%= t('import.email') %></td>
+            <td class="py-2 px-4 border-b text-center"><%= t('import.required') %></td>  
           </tr>  
           <tr>
-            <td class="px-4 py-2 text-center border-b"><%= t('import.password') %></td>
-            <td class="px-4 py-2 text-center border-b"><%= t('import.required') %> <%= t('import.user_edit') %></td>  
+            <td class="py-2 px-4 border-b text-center"><span class="text-red-600">*</span><%= t('import.password') %></td>
+            <td class="py-2 px-4 border-b text-center"><%= t('import.required') %> <%= t('import.user_edit') %></td>  
           </tr>
           <tr>
             <td class="px-4 py-2 text-center border-b"><%= t('import.name') %></td>
@@ -42,8 +42,8 @@
             <td class="px-4 py-2 text-center border-b"></td>  
           </tr>  
           <tr>
-            <td class="px-4 py-2 text-center border-b"><%= t('import.role') %></td>
-            <td class="px-4 py-2 text-center border-b"><%= t('import.role_for_staff') %></td>  
+            <td class="py-2 px-4 border-b text-center"><span class="text-red-600">*</span><%= t('import.role') %></td>
+            <td class="py-2 px-4 border-b text-center"><%= t('import.role_for_staff') %></td>  
           </tr>  
           <tr>
             <td class="px-4 py-2 text-center border-b"><%= t('import.nick_name') %></td>
@@ -61,19 +61,19 @@
     </table>   
   </div>
 
-  <div class="flex items-center justify-center mt-4">
-    <p class="pr-2"><%= t('import.template_instruction') %></p>
-    <%= link_to t('import.btn_download'), "/import_file.csv", download: "import_file.csv", class: "rounded-md bg-green-500 hover:bg-green-600 text-white font-bold p-2 inline-block shadow-md"%>
+  <div class="flex flex-wrap justify-center items-center mt-4">
+    <div class="pr-2 mt-4"><%= t('import.template_instruction') %></div>
+    <div><%= link_to t('import.btn_download'), "/import_file.csv", download: "import_file.csv", class: "mt-4 rounded-md bg-green-500 hover:bg-green-600 text-white font-bold p-2 inline-block shadow-md"%></div>
   </div>
 
   <div class="mt-8 mb-4">
     <div class="flex justify-center py-4 text-2xl"><%= t('import.data_import') %>
     </div>
 
-    <div class="flex justify-center m-8">
+    <div class="flex justify-center items-center m-8">
       <%= form_with url: users_import_path(@user), method:"post" do |form| %>
-        <%= form.file_field :file, accept:".csv" %>
-        <%= form.button t('import.import'), class:"rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md m-6" %>
+        <%= form.file_field :file, accept:".csv", class:"w-64 cursor-pointer"%>
+        <%= form.button t('import.import'), class:"rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md m-2" %>
       <% end %>
     </div>
   </div>

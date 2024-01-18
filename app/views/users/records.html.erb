@@ -3,7 +3,7 @@
   <%= link_to t('import.import_records'), users_import_records_path, class: "tab-btn focus:outline-none px-4 py-2 bg-gray-200 text-gray-800 border border-slate-400 border-b-0" %>
 </div>
 
-<div class="max-w-4xl mx-auto mb-20 bg-gray-200  border border-slate-400">
+<div class="mx-auto mb-20 bg-gray-200 border border-slate-400 w-full px-4 sm:max-w-4xl">
 
   <div class="text-2xl py-4 flex justify-center"><%= t('import.import_records')%>
   </div>
@@ -15,40 +15,40 @@
     <table class="min-w-full bg-white border border-gray-300">
       <thead>
         <tr class="bg-blue-300">
-          <th class="py-2 px-4 border-b"><%= t('import.id') %> </th>
-          <th class="py-2 px-4 border-b"><%= t('import.status') %> </th>
-          <th class="py-2 px-4 border-b"><%= t('import.file') %> </th>
-          <th class="py-2 px-4 border-b"><%= t('import.imported_time') %> </th>
-          <th class="py-2 px-4 border-b"><%= t('import.all_records') %> </th>
-          <th class="py-2 px-4 border-b"><%= t('import.success_records') %> </th>
-          <th class="py-2 px-4 border-b"><%= t('import.failures_details') %> </th>
+          <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.id') %> </th>
+          <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.status') %> </th>
+          <th class="py-2 px-2 md:px-4 border-b text-xs md:text-lg"><%= t('import.file') %> </th>
+          <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.imported_time') %> </th>
+          <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.all_records') %> </th>
+          <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.success_records') %> </th>
+          <th class="py-2 px-2 md:px-4 border-b text-xs md:text-lg"><%= t('import.failures_details') %> </th>
         </tr>
       </thead>
       <tbody>
         <% @import_records.each do |import_record| %>
           <tr>
-            <td class="py-2 px-4 border-b text-center"><%= import_record.id %></td>
+            <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.id %></td>
             <% if import_record.status == "Failures" %> 
-              <td class="py-2 px-4 border-b text-center bg-red-300">
+              <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell bg-red-300">
                 <%= I18n.t(import_record.status)%>
               </td>
             <% else %>
-              <td class="py-2 px-4 border-b text-center bg-green-300">
+              <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell bg-green-300">
                 <%= I18n.t(import_record.status)%>
               </td>
             <% end %>
-            <td class="py-2 px-4 border-b text-center"><%= link_to import_record.file.filename, rails_blob_path(import_record.file) %></td>
-            <td class="py-2 px-4 border-b text-center"><%= import_record.created_at.in_time_zone('Taipei').strftime('%Y/%m/%d - %H:%M') %></td>
-            <td class="py-2 px-4 border-b text-center"><%= import_record.total_count %></td>
-            <td class="py-2 px-4 border-b text-center"><%= import_record.success_count %></td>  
+            <td class="text-left py-2 px-2 md:px-4 border-b text-xs md:text-lg"><%= link_to import_record.file.filename, rails_blob_path(import_record.file) %></td>
+            <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.created_at.in_time_zone('Taipei').strftime('%Y/%m/%d - %H:%M') %></td>
+            <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.total_count %></td>
+            <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.success_count %></td>  
 
             <% if import_record.error_messages == "[]" %>
-              <td class="py-2 px-4 border-b text-center"></td>   
+              <td class="text-left py-2 px-2 md:px-4 border-b text-xs md:text-lg"></td>   
             <% else %>
-              <td class="py-2 px-4 border-b">
+              <td class="text-left py-2 px-2 md:px-4 border-b text-xs md:text-lg">
                 <% records = import_record.error_messages.gsub(/[\[\] "]/,"").split(",")%>
                 <% records.each do |record| %>
-                  <p><%= I18n.t(record.split("|")[0],row_number: record.split("|")[1], email: record.split("|")[2]) %></p>
+                  <p class="flex"><%= I18n.t(record.split("|")[0],row_number: record.split("|")[1], email: record.split("|")[2]) %></p>
                 <% end %>
               </td>   
             <% end %>

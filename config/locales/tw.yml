@@ -193,8 +193,8 @@ tw:
     status: "狀態"
     file: "檔案"
     imported_time: "匯入時間"
-    all_records: "所有記錄"
-    success_records: "成功記錄"
+    all_records: "總數"
+    success_records: "成功數"
     failures_details: "失敗紀錄詳細資訊"
 
   Failures: "失敗"
