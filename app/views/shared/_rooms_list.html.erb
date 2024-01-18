@@ -1,7 +1,7 @@
 <div id="chat-rooms">
   <div id="public-room">
       <h3 class="text-2xl p-3">Rooms</h3>
-      <%= turbo_stream_from "rooms"%>
+      <%= turbo_stream_from "rooms_company_#{current_user.company_id}"%>
 
       <div id="rooms">
         <div>
