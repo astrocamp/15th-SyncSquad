@@ -36,6 +36,8 @@ tw:
     edit_confirm: "確定刪除列表？"
 
   tasks:
+    priority_prompt: "選擇優先級"
+    location_placeholder: "輸入位置"
     create_success: "新增成功!"
     create_not_saved: "請填寫完整"
     update_success: "更新成功!"
@@ -45,21 +47,26 @@ tw:
     edit_title: "名稱"
     edit_description: "說明"
     edit_user_id: "成員"
-    edit_start_at: "開始時間"
+    edit_started_at: "開始時間"
     edit_ended_at: "結束時間"
     edit_all_day_event: "整日活動"
     edit_priority: "順位"
     edit_select: "選擇"
-    edit_estimated_complete_at: "預計完成時間"
-    edit_Location: "地點"
-    edit_Location_reset: "重設地點"
+    edit_estimated_completed_at: "預計完成時間"
+    edit_location: "地點"
+    edit_location_reset: "重設地點"
     edit_cancel: "取消"
     new: "新建任務"
     new_title: "名稱"
     new_list_id: "列表名稱"
+    new_description: "說明"
+    new_priority: "順位"
     new_started_at: "開始時間"
     new_ended_at: "結束時間"
     new_all_day_event: "整日活動"
+    new_estimated_completed_at: "預計完成時間"
+    new_location: "地點"
+    new_location_reset: "重設地點"
     new_cancel: "取消"
     show: "顯示任務"
     show_title: "名稱"
@@ -71,8 +78,8 @@ tw:
     show_all_day_event: "整日活動"
     show_priority: "順位"
     show_select: "選擇"
-    show_estimated_complete_at: "預計完成時間"
-    show_Location: "地點"
+    show_estimated_completed_at: "預計完成時間"
+    show_location: "地點"
 
   comments:
     create_comment: "新增留言"
@@ -200,6 +207,8 @@ tw:
             password:
               too_short: "太短"
               blank: "為空白"
+
+  search_placeholder: "搜尋"
 
   rooms:
     groups: "聊天群組"
