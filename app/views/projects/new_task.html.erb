@@ -9,7 +9,7 @@
     </div>
     <div>
       <%= form.label :list_id, t('tasks.new_list_id')%>
-      <%= form.select :list_id, @project.lists.pluck(:title, :id), {include_blank: true} , data:{controller: "slimselect"} %>
+      <%= form.select :list_id, @project.lists.pluck(:title, :id), {include_blank: true} , data:{controller: "slimselect", search_placeholder: t('search_placeholder') } %>
     </div>
     <div data-controller="datepicker">
       <div>
