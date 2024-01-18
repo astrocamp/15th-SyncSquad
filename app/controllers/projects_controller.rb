@@ -108,14 +108,12 @@ class ProjectsController < ApplicationController
     @projects = @q.result.includes(:owner)
   end
 
-  def find_tasks # rubocop:disable Metrics/CyclomaticComplexity
+  def find_tasks
     @tasks = @project.tasks.select { |task| task[:started_at] && task[:ended_at] }.map do |task|
-      end_date = task[:all_day_event] ? (task[:ended_at] + 1.day) : task[:ended_at]
       { 'id' => task[:id], 'projectId' => task.project.id,
         'title' => task[:title], 'color' => task.list.color,
         'start' => task[:started_at], 'startTime' => task[:started_at],
-        'end' => end_date,
-        'endTime' => task[:ended_at], 'allDay' => task[:all_day_event],
+        'end' => task[:ended_at], 'endTime' => task[:ended_at], 'allDay' => task[:all_day_event],
         'description' => task[:description].nil? ? '' : task[:description],
         'extendedProps' => { 'priority' => task[:priority], 'completed_at' => task[:completed_at].nil? ? '' : '✓',
                              'estimated_completed_at' => task[:estimated_completed_at], 'source' => task[:source],
