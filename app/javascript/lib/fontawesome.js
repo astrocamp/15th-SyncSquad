@@ -17,6 +17,7 @@ import { faPenToSquare as faPenToSquareRegular } from "@fortawesome/free-regular
 import { faCircleChevronLeft } from "@fortawesome/free-solid-svg-icons/faCircleChevronLeft";
 import { faCrown } from "@fortawesome/free-solid-svg-icons/faCrown";
 import { faHourglassStart } from "@fortawesome/free-solid-svg-icons/faHourglassStart";
+import { faMessage } from "@fortawesome/free-solid-svg-icons/faMessage";
 
 library.add({
   faEllipsis,
@@ -37,6 +38,7 @@ library.add({
   faCircleChevronLeft,
   faCrown,
   faHourglassStart,
+  faMessage,
 });
 
 dom.watch();
