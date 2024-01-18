@@ -9,7 +9,7 @@ class CsvImportUsersService
     CSV.parse(csv_data, headers: true).each_with_index do |row, idx|
       user = User.find_by(email: row['Email'])
       if user
-        failed_records << "Row #{idx + 1} - Email:#{row['Email']} exist in system"
+        failed_records << "csv_import.email_exists_row_number_email|#{idx + 1}|#{row['Email']}"
       elsif %w[staff hr].include?(row['Role'])
         data = User.new(
           email: row['Email'], password: row['Password'],
@@ -22,10 +22,10 @@ class CsvImportUsersService
         if data.save
           success += 1
         else
-          failed_records << "Row #{idx + 1} - #{data.errors.full_messages.join(' & ')}"
+          failed_records << "csv_import.#{data.errors.full_messages.join('&')}|#{idx + 1}"
         end
       else
-        failed_records << "Row #{idx + 1} - Role should be staff or hr"
+        failed_records << "csv_import.role_row_number_email|#{idx + 1}"
       end
     end
     Importrecord.create(file:,

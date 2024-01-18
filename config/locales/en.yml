@@ -1,243 +1,285 @@
 en:
   projects:
-    create_success: 'Creation Success!'
-    update_success: 'Update Success!'
-    destroy_success: 'Delete Success!'
-    edit: 'Edit Project'
-    index_affiliated: 'Affiliated Projects'
-    new: 'Create Project'
-    show_confirm: 'Are You Sure You Want To Delete?'
-    form_title: 'Title'
-    form_description: 'Description'
-    form_cancel: 'Cancel'
-    list_delete: 'X'
-    main_search: 'Search'
-    main_title_or_email: 'Title/Email'
-    main_clear: 'Clear'
-    main_title: 'Title'
-    main_description: 'Description'
-    main_email: 'Email'
-    main_created_time: 'Created Time'
-    main_updated_time: 'Updated Time'
-    delete_task: 'Delete Task'
+    create_success: "Creation Success!"
+    update_success: "Update Success!"
+    destroy_success: "Delete Success!"
+    edit: "Edit Project"
+    index_affiliated: "Affiliated Projects"
+    new: "Create Project"
+    show_confirm: "Are You Sure You Want To Delete?"
+    form_title: "Title"
+    form_description: "Description"
+    form_cancel: "Cancel"
+    list_delete: "X"
+    main_search: "Search"
+    main_title_or_email: "Title/Email"
+    main_clear: "Clear"
+    main_title: "Title"
+    main_description: "Description"
+    main_email: "Email"
+    main_created_time: "Created Time"
+    main_updated_time: "Updated Time"
+    delete_task: "Delete Task"
 
   lists:
-    create_success: 'Creation Success!'
-    update_success: 'Update Success!'
-    destroy_success: 'Delete Success!'
-    new: 'Create List'
-    new_title: 'Title'
-    new_cancel: 'Cancel'
-    edit: 'Edit List'
-    edit_title: 'Title'
-    edit_color: 'Color'
-    edit_cancel: 'Cancel'
-    edit_delete: 'Delete'
-    edit_confirm: 'Are You Sure You Want To Delete?'
+    create_success: "Creation Success!"
+    update_success: "Update Success!"
+    destroy_success: "Delete Success!"
+    new: "Create List"
+    new_title: "Title"
+    new_cancel: "Cancel"
+    edit: "Edit List"
+    edit_title: "Title"
+    edit_color: "Color"
+    edit_cancel: "Cancel"
+    edit_delete: "Delete"
+    edit_confirm: "Are You Sure You Want To Delete?"
 
   tasks:
-    priority_prompt: 'Select Priority'
-    location_placeholder: 'Enter a location'
-    create_success: 'Creation Success!'
-    create_not_saved: 'Please Fill in Completely.'
-    update_success: 'Update Success!'
-    destroy_success: 'Delete Success!'
-    task_confirm: 'Are You Sure You Want To Delete?'
-    edit: 'Edit Task'
-    edit_title: 'Title'
-    edit_description: 'Description'
-    edit_user_id: 'Member'
-    edit_started_at: 'Start At'
-    edit_ended_at: 'End At'
-    edit_all_day_event: 'All Day Event'
-    edit_priority: 'Priority'
-    edit_select: 'Select'
-    edit_estimated_completed_at: 'Estimated Completion Time'
-    edit_location: 'Location'
-    edit_location_reset: 'Reset'
-    edit_cancel: 'Cancel'
-    new: 'Create Task'
-    new_title: 'Title'
-    new_list_id: 'List'
-    new_description: 'Description'
-    new_priority: 'Priority'
-    new_started_at: 'Start At'
-    new_ended_at: 'End At'
-    new_all_day_event: 'All Day Event'
-    new_estimated_completed_at: 'Estimated Completion Time'
-    new_location: 'Location'
-    new_location_reset: 'Reset'
-    new_cancel: 'Cancel'
-    show: 'Show Task'
-    show_title: 'Title'
-    show_edit: 'Edit'
-    show_description: 'Description'
-    show_user_id: 'Member'
-    show_started_at: 'Start At'
-    show_ended_at: 'End At'
-    show_all_day_event: 'All Day Event'
-    show_priority: 'Priority'
-    show_select: 'Select'
-    show_estimated_completed_at: 'Estimated Completion Time'
-    show_location: 'Location'
+    priority_prompt: "Select Priority"
+    location_placeholder: "Enter a location"
+    create_success: "Creation Success!"
+    create_not_saved: "Please Fill in Completely."
+    update_success: "Update Success!"
+    destroy_success: "Delete Success!"
+    task_confirm: "Are You Sure You Want To Delete?"
+    edit: "Edit Task"
+    edit_title: "Title"
+    edit_description: "Description"
+    edit_user_id: "Member"
+    edit_started_at: "Start At"
+    edit_ended_at: "End At"
+    edit_all_day_event: "All Day Event"
+    edit_priority: "Priority"
+    edit_select: "Select"
+    edit_estimated_completed_at: "Estimated Completion Time"
+    edit_location: "Location"
+    edit_location_reset: "Reset"
+    edit_cancel: "Cancel"
+    new: "Create Task"
+    new_title: "Title"
+    new_list_id: "List"
+    new_description: "Description"
+    new_priority: "Priority"
+    new_started_at: "Start At"
+    new_ended_at: "End At"
+    new_all_day_event: "All Day Event"
+    new_estimated_completed_at: "Estimated Completion Time"
+    new_location: "Location"
+    new_location_reset: "Reset"
+    new_cancel: "Cancel"
+    show: "Show Task"
+    show_title: "Title"
+    show_edit: "Edit"
+    show_description: "Description"
+    show_user_id: "Member"
+    show_started_at: "Start At"
+    show_ended_at: "End At"
+    show_all_day_event: "All Day Event"
+    show_priority: "Priority"
+    show_select: "Select"
+    show_estimated_completed_at: "Estimated Completion Time"
+    show_location: "Location"
 
   comments:
-    create_comment: 'Create Comment'
-    comment: 'Comment'
-    destroy_comment: 'Delete Comment'
+    create_comment: "Create Comment"
+    comment: "Comment"
+    destroy_comment: "Delete Comment"
 
   main:
-    user_sign_in: 'User Sign In'
-    new_user: 'New Staff'
-    company_sign_in: 'Company Sign In'
-    sign_in: 'Sign In'
-    new_company: 'Company Sign Up'
-    log_out: 'Log Out'
-    edit: 'Edit'
-    home: 'Home'
-    about: 'About'
-    privacy: 'Privacy'
-    feature: 'Feature'
-    name: 'Name'
-    email: 'Email'
-    password: 'Password'
-    password_confirmation: 'Password_confirmation'
-    events: 'Events'
-    overall_intro: 'SyncSquad is designed to make project collaboration easy and efficient for teams and businesses. With a user-friendly design and practical features, our aim is to help you manage projects effortlessly, improve team efficiency, and achieve successful project outcomes.'
-    calendar: 'Calendar'
+    user_sign_in: "User Sign In"
+    new_user: "New Staff"
+    company_sign_in: "Company Sign In"
+    sign_in: "Sign In"
+    new_company: "Company Sign Up"
+    log_out: "Log Out"
+    edit: "Edit"
+    home: "Home"
+    about: "About"
+    privacy: "Privacy"
+    feature: "Feature"
+    name: "Name"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password_confirmation"
+    events: "Events"
+    overall_intro: "SyncSquad is designed to make project collaboration easy and efficient for teams and businesses. With a user-friendly design and practical features, our aim is to help you manage projects effortlessly, improve team efficiency, and achieve successful project outcomes."
+    calendar: "Calendar"
     calendar_intro: "Calendar seamlessly works with your Google Calendar and displays all project tasks clearly. This ensures a quick view of team members' schedules, making it easy for everyone to participate and complete tasks on time. Real-time updates let you track project progress instantly."
-    project: 'Project'
-    project_intro: 'The user-friendly project management tool includes Kanban boards and simple drag-and-drop task cards, making it easy to organize and adjust tasks. Team members can quickly see project status and adjust tasks based on priority, ensuring a smooth workflow.'
-    chatroom: 'Chatroom'
-    chatroom_intro: 'Chat room provides a real-time communication platform for sharing information, discussing tasks, and syncing updates. Uploading files is easy, and you can choose between public or private chats, ensuring convenient and secure communication within the team. This promotes closer collaboration and boosts overall efficiency.'
-    setting: 'Setting'
-    upgrade: 'Upgrade'
-    not_authorized: 'You aren not authorized for the page.'
+    project: "Project"
+    project_intro: "The user-friendly project management tool includes Kanban boards and simple drag-and-drop task cards, making it easy to organize and adjust tasks. Team members can quickly see project status and adjust tasks based on priority, ensuring a smooth workflow."
+    chatroom: "Chatroom"
+    chatroom_intro: "Chat room provides a real-time communication platform for sharing information, discussing tasks, and syncing updates. Uploading files is easy, and you can choose between public or private chats, ensuring convenient and secure communication within the team. This promotes closer collaboration and boosts overall efficiency."
+    setting: "Setting"
+    upgrade: "Upgrade"
+    not_authorized: "You aren not authorized for the page."
 
   calender:
-    event: 'Event'
+    event: "Event"
 
   company:
-    creation_success: 'Successfully Registered the Company'
-    creation_failed: 'Creation Failed'
-    name: 'Name'
-    email: 'Email'
-    password: 'Password'
-    password_confirmation: 'Password_confirmation'
-    company_sign_up: 'Company Sign Up'
-    not_registered: 'Not Registered'
-    please: 'Please'
-    company_sign_in: 'Company Sign In'
-    login: 'Login'
-    login_success: 'Login Success'
-    login_failed: 'Login Failed'
-    logout_success: 'Logout Success'
+    creation_success: "Successfully Registered the Company"
+    creation_failed: "Creation Failed"
+    name: "Name"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password_confirmation"
+    company_sign_up: "Company Sign Up"
+    not_registered: "Not Registered"
+    please: "Please"
+    company_sign_in: "Company Sign In"
+    login: "Login"
+    login_success: "Login Success"
+    login_failed: "Login Failed"
+    logout_success: "Logout Success"
 
   devise:
-    user_sign_in: 'User Sign In'
-    email: 'Email'
-    password: 'Password'
-    remember_me: 'Remember Me'
-    login: 'Login'
+    user_sign_in: "User Sign In"
+    email: "Email"
+    password: "Password"
+    remember_me: "Remember Me"
+    login: "Login"
     sessions:
-      signed_in: 'Signed in successfully'
-      signed_out: 'Signed out successfully'
+      signed_in: "Signed in successfully"
+      signed_out: "Signed out successfully"
     failure:
-      not_found_in_database: 'This Account Is Not For This Company or Invalid Password'
-      invalid: 'Invalid Password'
+      not_found_in_database: "This Account Is Not For This Company or Invalid Password"
+      invalid: "Invalid Password"
     registrations:
-      updated: 'Your account has been updated successfully.'
+      updated: "Your account has been updated successfully."
 
   hrs:
-    new_user: 'New Staff'
-    role: 'Job Title'
-    email_placeholder: 'Email Address'
-    password_placeholder: 'Password'
-    password_confirmation_placeholder: 'Confirm Password'
-    user_lists: 'User Lists'
-    update: 'Update'
-    delete: 'Delete'
-    creation_success: 'Successfully Registered the Staff'
-    creation_failed: 'Creation Failed'
-    update_success: 'Staff File Renew'
-    update_failed: 'Update Failed'
-    delete_staff: 'Delete Staff'
-    delete_confirm: 'Are You Sure You Want To Delete?'
+    new_user: "New Staff"
+    role: "Job Title"
+    email_placeholder: "Email Address"
+    password_placeholder: "Password"
+    password_confirmation_placeholder: "Confirm Password"
+    user_lists: "User Lists"
+    update: "Update"
+    delete: "Delete"
+    creation_success: "Successfully Registered the Staff"
+    creation_failed: "Creation Failed"
+    update_success: "Staff File Renew"
+    update_failed: "Update Failed"
+    delete_staff: "Delete Staff"
+    delete_confirm: "Are You Sure You Want To Delete?"
 
   import:
-    please_choose_file: 'Please choose file'
-    data_import_process: 'Data import process'
-    field: 'Field'
-    instruction: 'Instruction'
-    email: 'Email'
-    password: 'Password'
-    name: 'Name'
-    gender: 'Gender'
-    birthday: 'Birthday'
-    phone: 'Phone'
-    role: 'Role'
-    nick_name: 'Nick Name'
-    time_zone: 'Time Zone'
-    language: 'Language'
-    template_instruction: 'Please download the template file and edit the data to import.'
-    data_import: 'Data import'
-    import: 'Import'
-    import_page: 'import Page'
-    import_records: 'import Records'
-    instruction_for_user_import: 'Instruction for User Import'
+    please_choose_file: "Please choose file"
+    data_import_process: "Data import process"
+    field: "Field"
+    instruction: "Instruction"
+    email: "Email"
+    password: "Password"
+    name: "Name"
+    gender: "Gender"
+    birthday: "Birthday"
+    phone: "Phone"
+    role: "Role"
+    nick_name: "Nick Name"
+    time_zone: "Time Zone"
+    language: "Language"
+    template_instruction: "Please download the template file and edit the data to import."
+    data_import: "Data import"
+    import: "Import"
+    import_page: "import Page"
+    import_records: "import Records"
+    instruction_for_user_import: "Instruction for User Import"
     required: "It's required"
-    user_edit: 'Users can edit by themselves after created'
-    role_for_staff: 'Please fill hr or staff in the file'
-    btn_download: 'Download Template CSV File'
-    id: 'ID'
-    status: 'Status'
-    file: 'File'
-    imported_time: 'Imported Time'
-    all_records: 'All Records'
-    success_records: 'Success Records'
-    failures_details: 'Failures Details'
-    exist_in_system: 'exist in system'
+    user_edit: "Users can edit by themselves after created"
+    role_for_staff: "Please fill hr or staff in the file"
+    btn_download: "Download Template CSV File"
+    id: "ID"
+    status: "Status"
+    file: "File"
+    imported_time: "Imported Time"
+    all_records: "All Records"
+    success_records: "Success Records"
+    failures_details: "Failures Details"
+
+  Failures: "Failures"
+  Success: "Success"
+
+  csv_import:
+    email_exists_row_number_email: "Row %{row_number} - Email: %{email} exists in the system"
+    role_row_number_email: "Row %{row_number} - Please fill hr or staff in the file"
+    Passwordistooshort: "Row %{row_number} - Password is too short(at least 6 words)"
+    Password太短: "Row %{row_number} - Password is too short(at least 6 words)"
+    Password密碼太短: "Row %{row_number} - Password is too short(at least 6 words)"
+    Password密碼長度不足: "Row %{row_number} - Password is too short(at least 6 words)"
+    Passwordistooshort(minimumis6characters): "Row %{row_number} - Password is too short(at least 6 words)"
+    Passwordisblank: "Row %{row_number} - Password is blank"
+    Passwordcan'tbeblank: "Row %{row_number} - Password is blank"
+    Password為空白: "Row %{row_number} - Password is blank"
+    Password密碼不能為空: "Row %{row_number} - Password is blank"
+    Email用戶不能為空: "Row %{row_number} - Email is blank"
+    Emailisblank: "Row %{row_number} - Email is blank"
+    Emailcan'tbeblank: "Row %{row_number} - Email is blank"
+    Email為空白: "Row %{row_number} - Email is blank"
+    Emailisblank&Passwordisblank: "Row %{row_number} - Email and Password are blank"
+    Emailisblank&Passwordcan'tbeblank: "Row %{row_number} - Email and Password are blank"
+    Emailcan'tbeblank&Passwordisblank: "Row %{row_number} - Email and Password are blank"
+    Emailcan'tbeblank&Passwordcan'tbeblank: "Row %{row_number} - Email and Password are blank"
+    Email為空白&Password為空白: "Row %{row_number} - Email and Password are blank"
+    Email用戶不能為空&Password密碼不能為空: "Row %{row_number} - Email and Password are blank"
+    Email用戶無效: "Row %{row_number} - Email is invalid"
 
   activerecord:
     errors:
       models:
         user:
           attributes:
-            role:
-              inclusion: 'is not correct'
+            email:
+              invalid: "用戶無效"
             password:
-              too_short: 'is too short'
-              blank: 'is blank'
+              blank: "密碼不能為空"
+              too_short: "密碼太短"
+          blank: "用戶不能為空"
+          too_short: "用戶資料太短"
+          invalid: "用戶不正確"
+      messages:
+        blank: "此欄位不能為空"
+        invalid: "信息不正確"
+  errors:
+    attributes:
+      password:
+        blank: "密碼不能為空"
+        too_short: "密碼太短"
+        invalid: "信箱格式不正確"
+    messages:
+      blank: "此欄位不能為空"
+      too_short: "密碼太短"
+      invalid: "信息不正確"
 
-  search_placeholder: 'Search'
+  search_placeholder: "Search"
 
   rooms:
-    groups: 'Chat Rooms'
-    contacts: 'Contacts'
+    groups: "Chat Rooms"
+    contacts: "Contacts"
 
   layouts:
-    room_submit: '✚'
+    room_submit: "✚"
 
   messages:
-    msg_submit: '➤'
+    msg_submit: "➤"
 
   orders:
-    create_success: 'Thank You For Your Purchase!'
-    plan: 'Upgrade Plan'
-    plan_detail: 'Premium business solutions, can be canceled or changed anytime!'
-    vip_price: 'VIP member price'
-    month: 'mth'
-    price_detail: 'Free refund within the first 14 days'
-    upgrade: 'Upgrade'
-    condition_one: 'Project restrictions unlimited'
-    condition_two: 'Chat room unrestricted'
-    condition_three: 'Project creation without limits'
-    condition_four: 'Membership without restrictions'
-    condition_five: 'Members can freely change profile pictures'
-    condition_six: 'CSV creation of members open for all'
-    basic_price: 'Basic Price'
-    free: 'Free to Use Permanently'
-    join: 'Join'
-    condition_seven: 'Project Limit: 3'
-    condition_eight: 'Membership Restriction: 5 people'
-    condition_nine: 'Chat Room Limit: 5'
+    create_success: "Thank You For Your Purchase!"
+    plan: "Upgrade Plan"
+    plan_detail: "Premium business solutions, can be canceled or changed anytime!"
+    vip_price: "VIP member price"
+    month: "mth"
+    price_detail: "Free refund within the first 14 days"
+    upgrade: "Upgrade"
+    condition_one: "Project restrictions unlimited"
+    condition_two: "Chat room unrestricted"
+    condition_three: "Project creation without limits"
+    condition_four: "Membership without restrictions"
+    condition_five: "Members can freely change profile pictures"
+    condition_six: "CSV creation of members open for all"
+    basic_price: "Basic Price"
+    free: "Free to Use Permanently"
+    join: "Join"
+    condition_seven: "Project Limit: 3"
+    condition_eight: "Membership Restriction: 5 people"
+    condition_nine: "Chat Room Limit: 5"
