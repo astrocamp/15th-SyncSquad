@@ -148,6 +148,7 @@ tw:
     not_registered: "尚未註冊"
     please: "請先"
     company_sign_in: "公司登入"
+    create_account: "建立帳戶"
     login: "登入"
     login_success: "登入成功"
     login_failed: "登入失敗"
@@ -284,13 +285,13 @@ tw:
       blank: "此欄位不能為空"
       too_short: "密碼太短"
       invalid: "信息不正確"
-            role:
-              inclusion: "不正確的角色"
-            password:
-              too_short: "太短"
-              blank: "為空白"
-            current_password:
-              blank: "為空白"
+        role:
+          inclusion: "不正確的角色"
+        password:
+          too_short: "太短"
+          blank: "為空白"
+        current_password:
+          blank: "為空白"
 
   search_placeholder: "搜尋"
 
@@ -328,7 +329,7 @@ tw:
       previous: "前一頁"
       first: "第一頁"
       truncate: "..."
-  
+      
   helpers:
     submit:
       user:
