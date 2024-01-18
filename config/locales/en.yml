@@ -25,15 +25,38 @@ en:
     create_success: "Creation Success!"
     update_success: "Update Success!"
     destroy_success: "Delete Success!"
-    new: "Create List"
-    new_title: "Title"
-    new_cancel: "Cancel"
-    edit: "Edit List"
-    edit_title: "Title"
-    edit_color: "Color"
-    edit_cancel: "Cancel"
-    edit_delete: "Delete"
-    edit_confirm: "Are You Sure You Want To Delete?"
+    index_affiliated: 'Affiliated Projects'
+    show_confirm: 'Are You Sure You Want To Delete?'
+    form_title: 'Title'
+    form_description: 'Description'
+    form_cancel: 'Cancel'
+    list_delete: 'Delete'
+    main_search: 'Search'
+    main_title_or_email: 'Title/Email'
+    main_clear: 'Clear'
+    main_title: 'Title'
+    main_description: 'Description'
+    main_email: 'Email'
+    main_created_time: 'Created Time'
+    main_updated_time: 'Updated Time'
+    delete_task: 'Deleted Task'
+    kanban: 'Kanban'
+    calendar: 'Calendar'
+    delete_confirm: 'Are you sure you want to delete the project?'
+    create_success: 'Creation Success!'
+    update_success: 'Update Success!'
+    destroy_success: 'Delete Success!'
+    new: 'Create List'
+    new_title: 'Title'
+    new_cancel: 'Cancel'
+    edit: 'Edit List'
+    edit_list_title: 'Edit List Title'
+    edit: 'Edit Title'
+    edit_title: 'Title'
+    edit_color: 'Color'
+    edit_cancel: 'Cancel'
+    edit_delete: 'Delete'
+    edit_confirm: 'Are You Sure You Want To Delete?'
 
   tasks:
     priority_prompt: "Select Priority"
