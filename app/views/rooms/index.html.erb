@@ -1,11 +1,6 @@
-<div class="flex justify-between p-3 gap-x-20 text-cyan-600">
-  <div name="create room" class="flex gap-3">
-    
-    <h1 class="text-3xl"><%= link_to "公開聊天室", new_room_path(modal_type: "public"), data: { turbo_frame: "modal" } %></h1>
+<div class="flex justify-between gap-x-20 text-cyan-600 p-3">
+  <div name="create room">
     <h1 class="text-3xl"><%= link_to "私人聊天室", new_room_path(modal_type: "private"), data: { turbo_frame: "modal" } %></h1>  </div>
-
-  <h3 class="pt-1 text-2xl text-cyan-600">
-    歡迎 <%= current_user.name %></h3>
 </div>
 
 <div id="total" class="flex mt-10" data-controller="chatroom_list">
@@ -14,6 +9,7 @@
   <i class="fa-solid fa-user p-3 fa-2x" data-action="click->chatroom_list#showUsers"></i>
   <i class="fa-solid fa-message p-3 fa-2x" data-action="click->chatroom_list#showRooms"></i>
   <i class="fa-solid fa-lock p-3 fa-2x"></i>
+  
 </div>
 
   <div id="left-side" class="w-2/12 ">

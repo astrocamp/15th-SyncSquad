@@ -19,6 +19,7 @@ import { faCrown } from "@fortawesome/free-solid-svg-icons/faCrown";
 import { faHourglassStart } from "@fortawesome/free-solid-svg-icons/faHourglassStart";
 import { faMessage } from "@fortawesome/free-solid-svg-icons/faMessage";
 import { faLock } from "@fortawesome/free-solid-svg-icons/faLock";
+import { faSquarePlus } from "@fortawesome/free-solid-svg-icons/faSquarePlus";
 
 library.add({
   faEllipsis,
@@ -41,6 +42,7 @@ library.add({
   faHourglassStart,
   faMessage,
   faLock,
+  faSquarePlus,
 });
 
 dom.watch();
