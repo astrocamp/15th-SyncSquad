@@ -16,13 +16,12 @@
 </div>
 
   <div id="left-side" class="w-2/12 ">
-    <div id="users-list"  data-chatroom_list-target="usersList">
-      <%= render "/shared/users_list"%>
-    </div>
-    
-    <div id="rooms-list" class="hidden" data-chatroom_list-target="roomsList">
-      <%= render "/shared/rooms_list"%>
-    </div>  
+    <div id="users-list" class="<%= 'hidden' if params[:tab_type] == 'group_chat' %>"  data-chatroom_list-target="usersList">
+        <%= render "/shared/users_list"%>
+      </div>
+      <div id="rooms-list" class="<%= 'hidden' if params[:tab_type] == 'single_chat' %>" data-chatroom_list-target="roomsList">
+        <%= render "/shared/rooms_list"%>
+      </div>
   </div>
 
   <div id="room_container" class="flex-grow bg-gray-100" >

@@ -8,10 +8,11 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.where(room_type: 'public_room', company: current_user.company)
     @users = User.where(company: current_user.company).all_except(current_user)
-
+    params[:tab_type] ||= 'single_chat'
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
+    params[:tab_type] ||= 'single_chat'
   end
 
   def new
