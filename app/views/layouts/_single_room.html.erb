@@ -4,6 +4,7 @@
   format_user_email(@user) : @single_room.name %> </h4>
   </div>
 
+  <%= turbo_stream_from @single_room %>
   <div id="messages" class="mb-5">
     <%= render @messages %>
   </div>
