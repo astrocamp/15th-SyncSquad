@@ -7,12 +7,12 @@ class UsersController < ApplicationController
       return redirect_to users_import_path,
                          notice: t('import.please_choose_file')
     end
-    CsvImportUsersService.new.call(file, current_company.id)
+    CsvImportUsersService.new.call(file, current_company.id, current_user&.id)
     redirect_to users_import_records_path, notice: t('import.data_import_process')
   end
 
   def records
-    @import_records = Importrecord.order(created_at: :desc).page(params[:page]).per(10)
+    @import_records = Importrecord.where(company_id: current_company.id).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   # 單人聊天
