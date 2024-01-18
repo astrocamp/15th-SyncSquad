@@ -10,24 +10,19 @@
 
 <div id="total" class="flex mt-10" data-controller="chatroom_list">
 
-  <div id="left-side" class="w-2/12 bg-yellow-300">
-    <div id="public-room">
-      <h3 class="p-3 text-2xl text-center text-orange-400 bg-amber-200"><%= t('rooms.groups') %></h3>
-      <%= turbo_stream_from "rooms_company_#{current_user.company_id}"%>
-      <div id="rooms">
-        <div>
-          <%= render @rooms%>
-        </div>
-      </div>
+<div id=sidenav class="bg-green-200 w-20 flex flex-col items-center ">
+  <i class="fa-solid fa-user p-3 fa-2x" data-action="click->chatroom_list#showUsers"></i>
+  <i class="fa-solid fa-message p-3 fa-2x" data-action="click->chatroom_list#showRooms"></i>
+</div>
+
+  <div id="left-side" class="w-2/12 ">
+    <div id="users-list"  data-chatroom_list-target="usersList">
+      <%= render "/shared/users_list"%>
     </div>
-  
-    <div id="privacy-room" class="mt-5">
-      <h3 class="mt-4 text-2xl text-orange-400">私人房間</h3>
-      <%= turbo_stream_from "private_rooms_for_user_#{current_user.id}" %>
-      <div id="private_rooms">
-        <%= render @private_groups %>
-      </div>
-    </div>
+    
+    <div id="rooms-list" class="hidden" data-chatroom_list-target="roomsList">
+      <%= render "/shared/rooms_list"%>
+    </div>  
   </div>
 
   <div id="room_container" class="flex-grow bg-gray-100" >
