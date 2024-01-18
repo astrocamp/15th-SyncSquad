@@ -1,27 +1,56 @@
 <div class="flex justify-between">
   <div>
-    <div>
-      <h2>
-        <%= project.title %>
-        <%= link_to 'X', project_path(project), data: { turbo_method: 'delete', turbo_confirm: '確定刪除專案嗎？'} %>
-        <%= link_to  edit_project_path, data: { turbo_frame: "modal" } do%>
-          <i class="fa-solid fa-ellipsis"></i>
-        <% end %>
-      </h2>
+    <div class="mb-2">
+      <h2 class="inline-block mr-2 text-lg font-extrabold"><%= project.title %></h2>
+      <button data-dropdown-toggle="dropdownDots">
+        <i class="fa-solid fa-ellipsis"></i>
+      </button>
     </div>
-    <%= project.description %>
-    <%= project.owner.nick_name %>
-    
+    <p class="h-full overflow-hidden text-ellipsis">
+      <%= project.description %>
+    </p>
   </div>
-  <div>
-    
-    <%= link_to kanban_project_path(project) do %>
-      <i class="fa-solid fa-chart-simple"></i>
-      <%= t('project.kanban') %>
-    <% end %>
-    <%= link_to calendar_project_path(project) do %>
-      <i class="fa-regular fa-calendar"></i>
-      <%= t('project.calendar') %>
-    <% end %>
+  <div class="flex flex-col items-end">
+    <div class="flex items-center py-1">
+      <% if project.owner.avatar.attached? %>
+        <%= link_to image_tag(project.owner.chat_avatar,
+                              class: "w-5 h-5 rounded-full ml-3"), user %>
+      <% else %>
+        <div class="mr-2 bg-gray-100 rounded-lg w-7 h-7">
+          <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
+        </div>
+      <% end %>
+      <p><%= project.owner.nick_name %></p>
+    </div>
+    <div class="flex items-end">
+      <div class="flex whitespace-nowrap">
+        <%= link_to kanban_project_path(project), class: 'shadow-gray-400 p-1 rounded-lg ml-2 block shadow-sm bg-white' do %>
+          <i class="px-1 fa-solid fa-chart-simple"></i>
+          <p class="hidden pr-1 md:inline"><%= t('projects.kanban') %></p>
+        <% end %>
+      </div>
+      <div class="flex whitespace-nowrap">
+        <%= link_to calendar_project_path(project), class: 'shadow-gray-400 p-1 rounded-lg ml-2 block shadow-sm bg-white' do %>
+          <i class="px-1 fa-regular fa-calendar"></i>
+          <p class="hidden pr-1 md:inline"><%= t('projects.calendar') %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
+<!-- Dropdown menu -->
+<div id="dropdownDots" class="z-10 hidden w-32 bg-white divide-y divide-gray-100 rounded-lg shadow">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+      <li>
+        <%= link_to t('projects.edit') ,edit_project_path, data: { turbo_frame: "modal" }, class: 'block px-4 py-2 hover:bg-gray-100' %>
+      </li>
+      <li>
+      </li>
+    </ul>
+    <div>
+      <%= link_to project_path(project), data: {turbo_method: 'delete', turbo_confirm: t('projects.delete_confirm')}, class: 'flex items-center pr-2 pl-4 py-3 text-sm font-medium text-red-600 border-t border-gray-200 rounded-b-lg bg-gray-50 dark:border-gray-600 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-red-500 hover:underline' do %>
+        <i class="h-4 pr-2 fa-regular fa-trash-can"></i>
+        <%= t('projects.list_delete') %>
+      <% end %>
+    </div>
 </div>

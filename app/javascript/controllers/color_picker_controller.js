@@ -31,8 +31,7 @@ export default class extends ColorPicker {
       body: JSON.stringify({
         color: instance.getColor().toHEXA().toString(),
       }),
-    }).then(window.location.replace(this.inputTarget.dataset.redirectToUrl))
-    // 之後不用跳轉
+    })
   }
 
   updateColorReview(instance) {

@@ -1,6 +1,6 @@
 <turbo-stream action="replace" target="all_list">
     <template>
-        <ul id="all_list" class="flex gap-2" data-controller="sortable" >
+        <ul id="all_list" class="flex gap-4" data-controller="sortable" >
             <%= render partial: 'projects/list', collection: @project.lists.rank(:row_order)%> 
         </ul>
     </template>

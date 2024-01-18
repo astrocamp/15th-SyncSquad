@@ -1,25 +1,45 @@
-<li data-sortbale-update-url="<%= list_sort_path(list) %>">
-  <div class="w-48">
-    <div>
-      <div class="w-full h-1" style="background-color: <%= list.color %>;"></div>
-      <div class="flex">
-        <%= content_tag :h2, list.title, class: "font-bold pr-2" %>
-        <%= link_to  edit_list_path(list.id), data: { turbo_frame: "modal" } do%>
-          <i class="fa-solid fa-ellipsis"></i>
-        <% end %>
-      </div>
-      <%= list.id %>
-      <%= link_to t('projects.list_delete'), list_path(list), data: {turbo_method: 'delete'} %>
+<li data-sortbale-update-url="<%= list_sort_path(list) %>" class="h-full">
+  <div class="flex flex-col px-1 py-2 bg-gray-100 border-t-8 rounded-b-lg w-60" style="border-color: <%= list.color %>; max-height: calc(100% - 2rem);">
+    <div class="flex justify-between flex-none mx-1 mb-2 ">
+      <%= content_tag :h2, list.title, class: "font-bold pr-2" %>
+      <button data-dropdown-toggle="dropdownDots<%= list.id %>" data-dropdown-offset-distance="15" data-dropdown-placement="right-start" type="button">
+        <i class="px-2 fa-solid fa-ellipsis"></i>
+      </button>
     </div>
-    <div>
+    <div class="flex-1 overflow-scroll whitespace-nowrap">
       <ul data-controller="sortable" data-sortable-group-value="tasks" data-sortable-id="<%= list.id %>">
         <%= render partial: 'tasks/task', collection: list.tasks.rank(:row_order) %>
       </ul>
     </div>
-    <div>
-      <%= link_to new_list_task_path(list.id), data: { turbo_frame: "modal" } do%>
+    <div class="flex-none ">
+      <%= link_to new_list_task_path(list.id),
+          data: { turbo_frame: "modal" }, 
+          class: ' block text-center rounded-lg' do%>
         <i class="fa-solid fa-plus"></i>
       <% end %>
     </div>
   </div>
 </li>
+<!-- Dropdown menu -->
+<div id="dropdownDots<%= list.id %>" class="z-10 hidden w-32 bg-white divide-y divide-gray-100 rounded-lg shadow">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+      <li>
+        <%= link_to t('lists.edit'), edit_list_path(list.id), data: { turbo_frame: "modal" }, class: 'block px-4 py-2 hover:bg-gray-100' %>
+      </li>
+      <li>
+        <div data-controller="color-picker" class="px-4">
+          <label class="flex items-center">
+            <span class="mr-2"><%= t('lists.edit_color') %></span>
+            <input type="hidden" data-color-picker-target="input" data-color-update-url="<%= list_path(list) %>" value="<%= list.color %>">
+            <div data-color-picker-target="button"></div>
+          </label>
+        </div>
+      </li>
+    </ul>
+    <div>
+      <%= link_to list_path(list), data: {turbo_method: 'delete', turbo_confirm: t('projects.list_delete')}, class: 'flex items-center pr-2 pl-4 py-3 text-sm font-medium text-red-600 border-t border-gray-200 rounded-b-lg bg-gray-50 dark:border-gray-600 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-red-500 hover:underline' do %>
+        <i class="h-4 pr-2 fa-regular fa-trash-can"></i>
+        <%= t('projects.list_delete') %>
+      <% end %>
+    </div>
+</div>
