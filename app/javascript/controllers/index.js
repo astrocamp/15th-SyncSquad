@@ -33,3 +33,6 @@ application.register("sortable", SortableController)
 
 import TurbomodalController from "./turbomodal_controller"
 application.register("turbomodal", TurbomodalController)
+
+import ChatroomListController from "./chatroom_list_controller";
+application.register("chatroom_list", ChatroomListController);

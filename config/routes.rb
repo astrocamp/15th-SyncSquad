@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :orders, only: [:index, :create]
+  get 'shared/rooms_list', to: 'shared#rooms_list'
 
   scope "(:lang)", lang: /en|tw/ do
     root 'main#home'
@@ -64,6 +65,4 @@ Rails.application.routes.draw do
     resource :sessions, only: [:create, :destroy]
     resources :hrs, only: [:index, :create, :update, :destroy]
   end
-  
-
 end

@@ -8,7 +8,7 @@
     歡迎 <%= current_user.name %></h3>
 </div>
 
-<div id="total" class="flex mt-10">
+<div id="total" class="flex mt-10" data-controller="chatroom_list">
 
   <div id="left-side" class="w-2/12 bg-yellow-300">
     <div id="public-room">
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div id="room_container" class="flex-grow bg-neutral-300" >
+  <div id="room_container" class="flex-grow bg-gray-100" >
     <div class="w-full">
       <%= render partial: 'layouts/single_room', locals: { single_room: @single_room, messages: @messages, users: @users } if @single_room %>    
     </div>
