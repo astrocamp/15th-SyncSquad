@@ -36,3 +36,6 @@ application.register("turbomodal", TurbomodalController)
 
 import ChatroomListController from "./chatroom_list_controller";
 application.register("chatroom_list", ChatroomListController);
+
+import ScrollController from "./scroll_controller";
+application.register("scroll", ScrollController);
