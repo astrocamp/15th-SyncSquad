@@ -2,7 +2,7 @@
   <%= render 'drawer', projects: @projects %>
   <%= render 'sidebar' %>
   <main class="flex flex-auto px-2">
-    <section class="w-full h-screen pl-12 pr-6 mx-auto overflow-auto ">
+    <section class="w-full h-screen pl-12 pr-4 mx-auto overflow-auto ">
       <header class="flex items-center py-4 bg-white ">
         <%= content_tag(:h1, t('projects.index_affiliated'), class: "lg:text-3xl text-2xl text-gray-900 font-bold") %>
         <%= link_to  new_project_path, data: { turbo_frame: "modal" } do %>
