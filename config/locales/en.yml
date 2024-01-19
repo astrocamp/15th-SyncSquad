@@ -184,14 +184,15 @@ en:
       updated: "Your account has been updated successfully."
 
   hrs:
-    new_user: "New Staff"
+    new_user: "Add Employee"
+    new_user_toggle: " ❮  Add Employee"
     role: "Job Title"
     email_placeholder: "Email Address"
     password_placeholder: "Password"
     password_confirmation_placeholder: "Confirm Password"
     user_lists: "User Lists"
-    update: "Update"
-    delete: "Delete"
+    update: "✎"
+    delete: "✘"
     creation_success: "Successfully Registered the Staff"
     creation_failed: "Creation Failed"
     update_success: "Staff File Renew"
@@ -200,6 +201,7 @@ en:
     delete_confirm: "Are You Sure You Want To Delete?"
 
   import:
+    import_employee: "Import Employees"
     please_choose_file: "Please choose file"
     data_import_process: "Data import process"
     field: "Field"
