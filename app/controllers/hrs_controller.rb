@@ -36,7 +36,7 @@ class HrsController < ApplicationController
 
   def user_params
     params.require(:user)
-          .permit(:email, :password, :password_confirmation, :role)
+          .permit(:name, :email, :password, :password_confirmation, :role)
           .merge(company_id: current_user ? current_user.company_id : current_company.id)
   end
 
