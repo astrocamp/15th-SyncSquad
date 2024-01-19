@@ -37,6 +37,7 @@ export default class extends Controller {
         center: "title",
         right: "dayGridMonth,timeGridWeek,listWeek",
       },
+      height: '100%',
       events: tasks,
       timeZone: "auto",
       locale: locale,

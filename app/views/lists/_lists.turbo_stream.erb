@@ -1,7 +1,14 @@
 <turbo-stream action="replace" target="all_list">
     <template>
-        <ul id="all_list" class="flex gap-4" data-controller="sortable" >
+        <ul id="all_list" class="flex gap-4 overflow-x-auto" data-controller="sortable" >
             <%= render partial: 'projects/list', collection: @project.lists.rank(:row_order)%> 
+            <li>
+                <%= link_to  new_project_list_path(@project),
+                    data: { turbo_frame: "modal" },
+                    class: 'ml-4 shadow-sm w-52 block text-center rounded-lg shadow-gray-400 bg-white mr-6' do%>
+                <i class="fa-solid fa-plus"></i>
+                <% end %>
+            </li>
         </ul>
     </template>
 </turbo-stream>

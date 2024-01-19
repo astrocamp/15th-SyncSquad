@@ -2,15 +2,16 @@
 
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_project, only: %i[show update destroy edit kanban calendar create_task new_task]
-  before_action :find_current_company_projects, only: %i[index show kanban calendar]
+  before_action :find_project, only: %i[new_task show update destroy edit kanban calendar create_task]
+  before_action :find_current_user_affiliated_projects, only: %i[index show kanban calendar]
+  before_action :find_company_projects, only: %i[index]
   before_action :search_project, only: %i[update create]
   before_action :find_tasks, only: %i[show calendar create_task]
 
   def index
-    @project = current_user.affiliated_projects.all
-    @q = @projects.ransack(params[:q])
-    @projects = @q.result.includes(:owner)
+    @project = current_user.affiliated_projects.all # current_user projects
+    @q = @company_projects.ransack(params[:q])
+    @company_projects = @q.result.includes(:owner)
   end
 
   def aside_list; end
@@ -98,8 +99,14 @@ class ProjectsController < ApplicationController
     params.permit(:title, :list_id, :started_at, :ended_at, :all_day_event)
   end
 
-  def find_current_company_projects
-    @projects = Project.where(owner_id: User.where(company: current_user.company).pluck(:id)).order(id: :asc)
+  def find_current_user_affiliated_projects
+    @projects = current_user.affiliated_projects.order(id: :asc)
+  end
+
+  def find_company_projects
+    @company = Company.find(current_user.company_id)
+    @users = @company.users.ids
+    @company_projects = Project.where(owner: @users)
   end
 
   def search_project
