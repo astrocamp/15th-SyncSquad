@@ -5,7 +5,7 @@
 <% end %>
 
 
-<div class="flex items-center mb-4 gap-3 pt-3 content-center hover:bg-sky-300 transition duration-500 <%= isActive %> ">
+<div class="flex items-center gap-3 p-3 content-center hover:bg-sky-300 transition duration-1000 <%= isActive %> ">
   <div class="ml-3">
     <% if user.avatar.attached? %>
       <%= link_to image_tag(user.chat_avatar, 

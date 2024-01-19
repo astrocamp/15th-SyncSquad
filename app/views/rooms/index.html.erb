@@ -3,10 +3,10 @@
 <div id=sidenav class="bg-green-200 w-20 flex flex-col items-center ">
   <i class="fa-solid fa-user p-3 fa-2x" data-action="click->chatroom_list#showUsers"></i>
   <i class="fa-solid fa-message p-3 fa-2x" data-action="click->chatroom_list#showRooms"></i>
-  
+
 </div>
 
-  <div id="left-side" class="w-2/12 ">
+  <div id="left-side" class="w-2/12">
     <div id="users-list" class="<%= 'hidden' if params[:tab_type] == 'group_chat' %>"  data-chatroom_list-target="usersList">
         <%= render "/shared/users_list"%>
       </div>
