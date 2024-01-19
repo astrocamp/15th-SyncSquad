@@ -202,7 +202,7 @@ tw:
     delete_confirm: "確認刪除?"
 
   import:
-    import_employee: "匯入"
+    import_employee: "匯入多名員工"
     please_choose_file: "請選擇檔案"
     data_import_process: "資料匯入流程"
     field: "欄位"

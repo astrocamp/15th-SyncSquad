@@ -36,13 +36,11 @@
   <aside>
     <!-- drawer component -->
     <section id="drawer" class="bg-gradient-to-b from-[#15233b] via-[#3778EA] via-70% to-100% to-[#3779eaa3] dark:bg-gray-900 fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label">
-  <section class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+  <div class="flex flex-col items-center justify-center px-6 mx-auto">
       
-      <div class="w-full bg-white rounded-lg shadow dark:border my-15 md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h2 class="text-xl font-bold leading-tight tracking-tight text-gray-900 text-center">
-                  <%= t('hrs.new_users') %>
-              </h2>
+      <div class="w-full bg-white rounded-lg shadow dark:border my-10 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-3 space-y-4">
+              
               <div class="flex justify-center">
                 <%= link_to  t('import.import_employee'), users_import_path, class:"text-center rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md m-3" %>
               </div>
@@ -63,18 +61,18 @@
                       <%= f.label t('hrs.role'), class: "text-lg block text-gray-900 dark:text-white" %>
                     </div>
                     <div>
-                      <%= f.select :role, User.roles.keys.map { |w| [w.humanize, w]}, {}, { class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' } %>
+                      <%= f.select :role, User.roles.keys.map { |w| [w.humanize, w]}, {}, { class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' } %>
 
                     </div>
                   </div>
                   <div>
-                      <%= f.email_field :email, placeholder: t('hrs.email_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3' %>
+                      <%= f.email_field :email, placeholder: t('hrs.email_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3' %>
                   </div>
                   <div>
-                    <%= f.password_field :password, placeholder: t('hrs.password_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 my-3' %>
+                    <%= f.password_field :password, placeholder: t('hrs.password_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 my-3' %>
                   </div>
                   <div>
-                    <%= f.password_field :password_confirmation, placeholder: t('hrs.password_confirmation_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
+                    <%= f.password_field :password_confirmation, placeholder: t('hrs.password_confirmation_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
                   </div>
                   <div class= "my-5">
                     <%= f.submit class: "w-full bg-gradient-to-b from-[#18376c] form-20% to-[#3779eaa3] hover:bg-blue-900 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>                  

@@ -202,7 +202,7 @@ en:
     delete_confirm: "Are You Sure You Want To Delete?"
 
   import:
-    import_employee: "Import"
+    import_employee: "Import Employees"
     please_choose_file: "Please choose file"
     data_import_process: "Data import process"
     field: "Field"
