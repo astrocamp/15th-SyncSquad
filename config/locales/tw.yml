@@ -185,6 +185,7 @@ tw:
 
   hrs:
     new_user: "新增員工"
+    new_users: "新增多名員工"
     new_user_toggle: " ❮  新增員工"
     role: "職稱"
     email_placeholder: "輸入員工信箱"
@@ -201,7 +202,7 @@ tw:
     delete_confirm: "確認刪除?"
 
   import:
-    import_employee: "匯入多名員工"
+    import_employee: "匯入"
     please_choose_file: "請選擇檔案"
     data_import_process: "資料匯入流程"
     field: "欄位"

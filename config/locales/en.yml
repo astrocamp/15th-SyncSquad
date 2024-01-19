@@ -185,6 +185,7 @@ en:
 
   hrs:
     new_user: "Add Employee"
+    new_users: "Add Employees"
     new_user_toggle: " ❮  Add Employee"
     role: "Job Title"
     email_placeholder: "Email Address"
@@ -201,7 +202,7 @@ en:
     delete_confirm: "Are You Sure You Want To Delete?"
 
   import:
-    import_employee: "Import Employees"
+    import_employee: "Import"
     please_choose_file: "Please choose file"
     data_import_process: "Data import process"
     field: "Field"
