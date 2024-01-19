@@ -194,7 +194,7 @@ en:
     password_confirmation_placeholder: "Confirm Password"
     user_lists: "User Lists"
     update: "✎"
-    delete: "✘"
+    delete: "X"
     creation_success: "Successfully Registered the Staff"
     creation_failed: "Creation Failed"
     update_success: "Staff File Renew"

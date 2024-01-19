@@ -194,7 +194,7 @@ tw:
     password_confirmation_placeholder: "確認密碼"
     user_lists: "員工列表"
     update: "✎"
-    delete: "✘"
+    delete: "X"
     creation_success: "員工新增成功"
     creation_failed: "無法新增員工"
     update_success: "員工資料更新"
