@@ -10,7 +10,7 @@ en:
     form_title: "Title"
     form_description: "Description"
     form_cancel: "Cancel"
-    list_delete: "X"
+    list_delete: "Delete"
     main_search: "Search"
     main_title_or_email: "Title/Email"
     main_clear: "Clear"
@@ -20,6 +20,8 @@ en:
     main_created_time: "Created Time"
     main_updated_time: "Updated Time"
     delete_task: "Delete Task"
+    kanban: 'Kanban'
+    calendar: 'Calendar'
 
   lists:
     create_success: "Creation Success!"

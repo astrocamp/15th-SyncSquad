@@ -1,25 +1,27 @@
 tw:
   projects:
-    create_success: '新增成功!'
-    update_success: '更新成功!'
-    destroy_success: '刪除成功!'
-    edit: '編輯專案'
-    index_affiliated: '專案看板'
-    new: '新建專案'
-    show_confirm: '確定刪除專案？'
-    form_title: '名稱'
-    form_description: '說明'
-    form_cancel: '取消'
-    list_delete: 'X'
-    main_search: '搜尋專案'
-    main_title_or_email: '名稱/信箱'
-    main_clear: '清空'
-    main_title: '名稱'
-    main_description: '說明'
-    main_email: '信箱'
-    main_created_time: '建立時間'
-    main_updated_time: '更新時間'
-    delete_task: '刪除任務'
+    create_success: "新增成功!"
+    update_success: "更新成功!"
+    destroy_success: "刪除成功!"
+    edit: "編輯專案"
+    index_affiliated: "專案看板"
+    new: "新建專案"
+    show_confirm: "確定刪除專案？"
+    form_title: "名稱"
+    form_description: "說明"
+    form_cancel: "取消"
+    list_delete: "刪除"
+    main_search: "搜尋專案"
+    main_title_or_email: "名稱/信箱"
+    main_clear: "清空"
+    main_title: "名稱"
+    main_description: "說明"
+    main_email: "信箱"
+    main_created_time: "建立時間"
+    main_updated_time: "更新時間"
+    delete_task: "刪除任務"
+    kanban: '看板'
+    calendar: '行事曆'
 
   lists:
     index_affiliated: '專案看板'
