@@ -48,18 +48,19 @@ html {
 .msg-form {
   position: fixed;
   bottom: 40px;
-  left: 21%;
+  left: 22%;
   width: 78%;
   z-index: 1000;
   padding: 10px;
 }
 
 #single_room {
-  height: calc(100vh - 250px);
+  height: 100vh;
 }
 
 #messages {
-  height: calc(100vh - 250px);
+  height: 100vh;
+  padding-bottom: 100px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
