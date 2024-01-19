@@ -57,56 +57,53 @@
 
   <main class="flex-auto">
     <section class="pb-24 bg-gradient-to-b from-[#15233b] via-[#3778EA] via-70% to-100% to-[#3779eaa3] py-4">
-      <div class="flex flex-col items-center justify-center px-6 py-4 mx-auto">
-      
-        
-          
-          <div class="flex items-center justify-center mb-10">
-            <!-- drawer init and toggle -->
-            <div class="text-center">
-              <button type="button" 
-                data-drawer-target="drawer"
-                aria-controls="drawer"
-                data-drawer-show="drawer"
-                class="bg-gradient-to-b from-[#18376c] form-20% to-[#3779eaa3] hover:bg-blue-900 text-white font-medium rounded-lg text-sm px-3 py-1 text-center">
-                <%= t('hrs.new_user_toggle') %>
-              </button>
-            </div>
-            <header class="flex items-center justify-center">
-              <h3 class="font-bold text-2xl text-white"><%= t('hrs.user_lists') %></h3>
-            </header>
+      <div class="flex items-center justify-center px-6 py-4 mx-auto">
+        <div class="flex flex-col items-center justify-center mb-10">
+          <!-- drawer init and toggle -->
+          <div class="text-center">
             
           </div>
+            
+        </div>
         <div class="flex items-center justify-center">
-      
-      <table>
-        <tr>
-          <th class="text-white"><%= t('hrs.name') %></th>
-          <th class="text-white"><%= t('hrs.email') %></th>
-          <th class="text-white"><%= t('hrs.role') %></th>    
-        </tr>
-        <% @users.each do |user| %>
-          <%= form_for(user, url: hr_path(user), remote: true, method: :patch) do |f| %>
-            <div class="flex justify-center">  
-              <tr>
-                <td><%= f.text_field :name, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' %></td>
-                <td><%= f.text_field :email, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' %></td>
-                <td><%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]}, {}, { class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' }) %></td>
-                <td><%= f.submit t('hrs.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded p-2 mt-3 mx-1" %></td>
-                <div class="mt-3">
-                <td><%= link_to t('hrs.delete'), hr_path(user), class: "bg-red-500 hover:bg-red-700 text-white font-bold rounded inline-block mt-3 mx-1 p-2", data: {turbo_method: 'delete', turbo_confirm: t('hrs.delete_confirm') } %></td>
+          <table>
+            
+            <tr class="text-center">
+              <th><button type="button" 
+              data-drawer-target="drawer"
+              aria-controls="drawer"
+              data-drawer-show="drawer"
+              class="hover:bg-blue-700 text-white rounded-lg text-3xl font-extrabold px-2 py-1 text-center">
+              <%= t('hrs.new_user_toggle') %>
+            </button></th>
+              <th class="rounded-lg bg-white font-extrabold text-blue text-4xl" colspan="5"><%= t('hrs.user_lists') %></th>
+            </tr>
+            <tr>
+              <th></th>              
+              <th class="text-white "><%= t('hrs.name') %></th>
+              <th class="text-white "><%= t('hrs.email') %></th>
+              <th class="text-white "><%= t('hrs.role') %></th>    
+              <th class="text-white "><%= t('hrs.update_column') %></th>
+              <th class="text-white "><%= t('hrs.delete_column') %></th>
+            </tr>
+            <% @users.each do |user| %>
+              <%= form_for(user, url: hr_path(user), remote: true, method: :patch) do |f| %>
+                <div class="flex justify-center">  
+                  <tr>
+                    <td></td>
+                    <td><%= f.text_field :name, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' %></td>
+                    <td><%= f.text_field :email, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' %></td>
+                    <td><%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]}, {}, { class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' }) %></td>
+                    <td><%= f.submit t('hrs.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded px-4 py-2.5 mt-3 mx-1" %></td>
+                    <div class="mt-3">
+                      <td><%= link_to t('hrs.delete'), hr_path(user), class: "bg-red-500 hover:bg-red-700 text-white font-bold rounded inline-block mt-3 mx-1 py-2.5 px-4", data: {turbo_method: 'delete', turbo_confirm: t('hrs.delete_confirm') } %></td>
+                    </div>
+                  </tr>
                 </div>
-              </tr>
-
-            </div>
-          <% end %>
-        <% end %>
-      </table>  
-      </div>
-      </div>
-    
-    
-        
+              <% end %>
+            <% end %>
+          </table>  
+        </div>
       </div>
     </section>
   </main>
