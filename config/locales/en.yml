@@ -188,6 +188,7 @@ en:
     new_users: "Add Employees"
     new_user_toggle: " ❮  Add Employee"
     role: "Job Title"
+    name_placeholder: "Name"
     email_placeholder: "Email Address"
     password_placeholder: "Password"
     password_confirmation_placeholder: "Confirm Password"
