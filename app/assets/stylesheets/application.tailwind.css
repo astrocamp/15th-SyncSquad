@@ -46,16 +46,7 @@ html {
 }
 
 .msg-form {
-  position: fixed;
-  bottom: 40px;
-  left: 22%;
-  width: 78%;
   z-index: 1000;
-  padding: 10px;
-}
-
-#single_room {
-  height: 100vh;
 }
 
 #messages {
