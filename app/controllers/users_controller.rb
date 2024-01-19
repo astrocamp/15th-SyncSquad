@@ -12,7 +12,10 @@ class UsersController < ApplicationController
   end
 
   def records
-    @import_records = Importrecord.where(company_id: current_company.id).order(created_at: :desc).page(params[:page]).per(10)
+    @import_records = Importrecord
+                      .where(company_id: current_company.id)
+                      .order(created_at: :desc)
+                      .page(params[:page]).per(10)
   end
 
   # 單人聊天
