@@ -1,7 +1,7 @@
 <div id="user-list" class="flex items-center flex items-center justify-between">
-  <h4 class= "text-2xl p-6"> <%= t('rooms.contacts') %> </h4>
+  <h4 class= "text-xl p-4 w-full shadow-lg border-b border-l"> <%= t('rooms.contacts') %> </h4>
 </div>
 <%= turbo_stream_from "users" %>
-<div id="users" class="p-0">
+<div id="users">
   <%= render @users %>
 </div>
