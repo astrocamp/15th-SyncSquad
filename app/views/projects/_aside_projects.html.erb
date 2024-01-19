@@ -1,10 +1,24 @@
 <% projects.each do |project| %>
   <li class="flex justify-between py-2">
-    <%= link_to project.title, project, class: "grow pl-4" %>
-    <%= link_to edit_project_path(project),
-        data:{turbo_frame: "modal", drawer_hide:"drawer"},
-        class: "px-4" do %>
-      <i class="fa-solid fa-ellipsis"></i>
-    <% end %>
+    <%= link_to project.title, project, class: "grow pl-4", data: {turbo: false} %>
+    <button data-dropdown-toggle="dropdownDotsProject<%= project.id %>" class="p-2 mr-1">
+        <i class="fa-solid fa-ellipsis"></i>
+    </button>
   </li>
+  <!-- Dropdown menu -->
+  <div id="dropdownDotsProject<%= project.id %>" data-dropdown-offset-distance="35" class="z-10 hidden w-32 bg-white divide-y divide-gray-100 rounded-lg shadow">
+      <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+        <li>
+          <%= link_to t('projects.edit') ,edit_project_path(project), data: { turbo_frame: "modal", drawer_hide:"drawer" }, class: 'block px-4 py-2 hover:bg-gray-100' %>
+        </li>
+        <li>
+        </li>
+      </ul>
+      <div>
+        <%= link_to project_path(project), data: {turbo_method: 'delete', turbo_confirm: t('projects.delete_confirm')}, class: 'flex items-center pr-2 pl-4 py-3 text-sm font-medium text-red-600 border-t border-gray-200 rounded-b-lg bg-gray-50 dark:border-gray-600 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-red-500 hover:underline' do %>
+          <i class="h-4 pr-2 fa-regular fa-trash-can"></i>
+          <%= t('projects.list_delete') %>
+        <% end %>
+      </div>
+  </div>
 <% end %>

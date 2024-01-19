@@ -1,0 +1,14 @@
+<aside>
+  <!-- drawer component -->
+  <div id="drawer" class="fixed top-0 left-0 z-40 h-full p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label">
+    <h2 class="pb-4 pl-4 text-2xl text-gray-900 "><%= t('projects.index_affiliated') %></h2>
+    <ul id="aside_list">
+        <%= render 'aside_projects', projects: projects %>
+    </ul>
+
+    <button type="button" data-drawer-hide="drawer" aria-controls="drawer" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-4 end-2.5 flex items-center justify-center right-5" >
+        <i class="w-5 h-5 p-2 text-gray-600 fa-solid fa-angle-left"></i>
+        <span class="sr-only">Close menu</span>
+    </button>
+  </div>
+</aside>
