@@ -887,6 +887,11 @@ stimulus-notification@^2.2.0:
   dependencies:
     stimulus-use "^0.51.1"
 
+stimulus-scroll-reveal@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/stimulus-scroll-reveal/-/stimulus-scroll-reveal-3.2.0.tgz#e9bdf2c0ddce82c24df99ba627f2f3375bc64f41"
+  integrity sha512-KxXHibsGVqvBJ4TqUaTwss36WX543dlUWoNbDXvkAfuddE6H/D7egkVF9v85LEtCVd2h9KkrTNykBnPqyxpAoQ==
+
 stimulus-sortable@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/stimulus-sortable/-/stimulus-sortable-4.1.1.tgz#aa34e0f1ac53112cf568bc46e6b20acbf603c521"
