@@ -36,55 +36,55 @@
   <aside>
     <!-- drawer component -->
     <section id="drawer" class="bg-gradient-to-b from-[#15233b] via-[#3778EA] via-70% to-100% to-[#3779eaa3] dark:bg-gray-900 fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label">
-  <div class="flex flex-col items-center justify-center px-6 mx-auto">
+      <div class="flex flex-col items-center justify-center px-6 mx-auto">
       
-      <div class="w-full bg-white rounded-lg shadow dark:border my-10 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full bg-white rounded-lg shadow dark:border my-10 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-3 space-y-4">
               
-              <div class="flex justify-center">
-                <%= link_to  t('import.import_employee'), users_import_path, class:"text-center rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md m-3" %>
+            <div class="flex justify-center">
+              <%= link_to  t('import.import_employee'), users_import_path, class:"text-center rounded-md bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 inline-block shadow-md m-3" %>
+            </div>
+            <button type="button" data-drawer-hide="drawer" aria-controls="drawer" class="text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center" >
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+              <span class="sr-only">Close menu</span>
+            </button>
+
+            <h2 class="text-xl font-bold leading-tight tracking-tight text-gray-900 text-center">
+              <%= t('hrs.new_user') %>
+            </h2>
+
+            <%= form_with(model: @user, url: hrs_path, method: :post) do |f| %>
+              <div class="flex justify-center space-x-2">
+                <div class="flex items-center">
+                  <%= f.label t('hrs.role'), class: "text-lg block text-gray-900 dark:text-white" %>
+                </div>
+                <div>
+                  <%= f.select :role, User.roles.keys.map { |w| [w.humanize, w]}, {}, { class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' } %>
+
+                </div>
               </div>
-              <button type="button" data-drawer-hide="drawer" aria-controls="drawer" class="text-gray-400 bg-transparent rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center" >
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                </svg>
-                <span class="sr-only">Close menu</span>
-              </button>
+              <div>
+                <%= f.text_field :name, placeholder: t('hrs.name_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3' %>
+              </div>
 
-              <h2 class="text-xl font-bold leading-tight tracking-tight text-gray-900 text-center">
-                  <%= t('hrs.new_user') %>
-              </h2>
-
-              <%= form_with(model: @user, url: hrs_path, method: :post) do |f| %>
-                  <div class="flex justify-center space-x-2">
-                    <div class="flex items-center">
-                      <%= f.label t('hrs.role'), class: "text-lg block text-gray-900 dark:text-white" %>
-                    </div>
-                    <div>
-                      <%= f.select :role, User.roles.keys.map { |w| [w.humanize, w]}, {}, { class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5' } %>
-
-                    </div>
-                  </div>
-                  <div>
-                    <%= f.text_field :name, placeholder: t('hrs.name_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3' %>
-                  </div>
-
-                  <div>
-                      <%= f.email_field :email, placeholder: t('hrs.email_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3' %>
-                  </div>
-                  <div>
-                    <%= f.password_field :password, placeholder: t('hrs.password_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 my-3' %>
-                  </div>
-                  <div>
-                    <%= f.password_field :password_confirmation, placeholder: t('hrs.password_confirmation_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
-                  </div>
-                  <div class= "my-5">
-                    <%= f.submit t('hrs.new_user'), class: "w-full bg-gradient-to-b from-[#18376c] form-20% to-[#3779eaa3] hover:bg-blue-900 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>                  
-                  </div>
-              <% end %>
+              <div>
+                <%= f.email_field :email, placeholder: t('hrs.email_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-3' %>
+              </div>
+              <div>
+                <%= f.password_field :password, placeholder: t('hrs.password_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 my-3' %>
+              </div>
+              <div>
+                <%= f.password_field :password_confirmation, placeholder: t('hrs.password_confirmation_placeholder'), class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
+              </div>
+              <div class= "my-5">
+                <%= f.submit t('hrs.new_user'), class: "w-full bg-gradient-to-b from-[#18376c] form-20% to-[#3779eaa3] hover:bg-blue-900 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>                  
+              </div>
+            <% end %>
           </div>
+        </div>
       </div>
-  </div>
     </section>
 
   </aside>
@@ -93,7 +93,7 @@
 
 
 
-  <main class="flex-auto">
+  <main class="flex-auto pb-24 pt-12">
     
     <div class="flex items-center justify-center">
       <!-- drawer init and toggle -->
@@ -114,16 +114,18 @@
     
     <div class="flex items-center justify-center">
       <div>
-      <% @users.each do |user| %>
-        <%= form_for(user, url: hr_path(user), remote: true, method: :patch) do |f| %>      
-          <%= f.text_field :email %> - 
-          <%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]}) %> - 
-          <%= f.submit t('hrs.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-          <%= link_to t('hrs.delete'), hr_path(user), class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded", data: {turbo_method: 'delete',
-                                                    turbo_confirm: t('hrs.delete_confirm')
-                                                    } %>
+        <% @users.each do |user| %>
+          <%= form_for(user, url: hr_path(user), remote: true, method: :patch) do |f| %>
+            <div class="flex justify-center">      
+              <%= f.text_field :name, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' %> 
+              <%= f.text_field :email, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' %> 
+              <%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]}, {}, { class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' }) %> 
+              <%= f.submit t('hrs.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded mt-3 mx-1" %>
+              <%= link_to t('hrs.delete'), hr_path(user), class: "self-center p-2.5 bg-red-500 hover:bg-red-700 text-white font-bold px-2.5 rounded mt-3 mx-1", data: {turbo_method: 'delete', turbo_confirm: t('hrs.delete_confirm') } %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+        
       </div>
     </div>
 
