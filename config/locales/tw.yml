@@ -186,7 +186,7 @@ tw:
   hrs:
     new_user: "新增員工"
     new_users: "新增多名員工"
-    new_user_toggle: " ❮  新增員工"
+    new_user_toggle: "✚"
     role: "職稱"
     name: "名字"
     email: "信箱"
@@ -195,6 +195,8 @@ tw:
     password_placeholder: "輸入密碼"
     password_confirmation_placeholder: "確認密碼"
     user_lists: "員工列表"
+    update_column: "更新"
+    delete_column: "刪除"
     update: "✎"
     delete: "X"
     creation_success: "員工新增成功"

@@ -186,7 +186,7 @@ en:
   hrs:
     new_user: "Add Employee"
     new_users: "Add Employees"
-    new_user_toggle: " ❮  Add Employee"
+    new_user_toggle: "✚"
     role: "Job Title"
     name: "Name"
     email: "Email"
@@ -195,6 +195,8 @@ en:
     password_placeholder: "Password"
     password_confirmation_placeholder: "Confirm Password"
     user_lists: "User Lists"
+    update_column: "Update"
+    delete_column: "Delete"
     update: "✎"
     delete: "X"
     creation_success: "Successfully Registered the Staff"
