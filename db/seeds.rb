@@ -122,6 +122,6 @@ end
 
 puts "建立資料中..."
 
-create_company_and_users('sync.squad', 5)
+create_company_and_users('sync.squad', 200)
 
 puts "資料建立完成"
