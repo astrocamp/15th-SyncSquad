@@ -1,4 +1,4 @@
-<div class="msg-form absolute bottom-24 p-4 w-full">
+<div class="msg-form absolute p-4 w-full">
   <%= form_with(model: [@single_room, @message], remote: true, data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"}) do |f| %>
   <div id="message_filed" class="flex">
       <%= f.text_area :body, id: 'chat-text',data:{action: "keydown->reset-form#onEnter"}, class: 'block w-full p-4 text-gray-900 border border-neutral-500 rounded-lg bg-neutral-400 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-96 mr-4', autocomplete: 'off' %>
