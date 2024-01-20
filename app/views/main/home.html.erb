@@ -4,17 +4,17 @@
             <div class="flex-initial w-full md:w-[58%]">
                 <div class="grid grid-cols-8 grid-rows-4">
                     <div class="col-start-5 col-end-8 row-start-1 row-end-2 p-2 pt-12">
-                        <%= link_to t('main.calendar'), (company_signed_in? || user_signed_in?) ? events_path : '#calendar',
+                        <%= content_tag :div, t('main.calendar'),
                             class: "font-bold tracking-wide rounded-lg bg-[#3778EA] p-2 text-white block text-center" %>
                         <div class="block w-0 h-0 ml-12 border-solid" style="border-width: 12px; border-color: #3778EA transparent transparent #3778EA;"></div>
                     </div>
                     <div class="relative col-start-3 col-end-7 row-start-2 row-end-3 p-2 pr-20">
-                        <%= link_to t('main.project'), (company_signed_in? || user_signed_in?) ? projects_path : '#project',
+                        <%= content_tag :div, t('main.project'),
                             class: "font-bold tracking-wide rounded-lg bg-[#E96F92] p-2 text-white block text-center" %>
                         <div class="absolute right-0 block w-0 h-0 mr-32 border-solid" style="border-width: 12px; border-color: #E96F92 #E96F92 transparent transparent;"></div>
                     </div>
                     <div class="relative col-start-5 col-end-8 row-start-3 row-end-4 pl-2 pr-16 sm:top-0 -top-12">
-                        <%= link_to t('main.chatroom'), (company_signed_in? || user_signed_in?) ? rooms_path : '#chatroom',
+                        <%= content_tag :div, t('main.chatroom'), 
                             class: "font-bold tracking-wide rounded-lg bg-[#fce95b] p-2 block text-center" %>
                         <div class="absolute right-0 block w-0 h-0 mr-24 border-solid" style="border-width: 12px; border-color: #fce95b transparent transparent #fce95b;"></div>
                     </div>

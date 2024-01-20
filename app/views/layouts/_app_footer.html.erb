@@ -4,18 +4,14 @@
     <div class="flex justify-end grow">
         <ul class="flex flex-wrap items-center mt-3 text-xs font-bold text-gray-500 dark:text-gray-400 sm:mt-0">
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                <%= link_to t('main.about'), about_path, class: 'hover:underline me-4 md:me-6' %>
             </li>
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                <%= link_to t('main.privacy'), privacy_path, class: 'hover:underline me-4 md:me-6' %>
             </li>
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                <%= link_to t('main.feature'), "#{root_path}#calendar", class: 'hover:underline me-4 md:me-6' %>
             </li>
-            <li>
-                <a href="#" class="hover:underline">Contact</a>
-            </li>
-        
         </ul>
         <!-- 語言選項 -->
         <div class="ml-6">

@@ -29,31 +29,54 @@
               </span>
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
-              <li>
-                <%= link_to t('main.calendar'), events_path,
-                    'aria-current': 'page',
-                    class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-              </li>
-              <li>
-                <%= link_to t('main.chatroom'), rooms_path,
-                    class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-              </li>
-              <li>
-                <%= link_to t('main.project'), projects_path,
-                    class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-              </li>
-              <hr class="my-2 border-gray-100">
-              <li>
-                <%= link_to t('main.setting'),
-                    user_signed_in? ? edit_user_registration_path : '#',
-                    class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-              </li>
-              <li>
-                <%= link_to t('main.log_out'),
-                    user_signed_in? ? destroy_user_session_path : sessions_path,
-                    data: {turbo_method: 'DELETE'},
-                    class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-              </li>
+              <% if user_signed_in? %>
+                <li>
+                    <%= link_to t('main.calendar'), events_path,
+                        'aria-current': 'page',
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+                <li>
+                    <%= link_to t('main.chatroom'), rooms_path,
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+                <li>
+                    <%= link_to t('main.project'), projects_path,
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+                <hr class="my-2 border-gray-100">
+                <li>
+                    <%= link_to t('main.setting'),
+                        edit_user_registration_path,
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+                <li>
+                    <%= link_to t('main.log_out'),
+                        destroy_user_session_path,
+                        data: {turbo_method: 'DELETE'},
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+              <% else %>
+                <li>
+                    <%= link_to t('main.upgrade'), orders_path,
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+                <li>
+                    <%= link_to t('main.new_user'), hrs_path,
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+                <hr class="my-2 border-gray-100">
+                <li>
+                    <%= link_to t('main.setting'),
+                        '',
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+                <li>
+                    <%= link_to t('main.log_out'),
+                        sessions_path,
+                        data: {turbo_method: 'DELETE'},
+                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+                </li>
+              <% end %>
           </ul>
       </div>
   </div>

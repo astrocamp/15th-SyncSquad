@@ -1,5 +1,5 @@
 <%= content_for :modal_title do %>
-  <%= t('lists.edit_list_title') %>
+  <%= t('lists.edit') %>
 <% end %>
 <%= render 'shared/modal' do %>
   <%= form_with model: @list, url: list_path, method: 'PATCH' do |form| %>
@@ -8,7 +8,7 @@
       <%= form.label :title, t('lists.edit_title'),
           class: 'block text-sm font-medium text-gray-900 flex-none mr-2' %>
       <%= form.text_field :title, required: true,
-          class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700' %>
+          class: 'flex-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700' %>
     </div>
     <div data-controller="color-picker" class="flex items-center">
       <%= form.label :color, t('lists.edit_color'),
