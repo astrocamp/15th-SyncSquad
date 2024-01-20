@@ -15,7 +15,7 @@ class ListsController < ApplicationController
 
   def create
     authorize @project, policy_class: ListPolicy
-    @new_list = @project.lists.build(list_params.merge(color: '#3778EA'))
+    @new_list = @project.lists.build(list_params)
 
     if @new_list.save
       flash.now[:success] = t('lists.create_success')

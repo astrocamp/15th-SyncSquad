@@ -123,3 +123,12 @@ nav.pagination {
   background-color: transparent;
   border-radius: 3px;
 }
+
+form .field_with_errors {
+  display: flex;
+}
+
+form .field_with_errors:nth-child(even) {
+  flex: 1 1 auto;
+  width: 100%;
+}
