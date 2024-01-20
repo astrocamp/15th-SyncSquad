@@ -1,51 +1,140 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="flex justify-center p-32 pt-10 bg-gradient-to-b from-[#eff6ff] via-[#bfdbfe] via-70% to-100% to-[#eff6ff]">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
-  </div>
+      <div class="field">
+        <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
+      </div>
   
-  <div class="field">
-    <%= f.file_field :avatar %>
-  </div>
+      <div class="field">
+        <%= f.file_field :avatar %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :name, t('devise.name') %>
+        </div>
+        <div>
+          <%= f.text_field :name, autocomplete: "name", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :nick_name, t('devise.nick_name') %>
+        </div>
+        <div>
+          <%= f.text_field :nick_name, autocomplete: "nick_name", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :gender, t('devise.gender') %>
+        </div>
+        <div>
+          <%= f.number_field :gender, autocomplete: "gender", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :role, t('devise.role') %>
+        </div>
+        <div>
+          <%= f.text_field :role, autocomplete: "role", class: 'bg-gray-50 cursor-not-allowed border border-gray-300 text-gray-900 rounded-lg block p-2.5 mt-3', readonly: true %>
+        </div>
+      </div>
+      
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :email, t('devise.email') %>
+        </div>
+        <div>
+          <%= f.text_field :email, autocomplete: "email", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :birthday, t('devise.birthday') %>
+        </div>
+        <div>
+          <%= f.date_field :birthday, autocomplete: "birthday", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :phone, t('devise.phone') %>
+        </div>
+        <div>
+          <%= f.text_field :phone, autocomplete: "phone", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :time_zone, t('devise.time_zone') %>
+        </div>
+        <div>
+          <%= f.text_field :time_zone, autocomplete: "time_zone", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :lang, t('devise.lang') %>
+        </div>
+        <div>
+          <%= f.text_field :lang, autocomplete: "lang", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :password, t('devise.change_password') %>
+        </div>
+        <div>
+          <%= f.password_field :password, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :password_confirmation, t('devise.change_password_confirmation') %>
+        </div>
+        <div>
+          <%= f.password_field :password_confirmation, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-2">
+        <div class="">
+          <%= f.label :current_password, t('devise.current_password') %>
+        </div>
+        <div>
+          <%= f.password_field :current_password, class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3' %>
+        </div>
+      </div>
+
+
+
+
+      
+
+      
+
+      <div class="actions my-2">
+        <div class="text-center">
+          <i><%= t('devise.update_notice') %></i>
+        </div>
+        <div>
+          
+          <%= f.submit t('devise.update'), class: "w-full block py-2.5 px-5 word-wrap text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200" %>
+        </div>
+      </div>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</section>
