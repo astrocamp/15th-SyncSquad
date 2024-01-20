@@ -2,36 +2,40 @@ import ColorPicker from 'stimulus-color-picker'
 import { put } from '@rails/request.js'
 
 export default class extends ColorPicker {
-  static targets = ['input']
-
   connect() {
     super.connect()
+    console.log('Do what you want here.')
 
+    // Pickr instance
     this.picker
       .on('changestop', (source, instance) => {
         this.updateColorReview(instance)
+        this.onSave(color)
       })
       .on('swatchselect', (color, instance) => {
         this.updateColorReview(instance)
         this.onSave(color)
-        this.update(instance)
-      })
-      .on('hide', (instance) => {
-        this.onSave(instance.color)
-        this.update(instance)
       })
   }
 
+  // Callback when the color is saved
   onSave(color) {
     super.onSave(color)
   }
 
-  update(instance) {
-    put(this.inputTarget.dataset.colorUpdateUrl, {
-      body: JSON.stringify({
-        color: instance.getColor().toHEXA().toString(),
-      }),
-    })
+  // You can override the components options with this getter.
+  // Here are the default options.
+  get componentOptions() {
+    return {
+      preview: false,
+      hue: false,
+
+      interaction: {
+        input: true,
+        clear: false,
+        save: false,
+      },
+    }
   }
 
   updateColorReview(instance) {
@@ -41,26 +45,7 @@ export default class extends ColorPicker {
     )
   }
 
-  get componentOptions() {
-    return {
-      interaction: {
-        input: true,
-      },
-    }
-  }
-
   get swatches() {
-    return [
-      '#A0AEC0',
-      '#F56565',
-      '#ED8936',
-      '#ECC94B',
-      '#48BB78',
-      '#38B2AC',
-      '#4299E1',
-      '#667EEA',
-      '#9F7AEA',
-      '#ED64A6',
-    ]
+    return ['#F56565', '#ED8936', '#ECC94B', '#48BB78', '#4299E1', '#9F7AEA']
   }
 }

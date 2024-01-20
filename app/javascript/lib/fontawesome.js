@@ -11,6 +11,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck'
 import { faAnglesUp } from '@fortawesome/free-solid-svg-icons/faAnglesUp'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons/faCalendar'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan'
+import { faPenToSquare } from '@fortawesome/free-regular-svg-icons/faPenToSquare'
 
 library.add({
   faEllipsis,
@@ -25,6 +26,7 @@ library.add({
   faTrashCan,
   faCheck,
   faAnglesUp,
+  faPenToSquare,
 })
 
 dom.watch()
