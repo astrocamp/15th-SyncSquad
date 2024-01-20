@@ -9,9 +9,11 @@ import { faChartSimple } from '@fortawesome/free-solid-svg-icons/faChartSimple'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons/faLocationDot'
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck'
 import { faAnglesUp } from '@fortawesome/free-solid-svg-icons/faAnglesUp'
+import { faPen } from '@fortawesome/free-solid-svg-icons/faPen'
+import { faPenToSquare as faPenToSquareSolid } from '@fortawesome/free-solid-svg-icons/faPenToSquare'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons/faCalendar'
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan'
-import { faPenToSquare } from '@fortawesome/free-regular-svg-icons/faPenToSquare'
+import { faPenToSquare as faPenToSquareRegular } from '@fortawesome/free-regular-svg-icons/faPenToSquare'
 
 library.add({
   faEllipsis,
@@ -20,13 +22,15 @@ library.add({
   faPlus,
   faAngleRight,
   faAngleLeft,
+  faPen,
   faChartSimple,
   faLocationDot,
   faCalendar,
   faTrashCan,
   faCheck,
   faAnglesUp,
-  faPenToSquare,
+  faPenToSquareSolid,
+  faPenToSquareRegular,
 })
 
 dom.watch()

@@ -22,13 +22,26 @@ en:
     delete_task: "Delete Task"
     kanban: 'Kanban'
     calendar: 'Calendar'
+    delete_confirm: "Are you sure you want to delete the project?"
 
   lists:
     create_success: "Creation Success!"
     update_success: "Update Success!"
     destroy_success: "Delete Success!"
+    new: "Create List"
+    new_title: "Title"
+    new_cancel: "Cancel"
+    edit: "Edit List"
+    edit_title: "Title"
+    edit_color: "Color"
+    edit_cancel: "Cancel"
+    edit_delete: "Delete"
+    edit_confirm: "Are you sure you want to delete the list?"
+    create_success: 'Creation Success!'
+    update_success: 'Update Success!'
+    destroy_success: 'Delete Success!'
     index_affiliated: 'Affiliated Projects'
-    show_confirm: 'Are You Sure You Want To Delete?'
+    show_confirm: 'Are you sure you want to delete the list?'
     form_title: 'Title'
     form_description: 'Description'
     form_cancel: 'Cancel'
@@ -44,21 +57,6 @@ en:
     delete_task: 'Deleted Task'
     kanban: 'Kanban'
     calendar: 'Calendar'
-    delete_confirm: 'Are you sure you want to delete the project?'
-    create_success: 'Creation Success!'
-    update_success: 'Update Success!'
-    destroy_success: 'Delete Success!'
-    new: 'Create List'
-    new_title: 'Title'
-    new_cancel: 'Cancel'
-    edit: 'Edit List'
-    edit_list_title: 'Edit List Title'
-    edit: 'Edit Title'
-    edit_title: 'Title'
-    edit_color: 'Color'
-    edit_cancel: 'Cancel'
-    edit_delete: 'Delete'
-    edit_confirm: 'Are You Sure You Want To Delete?'
 
   tasks:
     priority_prompt: "Select Priority"

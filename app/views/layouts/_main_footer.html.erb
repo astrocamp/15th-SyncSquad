@@ -2,67 +2,38 @@
     <div class="max-w-screen-lg mx-auto">
         <div class="grid w-full max-w-sm grid-cols-2 gap-8 px-4 py-6 mx-auto text-center lg:py-8 md:grid-cols-4 md:max-w-none sm:text-left">
             <div>
-                <h2 class="mb-6 text-base font-extrabold text-gray-900 uppercase md:font-bold md:text-sm dark:text-white">Company</h2>
+                <h2 class="mb-6 text-base font-extrabold text-gray-900 uppercase md:font-bold md:text-sm dark:text-white"><%= t('main.about') %></h2>
                 <ul class="text-gray-500 font-extralight lg:text-slate-400 dark:text-gray-400">
                     <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">About</a>
+                        <%= link_to t('main.home'), root_path, class: 'hover:underline hover:text-gray-700' %>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Careers</a>
+                        <%= link_to t('main.about'), about_path, class: 'hover:underline hover:text-gray-700' %>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Brand Center</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Blog</a>
+                        <%= link_to t('main.privacy'), privacy_path, class: 'hover:underline hover:text-gray-700' %>
                     </li>
                 </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-base font-extrabold text-gray-900 uppercase md:font-bold md:text-sm dark:text-white">Help center</h2>
+                <h2 class="mb-6 text-base font-extrabold text-gray-900 uppercase md:font-bold md:text-sm dark:text-white"><%= t('main.feature') %></h2>
                 <ul class="text-gray-500 font-extralight lg:text-slate-400 dark:text-gray-400">
                     <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Discord Server</a>
+                        <a href="#" class="hover:underline hover:text-gray-700"><%= t('main.calendar') %></a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Twitter</a>
+                        <a href="#" class="hover:underline hover:text-gray-700"><%= t('main.project') %></a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Facebook</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Contact Us</a>
+                        <a href="#" class="hover:underline hover:text-gray-700"><%= t('main.chatroom') %></a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-base font-extrabold text-gray-900 uppercase md:font-bold md:text-sm dark:text-white">Legal</h2>
+                <h2 class="mb-6 text-base font-extrabold text-gray-900 uppercase md:font-bold md:text-sm dark:text-white"><%= t('main.upgrade') %></h2>
                 <ul class="text-gray-500 font-extralight lg:text-slate-400 dark:text-gray-400">
                     <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Privacy Policy</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Licensing</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Terms &amp; Conditions</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h2 class="mb-6 text-base font-extrabold text-gray-900 uppercase md:font-bold md:text-sm dark:text-white">Download</h2>
-                <ul class="text-gray-500 font-extralight lg:text-slate-400 dark:text-gray-400">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">iOS</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Android</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">Windows</a>
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline hover:text-gray-700">MacOS</a>
+                        <%= link_to t('main.upgrade'), orders_path, class: 'hover:underline hover:text-gray-700' %>
                     </li>
                 </ul>
             </div>

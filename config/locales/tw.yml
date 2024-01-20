@@ -1,37 +1,18 @@
 tw:
   projects:
-    create_success: "新增成功!"
-    update_success: "更新成功!"
-    destroy_success: "刪除成功!"
-    edit: "編輯專案"
-    index_affiliated: "專案看板"
-    new: "新建專案"
-    show_confirm: "確定刪除專案？"
-    form_title: "名稱"
-    form_description: "說明"
-    form_cancel: "取消"
-    list_delete: "刪除"
-    main_search: "搜尋專案"
-    main_title_or_email: "名稱/信箱"
-    main_clear: "清空"
-    main_title: "名稱"
-    main_description: "說明"
-    main_email: "信箱"
-    main_created_time: "建立時間"
-    main_updated_time: "更新時間"
-    delete_task: "刪除任務"
-    kanban: '看板'
-    calendar: '行事曆'
-
-  lists:
+    create_success: '新增成功！'
+    update_success: '更新成功！'
+    destroy_success: '刪除成功！'
+    edit: '編輯專案'
     index_affiliated: '專案看板'
+    new: '新建專案'
     show_confirm: '確定刪除專案？'
     form_title: '名稱'
     form_description: '說明'
     form_cancel: '取消'
     list_delete: '刪除'
     main_search: '搜尋專案'
-    main_title_or_email: '名稱/信箱'
+    main_title_or_email: '名稱／信箱'
     main_clear: '清空'
     main_title: '名稱'
     main_description: '說明'
@@ -41,29 +22,48 @@ tw:
     delete_task: '刪除任務'
     kanban: '看板'
     calendar: '行事曆'
-    delete_confirm: '你確定要刪除專案嗎？'
+    delete_confirm: '您確定要刪除專案嗎？'
+
+  lists:
     create_success: '新增成功!'
     update_success: '更新成功!'
     destroy_success: '刪除成功!'
+    index_affiliated: '專案看板'
+    show_confirm: '您確定要刪除專案嗎？'
+    form_title: '名稱'
+    form_description: '說明'
+    form_cancel: '取消'
+    list_delete: '刪除'
+    main_search: '搜尋專案'
+    main_title_or_email: '名稱／信箱'
+    main_clear: '清空'
+    main_title: '名稱'
+    main_description: '說明'
+    main_email: '信箱'
+    main_created_time: '建立時間'
+    main_updated_time: '更新時間'
+    delete_task: '刪除任務'
+    kanban: '看板'
+    calendar: '行事曆'
+    delete_confirm: '您確定要刪除專案嗎？'
     new: '新建列表'
     new_title: '名稱'
     new_cancel: '取消'
     edit_list_title: '編輯列表名稱'
-    edit: '編輯名稱'
     edit_title: '名稱'
     edit_color: '顏色'
     edit_cancel: '取消'
     edit_delete: '刪除'
-    edit_confirm: '確定刪除列表？'
+    edit_confirm: '您確定刪除列表嗎？'
 
   tasks:
     priority_prompt: '選擇優先級'
     location_placeholder: '輸入位置'
     create_success: '新增成功!'
-    create_not_saved: '請填寫完整'
-    update_success: '更新成功!'
-    destroy_success: '刪除成功!'
-    task_confirm: '確定刪除任務?'
+    create_not_saved: '請去入完整資料'
+    update_success: '更新成功！'
+    destroy_success: '刪除成功！'
+    task_confirm: '您確定要刪除任務嗎？'
     edit: '編輯任務'
     edit_title: '名稱'
     edit_description: '說明'
@@ -71,8 +71,7 @@ tw:
     edit_started_at: '開始時間'
     edit_ended_at: '結束時間'
     edit_all_day_event: '整日活動'
-    edit_priority: '順位'
-    edit_select: '選擇'
+    edit_priority: '優先級'
     edit_estimated_completed_at: '預計完成時間'
     edit_location: '地點'
     edit_location_reset: '重設地點'
@@ -81,7 +80,7 @@ tw:
     new_title: '名稱'
     new_list_id: '列表名稱'
     new_description: '說明'
-    new_priority: '順位'
+    new_priority: '優先級'
     new_started_at: '開始時間'
     new_ended_at: '結束時間'
     new_all_day_event: '整日活動'
@@ -97,7 +96,7 @@ tw:
     show_started_at: '開始時間'
     show_ended_at: '結束時間'
     show_all_day_event: '整日活動'
-    show_priority: '順位'
+    show_priority: '優先級'
     show_select: '選擇'
     show_estimated_completed_at: '預計完成時間'
     show_location: '地點'
