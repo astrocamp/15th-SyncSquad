@@ -289,6 +289,8 @@ tw:
             password:
               too_short: "太短"
               blank: "為空白"
+            current_password:
+              blank: "為空白"
 
   search_placeholder: "搜尋"
 
