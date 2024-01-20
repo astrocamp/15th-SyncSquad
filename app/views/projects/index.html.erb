@@ -1,4 +1,4 @@
-<div>
+<div class="flex">
   <%= render 'drawer', projects: @projects %>
   <%= render 'sidebar' %>
   <main class="flex flex-auto px-2">
@@ -11,10 +11,9 @@
           </div>
         <% end %>
       </header>
-      <div id="main_list relative">
-        <%= render 'main_projects', projects: @company_projects %>
+      <div id="main_list">
+        <%= render 'main_projects', projects: @projects %>
       </div>
     </section>
   </main>
 </div>
-
