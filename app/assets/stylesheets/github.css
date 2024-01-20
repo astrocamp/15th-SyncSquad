@@ -157,6 +157,7 @@
 .highlight,
 .highlight pre,
 .highlight code {
-  background-color: #e4e7eb !important;
+  background-color: #d0d0d0 !important;
   font-size: large !important;
+  margin-left: 10px;
 }
