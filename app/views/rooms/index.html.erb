@@ -1,9 +1,8 @@
 <div id="total" class="flex h-screen overflow-hidden" data-controller="chatroom_list">
 
   <div id="sidenav" class="bg-gray-400 w-20 flex flex-col items-center pt-4">
-    <i class="fa-solid fa-user p-3 fa-2x" data-action="click->chatroom_list#showUsers"></i>
-    <i class="fa-solid fa-message p-3 fa-2x" data-action="click->chatroom_list#showRooms"></i>
-
+    <i class="fa-solid fa-user p-3 fa-2x <%= 'text-blue-700' if params[:tab_type] == 'single_chat' %>" data-action="click->chatroom_list#showUsers"></i>
+    <i class="fa-solid fa-message p-3 fa-2x <%= 'text-blue-700' if params[:tab_type] == 'group_chat' %>" data-action="click->chatroom_list#showRooms"></i>
   </div>
 
   <div id="left-side" class="w-2/12 bg-gray-100 ">
