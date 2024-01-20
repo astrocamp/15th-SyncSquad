@@ -20,7 +20,7 @@
       </div>
       <div class="w-[350px]">
         <%= form.label :user_id, t('tasks.edit_user_id') %>
-        <%= form.select :user_id, User.pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect", search_placeholder: t('search_placeholder') } %> 
+        <%= form.select :user_id, User.where(company_id: current_user.company_id).pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect", search_placeholder: t('search_placeholder') } %> 
         <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
       </div>
       <div data-controller="datepicker">
