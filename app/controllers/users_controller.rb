@@ -8,7 +8,7 @@ class UsersController < ApplicationController
                          notice: t('import.please_choose_file')
     end
     CsvImportUsersService.new.call(file, current_company.id, current_user&.id)
-    redirect_to users_import_records_path, notice: t('import.data_import_process')
+    redirect_to users_import_records_path
   end
 
   def records
