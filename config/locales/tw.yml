@@ -44,8 +44,7 @@ tw:
     main_updated_time: "更新時間"
     delete_task: "刪除任務"
     kanban: "看板"
-    calendar: "行事曆"
-    delete_confirm: "您確定要刪除專案嗎？"
+    calendar: "行事曆"    
     new: "新建列表"
     new_title: "名稱"
     new_cancel: "取消"
@@ -71,7 +70,8 @@ tw:
     edit_started_at: "開始時間"
     edit_ended_at: "結束時間"
     edit_all_day_event: "整日活動"
-    edit_priority: "優先級"
+    edit_priority: "優先級"    
+    edit_select: "選擇"
     edit_estimated_completed_at: "預計完成時間"
     edit_location: "地點"
     edit_location_reset: "重設地點"
@@ -154,6 +154,19 @@ tw:
     logout_success: "已登出"
 
   devise:
+    name: "名字"
+    nick_name: "暱稱"
+    gender: "性別"
+    role: "職稱"
+    birthday: "生日"
+    phone: "電話"
+    time_zone: "時區"
+    lang: "語言"
+    update: "更新資料"
+    update_notice: " 輸入密碼再更新"
+    change_password: "新密碼"
+    change_password_confirmation: "新密碼確認"
+    current_password: "密碼"
     user_sign_in: "員工登入"
     email: "信箱"
     password: "密碼"
@@ -270,6 +283,11 @@ tw:
       blank: "此欄位不能為空"
       too_short: "密碼太短"
       invalid: "信息不正確"
+            role:
+              inclusion: "不正確的角色"
+            password:
+              too_short: "太短"
+              blank: "為空白"
 
   search_placeholder: "搜尋"
 
@@ -298,8 +316,16 @@ tw:
     join: "立即加入"
     condition_seven: "會員限制5人"
     condition_eight: "擁有一鍵使用CSV上傳員工的功能"
-    login: "請登入"
+    login: "請登入"  
 
+  views:
+    pagination:
+      next: "下一頁"
+      last: "最後一頁"
+      previous: "前一頁"
+      first: "第一頁"
+      truncate: "..."
+  
   helpers:
     submit:
       user:
@@ -316,11 +342,3 @@ tw:
       task:
         create: "新增任務"
         update: "更新任務"
-
-  views:
-    pagination:
-      next: "下一頁"
-      last: "最後一頁"
-      previous: "前一頁"
-      first: "第一頁"
-      truncate: "..."

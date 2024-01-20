@@ -27,19 +27,7 @@ en:
   lists:
     create_success: "Creation Success!"
     update_success: "Update Success!"
-    destroy_success: "Delete Success!"
-    new: "Create List"
-    new_title: "Title"
-    new_cancel: "Cancel"
-    edit: "Edit List"
-    edit_title: "Title"
-    edit_color: "Color"
-    edit_cancel: "Cancel"
-    edit_delete: "Delete"
-    edit_confirm: "Are you sure you want to delete the list?"
-    create_success: 'Creation Success!'
-    update_success: 'Update Success!'
-    destroy_success: 'Delete Success!'
+    destroy_success: "Delete Success!"    
     index_affiliated: 'Affiliated Projects'
     show_confirm: 'Are you sure you want to delete the list?'
     form_title: 'Title'
@@ -57,6 +45,15 @@ en:
     delete_task: 'Deleted Task'
     kanban: 'Kanban'
     calendar: 'Calendar'
+    new: "Create List"
+    new_title: "Title"
+    new_cancel: "Cancel"
+    edit_list_title: "Edit List"
+    edit_title: "Title"
+    edit_color: "Color"
+    edit_cancel: "Cancel"
+    edit_delete: "Delete"
+    edit_confirm: "Are you sure you want to delete the list?"    
 
   tasks:
     priority_prompt: "Select Priority"
@@ -157,6 +154,19 @@ en:
     logout_success: "Logout Success"
 
   devise:
+    name: "Name"
+    nick_name: "Nick Name"
+    gender: "Gender"
+    role: "Role"
+    birthday: "Birthday"
+    phone: "Phone"
+    time_zone: "Time_zone"
+    lang: "Lang"
+    update: "Update"
+    update_notice: " Enter current password to proceed with the update"
+    change_password: "Change Password"
+    change_password_confirmation: "Change Password Confirmation"
+    current_password: "Current Password"
     user_sign_in: "User Sign In"
     email: "Email"
     password: "Password"
@@ -273,6 +283,11 @@ en:
       blank: "此欄位不能為空"
       too_short: "密碼太短"
       invalid: "信息不正確"
+            role:
+              inclusion: "is not correct"
+            password:
+              too_short: "is too short"
+              blank: "is blank"
 
   search_placeholder: "Search"
 
