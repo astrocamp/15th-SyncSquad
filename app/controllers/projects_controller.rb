@@ -105,7 +105,7 @@ class ProjectsController < ApplicationController
   def find_company_projects
     @company = Company.find(current_user.company_id)
     @users = @company.users.ids
-    @company_projects = Project.where(owner: @users)
+    @projects = Project.where(owner: @users)
   end
 
   def search_project
