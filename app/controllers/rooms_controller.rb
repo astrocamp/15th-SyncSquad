@@ -12,6 +12,11 @@ class RoomsController < ApplicationController
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
+
+    @unread_counts = @private_groups.each_with_object({}) do |room, counts|
+      counts[room.id] = room.unread_messages_count(current_user)
+    end
+
     params[:tab_type] ||= 'single_chat'
   end
 
@@ -49,9 +54,9 @@ class RoomsController < ApplicationController
   def show
     @single_room = Room.find(params[:id])
     @current_user = current_user
-    RoomVisit.find_or_create_by(user_id: @current_user.id, room_id: @single_room.id) do |visit|
-      visit.update(last_visited_at: Time.current)
-    end
+    visit = RoomVisit.find_or_initialize_by(user_id: @current_user.id, room_id: @single_room.id)
+    visit.last_visited_at = Time.current
+    visit.save if visit.changed?
 
     @rooms = Room.where(room_type: 'public_room', company: current_user.company)
     @private_groups = Room.joins(:participants)
