@@ -2,37 +2,37 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import CalendarController from "./calendar_controller"
-application.register("calendar", CalendarController)
+import CalendarController from "./calendar_controller";
+application.register("calendar", CalendarController);
 
-import ColorPickerController from "./color_picker_controller"
-application.register("color-picker", ColorPickerController)
+import ColorPickerController from "./color_picker_controller";
+application.register("color-picker", ColorPickerController);
 
-import DatepickerController from "./datepicker_controller"
-application.register("datepicker", DatepickerController)
+import DatepickerController from "./datepicker_controller";
+application.register("datepicker", DatepickerController);
 
-import EventController from "./event_controller"
-application.register("event", EventController)
+import EventController from "./event_controller";
+application.register("event", EventController);
 
-import MapController from "./map_controller"
-application.register("map", MapController)
+import MapController from "./map_controller";
+application.register("map", MapController);
 
-import NotificationController from "./notification_controller"
-application.register("notification", NotificationController)
+import NotificationController from "./notification_controller";
+application.register("notification", NotificationController);
 
-import ResetFormController from "./reset_form_controller"
-application.register("reset-form", ResetFormController)
+import ResetFormController from "./reset_form_controller";
+application.register("reset-form", ResetFormController);
 
-import SlimselectController from "./slimselect_controller"
-application.register("slimselect", SlimselectController)
+import SlimselectController from "./slimselect_controller";
+application.register("slimselect", SlimselectController);
 
-import SortableController from "./sortable_controller"
-application.register("sortable", SortableController)
+import SortableController from "./sortable_controller";
+application.register("sortable", SortableController);
 
-import TurbomodalController from "./turbomodal_controller"
-application.register("turbomodal", TurbomodalController)
+import TurbomodalController from "./turbomodal_controller";
+application.register("turbomodal", TurbomodalController);
 
 import ChatroomListController from "./chatroom_list_controller";
 application.register("chatroom_list", ChatroomListController);
