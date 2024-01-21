@@ -1,19 +1,21 @@
 <%= render 'drawer', projects: @user_projects %>
 <%= render 'sidebar' %>
-<div class="absolute flex flex-col w-full h-screen pl-8 -top-12 -z-10">
-  <div class="flex-none m-6 mt-16 min-h-24">
-    <%= render partial: 'head', locals: {project: @project} %>
+<main id="project-main">
+  <div class="absolute flex flex-col w-full h-screen pl-8 -top-12 -z-10">
+    <div class="flex-none m-6 mt-16 min-h-24">
+      <%= render partial: 'head', locals: {project: @project} %>
+    </div>
+    <div class="flex flex-1 pl-6 overflow-hidden" style="max-height: calc(100% - 12rem);">
+      <ul id="all_list" class="flex gap-4 overflow-x-auto" data-controller="sortable" >
+        <%= render partial: 'list', collection: @project.lists.rank(:row_order)%>
+        <li>
+          <%= link_to  new_project_list_path(@project),
+              data: { turbo_frame: "modal" },
+              class: 'ml-4 shadow-sm w-52 block text-center rounded-lg shadow-gray-400 bg-white mr-6' do%>
+            <i class="fa-solid fa-plus"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="flex flex-1 pl-6 overflow-hidden" style="max-height: calc(100% - 12rem);">
-    <ul id="all_list" class="flex gap-4 overflow-x-auto" data-controller="sortable" >
-      <%= render partial: 'list', collection: @project.lists.rank(:row_order)%> 
-      <li>
-        <%= link_to  new_project_list_path(@project),
-            data: { turbo_frame: "modal" },
-            class: 'ml-4 shadow-sm w-52 block text-center rounded-lg shadow-gray-400 bg-white mr-6' do%>
-          <i class="fa-solid fa-plus"></i>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-</div>
+</main>
