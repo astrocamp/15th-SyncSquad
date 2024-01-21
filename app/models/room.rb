@@ -50,9 +50,12 @@ class Room < ApplicationRecord
   end
 
   def unread_messages_count(user)
+
+    return 0 unless user.present?
+
     last_visit = ::RoomVisit.find_by(user_id: user.id, room_id: self.id)
     return 0 unless last_visit
 
-    messages.where('created_at > ?', last_visit.last_visited_at).count
+    messages.where('created_at > ?', last_visit.last_visited_at).where.not(user_id: user.id).count
   end
 end
