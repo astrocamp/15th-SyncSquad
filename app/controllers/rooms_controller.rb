@@ -48,6 +48,11 @@ class RoomsController < ApplicationController
 
   def show
     @single_room = Room.find(params[:id])
+
+    RoomVisit.find_or_create_by(user_id: current_user.id, room_id: @single_room.id) do |visit|
+      visit.last_visited_at = Time.current
+    end
+
     @rooms = Room.where(room_type: 'public_room', company: current_user.company)
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
