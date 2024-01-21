@@ -1,13 +1,8 @@
-<turbo-stream action="replace" target="calendar">
+<turbo-stream action="replace" target="event">
   <template>
-    <div data-controller="calendar" class="w-full lg:w-2/3 mx-auto" id="calendar">
+    <div data-controller="event" data-company=<%= current_company&.id %>
+        class="w-full lg:w-2/3 mx-auto" id="event">
     </div>
-  </template>
-</turbo-stream>
-
-<turbo-stream action="update" target="event">
-  <template>
-    <%= render partial: 'listed', locals:{events: current_user.events.all } %>
   </template>
 </turbo-stream>
 
