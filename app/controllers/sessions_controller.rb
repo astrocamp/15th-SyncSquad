@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:__company_ticket__] = company.id
       redirect_to root_path, success: t('company.login_success')
     else
-      redirect_to sign_in_companies_path, notice: t('company.login_failed')
+      redirect_to sign_in_companies_path, alert: t('company.login_failed')
     end
   end
 
