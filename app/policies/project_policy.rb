@@ -13,8 +13,8 @@ class ProjectPolicy < ApplicationPolicy
     edit?
   end
 
-  def destroy
-    edit?
+  def destroy?
+    record.exists? { |project| user.id == project.owner_id }
   end
 
   def new_task?

@@ -1,0 +1,35 @@
+<turbo-stream action="replace" target="project-main">
+  <template>
+    <main id="project-main" class="flex flex-auto px-2">
+      <section class="w-full h-screen pl-12 pr-4 mx-auto overflow-auto">
+        <header class="flex items-center py-4 bg-white ">
+          <%= content_tag(:h1, t('projects.index_affiliated'), class: "lg:text-3xl text-2xl text-gray-900 font-bold") %>
+          <%= link_to  new_project_path, data: { turbo_frame: "modal" } do %>
+            <div class="px-4"> 
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          <% end %>
+        </header>
+        <div id="main_list">
+          <%= render 'main_projects', projects: @projects %>
+        </div>
+      </section>
+    </main>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="replace" target="aside_list">
+  <template>
+    <ul id="aside_list">
+      <%= render partial: 'aside_projects', locals:{projects: @user_projects} %>
+    </ul>
+  </template>
+</turbo-stream>
+
+<div class="absolute right-0 z-10 px-5 py-2 top-10">
+  <%= render partial: 'shared/alert', locals: { message: flash[:alert]} %>
+  <%= render partial: 'shared/notice', locals: { message: flash[:notice]} %>
+  <%= render partial: 'shared/success', locals: { message: flash[:success]} %>
+  <%= render partial: 'shared/info', locals: { message: flash[:info]} %>
+  <%= render partial: 'shared/mail', locals: { message: flash[:mail]} %>
+</div>

@@ -3,9 +3,9 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_project, only: %i[new_task show update destroy edit kanban calendar create_task]
-  before_action :find_current_user_affiliated_projects, only: %i[index show kanban calendar]
+  before_action :find_current_user_affiliated_projects, only: %i[index show kanban calendar destroy update]
   before_action :find_company_projects, only: %i[index]
-  before_action :search_project, only: %i[index update create]
+  before_action :search_project, only: %i[index update create destroy]
   before_action :find_tasks, only: %i[show calendar create_task]
 
   def index
@@ -75,7 +75,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    authorize @project
+    authorize @user_projects
     @project.destroy
     redirect_to projects_path, success: t('projects.destroy_success')
   end
