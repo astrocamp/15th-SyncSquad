@@ -27,18 +27,18 @@
         <% @import_records.each do |import_record| %>
           <tr>
             <% if import_record.status == "Failures" %> 
-              <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell bg-red-300">
+              <td class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell bg-red-300">
                 <%= I18n.t(import_record.status)%>
               </td>
             <% else %>
-              <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell bg-green-300">
+              <td class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell bg-green-300">
                 <%= I18n.t(import_record.status)%>
               </td>
             <% end %>
             <td class="text-left py-2 px-2 md:px-4 border-b text-xs md:text-lg"><%= link_to import_record.file.filename, rails_blob_path(import_record.file) %></td>
             <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.created_at.in_time_zone('Taipei').strftime('%Y/%m/%d - %H:%M') %></td>
-            <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.total_count %></td>
-            <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.success_count %></td>  
+            <td class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.total_count %></td>
+            <td class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.success_count %></td>  
 
             <% if import_record.error_messages == "[]" %>
               <td class="text-left py-2 px-2 md:px-4 border-b text-xs md:text-lg"></td>   
