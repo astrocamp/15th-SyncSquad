@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  before_action :require_login, only: %i[index]
+  before_action :require_login, only: %i[index new edit show]
   before_action :find_event, only: %i[show edit drop update destroy]
 
   def index
