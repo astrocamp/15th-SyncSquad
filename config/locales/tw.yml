@@ -300,3 +300,11 @@ tw:
       task:
         create: "新增任務"
         update: "更新任務"
+
+  views:
+    pagination:
+      next: "下一頁"
+      last: "最後一頁"
+      previous: "前一頁"
+      first: "第一頁"
+      truncate: "..."
