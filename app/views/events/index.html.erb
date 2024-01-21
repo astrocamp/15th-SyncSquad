@@ -1,9 +1,3 @@
-<%= link_to  "", new_event_path, data:{turbo_frame: "modal"} %>
-
-<div data-controller="calendar"
-     class="w-full lg:w-2/3 mx-auto" id="calendar">
-</div>
-
-<div id="event">
-    <%= render partial: 'listed', locals:{events: @events} %>
+<div data-controller="event" data-company=<%= current_company&.id %>
+     class="w-full lg:w-2/3 mx-auto" id="event">
 </div>
