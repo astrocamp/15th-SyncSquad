@@ -149,6 +149,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_091921) do
     t.index ["deleted_at"], name: "index_projects_on_deleted_at"
   end
 
+  create_table "room_visits", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "last_visited_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_visits_on_room_id"
+    t.index ["user_id"], name: "index_room_visits_on_user_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.integer "max_participants"
@@ -220,5 +230,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_091921) do
   add_foreign_key "project_members", "projects"
   add_foreign_key "project_members", "users"
   add_foreign_key "rooms", "companies"
+  add_foreign_key "room_visits", "rooms"
+  add_foreign_key "room_visits", "users"
   add_foreign_key "tasks", "lists"
 end

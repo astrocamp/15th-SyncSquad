@@ -20,6 +20,7 @@ class User < ApplicationRecord
   after_create_commit { broadcast_append_to 'users' }
 
   has_many :messages
+  has_many :room_visits
 
   # Chatroom avatar
   has_one_attached :avatar

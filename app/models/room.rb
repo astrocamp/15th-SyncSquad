@@ -9,6 +9,8 @@ class Room < ApplicationRecord
   # has_many :users, through: :participants
   belongs_to :company
 
+  has_many :room_visits
+
   enum room_type: { public_room: 0, single_room: 1, private_room: 2 }
 
   def broadcast_if_public(current_user)
@@ -17,6 +19,10 @@ class Room < ApplicationRecord
 
   def public_room?(current_user)
     self.room_type == 'public_room' && self.company_id == current_user.company_id
+  end
+
+  def private_room?
+    self.room_type == 'private_room'
   end
 
   def broadcast_if_private_group
@@ -41,5 +47,12 @@ class Room < ApplicationRecord
   def participant?(room, user)
     room.participants.where(user:).exists?
     Participant.where(user_id: user.id, room_id: room.id).exists?
+  end
+
+  def unread_messages_count(user)
+    last_visit = ::RoomVisit.find_by(user_id: user.id, room_id: self.id)
+    return 0 unless last_visit
+
+    messages.where('created_at > ?', last_visit.last_visited_at).count
   end
 end
