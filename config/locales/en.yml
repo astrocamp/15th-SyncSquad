@@ -283,3 +283,11 @@ en:
     condition_seven: "Project Limit: 3"
     condition_eight: "Membership Restriction: 5 people"
     condition_nine: "Chat Room Limit: 5"
+
+  views:
+    pagination:
+      next: "Next"
+      last: "Last"
+      previous: "Previous"
+      first: "First"
+      truncate: "..."
