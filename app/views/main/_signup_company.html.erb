@@ -1,18 +1,18 @@
 <%= form_with model: @company, data: {turbo_method: 'POST'}, class: 'my-5' do |form| %>
   <div class="mb-1">
-    <%= form.label t('main.name'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
+    <%= form.label :name, t('main.name'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
     <%= form.text_field :name, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
   </div>
   <div class="mb-1">
-    <%= form.label t('main.email'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
+    <%= form.label :email, t('main.email'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
     <%= form.email_field :email, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
   </div>
   <div class="mb-1">
-    <%= form.label t('main.password'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
+    <%= form.label :password, t('main.password'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
     <%= form.password_field :password, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
   </div>
   <div class="mb-1">
-    <%= form.label t('main.password_confirmation'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
+    <%= form.label :password_confirmation, t('main.password_confirmation'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
     <%= form.password_field :password_confirmation, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
   </div>
   <div class="mt-10">
