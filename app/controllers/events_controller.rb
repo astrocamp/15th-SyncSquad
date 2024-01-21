@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  before_action :require_login, only: %i[index]
   before_action :find_event, only: %i[show edit drop update destroy]
-  before_action :authenticate_user!
 
   def index
-    @events = current_user.events.map(&:full_calendar_event)
-    @event = Event.new
+    @events = if current_user
+                current_user.company.events.map(&:full_calendar_event)
+              else
+                current_company.events.map(&:full_calendar_event)
+              end
     respond_to do |format|
       format.html
       format.json { render json: @events }
@@ -14,12 +17,13 @@ class EventsController < ApplicationController
   end
 
   def new
+    @started_at_value = DateTime.parse(params['startedAt'])
+    @ended_at_value = DateTime.parse(params['endedAt'])
     @event = Event.new
   end
 
   def create
-    @event = current_user.events.new(event_params)
-    # 直接for current user
+    @event = current_company.events.build(event_params)
     if @event.save
       flash.now[:success] = '事件建立成功'
     else
@@ -36,8 +40,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update(event_params)
-    if @event.save
+    if @event.update(event_params)
       flash.now[:success] = '事件更新成功'
     else
       render :edit
@@ -55,11 +58,16 @@ class EventsController < ApplicationController
     params
       .require(:event)
       .permit(
-        :subject, :start_date, :start_time, :end_date, :end_time, :all_day_event, :description, :location, :private
+        :subject, :started_at, :ended_at, :all_day_event, :description
       )
   end
 
   def find_event
     @event = Event.find(params[:id])
+  end
+
+  def require_login
+    return if current_company || current_user
+    redirect_to root_path, notice: '請登入'
   end
 end

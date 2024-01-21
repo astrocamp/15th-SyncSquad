@@ -1,5 +1,5 @@
-<% if task.errors.any? %>
-  <% task.errors.full_messages.each do |message| %>
+<% if event.errors.any? %>
+  <% event.errors.full_messages.each do |message| %>
     <div class="flex justify-center bg-red-400">
       <%= message%>
     </div>
@@ -7,40 +7,25 @@
 <% end %>
 
 
-<%= form_with model: task do |form| %>
+<%= form_with model: event do |form| %>
   <div class="grid gap-10 p-10 mb-10 md:grid-cols-2">
     <div>
       <%= form.label :subject, t('form.Subject'), class:'form-text'%>
       <%= form.text_field :subject, class:'form-input', required: true %>
-      <%= form.label :location, t('form.Location'), class:'form-text' %>
-      <%= form.text_field :location, class:'form-input' %>
       <%= form.label :description, t('form.Description'), class:'form-text' %>
       <%= form.text_area :description, class:'form-input' %>
-
-
-      <div class="relative top-10">
-        <%= form.label :private, class: 'form-toggle-layer-1' do %>
-          <%= form.check_box :private, class: "sr-only peer", checked: false %>
-          <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-          <span class='form-toggle-layer-3'><%=t('form.Private')%></span>
-        <% end %>
-      </div>
 
     </div>
 
     <div data-controller = "datepicker"> 
-      <%= form.label :start_date, t('form.Start Date'), class:'form-text' %>
-      <%= form.date_field :start_date, class:'form-input', value:task.start_date || Date.today, required: true, data:{ datepicker_target:"startDate"}%>
-      <%= form.label :start_time, t('form.Start Time'), class:'form-text' %>
-      <%= form.time_field :start_time, class:'form-input', value:task.start_time || Time.now, data:{ datepicker_target:"startTime"} %>
-      <%= form.label :end_date, t('form.End Date'), class:'form-text' %>
-      <%= form.date_field :end_date, class:'form-input', value:task.end_date || Date.today, required: true, data:{ datepicker_target:"endDate"} %>
-      <%= form.label :end_time, t('form.End Time'), class:'form-text' %>
-      <%= form.time_field :end_time, class:'form-input', value:task.end_time || Time.now + 5.minutes, data:{ datepicker_target:"endTime"} %>
+      <%= form.label :started_at, t('form.Start Date'), class:'form-text' %>
+      <%= form.date_field :started_at, class:'form-input', value:event.started_at || @started_at_value, required: true, data:{ datepicker_target:"startedAt"}%>
+      <%= form.label :ended_at, t('form.End Date'), class:'form-text' %>
+      <%= form.date_field :ended_at, class:'form-input', value:event.ended_at || @ended_at_value, required: true, data:{ datepicker_target:"endedAt"} %>
 
       <div class="relative top-10">
         <%= form.label :all_day_event, class: 'form-toggle-layer-1' do %>
-          <%= form.check_box :all_day_event, class: "sr-only peer", checked: false %>
+          <%= form.check_box :all_day_event, class: "sr-only peer", checked: event.all_day_event, data:{ datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"} %>
           <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
           <span class='form-toggle-layer-3'><%=t('form.All')%></span>
         <% end %>

@@ -3,18 +3,13 @@
 <% end %>
 <%= render "shared/modal" do %>
   <div class="px-6 py-4">
-    <%= link_to t('show.Edit'), edit_event_path(@event), data:{turbo_frame: "modal"}, class:'form-btn'%>
-    <%= link_to t('show.Delete'), event_path(@event), data:{turbo_method:'delete', turbo_confirm: '確定要刪除嗎', action:"click->turbomodal#close"}, class:'form-btn' %>
     <ul>
       <li class="py-2"><%= t('show.Subject') %>：<%= @event.subject %></li>
-      <li class="py-2"><%= t('show.Start Date') %>：<%= @event.start_date %></li>
-      <li class="py-2"><%= t('show.Start Time') %>：<%= @event.start_time.strftime('%H:%M') %></li>
-      <li class="py-2"><%= t('show.End Date') %>：<%= @event.end_date %></li>
-      <li class="py-2"><%= t('show.End Time') %>：<%= @event.end_time.strftime('%H:%M') %></li>
+      <li class="py-2"><%= t('show.Start Date') %>：<%= @event.started_at %></li>
+      <li class="py-2"><%= t('show.End Date') %>：<%= @event.ended_at %></li>
       <li class="py-2"><%= t('show.All Day') %>：<%= @event.all_day_event %></li>
       <li class="py-2"><%= t('show.Description') %>：<%= @event.description %></li>
       <li class="py-2"><%= t('show.Location') %>：<%= @event.location %></li>
-      <li class="py-2"><%= t('show.Private') %>：<%= @event.private %></li>
     </ul>
   </div>
 <% end %>
