@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :project_members, dependent: :destroy
   has_many :affiliated_projects, through: :project_members, source: :project
   has_many :tasks
-  has_many :participants
-  has_many :rooms, through: :participants
+  # has_many :participants
+  # has_many :rooms, through: :participants
 
   # Chatroom messages
   scope :all_except, ->(user) { where.not(id: user) }
