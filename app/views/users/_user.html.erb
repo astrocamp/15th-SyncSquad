@@ -19,5 +19,14 @@
     <%= link_to format_user_email(user), user_path(user, tab_type: 'single_chat'), data: {turbo: "false"},class: "text-xl font-medium" %>  
   </div>
 
+<% room_id = @single_chat.find { |room| room.participants.any? { |participant| participant.user_id == user.id } }&.id %>
+
+ <% if @single_unread_counts && room_id %>
+      
+      <% unread_count = @single_unread_counts[room_id] || 0 %>
+      <% if unread_count > 0 %>
+        <span class="unread-count bg-red-500 rounded-full w-6 text-center text-base mr-3"><%= unread_count %></span>
+      <% end %>
+    <% end %>
+
 </div>
-  
