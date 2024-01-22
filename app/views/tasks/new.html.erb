@@ -2,30 +2,60 @@
   <%= t('tasks.new') %>
 <% end %>
 <%= render 'shared/modal' do %>
-  
-  <%= form_with model: [@list, @list.tasks.new], url: list_tasks_path(@list.id) do |form| %>
-    <div class="p-4 space-y-4 md:p-5">
-      <div>
-      <%= form.label :title, t('tasks.new_title') %>
-      <%= form.text_field :title, required: true %>
-      </div>
-      <div>
-        <%= form.label :description, t('tasks.new_description') %>
-        <%= form.text_area :description %>
-      </div>
-      <div class="w-[350px]">
-        <%= form.label :user_id, t('tasks.edit_user_id') %>
-        <%= form.select :user_id, User.where(company_id: current_user.company_id).pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect", search_placeholder: t('search_placeholder') } %> 
-        <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
-      </div>
-      <div>
-        <%= form.label :priority, t('tasks.new_priority')%>
-        <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, value| [t("tasks.priorities.#{key.to_s}"), key] },  @task.priority), { prompt: t('tasks.priority_prompt') }, data:{controller: "slimselect", search_placeholder: t('search_placeholder') }, class:"w-56") %>
-      </div>
-      <div data-controller="datepicker">
-        <div>
-          <%= form.label :started_at, t('tasks.new_started_at') %>
-          <%= form.datetime_field :started_at, required: true, value: Date.today, data:{datepicker_target:"startedAt"} %>
+    <div>
+      <%= form_with model: [@list, @list.tasks.new], url: list_tasks_path(@list.id), class: 'relative overflow-y-auto max-h-[70vh]' do |form| %>
+        <div class="border-t-8 " style="border-color:<%= @list.color %>; border-style: solid;">
+          <div class="p-4 space-y-4 md:p-5">
+            <p class="font-bold" style="color:<%= @list.color %>;">><%= @list.title %></p>
+            <div class="flex items-center">
+              <%= form.label :title, t('tasks.edit_title'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
+              <div class="w-full">
+                <%= form.text_field :title, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5' %>
+                <p class="text-sm error_explanation"><%= t('activerecord.errors.models.task.attributes.title.blank') if @task.errors.any? %></p>
+              </div>
+            </div>
+            <div class="flex items-center w-full">
+              <%= form.label :user_id, t('tasks.edit_user_id'), class: "flex-none mr-2 text-sm font-medium text-gray-900" %>
+              <%= form.select :user_id, User.where(company_id: current_user.company_id).pluck(:email, :id), {include_blank: true} , data:{controller: "slimselect", search_placeholder: t('search_placeholder') },
+                  class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5' %>
+              <%# 藉由pluck 只需要email 跟 id 回傳是Array型態  %>
+            </div>
+            <div class="flex items-center mt-4">
+              <%= form.label :description, t('tasks.edit_description'), class: "flex-none mr-2 text-sm font-medium text-gray-900" %>
+              <%= form.text_area :description, class: 'flex-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'  %>
+            </div>
+            <div data-controller="datepicker">
+              <div class="flex items-center">
+                <p class="flex-none mr-2 text-sm font-medium text-gray-900"><%= t('tasks.time') %></p>
+                <%= form.datetime_field :started_at , data:{datepicker_target:"startedAt"}, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5' %>
+                <p class="px-4">~</p>
+                <%= form.datetime_field :ended_at, data:{datepicker_target:"endedAt"}, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5' %>
+              </div>
+              <div class="flex items-center justify-between mt-4">
+                <div>
+                  <%= form.label :all_day_event, t('tasks.edit_all_day_event'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
+                  <%= form.check_box :all_day_event, data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"},
+                      class: 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 ' %>
+                </div>
+                <div>
+                  <%= form.label :estimated_completed_at, t('tasks.edit_estimated_completed_at'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
+                  <%= form.datetime_field :estimated_completed_at, class: 'bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none' %>
+                </div>
+              </div>
+            </div>
+            <div>
+              <%= form.label :priority, t('tasks.edit_priority'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
+              <%= form.select(:priority, options_for_select(Task::PRIORITY.keys, @task.priority), { prompt: t('tasks.edit_select') }, { class: 'bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none' }) %>
+            </div>
+            <div data-controller="map">
+              <div class="flex items-center">
+                <%= form.label :location, t('tasks.edit_location'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
+                <%= form.text_field :location, placeholder: t('tasks.location_placeholder'), data:{ map_target:"field" }, class: 'flex-auto bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none'%>
+                <button data-action="click->map#resetLocation" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"><%= t('tasks.edit_location_reset') %></button>
+              </div>
+              <div id="map" data-map-target="map" data-location="<%= @location %>" data-latitude="<%= @latitude %>" data-longitude="<%= @longitude %>" data-id="<%= @task.id %>" class="mt-4">
+            </div>
+          </div>
         </div>
         <div>
           <%= form.label :ended_at, t('tasks.new_ended_at') %>

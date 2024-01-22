@@ -39,4 +39,8 @@ class Task < ApplicationRecord
 
     errors.add(:ended_at, 'must be after the start time')
   end
+
+  def priority_text
+    I18n.t("activerecord.attributes.task.priorities.#{priority}")
+  end
 end

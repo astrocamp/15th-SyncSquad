@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="flex flex-1 pl-6 overflow-hidden" style="max-height: calc(100% - 12rem);">
-      <ul id="all_list" class="flex gap-4 overflow-x-auto scrollbar" data-controller="sortable" >
+      <ul id="all_list" class="flex gap-4 overflow-y-auto scrollbar" data-controller="sortable" >
         <%= render partial: 'list', collection: @project.lists.rank(:row_order)%>
         <li>
           <%= link_to  new_project_list_path(@project),

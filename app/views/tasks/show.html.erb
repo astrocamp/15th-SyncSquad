@@ -1,40 +1,81 @@
 <%= content_for :modal_title do %>
-  <%= t('tasks.show') %>
+  <%= @task.title %>
 <% end %>
 <%= render 'shared/modal' do %>
-  <div class="p-4 space-y-4 md:p-5">
-    <h2><%= t('tasks.show_title') %>：<%= @task.title %></h2>
-    <p><%= t('tasks.show_description') %>：<%= @task.description %></p>
-    <p><%= t('tasks.show_priority') %>：<%= @task.priority %></p>
-    <p><%= t('tasks.show_started_at') %>：<%= @task.started_at %></p>
-    <p><%= t('tasks.show_ended_at') %>：<%= @task.ended_at %></p>
-    <p><%= t('tasks.show_estimated_completed_at') %>：<%= @task.estimated_completed_at %></p>
-    <p><%= t('tasks.show_user_id') %>：<%= @task.user&.email %></p>
-    <p><%= t('tasks.show_location') %>：<%= @task.location %></p>
-    <p><%= link_to t('tasks.show_edit'), edit_task_path(@task), data: { turbo_frame: "modal" }, class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %></p>
-  </div>
-
-  <section class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
-    <h3 class="text-2xl font-bold text-gray-800 mb-4"><%=  t('comments.comment') %></h3>
-      <div class="scrollable-modal">
-        <div id="comment_area">
-          <% @comments.each do |comment| %>
-            <ul class="space-y-4 mb-6">
-              <span class="text-lg text-gray-800"><%= comment.user.email %> </span>
-              <span> <%= comment.created_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p')  %></span>
-              <li class="bg-gray-100 p-4 rounded-lg">
-                <div class="prose max-w-none">
-                  <p class="markdown"><%= advanced_markdown(comment.content) %></p>
-                </div>
-              </li>
-              <div><%= link_to  t('comments.destroy_comment'), comment_path(comment), data:{turbo_method:"delete"}, class:"bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-300 ease-in-out"%></div>
-            </ul>
+  <div class="border-t-8 " style="border-color:<%= @task.list.color %>; border-style: solid;">
+    <div class="relative p-4 space-y-4 md:p-5">
+      <div class="flex items-center justify-between">
+        <p class="font-bold" style="color:<%= @task.list.color %>;">> <%= @task.list.title %></p>
+        <%= link_to edit_task_path(@task), data: { turbo_frame: "modal" }, class: 'flex items-center px-4 py-2 ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium hover:text-gray-900 focus:z-10' do %>
+          <i class="mr-2 fa-regular fa-pen-to-square"></i>
+          <p><%= t('tasks.show_edit') %></p>
+        <% end %>
+      </div>
+      <div class="flex items-center py-1">
+        <% unless @task.user.nil? %>
+          <% if @task.user.avatar.attached? %>
+            <%= link_to image_tag(@task.user.chat_avatar,
+                                  class: "w-5 h-5 rounded-full ml-3"), user %>
+          <% else %>
+            <div class="mr-2 bg-gray-100 rounded-lg w-7 h-7">
+              <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
+            </div>
           <% end %>
+          <p class="mr-2"><%= @task.user.nick_name %></p>
+        <% end %>
+        <div class="inline-block pr-2 mx-1 text-white rounded-md
+                    <%= case @task.priority
+                        when 'critical' then 'bg-red-600' 
+                        when 'high' then 'bg-yellow-300' 
+                        when 'medium' then 'bg-lime-400' 
+                        when 'low' then 'bg-gray-300' end %>">
+          <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>
+          <%= @task.priority %>
         </div>
-      <%= form_with(model: @comment, url: task_comments_path(@task), data: { controller: "turbomodal", action: "turbo:submit-end->turbomodal#open turbo:submit-end->turbomodal#reset"}) do |f| %>
-        <%= f.text_area :content, class: "w-full p-4 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent", rows: 6%>
-        <%= f.submit t('comments.create_comment'), class: "px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" %>
-      <% end %>
+      </div>
+      <div class="flex items-center">
+        <i class="mr-2 fa-solid fa-align-justify"></i>
+        <p class="mr-2"><%= t('tasks.show_description') %></p>
+        <p><%= @task.description %></p>
+      </div>
+      <div class="flex items-start">
+        <div class="flex items-center mr-2">
+          <i class="mr-2 fa-regular fa-calendar"></i>
+          <p><%= t('tasks.time') %></p>
+        </div>
+        <div>
+          <p><%= @task.started_at %></p>
+          <p><%= @task.ended_at %></p>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <i class="mr-2 fa-solid fa-location-dot"></i>
+        <p class="mr-2"><%= t('tasks.show_location') %></p>
+        <p><%= @task.location %></p>
+      </div>
     </div>
-  </section>
+    <section class="max-w-4xl p-6 mx-auto bg-white rounded-lg shadow-md">
+      <h3 class="mb-4 text-2xl font-bold text-gray-800"><%=  t('comments.comment') %></h3>
+        <div class="scrollable-modal">
+          <div id="comment_area">
+            <% @comments.each do |comment| %>
+              <ul class="mb-6 space-y-4">
+                <span class="text-lg text-gray-800"><%= comment.user.email %> </span>
+                <span> <%= comment.created_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p')  %></span>
+                <li class="p-4 bg-gray-100 rounded-lg">
+                  <div class="prose max-w-none">
+                    <p class="markdown"><%= advanced_markdown(comment.content) %></p>
+                  </div>
+                </li>
+                <div><%= link_to  t('comments.destroy_comment'), comment_path(comment), data:{turbo_method:"delete"}, class:"bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-300 ease-in-out"%></div>
+              </ul>
+            <% end %>
+          </div>
+        <%= form_with(model: @comment, url: task_comments_path(@task), data: { controller: "turbomodal", action: "turbo:submit-end->turbomodal#open turbo:submit-end->turbomodal#reset"}) do |f| %>
+          <%= f.text_area :content, class: "w-full p-4 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent", rows: 6%>
+          <%= f.submit t('comments.create_comment'), class: "px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" %>
+        <% end %>
+      </div>
+    </section>
+  </div>
 <% end %>

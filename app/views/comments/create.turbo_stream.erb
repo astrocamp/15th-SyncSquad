@@ -1,17 +1,36 @@
 <turbo-stream action="update" target="comment_area">
   <template>
-  <% @comments.each do |comment| %>
-    <ul class="space-y-4 mb-6">
-      <span class="text-lg text-gray-800"><%= comment.user.email %> </span>
-      <span> <%= comment.created_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></span>
-      <li class="bg-gray-100 p-4 rounded-lg">
-        <div class="prose max-w-none">
-          <p class="markdown"><%= advanced_markdown(comment.content) %></p>
+    <% @comments.each do |comment| %>
+      <ul class="mt-6 space-y-4">
+        <div class="flex items-center justify-between">
+          <% unless comment.user.nil? %>
+            <div class="flex items-center">
+              <% if comment.user.avatar.attached? %>
+                <%= link_to image_tag(comment.user.chat_avatar, class: "w-7 h-7 rounded-full mr-2"), comment.user %>
+              <% else %>
+                <div class="mr-2 rounded-full w-7 h-7">
+                  <i class="block w-5 h-5 p-1 text-gray-400 fa-solid fa-user"></i>
+                </div>
+              <% end %>
+              <p class="flex-auto mr-2 truncate"><%= comment.user.nick_name == "" ? (comment.user.name == "" ? comment.user.email : @task.user.name ) : @task.user.nick_name %></p>
+            </div>
+          <% end %>
+          <div class="flex items-center">
+            <p class="text-xs text-gray-400"> <%= comment.created_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></p>
+            <%= link_to comment_path(comment), data:{turbo_method:"delete"},
+                class: " flex items-center p-2 ml-2 hover:bg-gray-300 rounded-lg text-gray-400 hover:text-red-600 transition duration-300 ease-in-out" do %>
+              <i class="fa-regular fa-trash-can"></i>
+            <% end %>
+          </div>
         </div>
-      </li>
-      <div><%= link_to "Delete", comment_path(comment), data:{turbo_method:"delete"}, class:"bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-300 ease-in-out"%></div>
-    </ul>
-  <% end %>
+        <div class="relative flex m-none">
+          <div class="flex-none w-9"></div>
+          <li class="flex-auto px-4 pt-4 break-words bg-white rounded-lg markdown" style="width: calc(100% - 12rem);">
+            <%= advanced_markdown(comment.content) %>
+          </li>
+        </div>
+      </ul>
+    <% end %> 
   </template>
 </turbo-stream>
 
