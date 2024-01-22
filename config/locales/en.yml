@@ -27,24 +27,24 @@ en:
   lists:
     create_success: "Creation Success!"
     update_success: "Update Success!"
-    destroy_success: "Delete Success!"    
-    index_affiliated: 'Affiliated Projects'
-    show_confirm: 'Are you sure you want to delete the list?'
-    form_title: 'Title'
-    form_description: 'Description'
-    form_cancel: 'Cancel'
-    list_delete: 'Delete'
-    main_search: 'Search'
-    main_title_or_email: 'Title/Email'
-    main_clear: 'Clear'
-    main_title: 'Title'
-    main_description: 'Description'
-    main_email: 'Email'
-    main_created_time: 'Created Time'
-    main_updated_time: 'Updated Time'
-    delete_task: 'Deleted Task'
-    kanban: 'Kanban'
-    calendar: 'Calendar'
+    destroy_success: "Delete Success!"
+    index_affiliated: "Affiliated Projects"
+    show_confirm: "Are you sure you want to delete the list?"
+    form_title: "Title"
+    form_description: "Description"
+    form_cancel: "Cancel"
+    list_delete: "Delete"
+    main_search: "Search"
+    main_title_or_email: "Title/Email"
+    main_clear: "Clear"
+    main_title: "Title"
+    main_description: "Description"
+    main_email: "Email"
+    main_created_time: "Created Time"
+    main_updated_time: "Updated Time"
+    delete_task: "Deleted Task"
+    kanban: "Kanban"
+    calendar: "Calendar"
     new: "Create List"
     new_title: "Title"
     new_cancel: "Cancel"
@@ -53,7 +53,7 @@ en:
     edit_color: "Color"
     edit_cancel: "Cancel"
     edit_delete: "Delete"
-    edit_confirm: "Are you sure you want to delete the list?"    
+    edit_confirm: "Are you sure you want to delete the list?"
 
   tasks:
     priority_prompt: "Select Priority"
@@ -293,13 +293,6 @@ en:
       blank: "此欄位不能為空"
       too_short: "密碼太短"
       invalid: "信息不正確"
-        role:
-          inclusion: "is not correct"
-        password:
-          too_short: "is too short"
-          blank: "is blank"
-        current_password:
-          blank: "is blank"
 
   search_placeholder: "Search"
 

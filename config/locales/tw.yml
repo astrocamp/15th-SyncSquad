@@ -44,7 +44,7 @@ tw:
     main_updated_time: "更新時間"
     delete_task: "刪除任務"
     kanban: "看板"
-    calendar: "行事曆"    
+    calendar: "行事曆"
     new: "新建列表"
     new_title: "名稱"
     new_cancel: "取消"
@@ -70,7 +70,7 @@ tw:
     edit_started_at: "開始時間"
     edit_ended_at: "結束時間"
     edit_all_day_event: "整日活動"
-    edit_priority: "優先級"    
+    edit_priority: "優先級"
     edit_select: "選擇"
     edit_estimated_completed_at: "預計完成時間"
     edit_location: "地點"
@@ -293,13 +293,6 @@ tw:
       blank: "此欄位不能為空"
       too_short: "密碼太短"
       invalid: "信息不正確"
-        role:
-          inclusion: "不正確的角色"
-        password:
-          too_short: "太短"
-          blank: "為空白"
-        current_password:
-          blank: "為空白"
 
   search_placeholder: "搜尋"
 
@@ -328,7 +321,7 @@ tw:
     join: "立即加入"
     condition_seven: "會員限制5人"
     condition_eight: "擁有一鍵使用CSV上傳員工的功能"
-    login: "請登入"  
+    login: "請登入"
 
   views:
     pagination:
@@ -337,7 +330,7 @@ tw:
       previous: "前一頁"
       first: "第一頁"
       truncate: "..."
-      
+
   helpers:
     submit:
       user:
