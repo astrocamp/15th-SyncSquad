@@ -13,7 +13,7 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def show_private_room?
-    room.any? { |r| r.participants.exists?(user_id: user.id) }
+    room.participants.exists?(user_id: user.id)
   end
 
   def create_message?
