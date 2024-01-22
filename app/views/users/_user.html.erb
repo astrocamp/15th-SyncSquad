@@ -19,7 +19,10 @@
     <%= link_to format_user_email(user), user_path(user, tab_type: 'single_chat'), data: {turbo: "false"},class: "text-xl font-medium" %>  
   </div>
 
+
+<% if @single_chat %>
 <% room_id = @single_chat.find { |room| room.participants.any? { |participant| participant.user_id == user.id } }&.id %>
+<% end %>
 
  <% if @single_unread_counts && room_id %>
       
