@@ -2,6 +2,7 @@
 
 class HrsController < ApplicationController
   before_action :find_user, only: %i[update destroy]
+  before_action :limit, only: %i[create]
 
   def index
     authorize current_company, policy_class: HrsPolicy
@@ -41,5 +42,11 @@ class HrsController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+  end
+
+  def limit
+    return if current_company.add_more_users?
+
+    redirect_to orders_path, notice: '請參考付費功能'
   end
 end

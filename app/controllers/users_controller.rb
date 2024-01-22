@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :limit, only: %i[import]
   def import
     file = params[:file]
     if file.nil? || file.content_type != 'text/csv'
@@ -53,5 +54,11 @@ class UsersController < ApplicationController
   def get_name(user1, user2)
     user = [user1, user2].sort
     "private_#{user[0].id}_#{user[1].id}"
+  end
+
+  def limit
+    return if current_company.advanced_import?
+
+    redirect_to orders_path, notice: '請參考付費功能'
   end
 end

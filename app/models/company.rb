@@ -11,6 +11,14 @@ class Company < ApplicationRecord
   before_create :encrypt_password
   # 2FA 二階段驗證
 
+  def add_more_users?
+    paid || users.count < 5
+  end
+
+  def advanced_import?
+    paid
+  end
+
   def self.login(data)
     email = data[:email]
     password = Digest::SHA256.hexdigest("*xx#{data[:password]}yy-")
