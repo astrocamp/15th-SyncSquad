@@ -4,6 +4,6 @@
 <%= render "shared/modal" do %>
   <%= render 'form', event: @event %>
   <div class="px-6 py-4">
-  <%= link_to t('calender.delete'), event_path(@event), data:{turbo_method:'delete', turbo_confirm: t('calendar.delete_confirm'), action:"click->turbomodal#close"}, class:'form-btn' %>
+  <%= link_to t('calender.delete'), event_path(@event), data:{turbo_method:'delete', turbo_confirm: t('calender.delete_confirm'), action:"click->turbomodal#close"}, class:'form-btn' %>
   </div>
 <% end %>
