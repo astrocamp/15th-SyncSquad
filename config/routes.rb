@@ -10,7 +10,10 @@ Rails.application.routes.draw do
     get '/feature/project', to: 'main#project'
   
 
-    devise_for :users, path: 'auth', only: %i[sessions registrations password]
+    devise_for :users, controllers: {
+      sessions: 'users/registrations/sessions',
+      registrations: 'users/registrations/registrations'
+    }
 
     devise_scope :user do
       get 'users', to: 'devise/sessions#new'
