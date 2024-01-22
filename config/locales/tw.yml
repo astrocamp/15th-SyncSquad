@@ -136,6 +136,7 @@ tw:
 
   calender:
     event: "活動"
+    login: "請登入"
     subject: "名稱"
     description: "說明"
     started_at: "開始時間"
