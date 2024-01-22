@@ -66,18 +66,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_091921) do
 
   create_table "events", force: :cascade do |t|
     t.string "subject", null: false
-    t.date "start_date", null: false
-    t.time "start_time"
-    t.date "end_date", null: false
-    t.time "end_time"
     t.boolean "all_day_event", default: false
     t.text "description"
     t.text "location"
-    t.boolean "private", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
     t.datetime "deleted_at"
+    t.integer "company_id"
+    t.datetime "started_at", null: false
+    t.datetime "ended_at", null: false
     t.index ["deleted_at"], name: "index_events_on_deleted_at"
   end
 
@@ -155,12 +152,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_091921) do
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.integer "max_participants"
-    t.boolean "is_private", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "company_id", null: false
     t.integer "room_type", default: 0
+    t.bigint "company_id", null: false
     t.index ["company_id"], name: "index_rooms_on_company_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
