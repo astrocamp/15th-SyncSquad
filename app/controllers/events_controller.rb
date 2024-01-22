@@ -68,6 +68,7 @@ class EventsController < ApplicationController
 
   def require_login
     return if current_company || current_user
-    redirect_to root_path, notice: '請登入'
+
+    redirect_to root_path, alert: t('calender.login')
   end
 end
