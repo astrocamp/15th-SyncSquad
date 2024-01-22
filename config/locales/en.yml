@@ -152,6 +152,9 @@ en:
     show_all_day_event: "All Day Event"
     delete: "Delete Event"
     delete_confirm: "Are You Sure You Want To Delete?"
+    create_success: "Event created"
+    update_success: "Event updated"
+    deleted: "Event has been deleted"
 
   company:
     creation_success: "Successfully Registered the Company"
