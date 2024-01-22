@@ -4,7 +4,7 @@
 	<% if room.private_room? && @unread_counts %>
     <% unread_count = @unread_counts[room.id] || 0 %>
     <% if unread_count > 0 %>
-      <span class="unread-count bg-red-500 rounded-full w-6 text-center text-base mr-3"><%= unread_count %></span>
+      <span class="unread-count bg-red-500 rounded-full w-6 text-center text-base mr-3 text-white"><%= unread_count %></span>
     <% end %>
   <% end %>
 </div>
