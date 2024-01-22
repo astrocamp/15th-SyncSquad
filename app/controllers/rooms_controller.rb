@@ -9,6 +9,10 @@ class RoomsController < ApplicationController
     @rooms = Room.where(room_type: 'public_room', company: current_user.company)
     @users = User.where(company: current_user.company).all_except(current_user)
     params[:tab_type] ||= 'single_chat'
+    @single_chat = Room.joins(:participants)
+                          .where(room_type: 'single_room',
+                                 participants: { user_id: current_user.id })
+
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
@@ -17,6 +21,9 @@ class RoomsController < ApplicationController
       counts[room.id] = room.unread_messages_count(current_user)
     end
 
+    @single_unread_counts = @single_chat.each_with_object({}) do |room, counts|
+      counts[room.id] = room.unread_messages_count(current_user)
+    end
     params[:tab_type] ||= 'single_chat'
   end
 
@@ -74,6 +81,9 @@ class RoomsController < ApplicationController
       authorize @check_room, :show_private_room?, policy_class: RoomPolicy
     end
 
+    @single_chat = Room.joins(:participants)
+                          .where(room_type: 'single_room',
+                                 participants: { user_id: current_user.id })
     render 'index'
   end
 
