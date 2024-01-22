@@ -25,6 +25,9 @@ export default class extends Controller {
       },
       events: "/events.json",
       timeZone: "auto",
+      eventBackgroundColor: "#fff",
+      eventColor: "#2c3e50",
+      eventTextColor: "#2c3e50",
       locales: allLocales,
       locale: locale,
       eventTimeFormat: {
