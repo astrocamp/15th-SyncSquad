@@ -29,272 +29,268 @@ tw:
     project_owner: "專案建立者"
 
   lists:
-    create_success: "新增成功!"
-    update_success: "更新成功!"
-    destroy_success: "刪除成功!"
-    index_affiliated: "專案看板"
-    show_confirm: "您確定要刪除專案嗎？"
-    form_title: "名稱"
-    form_description: "說明"
-    form_cancel: "取消"
-    list_delete: "刪除"
-    main_search: "搜尋專案"
-    main_title_or_email: "名稱／信箱"
-    main_clear: "清空"
-    main_title: "名稱"
-    main_description: "說明"
-    main_email: "信箱"
-    main_created_time: "建立時間"
-    main_updated_time: "更新時間"
-    delete_task: "刪除任務"
-    kanban: "看板"
-    calendar: "行事曆"
-    new: "新建列表"
-    new_title: "名稱"
-    new_cancel: "取消"
-    edit_list_title: "編輯列表名稱"
-    edit_title: "名稱"
-    edit_color: "顏色"
-    edit_cancel: "取消"
-    edit_delete: "刪除"
-    edit_confirm: "您確定刪除列表嗎？"
+    create_success: '新增成功!'
+    update_success: '更新成功!'
+    destroy_success: '刪除成功!'
+    index_affiliated: '專案看板'
+    show_confirm: '您確定要刪除專案嗎？'
+    form_title: '名稱'
+    form_description: '說明'
+    form_cancel: '取消'
+    list_delete: '刪除'
+    main_search: '搜尋專案'
+    main_title_or_email: '名稱／信箱'
+    main_clear: '清空'
+    main_title: '名稱'
+    main_description: '說明'
+    main_email: '信箱'
+    main_created_time: '建立時間'
+    main_updated_time: '更新時間'
+    delete_task: '刪除任務'
+    kanban: '看板'
+    calendar: '行事曆'
+    new: '新建列表'
+    new_title: '名稱'
+    new_cancel: '取消'
+    edit_list_title: '編輯列表名稱'
+    edit_title: '名稱'
+    edit_color: '顏色'
+    edit_cancel: '取消'
+    edit_delete: '刪除'
+    edit_confirm: '您確定刪除列表嗎？'
 
   tasks:
-    priority_prompt: "選擇優先級"
-    location_placeholder: "輸入位置"
-    create_success: "新增成功!"
-    create_not_saved: "請去入完整資料"
-    update_success: "更新成功！"
-    destroy_success: "刪除成功！"
-    task_confirm: "您確定要刪除任務嗎？"
-    edit: "編輯任務"
-    edit_title: "名稱"
-    edit_description: "說明"
-    edit_user_id: "成員"
-    edit_started_at: "開始時間"
-    edit_ended_at: "結束時間"
-    edit_all_day_event: "整日活動"
-    edit_priority: "優先級"
-    edit_select: "選擇"
-    edit_estimated_completed_at: "預計完成時間"
-    edit_location: "地點"
-    edit_location_reset: "重設地點"
-    edit_cancel: "取消"
-    new: "新建任務"
-    new_title: "名稱"
-    new_list_id: "列表名稱"
-    new_description: "說明"
-    new_priority: "優先級"
-    new_started_at: "開始時間"
-    new_ended_at: "結束時間"
-    new_all_day_event: "整日活動"
-    new_estimated_completed_at: "預計完成時間"
-    new_location: "地點"
-    new_location_reset: "重設地點"
-    new_cancel: "取消"
-    show: "顯示任務"
-    show_title: "名稱"
-    show_edit: "編輯任務"
-    show_description: "說明"
-    show_user_id: "成員"
-    show_started_at: "開始時間"
-    show_ended_at: "結束時間"
-    show_all_day_event: "整日活動"
-    show_priority: "優先級"
-    show_select: "選擇"
-    show_estimated_completed_at: "預計完成時間"
-    show_location: "地點"
-    priorities:
-      critical: "緊急"
-      high: "高"
-      medium: "中"
-      low: "低"
+    priority_prompt: '選擇優先級'
+    location_placeholder: '輸入位置'
+    create_success: '新增成功!'
+    create_not_saved: '請輸入完整資料'
+    update_success: '更新成功！'
+    destroy_success: '刪除成功！'
+    task_confirm: '您確定要刪除任務嗎？'
+    edit: '編輯任務'
+    edit_title: '名稱'
+    edit_description: '說明'
+    edit_user_id: '成員'
+    edit_started_at: '開始時間'
+    edit_ended_at: '結束時間'
+    edit_all_day_event: '全天'
+    edit_priority: '優先級'
+    edit_select: '選擇'
+    edit_estimated_completed_at: '預計完成時間'
+    edit_location: '地點'
+    edit_location_reset: '重設地點'
+    edit_cancel: '取消'
+    new: '新建任務'
+    new_title: '名稱'
+    new_list_id: '列表名稱'
+    new_description: '說明'
+    new_priority: '優先級'
+    new_started_at: '開始時間'
+    new_ended_at: '結束時間'
+    new_all_day_event: '全天'
+    new_estimated_completed_at: '預計完成時間'
+    new_location: '地點'
+    new_location_reset: '重設地點'
+    new_cancel: '取消'
+    show: '顯示任務'
+    show_title: '名稱'
+    show_edit: '編輯任務'
+    show_description: '說明'
+    show_user_id: '成員'
+    show_started_at: '開始時間'
+    show_ended_at: '結束時間'
+    show_all_day_event: '全天'
+    show_priority: '優先級'
+    show_select: '選擇'
+    show_estimated_completed_at: '預計完成時間'
+    show_location: '地點'
+    time: '時間'
 
   comments:
-    create_comment: "新增留言"
-    comment: "留言"
-    destroy_comment: "刪除留言"
+    create_comment: '新增留言'
+    comment: '留言'
+    destroy_comment: '刪除留言'
 
   main:
-    user_sign_in: "員工登入"
-    new_user: "創建員工"
-    company_sign_in: "公司登入"
-    sign_in: "登入"
-    new_company: "公司註冊"
-    log_out: "登出"
-    edit: "編輯"
-    home: "首頁"
-    about: "關於我們"
-    privacy: "隱私權"
-    feature: "功能簡介"
-    name: "公司名稱"
-    email: "信箱"
-    password: "密碼"
-    password_confirmation: "密碼確認"
-    events: "事件"
-    overall_intro: "SyncSquad 為團隊及企業提供友善的操作體驗，以及高效率的協作環境，協助您輕鬆管理專案、提升團隊效能，順利實現專案理想成果。"
-    calendar: "行事曆"
-    calendar_intro: "行事曆清晰呈現所有專案任務，並且整合 Google Calendar，確保您快速查看團隊成員的日程安排，使得每個人都能輕鬆參與並按時完成任務。即時更新與同步資料，讓您隨時追蹤專案進度。"
-    project: "專案管理"
-    project_intro: "專案管理工具設計的操作簡單、容易使用，包括看板和簡單的任務卡片拖曳功能，讓您能夠輕鬆的組織與調整任務。團隊成員可以迅速查看專案狀態，根據優先順序調整任務，確保工作流程順暢。"
-    chatroom: "聊天室"
-    chatroom_intro: "聊天室功能提供即時的溝通平台，方便團隊成員分享資訊、討論任務。上傳檔案輕而易舉，並且可以選擇加入公開或私密聊天，確保資訊在團隊中便利而安全地流通。這將促進更緊密的協作，提高專案完成效率。"
-    setting: "設定"
-    upgrade: "升級方案"
-    not_authorized: "您未被授權進入此頁面。"
+    user_sign_in: '員工登入'
+    new_user: '創建員工'
+    company_sign_in: '公司登入'
+    sign_in: '登入'
+    new_company: '公司註冊'
+    log_out: '登出'
+    edit: '編輯'
+    home: '首頁'
+    about: '關於我們'
+    privacy: '隱私權'
+    feature: '功能簡介'
+    name: '公司名稱'
+    email: '信箱'
+    password: '密碼'
+    password_confirmation: '密碼確認'
+    events: '事件'
+    overall_intro: 'SyncSquad 為團隊及企業提供友善的操作體驗，以及高效率的協作環境，協助您輕鬆管理專案、提升團隊效能，順利實現專案理想成果。'
+    calendar: '行事曆'
+    calendar_intro: '行事曆清晰呈現所有專案任務，並且整合 Google Calendar，確保您快速查看團隊成員的日程安排，使得每個人都能輕鬆參與並按時完成任務。即時更新與同步資料，讓您隨時追蹤專案進度。'
+    project: '專案管理'
+    project_intro: '專案管理工具設計的操作簡單、容易使用，包括看板和簡單的任務卡片拖曳功能，讓您能夠輕鬆的組織與調整任務。團隊成員可以迅速查看專案狀態，根據優先順序調整任務，確保工作流程順暢。'
+    chatroom: '聊天室'
+    chatroom_intro: '聊天室功能提供即時的溝通平台，方便團隊成員分享資訊、討論任務。上傳檔案輕而易舉，並且可以選擇加入公開或私密聊天，確保資訊在團隊中便利而安全地流通。這將促進更緊密的協作，提高專案完成效率。'
+    setting: '設定'
+    upgrade: '升級方案'
+    not_authorized: '您未被授權進入此頁面。'
 
   calender:
-    event: "活動"
-    login: "請登入"
-    subject: "名稱"
-    description: "說明"
-    started_at: "開始時間"
-    ended_at: "結束時間"
-    all_day_event: "整日活動"
-    edit_event: "編輯活動"
-    new_event: "新增活動"
-    show_event: "顯示活動"
-    show_subject: "名稱"
-    show_description: "說明"
-    show_started_at: "開始時間"
-    show_ended_at: "結束時間"
-    show_all_day_event: "整日活動"
-    delete: "刪除活動"
-    delete_confirm: "確認刪除?"
-    create_success: "活動建立成功"
-    update_success: "活動更新成功"
-    deleted: "活動已刪除"
+    event: '活動'
+    login: '請登入'
+    subject: '名稱'
+    description: '說明'
+    started_at: '開始時間'
+    ended_at: '結束時間'
+    all_day_event: '整日活動'
+    edit_event: '編輯活動'
+    new_event: '新增活動'
+    show_event: '顯示活動'
+    show_subject: '名稱'
+    show_description: '說明'
+    show_started_at: '開始時間'
+    show_ended_at: '結束時間'
+    show_all_day_event: '整日活動'
+    delete: '刪除活動'
+    delete_confirm: '確認刪除?'
+    create_success: '活動建立成功'
+    update_success: '活動更新成功'
+    deleted: '活動已刪除'
 
   company:
-    creation_success: "公司創建成功"
-    creation_failed: "公司創建失敗"
-    name: "公司名稱"
-    email: "信箱"
-    password: "密碼"
-    password_confirmation: "密碼確認"
-    company_sign_up: "公司註冊"
-    not_registered: "尚未註冊"
-    please: "請先"
-    company_sign_in: "公司登入"
-    create_account: "建立帳戶"
-    login: "登入"
-    login_success: "登入成功"
-    login_failed: "登入失敗"
-    logout_success: "已登出"
+    creation_success: '公司創建成功'
+    creation_failed: '公司創建失敗'
+    name: '公司名稱'
+    email: '信箱'
+    password: '密碼'
+    password_confirmation: '密碼確認'
+    company_sign_up: '公司註冊'
+    not_registered: '尚未註冊'
+    please: '請先'
+    company_sign_in: '公司登入'
+    create_account: '建立帳戶'
+    login: '登入'
+    login_success: '登入成功'
+    login_failed: '登入失敗'
+    logout_success: '已登出'
 
   devise:
-    name: "名字"
-    nick_name: "暱稱"
-    gender: "性別"
-    role: "職稱"
-    birthday: "生日"
-    phone: "電話"
-    time_zone: "時區"
-    lang: "語言"
-    update: "更新資料"
-    update_notice: "更新前請輸入密碼"
-    change_password: "新密碼"
-    change_password_confirmation: "新密碼確認"
-    current_password: "密碼"
-    upload_avatar: "上傳頭像"
-    user_sign_in: "員工登入"
-    email: "信箱"
-    password: "密碼"
-    remember_me: "記得我"
-    login: "登入"
+    name: '名字'
+    nick_name: '暱稱'
+    gender: '性別'
+    role: '職稱'
+    birthday: '生日'
+    phone: '電話'
+    time_zone: '時區'
+    lang: '語言'
+    update: '更新資料'
+    update_notice: '更新前請輸入密碼'
+    change_password: '新密碼'
+    change_password_confirmation: '新密碼確認'
+    current_password: '密碼'
+    upload_avatar: '上傳頭像'
+    user_sign_in: '員工登入'
+    email: '信箱'
+    password: '密碼'
+    remember_me: '記得我'
+    login: '登入'
     sessions:
-      signed_in: "登入成功"
-      signed_out: "已登出"
+      signed_in: '登入成功'
+      signed_out: '已登出'
     failure:
-      not_found_in_database: "此帳號不存在或密碼錯誤"
-      invalid: "密碼錯誤"
+      not_found_in_database: '此帳號不存在或密碼錯誤'
+      invalid: '密碼錯誤'
     registrations:
-      updated: "更新成功"
+      updated: '更新成功'
 
   hrs:
-    new_user: "新增員工"
-    new_users: "新增多名員工"
-    new_user_toggle: "✚"
-    role: "職稱"
-    name: "名字"
-    email: "信箱"
-    name_placeholder: "輸入名字"
-    email_placeholder: "輸入員工信箱"
-    password_placeholder: "輸入密碼"
-    password_confirmation_placeholder: "確認密碼"
-    user_lists: "員工列表"
-    update_column: "更新"
-    delete_column: "刪除"
-    update: "✎"
-    delete: "X"
-    creation_success: "員工新增成功"
-    creation_failed: "無法新增員工"
-    update_success: "員工資料更新"
-    update_failed: "員工更新失敗"
-    delete_staff: "刪除離職員工"
-    delete_confirm: "確認刪除?"
+    new_user: '新增員工'
+    new_users: '新增多名員工'
+    new_user_toggle: '✚'
+    role: '職稱'
+    name: '名字'
+    email: '信箱'
+    name_placeholder: '輸入名字'
+    email_placeholder: '輸入員工信箱'
+    password_placeholder: '輸入密碼'
+    password_confirmation_placeholder: '確認密碼'
+    user_lists: '員工列表'
+    update_column: '更新'
+    delete_column: '刪除'
+    update: '✎'
+    delete: 'X'
+    creation_success: '員工新增成功'
+    creation_failed: '無法新增員工'
+    update_success: '員工資料更新'
+    update_failed: '員工更新失敗'
+    delete_staff: '刪除離職員工'
+    delete_confirm: '確認刪除?'
 
   import:
-    import_employee: "匯入多名員工"
-    please_choose_file: "請選擇檔案"
-    data_import_process: "資料匯入流程"
-    field: "欄位"
-    instruction: "說明"
-    email: "信箱"
-    password: "密碼"
-    name: "姓名"
-    gender: "性別"
-    birthday: "生日"
-    phone: "電話"
-    role: "角色"
-    nick_name: "暱稱"
-    time_zone: "時區"
-    language: "語言"
-    template_instruction: "請下載範本檔案並編輯要匯入的資料。"
-    data_import: "資料匯入"
-    import: "匯入"
-    import_page: "匯入頁面"
-    import_records: "匯入記錄"
-    instruction_for_user_import: "使用者匯入說明"
-    required: "必填項目"
-    user_edit: "使用者在建立後可自行編輯"
-    role_for_staff: "請在檔案中填寫 hr 或 staff"
-    btn_download: "下載範本 CSV 檔案"
-    id: "序號"
-    status: "狀態"
-    file: "檔案"
-    imported_time: "匯入時間"
-    all_records: "總數"
-    success_records: "成功數"
-    failures_details: "失敗紀錄詳細資訊"
-    processing: "資料正在匯入中，請耐心等待，可以切換至紀錄頁查詢"
+    import_employee: '匯入多名員工'
+    please_choose_file: '請選擇檔案'
+    data_import_process: '資料匯入流程'
+    field: '欄位'
+    instruction: '說明'
+    email: '信箱'
+    password: '密碼'
+    name: '姓名'
+    gender: '性別'
+    birthday: '生日'
+    phone: '電話'
+    role: '角色'
+    nick_name: '暱稱'
+    time_zone: '時區'
+    language: '語言'
+    template_instruction: '請下載範本檔案並編輯要匯入的資料。'
+    data_import: '資料匯入'
+    import: '匯入'
+    import_page: '匯入頁面'
+    import_records: '匯入記錄'
+    instruction_for_user_import: '使用者匯入說明'
+    required: '必填項目'
+    user_edit: '使用者在建立後可自行編輯'
+    role_for_staff: '請在檔案中填寫 hr 或 staff'
+    btn_download: '下載範本 CSV 檔案'
+    id: '序號'
+    status: '狀態'
+    file: '檔案'
+    imported_time: '匯入時間'
+    all_records: '總數'
+    success_records: '成功數'
+    failures_details: '失敗紀錄詳細資訊'
+    processing: '資料正在匯入中，請耐心等待，可以切換至紀錄頁查詢'
 
-  Failures: "失敗"
-  Success: "成功"
+  Failures: '失敗'
+  Success: '成功'
 
   csv_import:
-    email_exists_row_number_email: "第 %{row_number} 列 - 信箱: %{email} 存在於系統"
-    role_row_number_email: "第 %{row_number} 列 - 請在檔案中填寫 hr 或 staff"
-    Passwordistooshort: "第 %{row_number} 列 - 密碼太短(至少為6個字)"
-    Password太短: "第 %{row_number} 列 - 密碼太短(至少為6個字)"
-    Password密碼太短: "第 %{row_number} 列 - 密碼太短(至少為6個字)"
-    Password密碼長度不足: "第 %{row_number} 列 - 密碼太短(至少為6個字)"
-    Passwordistooshort(minimumis6characters): "第 %{row_number} 列 - 密碼太短(至少為6個字)"
-    Passwordisblank: "第 %{row_number} 列 - 密碼是空白"
-    Passwordcan'tbeblank: "第 %{row_number} 列 - 密碼是空白"
-    Password為空白: "第 %{row_number} 列 - 密碼是空白"
-    Password密碼不能為空: "第 %{row_number} 列 - 密碼是空白"
-    Email用戶不能為空: "第 %{row_number} 列 - 信箱是空白"
-    Emailisblank: "第 %{row_number} 列 - 信箱是空白"
-    Emailcan'tbeblank: "第 %{row_number} 列 - 信箱是空白"
-    Email為空白: "第 %{row_number} 列 - 信箱是空白"
-    Emailisblank&Passwordisblank: "第 %{row_number} 列 - 信箱及密碼是空白"
-    Emailisblank&Passwordcan'tbeblank: "第 %{row_number} 列 - 信箱及密碼是空白"
-    Emailcan'tbeblank&Passwordisblank: "第 %{row_number} 列 - 信箱及密碼是空白"
-    Emailcan'tbeblank&Passwordcan'tbeblank: "第 %{row_number} 列 - 信箱及密碼是空白"
-    Email為空白&Password為空白: "第 %{row_number} 列 - 信箱及密碼是空白"
-    Email用戶不能為空&Password密碼不能為空: "第 %{row_number} 列 - 信箱及密碼是空白"
-    Email用戶無效: "第 %{row_number} 列 - 信箱格式不正確"
+    email_exists_row_number_email: '第 %{row_number} 列 - 信箱: %{email} 存在於系統'
+    role_row_number_email: '第 %{row_number} 列 - 請在檔案中填寫 hr 或 staff'
+    Passwordistooshort: '第 %{row_number} 列 - 密碼太短(至少為6個字)'
+    Password太短: '第 %{row_number} 列 - 密碼太短(至少為6個字)'
+    Password密碼太短: '第 %{row_number} 列 - 密碼太短(至少為6個字)'
+    Password密碼長度不足: '第 %{row_number} 列 - 密碼太短(至少為6個字)'
+    Passwordistooshort(minimumis6characters): '第 %{row_number} 列 - 密碼太短(至少為6個字)'
+    Passwordisblank: '第 %{row_number} 列 - 密碼是空白'
+    Passwordcan'tbeblank: '第 %{row_number} 列 - 密碼是空白'
+    Password為空白: '第 %{row_number} 列 - 密碼是空白'
+    Password密碼不能為空: '第 %{row_number} 列 - 密碼是空白'
+    Email用戶不能為空: '第 %{row_number} 列 - 信箱是空白'
+    Emailisblank: '第 %{row_number} 列 - 信箱是空白'
+    Emailcan'tbeblank: '第 %{row_number} 列 - 信箱是空白'
+    Email為空白: '第 %{row_number} 列 - 信箱是空白'
+    Emailisblank&Passwordisblank: '第 %{row_number} 列 - 信箱及密碼是空白'
+    Emailisblank&Passwordcan'tbeblank: '第 %{row_number} 列 - 信箱及密碼是空白'
+    Emailcan'tbeblank&Passwordisblank: '第 %{row_number} 列 - 信箱及密碼是空白'
+    Emailcan'tbeblank&Passwordcan'tbeblank: '第 %{row_number} 列 - 信箱及密碼是空白'
+    Email為空白&Password為空白: '第 %{row_number} 列 - 信箱及密碼是空白'
+    Email用戶不能為空&Password密碼不能為空: '第 %{row_number} 列 - 信箱及密碼是空白'
+    Email用戶無效: '第 %{row_number} 列 - 信箱格式不正確'
 
   activerecord:
     errors:
@@ -302,87 +298,100 @@ tw:
         user:
           attributes:
             email:
-              invalid: "用戶無效"
+              invalid: '用戶無效'
             password:
-              blank: "密碼不能為空"
-              too_short: "密碼太短"
-          blank: "用戶不能為空"
-          too_short: "用戶資料太短"
-          invalid: "用戶不正確"
+              blank: '密碼不能為空'
+              too_short: '密碼太短'
+          blank: '用戶不能為空'
+          too_short: '用戶資料太短'
+          invalid: '用戶不正確'
+        task:
+          attributes:
+            title:
+              blank: '請輸入任務標題'
       messages:
-        blank: "此欄位不能為空"
-        invalid: "信息不正確"
+        blank: '此欄位不能為空'
+        invalid: '信息不正確'
+        attributes:
+    attributes:
+      task:
+        priorities:
+          critical: 'Critical'
+          high: 'High'
+          medium: 'Medium'
+          low: 'Low'
+
   errors:
     attributes:
       password:
-        blank: "密碼不能為空"
-        too_short: "密碼太短"
-        invalid: "信箱格式不正確"
+        blank: '密碼不能為空'
+        too_short: '密碼太短'
+        invalid: '信箱格式不正確'
     messages:
-      blank: "此欄位不能為空"
-      too_short: "密碼太短"
-      invalid: "信息不正確"
+      blank: '此欄位不能為空'
+      too_short: '密碼太短'
+      invalid: '信息不正確'
 
-  search_placeholder: "搜尋"
+  search_placeholder: '搜尋'
 
   rooms:
-    groups: "聊天群組"
-    contacts: "聯絡人"
+    groups: '聊天群組'
+    contacts: '聯絡人'
 
   layouts:
-    room_submit: "✚"
+    room_submit: '✚'
 
   messages:
-    msg_submit: "➤"
+    msg_submit: '➤'
 
   orders:
-    create_success: "付款成功！感谢您的購買"
-    plan: "會員方案"
-    plan_detail: "優質商務方案，隨時可以取消，更換方案！"
-    vip_price: "頂級會員價"
-    month: "月"
-    price_detail: "每年付款 $8388，前14天免費退款"
-    upgrade: "方案升級"
-    condition_one: "會員無限制"
-    condition_two: "開放csv建立會員"
-    basic_price: "基本會員價"
-    free: "永久免費使用"
-    join: "立即加入"
-    condition_seven: "會員限制5人"
-    condition_eight: "限制CSV上傳員工功能"
-    login: "請登入"
-    refer: "請參考付費功能"
+    create_success: '付款成功！感谢您的購買'
+    plan: '會員方案'
+    plan_detail: '優質商務方案，隨時可以取消，更換方案！'
+    vip_price: '頂級會員價'
+    month: '月'
+    price_detail: '每年付款 $8388，前14天免費退款'
+    upgrade: '方案升級'
+    condition_one: '會員無限制'
+    condition_two: '開放csv建立會員'
+    basic_price: '基本會員價'
+    free: '永久免費使用'
+    join: '立即加入'
+    condition_seven: '會員限制5人'
+    condition_eight: '限制CSV上傳員工功能'
+    login: '請登入'
+    refer: '請參考付費功能'
 
   views:
     pagination:
-      next: "下一頁"
-      last: "最後一頁"
-      previous: "前一頁"
-      first: "第一頁"
-      truncate: "..."
+      next: '下一頁'
+      last: '最後一頁'
+      previous: '前一頁'
+      first: '第一頁'
+      truncate: '...'
 
   helpers:
     submit:
       user:
-        create: "新增"
+        create: '新增'
       company:
-        create: "新增公司"
-        update: "更新公司資料"
+        create: '新增公司'
+        update: '更新公司資料'
       project:
-        create: "新增專案"
-        update: "更新專案"
+        create: '新增專案'
+        update: '更新專案'
       list:
-        create: "新增列表"
-        update: "更新列表"
+        create: '新增列表'
+        update: '更新列表'
       task:
-        create: "新增任務"
-        update: "更新任務"
+        create: '新增任務'
+        update: '更新任務'
       event:
-        create: "新增活動"
-        update: "更新活動"
+        create: '新增活動'
+        update: '更新活動'
 
   template:
-    project: "範例專案"
-    list: "範例列表"
-    task1: "範例任務1"
-    task2: "範例任務2"
+    project: '範例專案'
+    list: '範例列表'
+    task1: '範例任務1'
+    task2: '範例任務2'

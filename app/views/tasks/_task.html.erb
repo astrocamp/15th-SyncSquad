@@ -1,53 +1,49 @@
-<li data-sortbale-update-url="<%= task_sort_path(task) %>" class="relative m-1 rounded-lg">
+<li data-sortbale-update-url="<%= task_sort_path(task) %>" class="relative m-1 rounded-lg hover:outline hover:outline-2 hover:outline-blue-700">
   <%= link_to task_path(task), data:{turbo_frame: "modal"} do %>
-    <div class="flex flex-col p-2 mb-2 bg-white rounded-lg shadow-sm shadow-gray-400 hover:bg-blue-300">
-      <div class="<%= 'grayscale opacity-30' if task.completed_at.present? %>">
-        <div class="flex  justify-between">
-          <p class="truncate line-through' <%= 'line-through' if task.completed_at.present? %>"><%= task.title %>
-          </p>
-          
-            <% if task.priority.present? %>
-              <div class="inline-block pr-2 mx-1 text-white rounded-md
-                          <%= case task.priority
-                              when 'critical' then 'bg-red-600'
-                              when 'high' then 'bg-yellow-300'
-                              when 'medium' then 'bg-lime-500'
-                              when 'low' then 'bg-gray-400' end %>">
-                <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>
-                <%= t("tasks.priorities.#{task.priority}") %>
-              </div>
-            <% end %>
-
+    <div class="flex flex-col p-2 mb-2 bg-white rounded-lg shadow-sm shadow-gray-400">
+      <p class="truncate"><%= task.title %></p>
+      <% unless task.user.nil? %>
+        <div class="flex items-center w-full pt-2">
+          <% if task.user.avatar.attached? %>
+            <div>
+              <%= link_to image_tag(task.user.chat_avatar, class: "w-7 h-7 rounded-full mr-2"), task.user %>
+            </div>
+          <% else %>
+            <div class="mr-2 bg-gray-100 rounded-full w-7 h-7">
+              <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
+            </div>
+          <% end %>
+          <p class="flex-auto mr-2 truncate"><%= task.user.nick_name == "" ? (task.user.name == "" ? task.user.email : task.user.name ) : task.user.nick_name %></p>
         </div>
-
-
-
-          <% if task.user.present? %>
-            <div class="flex items-center w-full pt-2">
-              <% if task.user && task.user.avatar.attached? %>
-                <%= link_to image_tag(task.user.chat_avatar,
-                                      class: "w-5 h-5 rounded-full ml-3"), task.user %>
-              <% else %>
-                <div class="mr-2 bg-gray-100 rounded-lg w-7 h-7">
-                  <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
-                </div>
-              <% end %>
-              <%= task.user.nick_name %>
+      <% end %>
+      <div class="flex flex-wrap text-xs text-gray-400 align-middle">
+        <% if task.started_at.present? || task.ended_at.present? %>
+          <div class="flex items-center mt-2 overflow-hidden">
+            <i class="ml-2 mr-1 fa-regular fa-calendar"></i>
+            <div class="<%= 'flex' if task.all_day_event == true %>">
+              <p class="ml-1"><%= task.all_day_event == true ? task.started_at.strftime("%Y-%m-%d") : task.started_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %> ~ </p>
+              <p class="ml-1"><%= task.all_day_event == true ? task.ended_at.strftime("%Y-%m-%d") : task.ended_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></p>
             </div>
-          <% end %>
-        <div class="flex text-xs text-gray-400 align-middle">
-          <% if task.completed_at.present? %>
-            <div class="inline-block w-4 h-4 px-1 pt-2 mb-2 mr-1 text-center text-white bg-green-400 rounded-full">
-                <i class="h-4 fa-solid fa-check"></i>
-            </div>
-          <% end %>
-          <% if task.location.present? %>
-            <div class="inline-block pt-2 mr-1 truncate">
-              <i class="ml-2 fa-solid fa-location-dot"></i>
-              <%= content_tag :p, task.location, class: "inline" %>
-            </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+        <% if task.location.present? %>
+          <div class="flex items-center w-full pt-2 mr-1">
+            <i class="mx-2 fa-solid fa-location-dot"></i>
+            <%= content_tag :p, task.location, class: "inline truncate" %>
+          </div>
+        <% end %>
+        <% if task.priority.present? %>
+          <div class="inline-block pr-2 mx-1 mt-2 rounded-md
+                      <%= task.priority == 'critical' ? 'text-white' : 'text-gray-900' %>
+                      <%= case task.priority
+                          when 'critical' then 'bg-red-600'
+                          when 'high' then 'bg-yellow-300'
+                          when 'medium' then 'bg-lime-400'
+                          when 'low' then 'bg-gray-300' end %>">
+            <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>
+            <%= task.priority_text %>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
