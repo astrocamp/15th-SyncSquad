@@ -3,14 +3,16 @@ import { Calendar } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
-import tippy from "tippy.js";
 import interactionPlugin from "@fullcalendar/interaction";
+import tippy from "tippy.js";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { patch } from "@rails/request.js";
 // Connects to data-controller="event"
 export default class extends Controller {
   connect() {
+    const { locale } = this.element.dataset;
+    const newUrl = this.element.dataset.newEventUrl;
     const companyID = this.element.dataset.company > 0;
     const calendar = new Calendar(this.element, {
       plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
@@ -22,7 +24,12 @@ export default class extends Controller {
       },
       events: "/events.json",
       timeZone: "auto",
-      locale: "zh-tw",
+      locale: locale,
+      eventTimeFormat: {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      },
       droppable: companyID,
       editable: companyID,
       selectable: companyID,
@@ -30,7 +37,7 @@ export default class extends Controller {
       select: async (info) => {
         const started_at = info.startStr;
         const ended_at = info.endStr;
-        const newURL = `/events/new/?startedAt=${started_at}&endedAt=${ended_at}&allDay=${
+        const newURL = `${newUrl}?startedAt=${started_at}&endedAt=${ended_at}&allDay=${
           ended_at > started_at
         }`;
         await Turbo.visit(newURL, {
@@ -40,7 +47,9 @@ export default class extends Controller {
       },
       eventClick: async function (info) {
         if (companyID) {
-          const eventURL = `/events/${info.event._def.publicId}/edit`;
+          const eventURL = `${newUrl.replace("new", "")}${
+            info.event._def.publicId
+          }/edit`;
           await Turbo.visit(eventURL, {
             frame: "modal",
             method: "POST",
@@ -74,7 +83,7 @@ export default class extends Controller {
     async function adjust(info) {
       dayjs.extend(utc);
       const id = info.event._def.publicId;
-      const url = `/events/${id}/drop`;
+      const url = `${newUrl.replace("new", "")}${id}/drop`;
       const started_at = info.event.startStr;
       let ended_at = info.event.endStr || info.event.startStr;
       const all_day_event = info.event.allDay;

@@ -1,7 +1,9 @@
 <turbo-stream action="replace" target="event">
   <template>
     <div data-controller="event" data-company=<%= current_company&.id %>
-       class="w-full lg:w-2/3 mx-auto" id="event">
+        data-locale="<%= locale_full_calendar %>"
+        data-new-event-url="<%= new_event_path %>"
+        class="w-full lg:w-2/3 mx-auto" id="event">
     </div>
   </template>
 </turbo-stream>
