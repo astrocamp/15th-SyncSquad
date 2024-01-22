@@ -6,7 +6,7 @@ class Room < ApplicationRecord
   after_create_commit { broadcast_if_public }
   has_many :messages
   has_many :participants, dependent: :destroy
-  has_many :users, through: :participants
+  # has_many :users, through: :participants
   belongs_to :company
 
   enum room_type: { public_room: 0, single_room: 1, private_room: 2 }
@@ -35,19 +35,11 @@ class Room < ApplicationRecord
     users.each do |user|
       Participant.create(user_id: user.id, room_id: single_room.id)
     end
-
-    single_room if single_room.save
-
-    users.each do |user|
-      Participant.create(user_id: user.id, room_id: single_room.id)
-    end
-
-    return unless single_room.save
-
     single_room
   end
 
   def participant?(room, user)
-    room.participants.exists?(user:)
+    room.participants.where(user:).exists?
+    Participant.where(user_id: user.id, room_id: room.id).exists?
   end
 end
