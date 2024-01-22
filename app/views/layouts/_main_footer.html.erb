@@ -46,16 +46,17 @@
             <div class="flex mt-4 space-x-5 sm:justify-center md:mt-0 rtl:space-x-reverse">
                 <!-- 語言選項 -->
                 <div>
-                    <% if params[:lang] == "en" %>
-                    <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center justify-center px-4 py-2 text-sm font-light text-gray-900 border-2 border-gray-200 rounded-lg cursor-pointer text-thin dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-white">
-                      <%= image_tag('lang_en_icon.svg', class: 'w-5 h-5 rounded-full me-3', alt: 'Description') %>
-                    English 
-                    </button>
-                  <% else  %>
+                    <% if params[:lang] == "tw" %>
                     <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center justify-center px-4 py-2 text-sm font-light text-gray-900 border-2 border-gray-200 rounded-lg cursor-pointer text-thin dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-white">
                       <%= image_tag('lang_tw_icon.svg', class: 'w-5 h-5 rounded-full me-3', alt: 'Description') %>
                     繁體中文 
                     </button>
+                  <% else  %>
+                    <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center justify-center px-4 py-2 text-sm font-light text-gray-900 border-2 border-gray-200 rounded-lg cursor-pointer text-thin dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <%= image_tag('lang_en_icon.svg', class: 'w-5 h-5 rounded-full me-3', alt: 'Description') %>
+                    English 
+                    </button>
+                    
                       
                   <% end %>
             <!-- Dropdown -->
