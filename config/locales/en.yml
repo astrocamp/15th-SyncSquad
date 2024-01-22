@@ -303,9 +303,9 @@ en:
     basic_price: "Basic Price"
     free: "Free to Use Permanently"
     join: "Join"
-    condition_seven: "Project Limit: 3"
-    condition_eight: "Membership Restriction: 5 people"
-    condition_nine: "Chat Room Limit: 5"
+    condition_seven: "Membership Restriction: 5 people"
+    condition_eight: "Bulk import for creating employee"
+    login: "Please log in"
 
   views:
     pagination:
