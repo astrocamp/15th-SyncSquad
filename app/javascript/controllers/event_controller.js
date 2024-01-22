@@ -4,6 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
+import allLocales from "@fullcalendar/core/locales-all";
 import tippy from "tippy.js";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
@@ -24,6 +25,7 @@ export default class extends Controller {
       },
       events: "/events.json",
       timeZone: "auto",
+      locales: allLocales,
       locale: locale,
       eventTimeFormat: {
         hour: "2-digit",

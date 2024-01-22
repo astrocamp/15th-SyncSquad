@@ -1,79 +1,81 @@
-import { Controller } from '@hotwired/stimulus'
-import { Calendar } from '@fullcalendar/core'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
-import listPlugin from '@fullcalendar/list'
-import interactionPlugin from '@fullcalendar/interaction'
-import tippy from 'tippy.js'
-import 'tippy.js/animations/perspective-subtle.css'
-import 'tippy.js/animations/scale.css'
-import 'tippy.js/themes/light-border.css'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import { patch } from '@rails/request.js'
+import { Controller } from "@hotwired/stimulus";
+import { Calendar } from "@fullcalendar/core";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import listPlugin from "@fullcalendar/list";
+import interactionPlugin from "@fullcalendar/interaction";
+import allLocales from "@fullcalendar/core/locales-all";
+import tippy from "tippy.js";
+import "tippy.js/animations/perspective-subtle.css";
+import "tippy.js/animations/scale.css";
+import "tippy.js/themes/light-border.css";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import { patch } from "@rails/request.js";
 
 // Connects to data-controller="calendar"
 export default class extends Controller {
-  static targets = ['calendar']
+  static targets = ["calendar"];
 
   initialize() {
-    this.calendar = null
+    this.calendar = null;
   }
 
   disconnect() {
-    this.calendar = null
+    this.calendar = null;
   }
 
   connect() {
-    const { locale } = this.calendarTarget.dataset
-    const newTaskUrl = this.calendarTarget.dataset.newTaskUrl
-    const item = this.calendarTarget.dataset.item
-    const tasks = JSON.parse(this.calendarTarget.dataset.tasks)
+    const { locale } = this.calendarTarget.dataset;
+    const newTaskUrl = this.calendarTarget.dataset.newTaskUrl;
+    const item = this.calendarTarget.dataset.item;
+    const tasks = JSON.parse(this.calendarTarget.dataset.tasks);
     this.calendar = new Calendar(this.calendarTarget, {
       plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
-      initialView: 'dayGridMonth',
+      initialView: "dayGridMonth",
       headerToolbar: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,listWeek',
+        left: "prev,next today",
+        center: "title",
+        right: "dayGridMonth,timeGridWeek,listWeek",
       },
-      height: '100%',
+      height: "100%",
       events: tasks,
-      timeZone: 'auto',
+      timeZone: "auto",
+      locales: allLocales,
       locale: locale,
       eventTimeFormat: {
-        hour: '2-digit',
-        minute: '2-digit',
+        hour: "2-digit",
+        minute: "2-digit",
         hour12: false,
       },
       droppable: true,
       editable: true,
       eventResizableFromStart: true,
       selectable: true,
-      unselectCancel: '.unsetTime',
+      unselectCancel: ".unsetTime",
       select: async (info) => {
-        const oneDayInMilliseconds = 24 * 60 * 60 * 1000
-        const startDate = this.toDateObject('start', info.startStr)
-        const endDate = this.toDateObject('end', info.endStr)
-        const timestampDifference = endDate.timestamp - startDate.timestamp
+        const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+        const startDate = this.toDateObject("start", info.startStr);
+        const endDate = this.toDateObject("end", info.endStr);
+        const timestampDifference = endDate.timestamp - startDate.timestamp;
         const newURL =
           timestampDifference > oneDayInMilliseconds
             ? `${newTaskUrl}?startedAt=${startDate.string}&endedAt=${endDate.string}&allDay=true`
-            : `${newTaskUrl}?startedAt=${startDate.string}&endedAt=${endDate.string}`
+            : `${newTaskUrl}?startedAt=${startDate.string}&endedAt=${endDate.string}`;
         await Turbo.visit(newURL, {
-          frame: 'modal',
-          method: 'POST',
-        })
+          frame: "modal",
+          method: "POST",
+        });
       },
       eventClick: function (info) {
-        const itemURL = `/${item}/${info.event._def.publicId}`
+        const itemURL = `/${item}/${info.event._def.publicId}`;
         Turbo.visit(itemURL, {
-          frame: 'modal',
-          method: 'POST',
-        })
+          frame: "modal",
+          method: "POST",
+        });
       },
       eventDidMount: function (info) {
-        const list_color = info.event.extendedProps.color
+        const list_color = info.event.extendedProps.color;
         tippy(info.el, {
           content: `
             <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48">
@@ -92,55 +94,55 @@ export default class extends Controller {
             <div>
           `,
           allowHTML: true,
-          placement: 'top',
+          placement: "top",
           interactive: false,
-          animation: 'perspective-subtle',
-          theme: 'light-border',
+          animation: "perspective-subtle",
+          theme: "light-border",
           duration: [500, 0],
-          trigger: 'mouseenter',
-        })
+          trigger: "mouseenter",
+        });
       },
       eventResize: adjust,
       eventDrop: adjust,
-    })
-    this.calendar.render()
+    });
+    this.calendar.render();
     async function adjust(taskResizeInfo) {
-      dayjs.extend(utc)
-      const id = taskResizeInfo.event._def.publicId
-      const url = `/tasks/${id}/drop`
-      const started_at = taskResizeInfo.event.startStr
+      dayjs.extend(utc);
+      const id = taskResizeInfo.event._def.publicId;
+      const url = `/tasks/${id}/drop`;
+      const started_at = taskResizeInfo.event.startStr;
       let ended_at =
-        taskResizeInfo.event.endStr || taskResizeInfo.event.startStr
-      const all_day_event = taskResizeInfo.event.allDay
+        taskResizeInfo.event.endStr || taskResizeInfo.event.startStr;
+      const all_day_event = taskResizeInfo.event.allDay;
       if (all_day_event && started_at == ended_at) {
-        ended_at = dayjs(ended_at).add(1, 'day').format('YYYY-MM-DD')
+        ended_at = dayjs(ended_at).add(1, "day").format("YYYY-MM-DD");
       }
-      const data = { started_at, ended_at, all_day_event }
-      await patch(url, { body: JSON.stringify(data) })
+      const data = { started_at, ended_at, all_day_event };
+      await patch(url, { body: JSON.stringify(data) });
     }
   }
 
   toDateObject(dateType, dateString) {
-    let dateTimestamp
-    let date
-    if (dateType === 'start') {
-      dateTimestamp = new Date(dateString).getTime()
-      date = this.formatTimestampToDate(dateTimestamp).toString()
+    let dateTimestamp;
+    let date;
+    if (dateType === "start") {
+      dateTimestamp = new Date(dateString).getTime();
+      date = this.formatTimestampToDate(dateTimestamp).toString();
     }
-    if (dateType === 'end') {
-      dateTimestamp = new Date(dateString).getTime()
+    if (dateType === "end") {
+      dateTimestamp = new Date(dateString).getTime();
       date = this.formatTimestampToDate(
         dateTimestamp - 24 * 60 * 60 * 1000
-      ).toString()
+      ).toString();
     }
-    return { string: date, timestamp: dateTimestamp }
+    return { string: date, timestamp: dateTimestamp };
   }
 
   formatTimestampToDate(timestamp) {
-    const dateObject = new Date(timestamp)
-    const year = dateObject.getFullYear()
-    const month = ('0' + (dateObject.getMonth() + 1)).slice(-2)
-    const day = ('0' + dateObject.getDate()).slice(-2)
-    return `${year}-${month}-${day}`
+    const dateObject = new Date(timestamp);
+    const year = dateObject.getFullYear();
+    const month = ("0" + (dateObject.getMonth() + 1)).slice(-2);
+    const day = ("0" + dateObject.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
   }
 }
