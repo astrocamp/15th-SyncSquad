@@ -46,11 +46,13 @@ class RoomsController < ApplicationController
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
-    authorize @private_groups, :show_public_room, policy_class: RoomPolicy
     @room = Room.new
     @users = User.where(company: current_user.company).all_except(current_user)
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
+
+    @check_room = Room.find(params[:id])
+    authorize @check_room, :show_public_room, policy_class: RoomPolicy
     render 'index'
   end
 
