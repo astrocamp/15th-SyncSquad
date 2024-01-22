@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   def create
     @event = current_company.events.build(event_params)
     if @event.save
-      flash.now[:success] = '事件建立成功'
+      flash.now[:success] = t('calender.create_success')
     else
       render :new
     end
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      flash.now[:success] = '事件更新成功'
+      flash.now[:success] = t('calender.update_success')
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    flash.now[:alert] = '事件已刪除！'
+    flash.now[:alert] = t('calender.deleted')
   end
 
   private

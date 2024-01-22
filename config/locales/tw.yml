@@ -152,6 +152,9 @@ tw:
     show_all_day_event: "整日活動"
     delete: "刪除活動"
     delete_confirm: "確認刪除?"
+    create_success: "活動建立成功"
+    update_success: "活動更新成功"
+    deleted: "活動已刪除"
 
   company:
     creation_success: "公司創建成功"
