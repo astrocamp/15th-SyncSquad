@@ -136,6 +136,21 @@ en:
 
   calender:
     event: "Event"
+    subject: "Title"
+    description: "Description"
+    started_at: "Started At"
+    ended_at: "Ended At"
+    all_day_event: "All Day Event"
+    edit_event: "Edit Event"
+    new_event: "Create Event"
+    show_event: "Show Event"
+    show_subject: "Title"
+    show_description: "Description"
+    show_started_at: "Started At"
+    show_ended_at: "Ended At"
+    show_all_day_event: "All Day Event"
+    delete: "Delete Event"
+    delete_confirm: "Are You Sure You Want To Delete?"
 
   company:
     creation_success: "Successfully Registered the Company"

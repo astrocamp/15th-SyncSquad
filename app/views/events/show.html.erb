@@ -1,15 +1,14 @@
 <%= content_for :modal_title do %>
-  <%= t('modal.show event') %>
+  <%= t('calender.show_event') %>
 <% end %>
 <%= render "shared/modal" do %>
   <div class="px-6 py-4">
     <ul>
-      <li class="py-2"><%= t('show.Subject') %>：<%= @event.subject %></li>
-      <li class="py-2"><%= t('show.Start Date') %>：<%= @event.started_at %></li>
-      <li class="py-2"><%= t('show.End Date') %>：<%= @event.ended_at %></li>
-      <li class="py-2"><%= t('show.All Day') %>：<%= @event.all_day_event %></li>
-      <li class="py-2"><%= t('show.Description') %>：<%= @event.description %></li>
-      <li class="py-2"><%= t('show.Location') %>：<%= @event.location %></li>
+      <li class="py-2"><%= t('calender.show_subject') %>：<%= @event.subject %></li>
+      <li class="py-2"><%= t('calender.show_started_at') %>：<%= @event.started_at %></li>
+      <li class="py-2"><%= t('calender.show_ended_at') %>：<%= @event.ended_at %></li>
+      <li class="py-2"><%= t('calender.show_all_day_event') %>：<%= @event.all_day_event %></li>
+      <li class="py-2"><%= t('calender.show_description') %>：<%= @event.description %></li>
     </ul>
   </div>
 <% end %>
