@@ -136,6 +136,21 @@ tw:
 
   calender:
     event: "活動"
+    subject: "名稱"
+    description: "說明"
+    started_at: "開始時間"
+    ended_at: "結束時間"
+    all_day_event: "整日活動"
+    edit_event: "編輯活動"
+    new_event: "新增活動"
+    show_event: "顯示活動"
+    show_subject: "名稱"
+    show_description: "說明"
+    show_started_at: "開始時間"
+    show_ended_at: "結束時間"
+    show_all_day_event: "整日活動"
+    delete: "刪除活動"
+    delete_confirm: "確認刪除?"
 
   company:
     creation_success: "公司創建成功"
@@ -347,3 +362,6 @@ tw:
       task:
         create: "新增任務"
         update: "更新任務"
+      event:
+        create: "新增活動"
+        update: "更新活動"
