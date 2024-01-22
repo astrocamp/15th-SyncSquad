@@ -53,6 +53,8 @@ class RoomsController < ApplicationController
 
     @check_room = Room.find(params[:id])
     authorize @check_room, :show_public_room, policy_class: RoomPolicy
+    authorize @check_room, :show_private_room?, policy_class: RoomPolicy
+
     render 'index'
   end
 
