@@ -22,7 +22,7 @@ class RoomsController < ApplicationController
     if params[:room][:room_type] == 'private_room'
       @new_private_group = Room.new(room_params)
       @new_private_group.room_type = 'private_room'
-
+      @new_private_group.company = current_user.company
       if @new_private_group.save
         selected_user_ids = params[:room][:user_ids] || []
         selected_user_ids << current_user.id unless
@@ -32,6 +32,8 @@ class RoomsController < ApplicationController
           Participant.create(room_id: @new_private_group.id, user_id:)
         end
         @new_private_group.broadcast_if_private_group
+      else
+        Rails.logger.info(@new_private_group.errors.full_messages)
       end
     else
       @room = Room.create(name: params['room']['name'], company: current_user.company)
@@ -44,12 +46,11 @@ class RoomsController < ApplicationController
     @private_groups = Room.joins(:participants)
                           .where(room_type: 'private_room',
                                  participants: { user_id: current_user.id })
-    authorize @single_room, :show_public_room, policy_class: RoomPolicy
+    authorize @private_groups, :show_public_room, policy_class: RoomPolicy
     @room = Room.new
     @users = User.where(company: current_user.company).all_except(current_user)
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
-
     render 'index'
   end
 

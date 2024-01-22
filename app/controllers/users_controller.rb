@@ -34,18 +34,8 @@ class UsersController < ApplicationController
                                  participants: { user_id: current_user.id })
     @message = Message.new
 
-    # begin
-    #   @single_room = Room.create_private_room(current_user, [@user, current_user],
-    #                                           @room_name) || Room.find_by!(name: @room_name)
-    # rescue ActiveRecord::RecordNotFound
-    #   not_found
-    #   return
-    # end
-
     @messages = @single_room.messages.includes(:user).order(:created_at)
 
-    # @rooms = current_user.rooms
-    # authorize @rooms, :show_private_room?, policy_class: RoomPolicy
     render 'rooms/index'
   end
 
