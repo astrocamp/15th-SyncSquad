@@ -312,14 +312,13 @@ tw:
       messages:
         blank: '此欄位不能為空'
         invalid: '信息不正確'
-        attributes:
     attributes:
       task:
         priorities:
-          critical: 'Critical'
-          high: 'High'
-          medium: 'Medium'
-          low: 'Low'
+          critical: '緊急'
+          high: '高等'
+          medium: '中等'
+          low: '低等'
 
   errors:
     attributes:
