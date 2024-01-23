@@ -38,10 +38,6 @@
                 <%= form.check_box :all_day_event, data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"},
                     class: 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 ' %>
               </div>
-              <div>
-                <%= form.label :estimated_completed_at, t('tasks.edit_estimated_completed_at'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
-                <%= form.datetime_field :estimated_completed_at, class: 'bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none' %>
-              </div>
             </div>
           </div>
           <div>
@@ -51,16 +47,24 @@
           <div class="flex items-center">
           <%= form.label :location, t('tasks.edit_location'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
           <%= form.text_field :location, placeholder: t('tasks.location_placeholder'), data:{ map_target:"field" }, class: 'flex-auto bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none'%>
-          <button data-action="click->map#resetLocation" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"><%= t('tasks.edit_location_reset') %></button>
+          <button data-action="click->map#resetLocation" class="flex items-center sm:ml-3 ml-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-3 py-2.5 sm:px-5 sm:py-2.5 hover:text-gray-900 focus:z-10">
+            <i class="mr-0 sm:mr-2 fa-solid fa-xmark"></i>
+            <p class="hidden sm:block"><%= t('tasks.edit_location_reset') %></p>
+          </button>
         </div>
         <div id="map" data-map-target="map" data-location="<%= @location %>" data-latitude="<%= @latitude %>" data-longitude="<%= @longitude %>" data-id="<%= @task.id %>" class="my-4"></div>
         </div>
       </div>
       <div class="sticky bottom-0 flex items-center justify-end p-4 bg-white border-t border-gray-200 rounded-b-lg md:p-5 dark:border-gray-600">
         <%= form.submit class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
-        <%= link_to t('projects.delete_task'), task_path(@task), data: {turbo_method: 'DELETE', action: 'click->turbomodal#close'}, class: 'ms-3 text-red-500 bg-white hover:bg-red-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-red-700 focus:z-10 border-red-600' %>
-        <button data-action="click->turbomodal#close" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"><%= t('tasks.edit_cancel') %></button>
-      </div>
+        <%= link_to task_path(@task), data: {turbo_method: 'DELETE', action: 'click->turbomodal#close'}, class: 'flex items-center ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600' do %>
+          <i class="mr-0 sm:mr-2 fa-regular fa-trash-can"></i>
+          <p class="hidden sm:block"><%= t('projects.delete_task') %></p>
+        <% end %>
+        <button data-action="click->turbomodal#close" type="button" class="flex items-center ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+          <i class="mr-0 sm:mr-2 fa-solid fa-xmark"></i>
+          <p class="hidden sm:block"><%= t('tasks.edit_cancel') %></p>
+        </button>
     <% end %>
   <% end %>
 
