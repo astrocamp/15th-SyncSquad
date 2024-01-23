@@ -62,10 +62,6 @@
           <%= form.check_box :all_day_event, checked: true, data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"}%>
         </div>
       </div>      
-      <div>
-        <%= form.label :estimated_completed_at, t('tasks.new_estimated_completed_at') %>
-        <%= form.datetime_field :estimated_completed_at %>
-      </div>
       <div data-controller="map">
         <div>
           <%= form.label :location, t('tasks.new_location')%>
