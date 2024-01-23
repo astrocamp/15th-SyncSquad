@@ -123,8 +123,7 @@ class ProjectsController < ApplicationController
         'start' => task[:started_at], 'startTime' => task[:started_at],
         'end' => task[:ended_at], 'endTime' => task[:ended_at], 'allDay' => task[:all_day_event],
         'description' => task[:description].nil? ? '' : task[:description],
-        'extendedProps' => { 'priority' => task[:priority], 'completed_at' => task[:completed_at].nil? ? '' : '✓',
-                             'estimated_completed_at' => task[:estimated_completed_at], 'source' => task[:source],
+        'extendedProps' => { 'priority' => task[:priority], 'source' => task[:source],
                              'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
                              'list_title' => task.list.title, 'color' => task.list.color } }
     end.to_json
