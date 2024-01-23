@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_22_091921) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_23_032716) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -175,8 +175,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_091921) do
     t.text "description"
     t.integer "priority"
     t.datetime "started_at", precision: nil
-    t.datetime "completed_at", precision: nil
-    t.datetime "estimated_completed_at", precision: nil
     t.datetime "deleted_at", precision: nil
     t.datetime "ended_at", precision: nil
     t.boolean "all_day_event"
