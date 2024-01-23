@@ -36,7 +36,6 @@ library.add({
   faChartSimple,
   faLocationDot,
   faCalendar,
-  faTrashCan,
   faCheck,
   faPenToSquareSolid,
   faPenToSquareRegular,

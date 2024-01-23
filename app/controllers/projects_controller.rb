@@ -123,9 +123,16 @@ class ProjectsController < ApplicationController
         'start' => task[:started_at], 'startTime' => task[:started_at],
         'end' => task[:ended_at], 'endTime' => task[:ended_at], 'allDay' => task[:all_day_event],
         'description' => task[:description].nil? ? '' : task[:description],
-        'extendedProps' => { 'priority' => task[:priority], 'source' => task[:source],
-                             'user_nick_name' => task.user.nil? ? '' : task.user.nick_name,
-                             'list_title' => task.list.title, 'color' => task.list.color } }
+        'extendedProps' => { 'priority' => task.priority_text, 
+                              'priorty_color' => case task.priority
+                                                  when 'critical' then 'bg-red-600'
+                                                  when 'high' then 'bg-yellow-300'
+                                                  when 'medium' then 'bg-lime-400'
+                                                  when 'low' then 'bg-gray-300'
+                                                  end,
+                              'localtion' => task.location.nil? ? '' : `<div class="flex items-center"><i class="mr-2 fa-solid fa-location-dot"></i><p>#{task.location}<p></div>`,
+                              'user_nick_name' => task.user.nick_name,
+                              'list_title' => task.list.title, 'color' => task.list.color } }
     end.to_json
   end
 end
