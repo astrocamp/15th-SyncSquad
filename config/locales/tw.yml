@@ -385,6 +385,8 @@ tw:
       event:
         create: '新增活動'
         update: '更新活動'
+      task_project:
+        create: '新增任務'
 
   template:
     project: '範例專案'
