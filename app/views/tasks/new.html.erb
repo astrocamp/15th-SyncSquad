@@ -37,10 +37,6 @@
                   <%= form.check_box :all_day_event, data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"},
                       class: 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 ' %>
                 </div>
-                <div>
-                  <%= form.label :estimated_completed_at, t('tasks.edit_estimated_completed_at'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
-                  <%= form.datetime_field :estimated_completed_at, class: 'bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none' %>
-                </div>
               </div>
             </div>
             <div>
