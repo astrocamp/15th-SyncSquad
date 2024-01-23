@@ -25,13 +25,13 @@
             </div>
             <div class="flex flex-col items-center justify-center w-full pl-10 pr-10 pt-10 m-auto md:pt-16 lg:pt-8 md:pr-10 lg:p-0 md:w-[42%] justify-items-center max-w-[480px] lg:max-w-[320px]">
                 <% unless company_signed_in? || user_signed_in? %>
-                    <div class="flex w-full pt-2 pb-8 font-bold sm:pt-2">
+                    <div class="flex justify-center w-full pt-2 pb-8 font-bold sm:pt-2">
                         <%= link_to t('main.company_sign_in'), sign_in_companies_path,
                             data: {turbo: false},
-                            class: "tracking-wide grow mr-2 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"  %>
+                            class: "form-btn"  %>
                         <%= link_to t('main.user_sign_in'), new_user_session_path,
                             data: {turbo: false},
-                            class: "tracking-wide grow py-2.5 text-center px-5 ml-2 text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" %>
+                            class: "tracking-wide py-2.5 text-center px-5 ml-2 text-sm text-gray-900 focus:outline-none bg-gray-200 rounded-lg border border-gray-300 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" %>
                     </div>
                     <div class="w-full">
                         <%= render 'signup_company' %>
@@ -43,18 +43,16 @@
             </div>  
         </div>
         <div class="absolute bottom-0 w-full -z-20 max-h-40 md:max-h-full" style="height: calc(75% - 1rem);">
-            <div class="right-0 w-3/5 h-full p-2 ml-auto bg-gradient-to-b from-[#15233b] form-20% to-[#18376c]" style="clip-path: polygon(30% 0%, 25% 7%, 8% 92%, 0% 100%, 100% 100%, 100% 0%);"></div>
+            <div class="right-0 w-3/5 h-full p-2 ml-auto bg-gradient-to-b from-[#15233b] form-20% to-[#18376c]" style="clip-path: polygon(30% 0%, 25% 7%,  8% 92%, 0% 100%, 100% 100%, 100% 0%);"></div>
         </div>
     </section>
     <div data-controller="scroll-reveal" class="bg-gradient-to-b from-[#18376c] via-[#3778EA] via-70% to-100% to-[#3779eaa3]">
         <section id="calendar" class="flex flex-wrap-reverse max-w-screen-lg py-24 m-auto md:flex-wrap lg:flex-nowrap">
             <div class="flex-initial w-full md:w-1/2">
                 <div class="inset-0 flex flex-col items-center justify-center text-center">
-                    <%= link_to t('main.calendar'),
-                        feature_calendar_path,
-                        data: {scroll_reveal_target: "item", delay:"350ms"},
-                        class: 'reveal block bg-[#3778EA] mb-6 py-2 px-8 md:px-16 rounded font-bold mt-8 md:mt-0 md:font-black text-2xl',
-                        style: 'clip-path: polygon(10% 0%, 100% 0, 90% 100%, 0% 100%)'%>
+                    <p data-scroll-reveal-target= "item" data-delay="350ms"
+                        class='reveal block bg-[#3778EA] text-white mb-6 py-2 px-8 md:px-16 rounded font-bold mt-8 md:mt-0 md:font-black text-2xl'
+                        style= 'clip-path: polygon(10% 0%, 100% 0, 90% 100%, 0% 100%)'><%= t('main.calendar') %></p>
                     <p data-scroll-reveal-target="item" class="reveal w-full px-10 mx-auto text-sm font-light leading-7 tracking-wide text-white lg:text-base md:leading-7 lg:leading-9 md:px-0 md:w-56 lg:w-96" data-delay="450ms"><%= t('main.calendar_intro') %></p>
                 </div>
             </div>
@@ -68,10 +66,7 @@
             </div>
             <div class="w-full pt-0 md:pt-20 md:w-2/5">
                 <div class="inset-0 flex flex-col items-center justify-center">
-                    <%= link_to t('main.project'), feature_project_path,
-                        data: {scroll_reveal_target: "item", delay:"350ms"},
-                        class: 'reveal block px-8 py-2 mt-8 mb-6 text-2xl font-bold text-white bg-black rounded md:mt-0 md:font-black md:px-16',
-                        style: 'clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);' %>
+                    <p data-scroll-reveal-target= "item" data-delay="350ms" class='reveal block px-8 py-2 mt-8 mb-6 text-2xl font-bold text-white bg-black rounded md:mt-0 md:font-black md:px-16' style= 'clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);'><%= t('main.project') %> </p>
                     <p data-scroll-reveal-target="item" class="reveal px-10 mx-auto text-sm font-light leading-7 tracking-wide text-white lg:text-base md:leading-7 lg:leading-9 md:px-0 md:w-56" data-delay="450ms"><%= t('main.project_intro') %></p>
                 </div>
             </div>
@@ -81,10 +76,8 @@
         <div class="relative max-w-screen-lg px-10 pt-6 pb-24 m-auto mb-12 md:mb-0 md:pb-12" style="aspect-ratio: 969/725;">
             <%= image_tag('chatroom.png', class: 'object-cover') %>
             <div data-controller="scroll-reveal" class="absolute inset-x-0 mt-12 text-center lg:mt-24 top-36 md:top-48">
-                <%= link_to t('main.chatroom'), feature_chatroom_path,
-                        data: {scroll_reveal_target: "item", delay:"350ms"},
-                        class: 'reveal mb-6 px-8 py-2 text-2xl font-bold inline-block text-white bg-black rounded md:mt-0 md:font-black md:px-16',
-                        style: 'clip-path: polygon(10% 0%, 100% 0, 90% 100%, 0% 100%)' %>
+                <p data-scroll-reveal-target= "item" data-delay="350ms" class='reveal mb-6 px-8 py-2 text-2xl font-bold inline-block text-white bg-black rounded md:mt-0 md:font-black md:px-16',
+                style='clip-path: polygon(10% 0%, 100% 0, 90% 100%, 0% 100%)'><%= t('main.chatroom') %></p>
                 <p data-scroll-reveal-target="item" class="reveal p-4 mx-auto text-sm font-light leading-7 tracking-wide bg-white rounded-lg w-96 sm:w-80 lg:text-base md:leading-7 lg:leading-9 lg:w-96 md:bg-transparent md:px-0" data-delay="450ms"><%= t('main.chatroom_intro') %></p>
             </div>
         </div>

@@ -5,10 +5,6 @@ Rails.application.routes.draw do
     root 'main#home'
     get '/about', to: 'main#about'
     get '/privacy', to: 'main#privacy'
-    get '/feature/calendar', to: 'main#calendar'
-    get '/feature/chatroom', to: 'main#chatroom'
-    get '/feature/project', to: 'main#project'
-  
 
     devise_for :users, controllers: {
       sessions: 'users/registrations/sessions',
