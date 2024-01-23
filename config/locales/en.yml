@@ -258,7 +258,7 @@ en:
     all_records: "All Records"
     success_records: "Success Records"
     failures_details: "Failures Details"
-    processing: "Data is processing"
+    processing: "Data is processing, please wait and refer to import record page"
 
   Failures: "Failures"
   Success: "Success"
