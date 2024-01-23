@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     tmp_file_path = save_temp_csv(file).to_s
     CsvImportWorker.perform_async(tmp_file_path, current_company.id, current_user&.id)
 
-    redirect_to users_import_records_path, notice: t('import.processing')
+    redirect_to users_import_path, notice: t('import.processing')
   end
 
   def records
