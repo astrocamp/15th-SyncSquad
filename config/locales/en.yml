@@ -320,7 +320,7 @@ en:
     free: "Free to Use Permanently"
     join: "Join"
     condition_seven: "Membership Restriction: 5 people"
-    condition_eight: "Bulk import for creating employee"
+    condition_eight: "Bulk import restriction"
     login: "Please log in"
 
   views:

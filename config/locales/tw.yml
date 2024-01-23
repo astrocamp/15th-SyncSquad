@@ -320,7 +320,7 @@ tw:
     free: "永久免費使用"
     join: "立即加入"
     condition_seven: "會員限制5人"
-    condition_eight: "擁有一鍵使用CSV上傳員工的功能"
+    condition_eight: "限制CSV上傳員工功能"
     login: "請登入"
 
   views:
