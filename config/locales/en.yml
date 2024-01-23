@@ -374,3 +374,22 @@ en:
     list: 'Template List'
     task1: 'Template Task1'
     task2: 'Template Task2'
+
+  helpers:
+    submit:
+      user:
+        create: 'Create'
+      company:
+        create: 'Create'
+        update: 'Update'
+      project:
+        create: 'Create'
+        update: 'Update'
+      list:
+        create: 'Create'
+        update: 'Update'
+      task:
+        create: 'Create'
+        update: 'Update'
+      task_project:
+        create: 'Create'

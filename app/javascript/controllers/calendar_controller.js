@@ -27,6 +27,7 @@ export default class extends Controller {
 
   connect() {
     const { locale } = this.calendarTarget.dataset
+    const lang = this.calendarTarget.dataset.lang
     const newTaskUrl = this.calendarTarget.dataset.newTaskUrl
     const item = this.calendarTarget.dataset.item
     const tasks = JSON.parse(this.calendarTarget.dataset.tasks)
@@ -68,7 +69,9 @@ export default class extends Controller {
         })
       },
       eventClick: function (info) {
-        const itemURL = `/${item}/${info.event._def.publicId}`
+        const itemURL = `${lang ? `/${lang}` : ``}/${item}/${
+          info.event._def.publicId
+        }`
         Turbo.visit(itemURL, {
           frame: 'modal',
           method: 'POST',

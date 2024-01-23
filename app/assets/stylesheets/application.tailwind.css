@@ -164,15 +164,20 @@ form .field_with_errors:nth-child(even) {
   @apply bg-gray-300;
 }
 
-.fc .fc-toolbar.fc-header-toolbar {
+.fc .fc-toolbar {
   flex-wrap: wrap;
-}
+  justify-content: center !important;
+  gap: 0.5rem;
+  margin-bottom: 0;
 
-.fc .fc-toolbar-chunk:nth-child(2) {
-  flex: none;
-  order: -1;
-  width: 100%;
+  > .fc-toolbar-chunk:nth-child(2) {
+    @apply flex-none w-full text-center -order-1;
+  }
 }
-.fc .fc-toolbar-chunk:nth-child(2) h2 {
-  text-align: center;
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 0 !important;
+}
+.fc {
+  gap: 0.5rem;
+  height: 100%;
 }
