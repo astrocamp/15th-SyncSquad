@@ -3,32 +3,34 @@
 <% end %>
 <%= render 'shared/modal' do %>
   <%= form_with modal: @task, url: create_task_project_path do |form| %>
-    <div>
-      <%= form.label :title, t('tasks.new_title') %>
-      <%= form.text_field :title %>
-    </div>
-    <div>
-      <%= form.label :list_id, t('tasks.new_list_id')%>
-      <%= form.select :list_id, @project.lists.pluck(:title, :id), {include_blank: true} , data:{controller: "slimselect", search_placeholder: t('search_placeholder') } %>
-    </div>
-    <div data-controller="datepicker">
-      <div>
-        <%= form.label :started_at, t('tasks.new_started_at')%>
-        <%= form.datetime_field :started_at, value: @started_at_value, data:{datepicker_target:"startedAt"} %>
+    <div class="flex flex-col gap-4 p-4">
+      <div class="flex items-center">
+        <%= form.label :title, t('tasks.new_title'), class: 'block text-sm font-medium text-gray-900 dark:text-white flex-none mr-2' %>
+        <%= form.text_field :title, class: 'form-input' %>
       </div>
-      <div>
-        <%= form.label :ended_at, t('tasks.new_ended_at') %>
-        <%= form.datetime_field :ended_at, value: @ended_at_value, data:{datepicker_target:"endedAt"}  %>
+      <div class="flex items-center">
+        <%= form.label :list_id, t('tasks.new_list_id'), class: 'block text-sm font-medium text-gray-900 dark:text-white flex-none mr-2' %>
+        <%= form.select :list_id, @project.lists.pluck(:title, :id), {include_blank: true} , data:{controller: "slimselect", search_placeholder: t('search_placeholder') }, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5'  %>
       </div>
-      <div>
-        <%= form.label :all_day_event, t('tasks.new_all_day_event') %>
-        <%= form.check_box :all_day_event, checked: params[:allDay] == "true", data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"} %>
+      <div data-controller="datepicker" class="flex flex-col items-center gap-4">
+        <div class="flex items-center w-full">
+          <%= form.label :started_at, t('tasks.new_started_at'), class: 'block text-sm font-medium text-gray-900 dark:text-white flex-none mr-2 ' %>
+          <%= form.datetime_field :started_at, value: @started_at_value, data:{datepicker_target:"startedAt"}, class: 'form-input flex-auto'  %>
+        </div>
+        <div class="flex items-center w-full">
+          <%= form.label :ended_at, t('tasks.new_ended_at'), class: 'block text-sm font-medium text-gray-900 dark:text-white flex-none mr-2 '  %>
+          <%= form.datetime_field :ended_at, value: @ended_at_value, data:{datepicker_target:"endedAt"}, class: 'form-input flex-auto'   %>
+        </div>
+        <div class="flex items-center w-full">
+          <%= form.label :all_day_event, t('tasks.new_all_day_event'), class: 'block text-sm font-medium text-gray-900 dark:text-white flex-none mr-2 '  %>
+          <%= form.check_box :all_day_event, checked: params[:allDay] == "true", data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"} %>
+        </div>
       </div>
     </div>
     <!-- Modal footer -->
     <div class="flex items-center justify-end p-4 border-t border-gray-200 rounded-b md:p-5 dark:border-gray-600">
-      <%= form.submit class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
-      <button data-action="click->turbomodal#close" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">取消</button>
-    </div>
+        <%= form.submit class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
+        <button data-action="click->turbomodal#close" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">取消</button>
+      </div>
   <% end %>
 <% end %>
