@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :limit, only: %i[import]
   def import
     file = params[:file]
     if file.nil? || file.content_type != 'text/csv'
