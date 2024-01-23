@@ -117,14 +117,14 @@ class ProjectsController < ApplicationController
   end
 
   def find_tasks
-    @tasks = @project.tasks.select { |task| task[:started_at] && task[:ended_at] }.map do |task|
-      { 'id' => task[:id], 'projectId' => task.project.id,
-        'title' => task[:title], 'color' => task.list.color,
-        'start' => task[:started_at], 'startTime' => task[:started_at],
-        'end' => task[:ended_at], 'endTime' => task[:ended_at], 'allDay' => task[:all_day_event],
-        'description' => task[:description].nil? ? '' : task[:description],
+    @tasks = @project.tasks.select { |task| task.started_at && task.ended_at }.map do |task|
+    { 'id' => task.id, 'projectId' => task.project.id,
+        'title' => task.title, 'color' => task.list.color,
+        'start' => task.started_at, 'startTime' => task.started_at,
+        'end' => task.ended_at, 'endTime' => task.ended_at, 'allDay' => task.all_day_event,
+        'description' => task.description.nil? ? '' : task.description,
         'extendedProps' => { 'priority' => task.priority_text, 
-                              'priority_color' => case task.priority
+                              'priorty_color' => case task.priority
                                                   when 'critical' then 'bg-red-600'
                                                   when 'high' then 'bg-yellow-300'
                                                   when 'medium' then 'bg-lime-400'

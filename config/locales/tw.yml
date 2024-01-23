@@ -52,7 +52,7 @@ tw:
     new: '新建列表'
     new_title: '名稱'
     new_cancel: '取消'
-    edit_list_title: '編輯列表名稱'
+    edit_list_title: '編輯列表'
     edit_title: '名稱'
     edit_color: '顏色'
     edit_cancel: '取消'

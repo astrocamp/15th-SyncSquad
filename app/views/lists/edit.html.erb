@@ -1,5 +1,5 @@
 <%= content_for :modal_title do %>
-  <%= t('lists.edit') %>
+  <%= t('lists.edit_list_title') %>
 <% end %>
 <%= render 'shared/modal' do %>
   <%= form_with model: @list, url: list_path, method: 'PATCH' do |form| %>

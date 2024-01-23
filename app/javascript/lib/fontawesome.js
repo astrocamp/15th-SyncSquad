@@ -15,6 +15,7 @@ import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan'
 import { faPenToSquare as faPenToSquareRegular } from '@fortawesome/free-regular-svg-icons/faPenToSquare'
 import { faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons/faCircleChevronLeft'
 import { faCrown } from '@fortawesome/free-solid-svg-icons/faCrown'
+import { faAlignJustify } from '@fortawesome/free-solid-svg-icons/faAlignJustify'
 import { faHourglassStart } from '@fortawesome/free-solid-svg-icons/faHourglassStart'
 import { faMessage } from '@fortawesome/free-solid-svg-icons/faMessage'
 import { faLock } from '@fortawesome/free-solid-svg-icons/faLock'
@@ -23,8 +24,6 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers'
 import { faBackward } from '@fortawesome/free-solid-svg-icons/faBackward'
 import { faAlignJustify } from '@fortawesome/free-solid-svg-icons/faAlignJustify'
 import { faCommentDots } from '@fortawesome/free-regular-svg-icons/faCommentDots'
-import { faAnglesUp } from '@fortawesome/free-solid-svg-icons/faAnglesUp'
-import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark'
 
 library.add({
   faEllipsis,
@@ -52,7 +51,6 @@ library.add({
   faAlignJustify,
   faCommentDots,
   faTrashCan,
-  faXmark,
 })
 
 dom.watch()
