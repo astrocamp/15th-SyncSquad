@@ -76,7 +76,6 @@ tw:
     edit_all_day_event: '全天'
     edit_priority: '優先級'
     edit_select: '選擇'
-    edit_estimated_completed_at: '預計完成時間'
     edit_location: '地點'
     edit_location_reset: '重設地點'
     edit_cancel: '取消'
@@ -88,7 +87,6 @@ tw:
     new_started_at: '開始時間'
     new_ended_at: '結束時間'
     new_all_day_event: '全天'
-    new_estimated_completed_at: '預計完成時間'
     new_location: '地點'
     new_location_reset: '重設地點'
     new_cancel: '取消'
@@ -102,7 +100,6 @@ tw:
     show_all_day_event: '全天'
     show_priority: '優先級'
     show_select: '選擇'
-    show_estimated_completed_at: '預計完成時間'
     show_location: '地點'
     time: '時間'
 

@@ -76,7 +76,6 @@ en:
     edit_all_day_event: 'All Day'
     edit_priority: 'Priority'
     edit_select: 'Select'
-    edit_estimated_completed_at: 'Estimated Completion Time'
     edit_location: 'Location'
     edit_location_reset: 'Reset'
     edit_cancel: 'Cancel'
@@ -88,7 +87,6 @@ en:
     new_started_at: 'Start At'
     new_ended_at: 'End At'
     new_all_day_event: 'All Day'
-    new_estimated_completed_at: 'Estimated Completion Time'
     new_location: 'Location'
     new_location_reset: 'Reset'
     new_cancel: 'Cancel'
@@ -102,7 +100,6 @@ en:
     show_all_day_event: 'All Day'
     show_priority: 'Priority'
     show_select: 'Select'
-    show_estimated_completed_at: 'Estimated Completion Time'
     show_location: 'Location'
     time: 'Time'
 
