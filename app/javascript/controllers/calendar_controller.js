@@ -80,7 +80,6 @@ export default class extends Controller {
       eventDidMount: function (info) {
         const list_color = info.event.extendedProps.color
         let userName = info.event.extendedProps.user_nick_name
-        console.log(userName)
         if (userName === null && locale === 'zh-tw') {
           userName = '無名'
         } else if (userName === null && locale === 'en-us') {
@@ -91,6 +90,7 @@ export default class extends Controller {
           userName = 'Unassigned'
         } else {
         }
+        console.log(info.event.extendedProps.priority)
         tippy(info.el, {
           content: `
             <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48 overflow-hidden">
@@ -101,7 +101,7 @@ export default class extends Controller {
                 <div class="text-gray-900 text-sm">
                   <div class="font-bold flex flex-nowrap overflow-hidden items-center truncate" style="color: ${list_color};">
                     <p class="flex-none">></p>
-                    <p calss="truncate flex-auto">${
+                    <p calss="truncate flex-auto flex-auto">${
                       info.event.extendedProps.list_title
                     }</p>
                   </div>
@@ -111,13 +111,13 @@ export default class extends Controller {
                 </div>
                 <div>
                   <div class="inline-block pr-2 mt-2 ${
-                    info.event.extendedProps.priorty == 'critical' ||
-                    info.event.extendedProps.priorty == '緊急'
+                    info.event.extendedProps.priority == 'Critical' ||
+                    info.event.extendedProps.priority == '緊急'
                       ? 'text-white'
                       : 'text-gray-900'
-                  } rounded-md ${info.event.extendedProps.priorty_color}";>
+                  } rounded-md ${info.event.extendedProps.priority_color}";>
                     <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>${
-                      info.event.extendedProps.priorty
+                      info.event.extendedProps.priority
                     }
                   </div>
                 </div>

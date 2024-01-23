@@ -124,7 +124,7 @@ class ProjectsController < ApplicationController
         'end' => task[:ended_at], 'endTime' => task[:ended_at], 'allDay' => task[:all_day_event],
         'description' => task[:description].nil? ? '' : task[:description],
         'extendedProps' => { 'priority' => task.priority_text, 
-                              'priorty_color' => case task.priority
+                              'priority_color' => case task.priority
                                                   when 'critical' then 'bg-red-600'
                                                   when 'high' then 'bg-yellow-300'
                                                   when 'medium' then 'bg-lime-400'
