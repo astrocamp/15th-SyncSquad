@@ -2,80 +2,117 @@
   <%= @task.title %>
 <% end %>
 <%= render 'shared/modal' do %>
-  <div class="border-t-8 " style="border-color:<%= @task.list.color %>; border-style: solid;">
-    <div class="relative p-4 space-y-4 md:p-5">
-      <div class="flex items-center justify-between">
-        <p class="font-bold" style="color:<%= @task.list.color %>;">> <%= @task.list.title %></p>
-        <%= link_to edit_task_path(@task), data: { turbo_frame: "modal" }, class: 'flex items-center px-4 py-2 ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium hover:text-gray-900 focus:z-10' do %>
-          <i class="mr-2 fa-regular fa-pen-to-square"></i>
-          <p><%= t('tasks.show_edit') %></p>
-        <% end %>
-      </div>
-      <div class="flex items-center py-1">
-        <% unless @task.user.nil? %>
-          <% if @task.user.avatar.attached? %>
-            <%= link_to image_tag(@task.user.chat_avatar,
-                                  class: "w-5 h-5 rounded-full ml-3"), user %>
-          <% else %>
-            <div class="mr-2 bg-gray-100 rounded-lg w-7 h-7">
-              <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
+  <div class="overflow-y-auto max-h-[70vh] border-t-8" style="border-color:<%= @task.list.color %>; border-style: solid;">
+    <div>
+      <div class="relative space-y-4 ">
+        <div class="flex flex-col gap-4 px-4 pt-4 pb-1">
+          <div class="flex items-center justify-between">
+            <p class="font-bold" style="color:<%= @task.list.color %>;">> <%= @task.list.title %></p>
+          </div>
+          <% unless @task.user.nil? %>
+            <div class="flex items-center">
+              <% unless @task.user.nil? %>
+                <% if @task.user.avatar.attached? %>
+                  <%= link_to image_tag(@task.user.chat_avatar, class: "w-7 h-7 rounded-full mr-2"), @task.user %>
+                <% else %>
+                  <div class="flex-none mr-2 bg-gray-100 rounded-full w-7 h-7">
+                    <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
+                  </div>
+                <% end %>
+                <p class="flex-auto mr-2 truncate"><%= @task.user.nick_name == "" ? (@task.user.name == "" ? @task.user.email : @task.user.name ) : @task.user.nick_name %></p>
+              <% end %>
             </div>
           <% end %>
-          <p class="mr-2"><%= @task.user.nick_name %></p>
-        <% end %>
-        <div class="inline-block pr-2 mx-1 text-white rounded-md
-                    <%= case @task.priority
-                        when 'critical' then 'bg-red-600' 
-                        when 'high' then 'bg-yellow-300' 
-                        when 'medium' then 'bg-lime-400' 
-                        when 'low' then 'bg-gray-300' end %>">
-          <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>
-          <%= @task.priority %>
-        </div>
-      </div>
-      <div class="flex items-center">
-        <i class="mr-2 fa-solid fa-align-justify"></i>
-        <p class="mr-2"><%= t('tasks.show_description') %></p>
-        <p><%= @task.description %></p>
-      </div>
-      <div class="flex items-start">
-        <div class="flex items-center mr-2">
-          <i class="mr-2 fa-regular fa-calendar"></i>
-          <p><%= t('tasks.time') %></p>
-        </div>
-        <div>
-          <p><%= @task.started_at %></p>
-          <p><%= @task.ended_at %></p>
-        </div>
-      </div>
-      <div class="flex items-center">
-        <i class="mr-2 fa-solid fa-location-dot"></i>
-        <p class="mr-2"><%= t('tasks.show_location') %></p>
-        <p><%= @task.location %></p>
-      </div>
-    </div>
-    <section class="max-w-4xl p-6 mx-auto bg-white rounded-lg shadow-md">
-      <h3 class="mb-4 text-2xl font-bold text-gray-800"><%=  t('comments.comment') %></h3>
-        <div class="scrollable-modal">
-          <div id="comment_area">
-            <% @comments.each do |comment| %>
-              <ul class="mb-6 space-y-4">
-                <span class="text-lg text-gray-800"><%= comment.user.email %> </span>
-                <span> <%= comment.created_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p')  %></span>
-                <li class="p-4 bg-gray-100 rounded-lg">
-                  <div class="prose max-w-none">
-                    <p class="markdown"><%= advanced_markdown(comment.content) %></p>
-                  </div>
-                </li>
-                <div><%= link_to  t('comments.destroy_comment'), comment_path(comment), data:{turbo_method:"delete"}, class:"bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition duration-300 ease-in-out"%></div>
-              </ul>
+          <% unless @task.priority.nil? %>
+            <div>
+              <div class="py-1 pr-2 rounded-md inline 
+                <%= @task.priority == 'critical' ? 'text-white' : 'text-gray-900' %>
+                <%= case @task.priority
+                    when 'critical' then 'bg-red-600'
+                    when 'high' then 'bg-yellow-300'
+                    when 'medium' then 'bg-lime-400'
+                    when 'low' then 'bg-gray-300' end %>">
+                <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>
+                <%= @task.priority_text %>
+              </div>
+            </div>
+          <% end %>
+          <% unless @task.description.nil? || @task.description == "" %>
+            <div class="flex flex-wrap items-start w-full">
+              <div class="flex items-center w-full flex-nowrap sm:w-auto sm:mb-0">
+                <i class="flex-none py-1 mr-2 fa-solid fa-align-justify"></i>
+                <p class="flex-none mr-2"><%= t('tasks.show_description') %></p>
+              </div>
+              <p class="flex-1 ml-6 break-words whitespace-pre-wrap sm:ml-0" style="width: calc(100% - 12rem);"><%= @task.description %></p>
+            </div>
+          <% end %>
+          <div class="flex flex-wrap items-start w-full sm:w-auto sm:mb-0">
+            <div class="flex items-center mr-2">
+              <i class="mr-2 fa-regular fa-calendar"></i>
+              <p class="flex-none"><%= t('tasks.time') %></p>
+            </div>
+            <% if @task.started_at.present? || @task.ended_at.present? %>
+              <div class="<%= 'flex' if @task.all_day_event == true %>">
+                <p class="ml-1"><%= @task.all_day_event == true ? @task.started_at.strftime("%Y-%m-%d") : @task.started_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %> ~ </p>
+                <p class="ml-1"><%= @task.all_day_event == true ? @task.ended_at.strftime("%Y-%m-%d") : @task.ended_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></p>
+              </div>
             <% end %>
           </div>
-        <%= form_with(model: @comment, url: task_comments_path(@task), data: { controller: "turbomodal", action: "turbo:submit-end->turbomodal#open turbo:submit-end->turbomodal#reset"}) do |f| %>
-          <%= f.text_area :content, class: "w-full p-4 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent", rows: 6%>
-          <%= f.submit t('comments.create_comment'), class: "px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" %>
-        <% end %>
+          <% unless @task.location.nil? || @task.location == "" %>
+            <div class="flex flex-wrap items-center w-full sm:flex-nowrap sm:w-auto sm:mb-0">
+              <div class="flex items-center mr-2">
+                <i class="ml-1 mr-2 fa-solid fa-location-dot"></i>
+                <p class="flex-none"><%= t('tasks.show_location') %></p>
+              </div>
+              <p class="w-full ml-6 truncate sm:w-auto sm:ml-0 sm:pl-4"><%= @task.location %></p>
+            </div>
+            <div data-controller="map" id="map" data-map-target="map" data-location="<%= @location %>" data-latitude="<%= @latitude %>" data-longitude="<%= @longitude %>" data-id="<%= @task.id %>" class="mt-2"></div>
+          <% end %>
+          <%= link_to t('tasks.show_edit'), edit_task_path(@task), data: { turbo_frame: "modal" }, class: 'flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center block ml-auto' %>
+        </div>
+        <div class="px-4 pt-4 pb-12 bg-gray-100 rounded-b-lg md:p-5">
+          <div class="flex items-center mb-3">
+            <i class="mr-2 fa-regular fa-comment-dots"></i>
+            <p><%= t('comments.comment') %></p>
+          </div>
+          <div>
+            <%= render partial: 'comments/form', locals: { comment: Comment.new, task: @task }%>
+            <div id="comment_area">
+              <% @comments.each do |comment| %>
+                <ul class="mt-6 space-y-4">
+                  <div class="flex items-center justify-between">
+                    <% unless comment.user.nil? %>
+                      <div class="flex items-center">
+                        <% if comment.user.avatar.attached? %>
+                          <%= link_to image_tag(comment.user.chat_avatar, class: "w-7 h-7 rounded-full mr-2"), comment.user %>
+                        <% else %>
+                          <div class="mr-2 rounded-lg w-7 h-7">
+                            <i class="block w-5 h-5 p-1 text-gray-400 fa-solid fa-user"></i>
+                          </div>
+                        <% end %>
+                        <p class="flex-auto mr-2 truncate"><%= comment.user.nick_name == "" ? (comment.user.name == "" ? comment.user.email : @task.user.name ) : @task.user.nick_name %></p>
+                      </div>
+                    <% end %>
+                    <div class="flex items-center">
+                      <p class="text-xs text-gray-400"> <%= comment.created_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></p>
+                      <%= link_to comment_path(comment), data:{turbo_method:"delete"},
+                          class: " flex items-center p-2 ml-2 hover:bg-gray-300 rounded-lg text-gray-400 hover:text-red-600 transition duration-300 ease-in-out" do %>
+                        <i class="fa-regular fa-trash-can"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="relative flex">
+                    <div class="flex-none w-9"></div>
+                    <li class="flex-auto px-4 pt-4 break-words bg-white rounded-lg markdown" style="width: calc(100% - 12rem);">
+                      <%= advanced_markdown(comment.content) %>
+                    </li>
+                  </div>
+                </ul>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   </div>
 <% end %>
