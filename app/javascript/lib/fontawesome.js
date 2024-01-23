@@ -22,6 +22,7 @@ import { faSquarePlus } from '@fortawesome/free-solid-svg-icons/faSquarePlus'
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers'
 import { faBackward } from '@fortawesome/free-solid-svg-icons/faBackward'
 import { faAlignJustify } from '@fortawesome/free-solid-svg-icons/faAlignJustify'
+import { faCommentDots } from '@fortawesome/free-regular-svg-icons/faCommentDots'
 import { faAnglesUp } from '@fortawesome/free-solid-svg-icons/faAnglesUp'
 
 library.add({
@@ -49,6 +50,8 @@ library.add({
   faBackward,
   faAnglesUp,
   faAlignJustify,
+  faCommentDots,
+  faTrashCan,
 })
 
 dom.watch()

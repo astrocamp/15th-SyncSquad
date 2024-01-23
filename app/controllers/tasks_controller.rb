@@ -8,6 +8,9 @@ class TasksController < ApplicationController
     authorize @task
     @comment = Comment.new
     @comments = @task.comments
+    @location = @task.location
+    @latitude = @task.latitude
+    @longitude = @task.longitude
   end
 
   def drop
