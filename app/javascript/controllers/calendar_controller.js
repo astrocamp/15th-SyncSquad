@@ -90,13 +90,34 @@ export default class extends Controller {
         }
         tippy(info.el, {
           content: `
-            <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48">
-              <header class="rounded-t-lg p-2 flex justify-between text-lg text-white" style="background-color: ${list_color};">
-                <h3 class="font-bold mr-auto">${info.event.title}</h3>
+            <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48 overflow-hidden">
+              <header class="rounded-t-lg p-2 text-lg text-white" style="background-color: ${list_color};">
+                <h3 class="font-bold mr-auto truncate">${info.event.title}</h3>
               </header>
-              <div class="p-2 text-gray-900 text-sm">
-                <div class="font-bold" style="color: ${list_color};">> ${info.event.extendedProps.list_title}</div>
-                <p>${info.event.extendedProps.description}</p>
+              <div class="p-2 rounded-b-lg">
+                <div class="text-gray-900 text-sm">
+                  <div class="font-bold flex flex-nowrap overflow-hidden items-center truncate" style="color: ${list_color};">
+                    <p class="flex-none">></p>
+                    <p calss="truncate flex-auto">${
+                      info.event.extendedProps.list_title
+                    }</p>
+                  </div>
+                  <p class="truncate w-full mt-2">${
+                    info.event.extendedProps.description
+                  }</p>
+                </div>
+                <div>
+                  <div class="inline-block pr-2 mt-2 ${
+                    info.event.extendedProps.priorty == 'critical' ||
+                    info.event.extendedProps.priorty == '緊急'
+                      ? 'text-white'
+                      : 'text-gray-900'
+                  } rounded-md ${info.event.extendedProps.priorty_color}";>
+                    <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>${
+                      info.event.extendedProps.priorty
+                    }
+                  </div>
+                </div>
               </div>
               <div class="bg-gray-100 flex justify-center items-center rounded-b-lg">
                 <i class="h-4 p-2 text-center text-gray-400 fa-solid fa-user"></i>
