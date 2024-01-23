@@ -258,6 +258,7 @@ en:
     all_records: "All Records"
     success_records: "Success Records"
     failures_details: "Failures Details"
+    processing: "Data is processing"
 
   Failures: "Failures"
   Success: "Success"
@@ -341,6 +342,7 @@ en:
     condition_seven: "Membership Restriction: 5 people"
     condition_eight: "Bulk import restriction"
     login: "Please log in"
+    refer: "Please refer payment"
 
   views:
     pagination:

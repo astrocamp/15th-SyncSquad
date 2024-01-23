@@ -16,7 +16,6 @@
       <thead>
         <tr class="bg-blue-300">
           <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.status') %> </th>
-          <th class="py-2 px-2 md:px-4 border-b text-xs md:text-lg"><%= t('import.file') %> </th>
           <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.imported_time') %> </th>
           <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.all_records') %> </th>
           <th class="py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= t('import.success_records') %> </th>
@@ -35,7 +34,6 @@
                 <%= I18n.t(import_record.status)%>
               </td>
             <% end %>
-            <td class="text-left py-2 px-2 md:px-4 border-b text-xs md:text-lg"><%= link_to import_record.file.filename, rails_blob_path(import_record.file) %></td>
             <td class="text-left py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.created_at.in_time_zone('Taipei').strftime('%Y/%m/%d - %H:%M') %></td>
             <td class="text-center py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.total_count %></td>
             <td class="text-center py-2 px-2 md:px-4 border-b text-xs hidden md:text-lg lg:table-cell"><%= import_record.success_count %></td>  

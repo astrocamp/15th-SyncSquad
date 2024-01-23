@@ -258,6 +258,7 @@ tw:
     all_records: "總數"
     success_records: "成功數"
     failures_details: "失敗紀錄詳細資訊"
+    processing: "資料正在匯入中"
 
   Failures: "失敗"
   Success: "成功"
@@ -341,6 +342,7 @@ tw:
     condition_seven: "會員限制5人"
     condition_eight: "限制CSV上傳員工功能"
     login: "請登入"
+    refer: "請參考付費功能"
 
   views:
     pagination:

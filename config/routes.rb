@@ -15,6 +15,9 @@ Rails.application.routes.draw do
       registrations: 'users/registrations/registrations'
     }
 
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/sidekiq'
+
     devise_scope :user do
       get 'users', to: 'devise/sessions#new'
       get 'users/import', to: 'users#index'
