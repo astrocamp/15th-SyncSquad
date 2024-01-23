@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :limit, only: %i[import]
   def import
     file = params[:file]
     if file.nil? || file.content_type != 'text/csv'
       return redirect_to users_import_path,
                          notice: t('import.please_choose_file')
     end
-    CsvImportUsersService.new.call(file, current_company.id, current_user&.id)
-    redirect_to users_import_records_path
+
+    tmp_file_path = save_temp_csv(file).to_s
+    CsvImportWorker.perform_async(tmp_file_path, current_company.id, current_user&.id)
+
+    redirect_to users_import_records_path, notice: t('import.processing')
   end
 
   def records
@@ -51,6 +53,12 @@ class UsersController < ApplicationController
 
   private
 
+  def save_temp_csv(file)
+    tmp_file_path = Rails.root.join('tmp', SecureRandom.uuid + File.extname(file.original_filename))
+    File.binwrite(tmp_file_path, file.read)
+    tmp_file_path
+  end
+
   def get_name(user1, user2)
     user = [user1, user2].sort
     "private_#{user[0].id}_#{user[1].id}"
@@ -59,6 +67,6 @@ class UsersController < ApplicationController
   def limit
     return if current_company.advanced_import?
 
-    redirect_to orders_path, notice: '請參考付費功能'
+    redirect_to orders_path, notice: t('orders.refer')
   end
 end

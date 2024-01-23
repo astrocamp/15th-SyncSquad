@@ -2,13 +2,13 @@
 
 class CsvImportUsersService
   require 'csv'
-  def call(file, company, user) # rubocop:disable Metrics/MethodLength
-    csv_data = file.read.force_encoding('utf-8')
+  def call(file_path, company, user) # rubocop:disable Metrics/MethodLength
+    csv_data = File.read(file_path).force_encoding('utf-8')
     success = 0
     failed_records = []
     CSV.parse(csv_data, headers: true).each_with_index do |row, idx|
-      user = User.find_by(email: row['Email'])
-      if user
+      found_user = User.find_by(email: row['Email'])
+      if found_user
         failed_records << "csv_import.email_exists_row_number_email|#{idx + 1}|#{row['Email']}"
       elsif %w[staff hr].include?(row['Role'])
         data = User.new(
@@ -28,9 +28,10 @@ class CsvImportUsersService
         failed_records << "csv_import.role_row_number_email|#{idx + 1}"
       end
     end
-    Importrecord.create(file:,
-                        status: failed_records.empty? ? 'Success' : 'Failures',
-                        total_count: success + failed_records.size, success_count: success,
-                        error_messages: failed_records, company_id: company, user_id: user)
+    Importrecord.create(
+      status: failed_records.empty? ? 'Success' : 'Failures',
+      total_count: success + failed_records.size, success_count: success,
+      error_messages: failed_records, company_id: company, user_id: user
+    )
   end
 end
