@@ -1,5 +1,5 @@
 <li data-sortbale-update-url="<%= list_sort_path(list) %>" class="h-full">
-  <div class="flex flex-col px-1 py-2 bg-gray-100 border-t-8 rounded-b-lg w-60" style="border-color: <%= list.color %>; max-height: calc(100% - 2rem);">
+  <div class="flex flex-col px-1 py-2 border-t-8 rounded-b-lg w-60" style="border-color: <%= list.color %>; background-color: <%= list.color %>30; max-height: calc(100% - 2rem);">
     <div class="flex justify-between flex-none mx-1 mb-1 ">
       <%= content_tag :h2, list.title, class: "font-bold pr-2" %>
       <%= link_to  edit_list_path(list.id), data: { turbo_frame: "modal" } do%>
@@ -14,7 +14,8 @@
     <div class="flex-none ">
       <%= link_to new_list_task_path(list.id),
           data: { turbo_frame: "modal" }, 
-          class: ' block text-center rounded-lg' do%>
+          class: 'block text-center rounded-lg hover:filter hover:brightness-50 hover:saturate-200 border-2',
+          style: "background-color: #{list.color}40; border-color: #{list.color}30;" do%>
         <i class="fa-solid fa-plus"></i>
       <% end %>
     </div>

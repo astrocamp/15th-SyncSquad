@@ -13,7 +13,7 @@
     <div data-controller="color-picker" class="flex items-center">
       <%= form.label :color, t('lists.edit_color'),
           class: 'block text-sm font-medium text-gray-900 flex-none mr-2' %>
-      <%= form.hidden_field :color, data: {color_picker_target: 'input' } %>
+      <%= form.text_field :color, class:"hidden", data: {color_picker_target: 'input' } %>
       <div data-color-picker-target="button"></div>
     </div>
     <footer>

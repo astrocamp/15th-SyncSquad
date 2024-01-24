@@ -36,9 +36,9 @@
           <%= form.label :all_day_event, t('tasks.edit_all_day_event') %>
           <%= form.check_box :all_day_event, data:{datepicker_target:"allDay", action:"click->datepicker#clickedAllDay"}%>
         </div>
-      <div>
-        <%= form.label :priority, t('tasks.edit_priority') %>
-        <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority)) %>
+      <div >
+        <%= form.label :priority, t('tasks.new_priority')%>
+        <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, value| [t("tasks.priorities.#{key.to_s}"), key] },  @task.priority),{}, data:{controller: "slimselect", search_placeholder: t('search_placeholder') }, class:"w-56") %>
       </div>
       <div>
         <%= form.label :estimated_completed_at, t('tasks.edit_estimated_completed_at') %>

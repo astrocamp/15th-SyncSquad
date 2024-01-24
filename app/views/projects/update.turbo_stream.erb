@@ -18,3 +18,23 @@
   <%= render partial: 'shared/mail', locals: { message: flash[:mail]} %>
 </div>
 
+
+
+
+
+<turbo-stream action="update" target="edit-head-k">
+  <template>
+    <div id="edit-head-k">
+      <%= render partial: 'head', locals: {project: @project} %>
+    </div>
+  </template>
+</turbo-stream>
+
+
+<turbo-stream action="update" target="edit-head-c">
+  <template>
+    <div id="edit-head-c">
+      <%= render partial: 'head', locals: {project: @project} %>
+    </div>
+  </template>
+</turbo-stream>

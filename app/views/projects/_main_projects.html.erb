@@ -1,6 +1,6 @@
 <%= search_form_for @q, data: { turbo_frame: :results } do |f| %>
   <div class="max-w-lg mx-auto bg-white lg:absolute lg:top-0 lg:right-0 lg:pr-6 ">
-    <div class="flex items-center gap-4 pb-4 mx-automd:flex-row lg:pl-6 lg:border-b-2 lg:pt-2">
+    <div class="flex items-center gap-4 pb-4 mx-automd:flex-row lg:pl-6 lg:pt-2">
       <div class="font-normal tracking-wider lg:text-lg text-md lg:font-semibold lg:tracking-normal"> <%= t('projects.main_search') %> </div>
       <%= f.search_field :title_or_owner_email_cont, class:"form-input border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 flex-auto md:w-auto tracking-wider", placeholder: t('projects.main_title_or_email'), oninput: 'this.form.requestSubmit();' %>
       <%= link_to t('projects.main_clear'), "", class:"flex-none bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-lg transition duration-150 ease-in-out  tracking-wider lg:tracking-normal", data: {controller: "reset-form", action:"turbo:submit-end->reset-form#reset"} %>
@@ -18,15 +18,28 @@
         <th class="table-th"><%= sort_link(@q, :created_at, t('projects.main_created_time'), default_order: :desc) %> </th>
         <th class="table-th"><%= sort_link(@q, :updated_at, t('projects.main_updated_time'), default_order: :desc) %></th>
       </thead>
-      <tbody class="h-24 bg-white divide-y divide-gray-200">
-        <% projects.each do |project| %>
-          <tr class=" hover:bg-gray-100">
-            <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 truncate text-xs sm:px-2 sm:py-3 sm:text-sm"> <%= link_to highlight(project.title, params.dig(:q, :title_or_owner_email_cont)), project, data: {turbo_frame: "_top"} %></td>
-            <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 truncate text-xs sm:px-2 sm:py-3 sm:text-sm"><%= project.description %></td>
-            <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 truncate text-xs sm:px-2 sm:py-3 sm:text-sm"><%= highlight project.owner.email, params.dig(:q, :title_or_owner_email_cont) %></td>
-            <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 text-xs sm:px-2 sm:py-3 sm:text-sm"><%= project.created_at.strftime("%Y-%m-%d") %></td>
-            <td class="max-w-[3px] xs:max-w-xs lg:max-w-md px-1 py-2 text-xs sm:px-2 sm:py-3 sm:text-sm"><%= project.updated_at.strftime("%Y-%m-%d") %></td>
-          </tr>
+      <tbody class="h-12 bg-white divide-y divide-gray-200">
+        <% if projects.empty? %>
+            <tr >
+              <td colspan="5" class="text-center"><%= t('projects.noproject') %>
+                <%= link_to  new_project_path, data: { turbo_frame: "modal" } do %>
+                  <span class="px-2 py-1 mx-2 text-gray-700 rounded-lg hover:bg-gray-300 hover:text-gray-900"> 
+                    <i class="fa-solid fa-plus"></i>
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+        <% else %>
+          <% projects.each do |project| %>
+            <tr >
+              <td class="max-w-[3px] xs:max-w-xs lg:max-w-sm px-1 py-2 truncate text-sm sm:px-2 sm:py-3 sm:text-xl hover:underline hover:font-bold"> <%= link_to highlight(project.title, params.dig(:q, :title_or_owner_email_cont)), project, data: {turbo_frame: "_top"} %></td>
+              <td class="max-w-[3px] xs:max-w-xs lg:max-w-sm px-1 py-2 truncate text-sm sm:px-2 sm:py-3 sm:text-xl"><%= project.description %></td>
+              <td class="max-w-[3px] xs:max-w-xs xl:max-w-sm px-1 py-2 truncate text-sm sm:px-2 sm:py-3 sm:text-xl"><%= highlight project.owner.email, params.dig(:q, :title_or_owner_email_cont) %></td>
+              <td class="max-w-[3px] xs:max-w-xs md:max-w-sm px-1 py-2 text-sm sm:px-2 sm:py-3 sm:text-xl"><%= project.created_at.strftime("%Y-%m-%d") %></td>
+              <td class="max-w-[3px] xs:max-w-xs md:max-w-sm px-1 py-2 text-sm sm:px-2 sm:py-3 sm:text-xl"><%= project.updated_at.strftime("%Y-%m-%d") %></td>
+            </tr>
+          <% end %>
+
         <% end %>
       </tbody>
     </table>

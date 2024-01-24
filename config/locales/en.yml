@@ -24,6 +24,8 @@ en:
     calendar: "Calendar"
     delete_confirm: "Are you sure you want to delete the project?"
     project_owner: "Project Creator"
+    noname: "No Name"
+    noproject: "There is no any project for now"
 
   lists:
     create_success: "Creation Success!"
@@ -101,6 +103,11 @@ en:
     show_select: "Select"
     show_estimated_completed_at: "Estimated Completion Time"
     show_location: "Location"
+    priorities:
+      critical: "Critical"
+      high: "High"
+      medium: "Medium"
+      low: "Low"
 
   comments:
     create_comment: "Create Comment"
@@ -352,3 +359,9 @@ en:
       previous: "Previous"
       first: "First"
       truncate: "..."
+
+  template:
+    project: "Template Project"
+    list: "Template List"
+    task1: "Template Task1"
+    task2: "Template Task2"
