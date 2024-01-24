@@ -21,11 +21,17 @@ module Users
       #   super
       # end
 
-      # PUT /resource
-      # def update
-      #   super
-      # end
-
+      def update        
+        if resource.update_without_password(account_update_params)
+          set_flash_message :notice, :updated
+          sign_in resource_name, resource, bypass: true
+          redirect_to after_update_path_for(resource)
+        else
+          clean_up_passwords resource
+          set_minimum_password_length
+          respond_with resource
+        end
+      end
       # DELETE /resource
       # def destroy
       #   super
@@ -45,13 +51,13 @@ module Users
       # If you have extra params to permit, append them to the sanitizer.
       def configure_sign_up_params
         devise_parameter_sanitizer.permit(:sign_up,
-                                          keys: %i[name nick_name gender birthday phone time_zone lang email password password_confirmation avatar]).push(:company_id)
+                                          keys: %i[name nick_name gender birthday phone time_zone lang email role avatar]).push(:company_id)
       end
 
       # If you have extra params to permit, append them to the sanitizer.
       def configure_account_update_params
         devise_parameter_sanitizer.permit(:account_update,
-                                          keys: %i[name nick_name gender birthday phone time_zone lang email password password_confirmation avatar].push(:company_id))
+                                          keys: %i[name nick_name gender birthday phone time_zone lang email role avatar].push(:company_id))
       end
       
 
