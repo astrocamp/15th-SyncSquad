@@ -24,13 +24,17 @@ class RoomsController < ApplicationController
       @new_private_group.room_type = 'private_room'
       @new_private_group.company = current_user.company
       if @new_private_group.save
-        selected_user_ids = params[:room][:user_ids] || []
-        selected_user_ids << current_user.id unless
-                            selected_user_ids.include?(current_user.id)
+
+        user_ids_from_params = params[:room][:user_ids] || []
+
+        selected_user_ids = User.where(id: user_ids_from_params, company_id: current_user.company_id).pluck(:id)
+
+        selected_user_ids << current_user.id unless selected_user_ids.include?(current_user.id)
 
         selected_user_ids.each do |user_id|
           Participant.create(room_id: @new_private_group.id, user_id:)
         end
+
         @new_private_group.broadcast_if_private_group
       else
         Rails.logger.info(@new_private_group.errors.full_messages)
