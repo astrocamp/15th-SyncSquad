@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_20_152115) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_22_091921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -157,12 +157,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_20_152115) do
     t.integer "room_type", default: 0
     t.bigint "company_id", null: false
     t.index ["company_id"], name: "index_rooms_on_company_id"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|

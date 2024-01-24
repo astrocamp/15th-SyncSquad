@@ -6,7 +6,11 @@
 
   <div>
     <%= form.label :user_ids, '選擇成員' %>
-    <%= form.select :user_ids, User.all_except(current_user).pluck(:name, :id), {}, { multiple: true, data: { controller: 'slimselect', slim_target: 'field' } } %>
+    <%= form.select :user_ids, 
+      User.where(company_id: current_user.company_id).where.not(id: current_user.id).pluck(:name, :id), 
+      {}, 
+      { multiple: true, data: { controller: 'slimselect', slim_target: 'field' } } 
+  %>
   </div>
 
   <%= form.hidden_field :room_type, value: 'private_room' %>
