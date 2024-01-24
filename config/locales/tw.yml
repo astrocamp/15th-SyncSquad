@@ -23,6 +23,7 @@ tw:
     kanban: "看板"
     calendar: "行事曆"
     delete_confirm: "您確定要刪除專案嗎？"
+    project_owner: "專案建立者"
 
   lists:
     create_success: "新增成功!"
