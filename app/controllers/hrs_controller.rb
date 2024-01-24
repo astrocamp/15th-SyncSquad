@@ -14,6 +14,7 @@ class HrsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       project = Project.create(title: I18n.t('template.project'), owner_id: @user.id)
+      @user.affiliated_projects << project
       list = project.lists.create(title: I18n.t('template.list'), color: '#4299E1')
       list.tasks.create(title: I18n.t('template.task1'), started_at: Date.current, ended_at: Date.current + 1)
       list.tasks.create(title: I18n.t('template.task2'), started_at: Date.current, ended_at: Date.current + 1)
