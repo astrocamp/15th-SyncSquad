@@ -24,6 +24,8 @@ tw:
     calendar: "行事曆"
     delete_confirm: "您確定要刪除專案嗎？"
     project_owner: "專案建立者"
+    noname: "無名"
+    noproject: "目前沒有任何專案"
 
   lists:
     create_success: "新增成功!"
@@ -101,6 +103,11 @@ tw:
     show_select: "選擇"
     show_estimated_completed_at: "預計完成時間"
     show_location: "地點"
+    priorities:
+      critical: "緊急"
+      high: "高"
+      medium: "中"
+      low: "低"
 
   comments:
     create_comment: "新增留言"
@@ -372,3 +379,9 @@ tw:
       event:
         create: "新增活動"
         update: "更新活動"
+
+  template:
+    project: "範例專案"
+    list: "範例列表"
+    task1: "範例任務1"
+    task2: "範例任務2"

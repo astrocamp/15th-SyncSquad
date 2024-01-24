@@ -2,40 +2,50 @@
   <div>
     <div class="flex items-center mb-2">
       <h2 class="inline-block mr-2 text-lg font-extrabold"><%= project.title %></h2>
-      <%= link_to  edit_project_path(project.id), data: { turbo_frame: "modal" } do%>
+
+      <% if current_user == project.owner %>
+        <%= link_to  edit_project_path(project.id), data: { turbo_frame: "modal" } do%>
         <i class="p-1 mx-1 text-gray-400 rounded-md fa-solid fa-pen hover:text-gray-700 hover:bg-gray-300"></i>
+        <% end %>        
       <% end %>
+          <div class="flex items-center py-1">
+            <% if project.owner.avatar.attached? %>
+              <%= link_to image_tag(project.owner.chat_avatar,
+                                    class: "w-5 h-5 rounded-full ml-3"), user %>
+            <% else %>
+              <div class="mr-2 bg-gray-100 rounded-lg w-7 h-7">
+                <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
+              </div>
+            <% end %>
+            <% if  project.owner.nick_name.present? %>
+              <p><%= project.owner.nick_name %></p>
+            <% else %>
+              <p><%= t('projects.noname') %></p>
+            <% end %>
+          </div>
     </div>
     <p class="h-full overflow-hidden text-ellipsis">
       <%= project.description %>
     </p>
   </div>
   <div class="flex flex-col items-end">
-    <div class="flex items-center py-1">
-      <% if project.owner.avatar.attached? %>
-        <%= t('projects.project_owner')%>
-        <%= link_to image_tag(project.owner.chat_avatar,
-                              class: "w-5 h-5 rounded-full ml-3"), project.owner %>
+
+    <div class="flex items-end">
+      <% if current_page?(calendar_project_path(project)) %>
+        <div class="flex whitespace-nowrap">
+          <%= link_to kanban_project_path(project), class: 'shadow-gray-400 p-1 rounded-lg ml-2 block shadow-sm bg-white' do %>
+            <i class="px-1 fa-solid fa-chart-simple fa-2x"></i>
+            <p class="hidden pr-1 md:inline md:text-lg"><%= t('projects.kanban') %></p>
+          <% end %>
+        </div>
       <% else %>
-        <div class="mr-2 bg-gray-100 rounded-lg w-7 h-7">
-          <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
+        <div class="flex whitespace-nowrap">
+          <%= link_to calendar_project_path(project), class: 'shadow-gray-400 p-1 rounded-lg ml-2 block shadow-sm bg-white' do %>
+            <i class="px-1 fa-regular fa-calendar fa-2x"></i>
+            <p class="hidden pr-1 md:inline md:text-lg"><%= t('projects.calendar') %></p>
+          <% end %>
         </div>
       <% end %>
-      <p><%= project.owner.nick_name %></p>
-    </div>
-    <div class="flex items-end">
-      <div class="flex whitespace-nowrap">
-        <%= link_to kanban_project_path(project), class: 'shadow-gray-400 p-1 rounded-lg ml-2 block shadow-sm bg-white' do %>
-          <i class="px-1 fa-solid fa-chart-simple"></i>
-          <p class="hidden pr-1 md:inline"><%= t('projects.kanban') %></p>
-        <% end %>
-      </div>
-      <div class="flex whitespace-nowrap">
-        <%= link_to calendar_project_path(project), class: 'shadow-gray-400 p-1 rounded-lg ml-2 block shadow-sm bg-white' do %>
-          <i class="px-1 fa-regular fa-calendar"></i>
-          <p class="hidden pr-1 md:inline"><%= t('projects.calendar') %></p>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>

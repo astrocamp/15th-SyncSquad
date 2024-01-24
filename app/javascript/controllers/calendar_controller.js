@@ -76,6 +76,18 @@ export default class extends Controller {
       },
       eventDidMount: function (info) {
         const list_color = info.event.extendedProps.color;
+        let userName = info.event.extendedProps.user_nick_name;
+        console.log(userName);
+        if (userName === null && locale === "zh-tw") {
+          userName = "無名";
+        } else if (userName === null && locale === "en-us") {
+          userName = "No Name";
+        } else if (userName === "" && locale === "zh-tw") {
+          userName = "無指派";
+        } else if (userName === "" && locale === "en-us") {
+          userName = "Unassigned";
+        } else {
+        }
         tippy(info.el, {
           content: `
             <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48">
@@ -89,7 +101,7 @@ export default class extends Controller {
               </div>
               <div class="bg-gray-100 flex justify-center items-center rounded-b-lg">
                 <i class="h-4 p-2 text-center text-gray-400 fa-solid fa-user"></i>
-                <p class="text-gray-900">${info.event.extendedProps.user_nick_name}</p>
+                <p class="text-gray-900">${userName}</p>
               </div>
             <div>
           `,

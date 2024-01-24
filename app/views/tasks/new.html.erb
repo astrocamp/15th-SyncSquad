@@ -20,7 +20,7 @@
       </div>
       <div>
         <%= form.label :priority, t('tasks.new_priority')%>
-        <%= form.select(:priority, options_for_select(Task::PRIORITY.keys,  @task.priority), { prompt: t('tasks.priority_prompt') }) %>
+        <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, value| [t("tasks.priorities.#{key.to_s}"), key] },  @task.priority), { prompt: t('tasks.priority_prompt') }, data:{controller: "slimselect", search_placeholder: t('search_placeholder') }, class:"w-56") %>
       </div>
       <div data-controller="datepicker">
         <div>

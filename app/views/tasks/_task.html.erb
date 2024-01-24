@@ -1,8 +1,27 @@
-<li data-sortbale-update-url="<%= task_sort_path(task) %>" class="relative m-1 rounded-lg hover:outline hover:outline-2 hover:outline-blue-700">
+<li data-sortbale-update-url="<%= task_sort_path(task) %>" class="relative m-1 rounded-lg">
   <%= link_to task_path(task), data:{turbo_frame: "modal"} do %>
-    <div class="flex flex-col p-2 mb-2 bg-white rounded-lg shadow-sm shadow-gray-400">
+    <div class="flex flex-col p-2 mb-2 bg-white rounded-lg shadow-sm shadow-gray-400 hover:bg-blue-300">
       <div class="<%= 'grayscale opacity-30' if task.completed_at.present? %>">
-        <p class="whitespace-pre-wrap <%= 'line-through' if task.completed_at.present? %>"><%= task.title %></p>
+        <div class="flex  justify-between">
+          <p class="truncate line-through' <%= 'line-through' if task.completed_at.present? %>"><%= task.title %>
+          </p>
+          
+            <% if task.priority.present? %>
+              <div class="inline-block pr-2 mx-1 text-white rounded-md
+                          <%= case task.priority
+                              when 'critical' then 'bg-red-600'
+                              when 'high' then 'bg-yellow-300'
+                              when 'medium' then 'bg-lime-500'
+                              when 'low' then 'bg-gray-400' end %>">
+                <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>
+                <%= t("tasks.priorities.#{task.priority}") %>
+              </div>
+            <% end %>
+
+        </div>
+
+
+
           <% if task.user.present? %>
             <div class="flex items-center w-full pt-2">
               <% if task.user && task.user.avatar.attached? %>
@@ -23,20 +42,9 @@
             </div>
           <% end %>
           <% if task.location.present? %>
-            <div class="inline-block pt-2 mr-1">
+            <div class="inline-block pt-2 mr-1 truncate">
               <i class="ml-2 fa-solid fa-location-dot"></i>
               <%= content_tag :p, task.location, class: "inline" %>
-            </div>
-          <% end %>
-          <% if task.priority.present? %>
-            <div class="inline-block pr-2 mx-1 mt-2 text-white rounded-md
-                        <%= case task.priority
-                            when 'critical' then 'bg-red-600'
-                            when 'high' then 'bg-yellow-300'
-                            when 'medium' then 'bg-lime-400'
-                            when 'low' then 'bg-gray-300' end %>">
-              <i class="ml-1 mr-1 fa-solid fa-angles-up"></i>
-              <%= task.priority %>
             </div>
           <% end %>
         </div>

@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import '@simonwep/pickr/dist/themes/nano.min.css';
-@import './github.css';
+@import url("https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "@simonwep/pickr/dist/themes/nano.min.css";
+@import "./github.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .body:not(.font-bevan) {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
 .font-bevan {
-  font-family: 'Bevan', serif;
+  font-family: "Bevan", serif;
   font-weight: normal;
 }
 
@@ -104,7 +104,11 @@ nav.pagination {
 }
 
 .table-th {
-  @apply px-2 py-3 text-xs font-medium text-left text-gray-500 sm:px-2 sm:py-3 sm:text-sm;
+  @apply px-2 py-3 text-sm font-medium text-left text-gray-500 sm:px-2 sm:py-3 sm:text-xl;
+}
+
+.fc .fc-button {
+  @apply text-sm p-1 sm:text-base sm:p-2;
 }
 
 /* 捲軸底色 */
@@ -131,4 +135,16 @@ form .field_with_errors {
 form .field_with_errors:nth-child(even) {
   flex: 1 1 auto;
   width: 100%;
+}
+
+.scrollbar::-webkit-scrollbar {
+  @apply block h-3;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-slate-500 rounded-md;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-300;
 }
