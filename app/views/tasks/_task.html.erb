@@ -5,9 +5,9 @@
         <p class="whitespace-pre-wrap <%= 'line-through' if task.completed_at.present? %>"><%= task.title %></p>
           <% if task.user.present? %>
             <div class="flex items-center w-full pt-2">
-              <% if task.user.avatar.attached? %>
+              <% if task.user && task.user.avatar.attached? %>
                 <%= link_to image_tag(task.user.chat_avatar,
-                                      class: "w-5 h-5 rounded-full ml-3"), user %>
+                                      class: "w-5 h-5 rounded-full ml-3"), task.user %>
               <% else %>
                 <div class="mr-2 bg-gray-100 rounded-lg w-7 h-7">
                   <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
