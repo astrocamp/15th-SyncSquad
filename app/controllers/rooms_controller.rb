@@ -56,8 +56,11 @@ class RoomsController < ApplicationController
     @messages = @single_room.messages.order(created_at: :asc)
 
     @check_room = Room.find(params[:id])
-    authorize @check_room, :show_public_room, policy_class: RoomPolicy
-    authorize @check_room, :show_private_room?, policy_class: RoomPolicy
+    if @check_room.room_type == "public_room"
+      authorize @check_room, :show_public_room, policy_class: RoomPolicy
+    else
+      authorize @check_room, :show_private_room?, policy_class: RoomPolicy
+    end
 
     render 'index'
   end
