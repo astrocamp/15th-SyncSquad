@@ -2,8 +2,7 @@
   <div>
     <div class="flex items-center mb-2">
       <h2 class="inline-block mr-2 text-lg font-extrabold"><%= project.title %></h2>
-
-      <% if current_user == project.owner %>
+      <% if current_user.id == project.owner.id %>
         <%= link_to  edit_project_path(project.id), data: { turbo_frame: "modal" } do%>
         <i class="p-1 mx-1 text-gray-400 rounded-md fa-solid fa-pen hover:text-gray-700 hover:bg-gray-300"></i>
         <% end %>        
