@@ -41,6 +41,7 @@ class RoomsController < ApplicationController
       end
     else
       @room = Room.create(name: params['room']['name'], company: current_user.company)
+      @room.broadcast_if_public(current_user) if @room.public_room?(current_user)
     end
   end
 
