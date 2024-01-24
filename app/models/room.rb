@@ -3,7 +3,7 @@
 class Room < ApplicationRecord
   # validation: room's name could not recurring and create public room
   validates :name, presence: true, uniqueness: true
-  after_create_commit { broadcast_if_public }
+  # after_create_commit { broadcast_if_public }
   has_many :messages
   has_many :participants, dependent: :destroy
   # has_many :users, through: :participants
@@ -11,12 +11,12 @@ class Room < ApplicationRecord
 
   enum room_type: { public_room: 0, single_room: 1, private_room: 2 }
 
-  def broadcast_if_public
-    broadcast_append_to 'rooms' if public_room?
+  def broadcast_if_public(current_user)
+    broadcast_append_to "rooms_company_#{self.company_id}" if public_room?(current_user)
   end
 
-  def public_room?
-    self.room_type == 'public_room'
+  def public_room?(current_user)
+    self.room_type == 'public_room' && self.company_id == current_user.company_id
   end
 
   def broadcast_if_private_group
