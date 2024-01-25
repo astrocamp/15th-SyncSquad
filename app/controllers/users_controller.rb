@@ -9,8 +9,7 @@ class UsersController < ApplicationController
                          notice: t('import.please_choose_file')
     end
 
-    tmp_file_path = save_temp_csv(file).to_s
-    CsvImportWorker.perform_async(tmp_file_path, current_company.id, current_user&.id)
+    CsvImportUsersService.new.call(file, current_company.id, current_user&.id)
 
     redirect_to users_import_path, notice: t('import.processing')
   end
@@ -44,12 +43,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def save_temp_csv(file)
-    tmp_file_path = Rails.root.join('tmp', SecureRandom.uuid + File.extname(file.original_filename))
-    File.binwrite(tmp_file_path, file.read)
-    tmp_file_path
-  end
 
   def get_name(user1, user2)
     user = [user1, user2].sort
