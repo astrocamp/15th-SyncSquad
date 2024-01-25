@@ -8,12 +8,8 @@
 </div>
 
 <%= turbo_stream_from "rooms_company_#{current_user.company_id}"%>
-<div id="rooms">
-  <div>
-    <%= render @rooms%>
-  </div>
-</div>
 
+<div id="rooms">
   <div class="flex">
     <div>
       <%= render @rooms%>
