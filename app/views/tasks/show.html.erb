@@ -90,7 +90,7 @@
                             <i class="block w-5 h-5 p-1 text-gray-400 fa-solid fa-user"></i>
                           </div>
                         <% end %>
-                        <p class="mr-2"><%= comment.user.nick_name unless comment.user.nick_name.nil? %></p>
+                        <p class="flex-auto mr-2 truncate"><%= comment.user.nick_name == "" ? (comment.user.name == "" ? comment.user.email : task.user.name ) : task.user.nick_name %></p>
                       </div>
                     <% end %>
                     <div class="flex items-center">
