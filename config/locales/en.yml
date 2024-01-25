@@ -203,7 +203,8 @@ en:
       not_found_in_database: 'This Account Is Not For This Company or Invalid Password'
       invalid: 'Invalid Password'
     registrations:
-      updated: 'Your account has been updated successfully.'
+      updated: "Your account has been updated successfully."
+      edit_user_title: 'Edit Profile'
 
   hrs:
     new_user: 'Add Employee'
