@@ -1,9 +1,9 @@
 <div class="flex">
   <%= render 'drawer', projects: @user_projects %>
   <%= render 'sidebar' %>
-  <main id="project-main" class="flex flex-auto px-2">
-    <section class="w-full h-screen pl-12 pr-4 mx-auto overflow-auto">
-      <header class="flex items-center py-4 bg-white ">
+  <main id="project-main" class="absolute left-0 flex flex-auto w-full">
+    <section class="w-full h-screen pr-4 mx-auto pl-7">
+      <header class="flex items-center justify-center py-4 ml-0 bg-white lg:justify-start lg:ml-4 ">
         <%= content_tag(:h1, t('projects.index_affiliated'), class: "lg:text-3xl text-2xl text-gray-900 font-bold") %>
         <%= link_to  new_project_path, data: { turbo_frame: "modal" } do %>
           <div class="px-2 py-1 mx-2 text-gray-700 rounded-lg hover:bg-gray-300 hover:text-gray-900"> 
