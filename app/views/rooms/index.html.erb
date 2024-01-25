@@ -1,17 +1,20 @@
 <div id="total" class="flex h-screen overflow-hidden" data-controller="chatroom_list">
-  <div id="sidenav" class="bg-gray-400 w-10 flex flex-col items-center pt-4 pl-3 md:w-20">
-    <i class="fa-solid fa-user p-3 text-xl md:fa-2x <%= 'text-blue-700' if params[:tab_type] == 'single_chat' %>" data-action="click->chatroom_list#showUsers"></i>
-    <i class="fa-solid fa-message p-3 text-xl md:fa-2x <%= 'text-blue-700' if params[:tab_type] == 'group_chat' %>" data-action="click->chatroom_list#showRooms"></i>
+  <div id="sidenav" class="bg-gray-400 w-10 flex flex-col items-center pt-4  md:w-20">
+    <i class="fa-solid fa-users p-3 text-xl md:text-3xl <%= 'text-blue-700' if params[:tab_type] == 'single_chat' %>" data-action="click->chatroom_list#showUsers"></i>
+    <i class="fa-solid fa-message p-3 text-xl md:text-3xl <%= 'text-blue-700' if params[:tab_type] == 'group_chat' %>" data-action="click->chatroom_list#showRooms"></i>
   </div>
 
-  <div id="left-side"  data-chatroom_list-target="leftSide" class="md:w-2/12 bg-gray-100 hidden md:block">
+  <div id="left-side"  data-chatroom_list-target="leftSide" class="md:w-2/12 bg-gray-100 flex hidden md:block">
     
-    <div id="users-list" class="h-full overflow-y-scroll <%= 'hidden' if params[:tab_type] == 'group_chat' %>"        data-chatroom_list-target="usersList">
+    <div>
+      <div id="users-list" class="h-full overflow-y-scroll <%= 'hidden' if params[:tab_type] == 'group_chat' %>"        data-chatroom_list-target="usersList">
         <%= render "/shared/users_list"%>
-    </div>
-    <div id="rooms-list" class="h-full overflow-y-scroll <%= 'hidden' if params[:tab_type] == 'single_chat' %>" data-chatroom_list-target="roomsList">
+      </div>
+      
+      <div id="rooms-list" class="h-full overflow-y-scroll <%= 'hidden' if params[:tab_type] == 'single_chat' %>" data-chatroom_list-target="roomsList">
 
-      <%= render "/shared/rooms_list"%>
+        <%= render "/shared/rooms_list"%>
+      </div>
     </div>
   </div>
 

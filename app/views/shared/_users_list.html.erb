@@ -1,7 +1,12 @@
-<div id="user-list" class="flex items-center flex items-center justify-between sticky top-0">
+<div id="user-list" class="flex items-center flex items-center justify-between sticky top-0 z-11">
   <h4 class= "text-xl p-4 w-full shadow-lg border-b border-l bg-gray-200"> <%= t('rooms.contacts') %> </h4>
 </div>
 <%= turbo_stream_from "users" %>
-<div id="users">
-  <%= render @users %>
+<div class="flex">
+  <div id="users">
+    <%= render @users %>
+  </div>
+  <div class="md:hidden flex flex-1 justify-center items-center">
+      <i class="fa-solid fa-backward p-2"></i>
+  </div>    
 </div>
