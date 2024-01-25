@@ -25,7 +25,7 @@
         </div>
         <div class="relative flex m-none">
           <div class="flex-none w-9"></div>
-          <li class="flex-auto px-4 pt-4 break-words bg-white rounded-lg markdown" style="width: calc(100% - 12rem);">
+          <li class="flex-auto px-4 py-4 break-words bg-white rounded-lg markdown" style="width: calc(100% - 12rem);">
             <%= advanced_markdown(comment.content) %>
           </li>
         </div>
@@ -34,4 +34,4 @@
   </template>
 </turbo-stream>
 
-<%= render  "/lists/lists", local: {list: @comment.task.list} %>
+<%= render  "/lists/lists", local: {list: @comment.task.list, project: @project} %>

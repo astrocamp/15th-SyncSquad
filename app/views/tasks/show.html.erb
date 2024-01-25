@@ -90,7 +90,7 @@
                             <i class="block w-5 h-5 p-1 text-gray-400 fa-solid fa-user"></i>
                           </div>
                         <% end %>
-                        <p class="flex-auto mr-2 truncate"><%= comment.user.nick_name == "" ? (comment.user.name == "" ? comment.user.email : @task.user.name ) : @task.user.nick_name %></p>
+                        <p class="flex-auto mr-2 truncate"><%= comment.user.nick_name == "" ? (comment.user.name == "" ? comment.user.email : comment.user.name ) : comment.user.nick_name %></p>
                       </div>
                     <% end %>
                     <div class="flex items-center">
@@ -103,7 +103,7 @@
                   </div>
                   <div class="relative flex">
                     <div class="flex-none w-9"></div>
-                    <li class="flex-auto px-4 pt-4 break-words bg-white rounded-lg markdown" style="width: calc(100% - 12rem);">
+                    <li class="flex-auto px-4 py-4 break-words bg-white rounded-lg markdown" style="width: calc(100% - 12rem);">
                       <%= advanced_markdown(comment.content) %>
                     </li>
                   </div>

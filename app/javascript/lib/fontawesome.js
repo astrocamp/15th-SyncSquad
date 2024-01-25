@@ -26,7 +26,6 @@ import { faBackward } from '@fortawesome/free-solid-svg-icons/faBackward'
 import { faAlignJustify } from '@fortawesome/free-solid-svg-icons/faAlignJustify'
 import { faCommentDots } from '@fortawesome/free-regular-svg-icons/faCommentDots'
 import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark'
-import { faComment } from '@fortawesome/free-regular-svg-icons/faComment'
 
 library.add({
   faEllipsis,
@@ -55,7 +54,6 @@ library.add({
   faAlignJustify,
   faCommentDots,
   faXmark,
-  faComment,
 })
 
 dom.watch()
