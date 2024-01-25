@@ -107,6 +107,7 @@ tw:
     create_comment: '新增留言'
     comment: '留言'
     destroy_comment: '刪除留言'
+    context_blank_alert: '請輸入留言內容'
 
   main:
     user_sign_in: '員工登入'

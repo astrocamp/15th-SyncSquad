@@ -5,9 +5,9 @@
       <div class="flex items-center order-1 py-1 sm:order-2">
         <% if project.owner.avatar.attached? %>
           <%= link_to image_tag(project.owner.chat_avatar,
-                                class: "w-5 h-5 rounded-full ml-3"), project.owner %>
+                                class: "w-7 h-7 rounded-full ml-3"), project.owner %>
         <% else %>
-          <div class="mr-2 bg-gray-100 rounded-lg w-7 h-7">
+          <div class="mr-2 bg-gray-100 rounded-full w-7 h-7">
             <i class="block w-5 h-5 p-1 text-gray-300 fa-solid fa-user"></i>
           </div>
         <% end %>

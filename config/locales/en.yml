@@ -107,6 +107,7 @@ en:
     create_comment: 'Create Comment'
     comment: 'Comment'
     destroy_comment: 'Delete Comment'
+    context_blank_alert: 'Please enter context.'
 
   main:
     user_sign_in: 'User Sign In'
