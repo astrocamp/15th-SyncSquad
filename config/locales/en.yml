@@ -26,6 +26,7 @@ en:
     project_owner: "Project Creator"
     noname: "No Name"
     noproject: "There is no any project for now"
+    project_owner: "Project Creator"
 
   lists:
     create_success: "Creation Success!"

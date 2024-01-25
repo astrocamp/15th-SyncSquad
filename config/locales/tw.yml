@@ -26,6 +26,7 @@ tw:
     project_owner: "專案建立者"
     noname: "無名"
     noproject: "目前沒有任何專案"
+    project_owner: "專案建立者"
 
   lists:
     create_success: "新增成功!"
