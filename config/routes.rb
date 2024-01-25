@@ -20,12 +20,6 @@ Rails.application.routes.draw do
     end
 
     get 'user/:id', to:'users#show',as: 'user'
-  
-    resources :events do 
-      member do
-        patch :drop
-      end
-    end
     
     resources :projects, shallow: true do
       resources :lists, except: :index do
