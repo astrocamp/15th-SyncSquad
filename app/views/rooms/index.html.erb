@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div id="room_container" class="flex-grow" >
+  <div id="room_container" class="flex-grow break-words" >
     <div class="w-full">
       <%= render partial: 'layouts/single_room', locals: { single_room: @single_room, messages: @messages, users: @users } if @single_room %>    
     </div>
