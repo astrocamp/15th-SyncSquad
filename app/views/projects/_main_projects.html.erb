@@ -8,9 +8,9 @@
   </div>
 <% end %>
 
-<div class="w-full mb-20 shadow-xl">
+<div class="mb-20 overflow-x-auto shadow-xl">
   <%= turbo_frame_tag :results do %>
-    <table class="bg-white divide-y divide-gray-300 ">
+    <table class="min-w-full bg-white divide-y divide-gray-300 ">
       <thead class="bg-gray-200">
         <th class="table-th"><%= sort_link(@q, :title, t('projects.main_title'), default_order: :desc) %> </th>
         <th class="table-th"><%= sort_link(@q, :description, t('projects.main_description'), default_order: :desc) %></th>
