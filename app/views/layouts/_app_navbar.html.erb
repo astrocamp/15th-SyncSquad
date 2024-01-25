@@ -1,5 +1,5 @@
 <nav class="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-  <div class="flex flex-wrap items-center justify-between px-4 py-2 mx-auto md:px-6">
+  <div class="flex items-center justify-between px-4 py-2 mx-auto flex-nowrap md:flex-wrap md:px-6">
     <h1><%= link_to  "SyncSquad",
             root_path , 
             class: "block tracking-wide self-center text-xl italic whitespace-nowrap dark:text-white font-bevan" %>
@@ -23,6 +23,7 @@
           </ul>
         </div>
       <% end %>
+      <%= render 'layouts/lang_selector' %>
       <%= render 'layouts/photo_dropdown' %>
     </div>
   </div>
