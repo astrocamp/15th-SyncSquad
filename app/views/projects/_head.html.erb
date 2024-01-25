@@ -12,9 +12,9 @@
           </div>
         <% end %>
         <% if  project.owner.nick_name.present? %>
-          <p><%= project.owner.nick_name %></p>
+          <p class="ml-2"><%= project.owner.nick_name %></p>
         <% else %>
-          <p><%= t('projects.noname') %></p>
+          <p class="ml-2"><%= t('projects.noname') %></p>
         <% end %>
       </div>
       <% if current_user.id == project.owner.id %>
