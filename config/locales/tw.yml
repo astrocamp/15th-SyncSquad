@@ -203,7 +203,8 @@ tw:
       not_found_in_database: '此帳號不存在或密碼錯誤'
       invalid: '密碼錯誤'
     registrations:
-      updated: '更新成功'
+      updated: "更新成功"
+      edit_user_title: '設定個人資料'
 
   hrs:
     new_user: '新增員工'
