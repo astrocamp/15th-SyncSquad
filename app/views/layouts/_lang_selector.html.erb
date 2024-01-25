@@ -1,18 +1,18 @@
-<div class="flex mx-3 font-bold md:font-light lg:font-bold sm:mt-0 ">
+<div class="flex font-bold md:font-light lg:font-bold sm:mt-0 ">
   <% if params[:lang] == "en" %>
     <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center justify-center px-4 py-2 text-sm font-light text-gray-900 border-2 border-gray-200 rounded-lg cursor-pointer text-thin dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-white">
       <%= image_tag('lang_en_icon.svg', class: 'w-5 h-5 rounded-full me-0 sm:me-3', alt: 'Description') %>
-      <p class="hidden ml-3 sm:block">English</p>
+      <p class="hidden sm:block">English</p>
     </button>
 
     <!-- Dropdown -->
-    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700" id="language-dropdown-menu">
+    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow w-28 dark:bg-gray-700" id="language-dropdown-menu">
       <ul class="py-2 font-medium" role="none">
         <li>
           <div class="block px-4 py-2 text-s text-slate-400 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
             <div class="inline-flex items-center font-light">
                 <%= image_tag('lang_en_icon.svg', class: 'h-3.5 w-3.5 rounded-full me-2') %>           
-                English 
+                <p class="flex-none">English</p>
             </div>
           </div>
         </li>
@@ -20,7 +20,7 @@
           <a href="<%= url_for(lang: :tw) %>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
           <div class="inline-flex items-center font-light">
               <%= image_tag('lang_tw_icon.svg', class: 'h-3.5 w-3.5 rounded-full me-2') %> 
-              繁體中文 
+              <p class="flex-none">繁體中文</p> 
           </div>
           </a>
         </li>
@@ -29,7 +29,7 @@
     <% else  %>
       <button type="button" data-dropdown-toggle="language-dropdown-menu" class="inline-flex items-center justify-center px-4 py-2 text-sm font-light text-gray-900 border-2 border-gray-200 rounded-lg cursor-pointer text-thin dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-white">
         <%= image_tag('lang_tw_icon.svg', class: 'w-5 h-5 rounded-full me-0 sm:me-3', alt: 'Description') %>
-        <p class="hidden ml-3 sm:block">繁體中文</p>
+        <p class="hidden sm:block2">繁體中文</p>
       </button>
       <!-- Dropdown -->
       <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700" id="language-dropdown-menu">
