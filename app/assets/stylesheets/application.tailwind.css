@@ -185,11 +185,3 @@ form .field_with_errors:nth-child(even) {
   gap: 0.5rem;
   height: 100%;
 }
-
-.fc .fc-button {
-  @apply px-6 py-1 text-nomal lg:py-4 sm:text-lg sm:px-4;
-}
-
-.fc .fc-toolbar-title {
-  @apply text-lg font-bold sm:font-extrabold sm:text-2xl;
-}

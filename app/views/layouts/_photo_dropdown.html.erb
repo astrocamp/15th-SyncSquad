@@ -1,81 +1,105 @@
 <% if user_signed_in? || company_signed_in? %>
   <!-- 會員選單 -->
   <div class="flex items-center space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
-      <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 <%= 'ml-3' if params[:controller] == 'main' %> focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+    <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 <%= 'ml-3' if params[:controller] == 'main' %> focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+      <span class="sr-only">Open user menu</span>
+      <div class="w-8 h-8 bg-gray-200 rounded-full <%= 'lg:w-10 lg:h-10' if params[:controller] == 'main' %>" alt="<%= user_signed_in? ? "user photo" : "company photo" %>">
+        <div class="aspect-auto">
+          <% if user_signed_in? %>
+          <% if current_user.avatar.attached? %>
+            <%= image_tag(current_user.avatar, class: "w-full h-full object-cover rounded-full #{'lg:w-10 lg:h-10' if params[:controller] == 'main'}") %>
+          <% else %>
+            <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-user <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
+          <% end %>
+          <% else %>
+            <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-building <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
+          <% end %>
+        </div>
+      </div>
+    </button>
+    <!-- Dropdown menu -->
+    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+      <div class="w-32 px-4 py-3 sm:w-40">
+          <span class="block text-sm text-gray-900 dark:text-white">
+            <% if current_company && current_company.paid%>
+              <i class="fa-solid fa-crown"></i>
+            <% end %>
+            <%= user_signed_in? ? current_user.nick_name : current_company.name %>
+          </span>
+          <span class="block text-sm text-gray-500 truncate dark:text-gray-400">
+            <%= user_signed_in? ? current_user.email : current_company.email %>
+          </span>
+        </div>
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to t('main.chatroom'), rooms_path,
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+            </li>
+            <li>
+              <%= link_to t('main.project'), projects_path,
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+            </li>
+            <hr class="my-2 border-gray-100">
+            <li>
+              <%= link_to t('main.setting'),
+                  edit_user_registration_path,
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+            </li>
+            <li>
+              <%= link_to t('main.log_out'),
+                  destroy_user_session_path,
+                  data: {turbo_method: 'DELETE'},
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to t('main.upgrade'), orders_path,
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+            </li>
+            <li>
+              <%= link_to t('main.new_user'), hrs_path,
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+            </li>
+            <hr class="my-2 border-gray-100">
+            <li>
+              <%= link_to t('main.setting'),
+                  '',
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+            </li>
+            <li>
+              <%= link_to t('main.log_out'),
+                  sessions_path,
+                  data: {turbo_method: 'DELETE'},
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+<% else %>
+    <button type="button" class="text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 md:hidden flex <%= 'ml-3' if params[:controller] == 'main' %> focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
           <span class="sr-only">Open user menu</span>
           <div class="w-8 h-8 bg-gray-200 rounded-full <%= 'lg:w-10 lg:h-10' if params[:controller] == 'main' %>" alt="<%= user_signed_in? ? "user photo" : "company photo" %>">
-              
-              <div class="aspect-auto">
-                  <% if user_signed_in? %>
-                    <% if current_user.avatar.attached? %>
-                        <%= image_tag(current_user.avatar, class: "w-full h-full object-cover rounded-full #{'lg:w-10 lg:h-10' if params[:controller] == 'main'}") %>
-                    <% else %>
-                        <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-user <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
-                    <% end %>
-                 <% else %>
-                      <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-building <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
-                  <% end %>
-              </div>
+            <i class="h-5 p-1.5 text-center text-gray-400 fa-solid fa-arrow-right-to-bracket <%= 'lg:p-2 lg:h-6' if params[:controller] == 'main' %>"></i>
           </div>
       </button>
       <!-- Dropdown menu -->
       <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-          <div class="w-32 px-4 py-3 sm:w-40">
-              <span class="block text-sm text-gray-900 dark:text-white">
-                  <% if current_company && current_company.paid%>
-                    <i class="fa-solid fa-crown"></i>
-                  <% end %>
-                  <%= user_signed_in? ? current_user.nick_name : current_company.name %>
-              </span>
-              <span class="block text-sm text-gray-500 truncate dark:text-gray-400">
-                  <%= user_signed_in? ? current_user.email : current_company.email %>
-              </span>
-          </div>
-          <ul class="py-2" aria-labelledby="user-menu-button">
-              <% if user_signed_in? %>
-                <li>
-                    <%= link_to t('main.chatroom'), rooms_path,
-                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-                </li>
-                <li>
-                    <%= link_to t('main.project'), projects_path,
-                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-                </li>
-                <hr class="my-2 border-gray-100">
-                <li>
-                    <%= link_to t('main.setting'),
-                        edit_user_registration_path,
-                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-                </li>
-                <li>
-                    <%= link_to t('main.log_out'),
-                        destroy_user_session_path,
-                        data: {turbo_method: 'DELETE'},
-                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-                </li>
-              <% else %>
-                <li>
-                    <%= link_to t('main.upgrade'), orders_path,
-                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-                </li>
-                <li>
-                    <%= link_to t('main.new_user'), hrs_path,
-                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-                </li>
-                <hr class="my-2 border-gray-100">
-                <li>
-                    <%= link_to t('main.setting'),
-                        '',
-                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-                </li>
-                <li>
-                    <%= link_to t('main.log_out'),
-                        sessions_path,
-                        data: {turbo_method: 'DELETE'},
-                        class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
-                </li>
-              <% end %>
-          </ul>
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+              <%= link_to t('main.new_company'), new_company_path,
+                  class: 'block px-2 mx-2 py-2 text-sm bg-blue-700 text-white hover:bg-blue-800 rounded-lg' %>
+          </li>
+          <hr class="my-2 border-gray-100">
+          <li>
+              <%= link_to t('main.company_sign_in'), sign_in_companies_path,
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+          </li>
+          <li>
+              <%= link_to t('main.user_sign_in'), new_user_session_path,
+                  class: 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white' %>
+          </li>
+        </ul>
       </div>
-  </div>
 <% end %>
