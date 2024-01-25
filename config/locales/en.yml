@@ -205,6 +205,9 @@ en:
     registrations:
       updated: "Your account has been updated successfully."
       edit_user_title: 'Edit Profile'
+    session_new:
+      your_email: 'Your Email'
+      your_password: 'Your Password'
 
   hrs:
     new_user: 'Add Employee'
