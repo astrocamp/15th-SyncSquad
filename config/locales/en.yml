@@ -216,27 +216,27 @@ en:
       your_password: 'Your Password'
 
   hrs:
-    new_user: 'Add Employee'
-    new_users: 'Add Employees'
-    new_user_toggle: '✚'
-    role: 'Job Title'
-    name: 'Name'
-    email: 'Email'
-    name_placeholder: 'Name'
-    email_placeholder: 'Email Address'
-    password_placeholder: 'Password'
-    password_confirmation_placeholder: 'Confirm Password'
-    user_lists: 'User Lists'
-    update_column: 'Update'
-    delete_column: 'Delete'
-    update: '✎'
-    delete: 'X'
-    creation_success: 'Successfully Registered the Staff'
-    creation_failed: 'Creation Failed'
-    update_success: 'Staff File Renew'
-    update_failed: 'Update Failed'
-    delete_staff: 'Delete Staff'
-    delete_confirm: 'Are You Sure You Want To Delete?'
+    new_user: "Add A Employee"
+    new_users: "Add Employees"
+    new_user_toggle: "✚"
+    role: "Job Title"
+    name: "Name"
+    email: "Email"
+    name_placeholder: "Name"
+    email_placeholder: "Email Address"
+    password_placeholder: "Password"
+    password_confirmation_placeholder: "Confirm Password"
+    user_lists: "User Lists"
+    update_column: "Update"
+    delete_column: "Delete"
+    update: "✎"
+    delete: "X"
+    creation_success: "Successfully Registered the Staff"
+    creation_failed: "Creation Failed"
+    update_success: "Staff File Renew"
+    update_failed: "Update Failed"
+    delete_staff: "Delete Staff"
+    delete_confirm: "Are You Sure You Want To Delete?"
 
   import:
     import_employee: 'Import Employees'
