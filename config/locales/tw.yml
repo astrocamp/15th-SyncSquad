@@ -160,21 +160,25 @@ tw:
     deleted: '活動已刪除'
 
   company:
-    creation_success: '公司創建成功'
-    creation_failed: '公司創建失敗'
-    name: '公司名稱'
-    email: '信箱'
-    password: '密碼'
-    password_confirmation: '密碼確認'
-    company_sign_up: '公司註冊'
-    not_registered: '尚未註冊'
-    please: '請先'
-    company_sign_in: '公司登入'
-    create_account: '建立帳戶'
-    login: '登入'
-    login_success: '登入成功'
-    login_failed: '登入失敗'
-    logout_success: '已登出'
+    creation_success: "公司創建成功"
+    creation_failed: "公司創建失敗"
+    name: "公司名稱"
+    email: "信箱"
+    password: "密碼"
+    password_confirmation: "密碼確認"
+    company_sign_up: "公司註冊"
+    not_registered: "尚未註冊"
+    please: "請先"
+    company_sign_in: "公司登入"
+    create_account: "建立帳戶"
+    login: "登入"
+    login_success: "登入成功"
+    login_failed: "登入失敗"
+    logout_success: "已登出"
+    enter_name: "輸入公司名稱"
+    enter_email: '輸入信箱'
+    enter_password: '輸入密碼'
+    enter_password_confirmation: '輸入確認密碼'
 
   devise:
     name: '名字'
