@@ -1,4 +1,4 @@
-<div id="public-room" class="flex items-center justify-between w-full shadow-lg border-b border-l bg-gray-200">
+<div id="public-room" class="flex items-center justify-between w-full shadow-lg border-b border-l bg-gray-200 z-11">
     <h3 class="text-xl p-4">Public Rooms</h3>
     <div id="public-room-modal">    
       <%= link_to new_room_path(modal_type: "public"), data: { turbo_frame: "modal" } do %>
@@ -14,18 +14,30 @@
   </div>
 </div>
 
-<div id="private-room" class="flex items-center justify-between w-full bg-gray-200">
-  <h3 class="text-xl p-3">Private Rooms</h3>
-  <div id="public-room-modal">    
-    <%= link_to new_room_path(modal_type: "private"), data: { turbo_frame: "modal" } do %>
-      <i class="fa-solid fa-square-plus fa-2x mr-3"></i>
-    <% end %>
-  </div>
-</div>
+  <div class="flex">
+    <div>
+      <%= render @rooms%>
+    </div>
 
-<div id="privacy-room" class="mt-2">
-  <%= turbo_stream_from "private_rooms_for_user_#{current_user.id}" %>
-  <div id="private_rooms">
-    <%= render @private_groups %>
+    <div class="md:hidden flex flex-1 justify-center items-center">
+      <i class="fa-solid fa-backward "></i>
+    </div>
   </div>
-</div>
+
+  </div>
+
+  <div id="private-room" class="flex items-center justify-between w-full bg-gray-200 z-11">
+    <h3 class="text-xl p-3">Private Rooms</h3>
+    <div id="public-room-modal">    
+  <%= link_to new_room_path(modal_type: "private"), data: { turbo_frame: "modal" } do %>
+      <i class="fa-solid fa-square-plus fa-2x mr-3"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="privacy-room" class="mt-2">
+    <%= turbo_stream_from "private_rooms_for_user_#{current_user.id}" %>
+    <div id="private_rooms">
+      <%= render @private_groups %>
+    </div>
+  </div>

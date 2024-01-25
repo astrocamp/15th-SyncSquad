@@ -20,6 +20,11 @@ export default class extends Controller {
   }
 
   showRooms() {
+    if (window.screen.width < 768) {
+      this.leftSideTarget.classList.remove("hidden");
+    } else {
+      this.leftSideTarget.classList.add("hidden");
+    }
     this.roomsListTarget.classList.remove("hidden");
     this.usersListTarget.classList.add("hidden");
   }
