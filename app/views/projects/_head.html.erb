@@ -2,11 +2,6 @@
   <div>
     <div class="flex items-center mb-2">
       <h2 class="inline-block mr-2 text-lg font-extrabold"><%= project.title %></h2>
-      <% if current_user.id == project.owner.id %>
-        <%= link_to  edit_project_path(project.id), data: { turbo_frame: "modal" } do%>
-        <i class="p-1 mx-1 text-gray-400 rounded-md fa-solid fa-pen hover:text-gray-700 hover:bg-gray-300"></i>
-        <% end %>        
-      <% end %>
           <div class="flex items-center py-1">
             <% if project.owner.avatar.attached? %>
               <%= link_to image_tag(project.owner.chat_avatar,
@@ -22,6 +17,11 @@
               <p><%= t('projects.noname') %></p>
             <% end %>
           </div>
+          <% if current_user.id == project.owner.id %>
+            <%= link_to  edit_project_path(project.id), data: { turbo_frame: "modal" } do%>
+            <i class="p-1 mx-1 text-gray-400 rounded-md fa-solid fa-pen hover:text-gray-700 hover:bg-gray-300"></i>
+            <% end %>        
+          <% end %>
     </div>
     <p class="h-full overflow-hidden text-ellipsis">
       <%= project.description %>
@@ -33,14 +33,16 @@
       <% if current_page?(calendar_project_path(project)) %>
         <div class="flex whitespace-nowrap">
           <%= link_to kanban_project_path(project), class: 'shadow-gray-400 p-1 rounded-lg ml-2 block shadow-sm bg-white' do %>
-            <i class="px-1 fa-solid fa-chart-simple fa-2x"></i>
+            <i class="px-1 fa-solid fa-chart-simple fa-xl hidden md:inline"></i>         
+            <i class="px-1 fa-solid fa-chart-simple fa-2xl block md:hidden"></i>
             <p class="hidden pr-1 md:inline md:text-lg"><%= t('projects.kanban') %></p>
           <% end %>
         </div>
       <% else %>
         <div class="flex whitespace-nowrap">
           <%= link_to calendar_project_path(project), class: 'shadow-gray-400 p-1 rounded-lg ml-2 block shadow-sm bg-white' do %>
-            <i class="px-1 fa-regular fa-calendar fa-2x"></i>
+            <i class="fa-regular fa-calendar fa-xl hidden md:inline"></i>
+            <i class="fa-regular fa-calendar fa-2xl block md:hidden"></i>
             <p class="hidden pr-1 md:inline md:text-lg"><%= t('projects.calendar') %></p>
           <% end %>
         </div>
