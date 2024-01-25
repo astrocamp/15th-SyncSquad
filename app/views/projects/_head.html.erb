@@ -18,16 +18,17 @@
         <% end %>
       </div>
       <% if current_user.id == project.owner.id %>
-        <%= link_to  edit_project_path(project.id), data: { turbo_frame: "modal" }, class: 'order-2 sm:order-1' do%>
-          <i class="p-1 mx-1 text-gray-400 rounded-md fa-solid fa-pen hover:text-gray-700 hover:bg-gray-300"></i>
+        <%= link_to  edit_project_path(project.id), data: { turbo_frame: "modal" }, class: 'order-2 sm:order-1 flex items-center' do %>
+          <i class="p-1 mx-1 text-gray-400 rounded-md fa-solid fa-pen hover:text-gray-700 hover:bg-gray-300 "></i>
         <% end %>        
       <% end %>
     </div>
-    <p class="h-full overflow-hidden text-ellipsis max-h-24">
+    <p class="overflow-hidden text-ellipsis max-h-24"
+        style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 3;">
       <%= project.description %>
     </p>
   </div>
-  <div class="flex flex-col items-center w-full md:w-auto md:items-end md:absolute md:top-0 md:-right-32">
+  <div class="flex flex-col items-center w-full md:w-auto md:items-end md:absolute md:bottom-0 md:-right-32">
     <div class="flex items-end w-full md:w-auto">
       <% if current_page?(calendar_project_path(project)) %>
         <div class="flex w-full whitespace-nowrap md:w-auto">

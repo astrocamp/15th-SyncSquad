@@ -115,7 +115,11 @@ nav.pagination {
 }
 
 .table-th {
-  @apply px-2 py-3 text-sm font-medium text-left text-gray-500 sm:px-2 sm:py-3 sm:text-xl;
+  @apply mx-2 my-3 text-sm font-medium text-left text-gray-500 sm:mx-2 sm:my-3 sm:text-xl;
+}
+
+.table-th a {
+  @apply mx-2 my-3 text-sm font-medium text-left text-gray-500 sm:mx-2 sm:my-3 sm:text-xl;
 }
 
 .fc .fc-button {

@@ -44,6 +44,16 @@
             <%= task.priority_text %>
           </div>
         <% end %>
+        <% if task.description.present? %>
+          <div class="inline-block mx-1 mt-2">
+            <i class="mx-1 fa-solid fa-align-justify"></i>
+          </div>
+        <% end %>
+        <% if task.comments.present? %>
+          <div class="inline-block mx-1 mt-2">
+            <i class="mx-1 fa-regular fa-comment-dots"></i>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>

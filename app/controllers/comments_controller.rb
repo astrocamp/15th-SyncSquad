@@ -4,12 +4,13 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   def create
     @task = Task.find(params[:task_id])
-    comment = @task.comments.new(comment_params)
+    @project = @task.project
+    @comment = @task.comments.new(comment_params)
     @comments = @task.comments
     
-    unless comment.save
+    unless @comment.save
       flash[:alert] = t('comment.context_blank_alert')
-      render turbo_stream: turbo_stream.replace('comment-form', partial: 'comments/form', locals: { comment: comment })
+      render turbo_stream: turbo_stream.replace('comment-form', partial: 'comments/form', locals: { comment: @comment })
     end
   end
 
