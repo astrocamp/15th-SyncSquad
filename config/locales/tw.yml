@@ -205,6 +205,9 @@ tw:
     registrations:
       updated: "更新成功"
       edit_user_title: '設定個人資料'
+    session_new:
+      your_email: '輸入信箱'
+      your_password: '輸入密碼'
 
   hrs:
     new_user: '新增員工'
