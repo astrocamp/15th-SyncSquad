@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comments = @task.comments
     
     unless comment.save
-      flash.now[:alert] = t('comment.context_blank_alert')
+      flash[:alert] = t('comment.context_blank_alert')
       render turbo_stream: turbo_stream.replace('comment-form', partial: 'comments/form', locals: { comment: comment })
     end
   end
