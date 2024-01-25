@@ -179,6 +179,8 @@ tw:
     enter_email: '輸入信箱'
     enter_password: '輸入密碼'
     enter_password_confirmation: '輸入確認密碼'
+    your_email: '輸入信箱'
+    your_password: '輸入密碼'
 
   devise:
     name: '名字'

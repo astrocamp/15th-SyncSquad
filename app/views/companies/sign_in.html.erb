@@ -1,31 +1,25 @@
-<section class="bg-gradient-to-b from-[#eff6ff] via-[#bfdbfe] via-70% to-100% to-[#eff6ff] pt-8 pb-64">
-  <div class="flex flex-col items-center justify-center px-6 py-4 mx-auto">
-      
-      <div class="w-full bg-white rounded-lg shadow dark:border sm:max-w-md">
-          <div class="p-8 space-y-4">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900">
-                  <%= t('company.company_sign_in') %>
-              </h1>
-              <%= form_with(url: sessions_path, scope: 'company', data: {turbo: false}) do |form| %>
-                  
-                  <div>
-                      <%= form.label :email, t('company.email'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                      <%= form.email_field :email, placeholder: "example@company.com", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
-                  </div>
-                  <div>
-                    <%= form.label :password, t('company.password'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                    <%= form.password_field :password, placeholder: "••••••", class: 'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
-                  </div>
-                
-                  <div class= "my-5">
-                    <%= form.submit t('company.login'), class: "cursor-pointer w-full bg-gradient-to-b from-[#18376c] form-20% to-[#3779eaa3] hover:bg-blue-900 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>                  
-                  </div>
-                  <div class= "my-5 text-center">
-                    <%= t('company.not_registered') %>? <%= t('company.please') %><%= link_to t('company.create_account'), new_company_path, class: "text-blue-600 hover:font-bold active:bg-blue-300 focus:outline-none focus:ring" %>
-                  </div>
-              <% end %>
-          </div>
+<section class="fixed top-0 flex items-center w-full h-screen pt-6 bg-gray-400 -z-10">
+  <div class="w-full max-w-screen-lg p-6 m-4 bg-white rounded-lg shadow-lg md:m-auto lg:w-[40%] md:w-[50%] sm:m-12 md:p-12"> 
+    <div class="flex items-center pt-4 mb-4 text-2xl">
+      <i class="h-7 p-1.5 mr-2 text-center text-blue-600 fa-solid fa-building"></i>
+      <h3 class="font-extrabold"><%= t('company.company_sign_in') %></h3>
+    </div>
+    <%= form_with(url: sessions_path, scope: 'company', data: {turbo: false}) do |form| %>
+      <div class="flex flex-col gap-4">
+        <div>
+            <%= form.label :email, t('company.email'), class: "form-text" %>
+            <%= form.email_field :email, placeholder: t('company.your_email'), class: 'form-input' %>
+        </div>
+        <div>
+          <%= form.label :password, t('company.password'), class: "form-text" %>
+          <%= form.password_field :password, placeholder: t('company.your_password'), class: 'form-input' %>
+        </div>
+        <%= form.submit t('company.login'), class: "w-full my-4 px-4 py-2 font-bold text-center text-white bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-700" %>
+        <div class= "mb-8 text-center">
+          <%= t('company.not_registered') %>? <%= t('company.please') %><%= link_to t('company.create_account'), new_company_path, class: "text-blue-600 hover:font-bold active:bg-blue-300 focus:outline-none focus:ring" %>
+        </div>
       </div>
+    <% end %>
   </div>
 </section>
 

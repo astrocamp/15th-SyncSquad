@@ -179,6 +179,8 @@ en:
     enter_email: 'Enter Your Email'
     enter_password: 'Enter Your Password'
     enter_password_confirmation: 'Enter The Same Password'
+    your_email: 'Your Email'
+    your_password: 'Your Password'
 
   devise:
     name: 'Name'
