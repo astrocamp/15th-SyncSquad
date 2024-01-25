@@ -307,6 +307,10 @@ en:
           attributes:
             title:
               blank: 'Please enter the task title.'
+        list:
+          attributes:
+            title:
+              blank: 'Please enter the list title.'
       messages:
         blank: 'Please enter information.'
         invalid: 'Please confirm the information.'

@@ -307,6 +307,10 @@ tw:
           attributes:
             title:
               blank: '請輸入任務標題'
+        list:
+          attributes:
+            title:
+              blank: '請輸入列表標題'
       messages:
         blank: '此欄位不能為空'
         invalid: '信息不正確'
@@ -317,7 +321,6 @@ tw:
           high: '高等'
           medium: '中等'
           low: '低等'
-
   errors:
     attributes:
       password:
