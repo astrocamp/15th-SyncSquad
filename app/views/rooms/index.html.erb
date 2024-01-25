@@ -1,69 +1,22 @@
 <div id="total" class="flex h-screen overflow-hidden" data-controller="chatroom_list">
-
-  <div id="sidenav" class="bg-gray-400 w-20 flex flex-col items-center pt-4 pl-3 hidden md:block">
-    <i class="fa-solid fa-user p-3 fa-2x <%= 'text-blue-700' if params[:tab_type] == 'single_chat' %>" data-action="click->chatroom_list#showUsers"></i>
-    <i class="fa-solid fa-message p-3 fa-2x <%= 'text-blue-700' if params[:tab_type] == 'group_chat' %>" data-action="click->chatroom_list#showRooms"></i>
+  <div id="sidenav" class="bg-gray-400 w-10 flex flex-col items-center pt-4 pl-3 md:w-20">
+    <i class="fa-solid fa-user p-3 text-xl md:fa-2x <%= 'text-blue-700' if params[:tab_type] == 'single_chat' %>" data-action="click->chatroom_list#showUsers"></i>
+    <i class="fa-solid fa-message p-3 text-xl md:fa-2x <%= 'text-blue-700' if params[:tab_type] == 'group_chat' %>" data-action="click->chatroom_list#showRooms"></i>
   </div>
 
-  <div id="left-side" class="w-2/12 bg-gray-100 hidden md:block">
-    <div id="users-list" class=" h-full overflow-y-scroll <%= 'hidden' if params[:tab_type] == 'group_chat' %>"        data-chatroom_list-target="usersList">
+  <div id="left-side"  data-chatroom_list-target="leftSide" class="md:w-2/12 bg-gray-100 hidden md:block">
+    
+    <div id="users-list" class="h-full overflow-y-scroll <%= 'hidden' if params[:tab_type] == 'group_chat' %>"        data-chatroom_list-target="usersList">
         <%= render "/shared/users_list"%>
     </div>
-    <div id="rooms-list" class="<%= 'hidden' if params[:tab_type] == 'single_chat' %>" data-chatroom_list-target="roomsList">
+    <div id="rooms-list" class="h-full overflow-y-scroll <%= 'hidden' if params[:tab_type] == 'single_chat' %>" data-chatroom_list-target="roomsList">
 
       <%= render "/shared/rooms_list"%>
     </div>
   </div>
 
-  <div id="room_container" class="flex-grow hidden md:block" >
+  <div id="room_container" class="flex-grow" >
     <div class="w-full">
       <%= render partial: 'layouts/single_room', locals: { single_room: @single_room, messages: @messages, users: @users } if @single_room %>    
     </div>
   </div>
-
-<%# RWD %>
-  <div id="sidnav-canvas" class="flex flex-col items-center pt-4 w-20 bg-gray-400 md:hidden">
-
-    <i class="fa-solid fa-user p-3 fa-2x focus:ring-4 focus:ring-blue-300 font-medium rounded-lg cursor-pointer focus:outline-none dark:focus:ring-blue-800" data-drawer-target="new-drawer-navigation" data-drawer-show="new-drawer-navigation" aria-controls="new-drawer-navigation"></i>
-    
-    <i class="fa-solid fa-message p-3 fa-2x focus:ring-4 focus:ring-blue-300 font-medium rounded-lg cursor-pointer  focus:outline-none dark:focus:ring-blue-800" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation"></i>
-
-</div>
-
-<%# canvus user-list %>
-<div id="canvus-user-list">
-  <div id="new-drawer-navigation" class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="new-drawer-navigation-label">
-    <button type="button" data-drawer-hide="new-drawer-navigation" aria-controls="new-drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
-    <!-- Close Icon -->
-    </button>
-    <div class="py-4 overflow-y-auto pt-2">
-      <ul class="space-y-2 font-medium">
-        <li><%= render "/shared/users_list" %></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-<%# canvas room-list %>
-<div id="canvas-room-list">
-<div id="drawer-navigation" class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
-    <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
-    <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
-        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        <span class="sr-only">Close menu</span>
-    </button>
-  <div class="py-4 overflow-y-auto">
-      <ul class="space-y-2 font-medium">
-         <li><%= render "/shared/rooms_list" %></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div id="room_container" class="flex-grow md:hidden" >
-    <div class="w-full">
-      <%= render partial: 'layouts/single_room', locals: { single_room: @single_room, messages: @messages, users: @users } if @single_room %>    
-    </div>
-  </div>
-</div>
