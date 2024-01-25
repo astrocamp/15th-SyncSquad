@@ -216,27 +216,27 @@ tw:
       your_password: '輸入密碼'
 
   hrs:
-    new_user: '新增員工'
-    new_users: '新增多名員工'
-    new_user_toggle: '✚'
-    role: '職稱'
-    name: '名字'
-    email: '信箱'
-    name_placeholder: '輸入名字'
-    email_placeholder: '輸入員工信箱'
-    password_placeholder: '輸入密碼'
-    password_confirmation_placeholder: '確認密碼'
-    user_lists: '員工列表'
-    update_column: '更新'
-    delete_column: '刪除'
-    update: '✎'
-    delete: 'X'
-    creation_success: '員工新增成功'
-    creation_failed: '無法新增員工'
-    update_success: '員工資料更新'
-    update_failed: '員工更新失敗'
-    delete_staff: '刪除離職員工'
-    delete_confirm: '確認刪除?'
+    new_user: "新增一名員工"
+    new_users: "新增多名員工"
+    new_user_toggle: "✚"
+    role: "職稱"
+    name: "名字"
+    email: "信箱"
+    name_placeholder: "輸入名字"
+    email_placeholder: "輸入員工信箱"
+    password_placeholder: "輸入密碼"
+    password_confirmation_placeholder: "確認密碼"
+    user_lists: "員工列表"
+    update_column: "更新"
+    delete_column: "刪除"
+    update: "✎"
+    delete: "X"
+    creation_success: "員工新增成功"
+    creation_failed: "無法新增員工"
+    update_success: "員工資料更新"
+    update_failed: "員工更新失敗"
+    delete_staff: "刪除離職員工"
+    delete_confirm: "確認刪除?"
 
   import:
     import_employee: '匯入多名員工'
