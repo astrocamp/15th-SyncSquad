@@ -28,4 +28,7 @@ export default class extends Controller {
     this.roomsListTarget.classList.remove("hidden");
     this.usersListTarget.classList.add("hidden");
   }
+  closeSideBar() {
+    this.leftSideTarget.classList.add("hidden");
+  }
 }
