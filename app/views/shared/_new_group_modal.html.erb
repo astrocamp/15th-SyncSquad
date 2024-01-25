@@ -5,8 +5,11 @@
   </div>
 
   <div class="mt-3">
-    <%= form.label :user_ids, 'members' %>
-    <%= form.select :user_ids, User.all_except(current_user).pluck(:name, :id), {}, { multiple: true, data: { controller: 'slimselect', slim_target: 'field' } } %>
+     <%= form.select :user_ids, 
+      User.where(company_id: current_user.company_id).where.not(id: current_user.id).pluck(:name, :id), 
+      {}, 
+      { multiple: true, data: { controller: 'slimselect', slim_target: 'field' } } 
+  %>
   </div>
 
   <%= form.hidden_field :room_type, value: 'private_room' %>
