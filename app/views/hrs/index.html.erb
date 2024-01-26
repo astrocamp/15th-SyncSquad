@@ -12,14 +12,15 @@
         </h2>
         <div class="flex flex-col gap-0 sm:gap-4 sm:flex-row">
           <div class="flex-1">
-            <%= f.label :name, class: 'form-text mt-2' %>
+            <%= f.label :name, t('hrs.name_label') , class: 'form-text mt-2' %>
             <%= f.text_field :name, placeholder: t('hrs.name_placeholder'), class: 'form-input' %>
-            <%= f.label :email, class: 'form-text mt-2' %>
+            <%= f.label :email, t('hrs.email_label'), class: 'form-text mt-2' %>
             <%= f.email_field :email, placeholder: t('hrs.email_placeholder'), class: 'form-input' %>
           </div>
           <div class="relative flex-1">
-            <%= f.label :password, class: 'form-text mt-2' %>
-            <%= f.password_field :password, placeholder: t('hrs.password_confirmation_placeholder'), class: 'form-input' %>
+            <%= f.label :password, t('hrs.password_label'), class: 'form-text mt-2' %>
+            <%= f.password_field :password, placeholder: t('hrs.password_placeholder'), class: 'form-input' %>
+            <%= f.label :password_confirmation, t('hrs.password_confirmation_label'), class: 'form-text mt-2' %>
             <%= f.password_field :password_confirmation, placeholder: t('hrs.password_confirmation_placeholder'), class: 'form-input mt-4 sm:absolute sm:bottom-0' %>
           </div>
           <div class="relative flex-1">

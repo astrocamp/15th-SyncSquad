@@ -222,6 +222,10 @@ en:
     role: "Job Title"
     name: "Name"
     email: "Email"
+    name_label: 'Name'
+    email_label: 'Email'
+    password_label: 'Password'
+    password_confirmation_label: 'Password Confirmation'
     name_placeholder: "Name"
     email_placeholder: "Email Address"
     password_placeholder: "Password"

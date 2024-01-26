@@ -178,7 +178,7 @@ tw:
     enter_name: "輸入公司名稱"
     enter_email: '輸入信箱'
     enter_password: '輸入密碼'
-    enter_password_confirmation: '輸入確認密碼'
+    enter_password_confirmation: '輸入及確認密碼'
     your_email: '輸入信箱'
     your_password: '輸入密碼'
 
@@ -222,10 +222,14 @@ tw:
     role: "職稱"
     name: "名字"
     email: "信箱"
+    name_label: '名稱'
+    email_label: '信箱'
+    password_label: '密碼'
+    password_confirmation_label: '確認密碼'
     name_placeholder: "輸入名字"
     email_placeholder: "輸入員工信箱"
     password_placeholder: "輸入密碼"
-    password_confirmation_placeholder: "確認密碼"
+    password_confirmation_placeholder: "輸入及確認密碼"
     user_lists: "員工列表"
     update_column: "更新"
     delete_column: "刪除"
