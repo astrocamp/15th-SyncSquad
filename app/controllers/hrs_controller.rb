@@ -12,11 +12,16 @@ class HrsController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     respond_to do |format|
       if @user.save
+        project = Project.create(title: I18n.t('template.project'), owner_id: @user.id)
+        @user.affiliated_projects << project
+        list = project.lists.create(title: I18n.t('template.list'), color: '#4299E1')
+        list.tasks.create(title: I18n.t('template.task1'), started_at: Date.current, ended_at: Date.current + 1)
+        list.tasks.create(title: I18n.t('template.task2'), started_at: Date.current, ended_at: Date.current + 1)
         format.html { redirect_to hrs_path, success: t('hrs.creation_success') }
         format.json { render json: @user, status: :ok }
-        find_users
       else
         format.html { redirect_to hrs_path, alert: t('hrs.creation_failed') }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -31,7 +36,6 @@ class HrsController < ApplicationController
       if @user.update(user_params)
         format.html { redirect_to hrs_path, success: t('hrs.update_success') }
         format.json { render json: @user, status: :ok }
-        find_users
       else
         format.html { redirect_to hrs_path, alert: t('hrs.update_failed') }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -40,9 +44,8 @@ class HrsController < ApplicationController
   end
 
   def destroy
-    if @user.destroy
-      redirect_to hrs_path, success: t('hrs.delete_staff')
-    end
+    @user.destroy
+    redirect_to hrs_path, success: t('hrs.delete_staff')
   end
 
   private
@@ -51,10 +54,6 @@ class HrsController < ApplicationController
     params.require(:user)
           .permit(:name, :email, :password, :password_confirmation, :role)
           .merge(company_id: current_user ? current_user.company_id : current_company.id)
-  end
-
-  def find_users
-    @users = User.where(company: current_company).order(id: :desc)
   end
 
   def find_user
