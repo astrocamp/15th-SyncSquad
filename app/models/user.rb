@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :project_members, dependent: :destroy
   has_many :affiliated_projects, through: :project_members, source: :project
   has_many :tasks
-  # has_many :participants
+  has_many :participants
   # has_many :rooms, through: :participants
 
   # Chatroom messages
@@ -20,7 +20,9 @@ class User < ApplicationRecord
   after_create_commit { broadcast_append_to 'users' }
 
   has_many :messages
+
   has_many :room_visits
+  has_many :rooms, through: :room_visits
 
   # Chatroom avatar
   has_one_attached :avatar

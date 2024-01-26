@@ -3,12 +3,13 @@
 class Room < ApplicationRecord
   # validation: room's name could not recurring and create public room
   # after_create_commit { broadcast_if_public }
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :participants, dependent: :destroy
-  # has_many :users, through: :participants
+  has_many :users, through: :participants
   belongs_to :company
 
-  has_many :room_visits
+  has_many :room_visits, dependent: :destroy
+  has_many :users, through: :room_visits
 
   enum room_type: { public_room: 0, single_room: 1, private_room: 2 }
 
