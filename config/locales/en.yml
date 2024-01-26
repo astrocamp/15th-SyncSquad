@@ -395,3 +395,9 @@ en:
         update: 'Update'
       task_project:
         create: 'Create'
+
+  chatroom:
+    create: "create"
+    public_room: "Public Rooms"
+    private_room: "Private Rooms"
+    room_name: "Room's name"    

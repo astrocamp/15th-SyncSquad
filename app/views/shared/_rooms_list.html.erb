@@ -1,5 +1,5 @@
 <div id="public-room" class="flex items-center justify-between w-full shadow-lg border-b border-l bg-gray-200 z-11">
-    <h3 class="text-xl p-4">Public Rooms</h3>
+    <h3 class="text-xl p-4"><%=t('chatroom.public_room')%></h3>
     <div id="public-room-modal">    
       <%= link_to new_room_path(modal_type: "public"), data: { turbo_frame: "modal" } do %>
         <i class="fa-solid fa-square-plus fa-2x mr-3"></i>
@@ -23,7 +23,7 @@
   </div>
 
   <div id="private-room" class="flex items-center justify-between w-full bg-gray-200 z-11">
-    <h3 class="text-xl p-3">Private Rooms</h3>
+    <h3 class="text-xl p-3"><%=t('chatroom.private_room')%></h3>
     <div id="public-room-modal">    
   <%= link_to new_room_path(modal_type: "private"), data: { turbo_frame: "modal" } do %>
       <i class="fa-solid fa-square-plus fa-2x mr-3"></i>
