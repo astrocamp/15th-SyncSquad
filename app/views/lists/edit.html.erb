@@ -8,7 +8,7 @@
       <%= form.label :title, t('lists.edit_title'),
           class: 'block text-sm font-medium text-gray-900 flex-none mr-2' %>
       <%= form.text_field :title, required: true,
-          class: 'flex-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700' %>
+          class: 'flex-auto bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 ' %>
     </div>
     <div data-controller="color-picker" class="flex items-center">
       <%= form.label :color, t('lists.edit_color'),
@@ -17,8 +17,8 @@
       <div data-color-picker-target="button"></div>
     </div>
     <footer>
-      <div class="flex items-center justify-end px-4 pt-4 border-t border-gray-200 rounded-b dark:border-gray-600">
-        <%= form.submit class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
+      <div class="flex items-center justify-end px-4 pt-4 border-t border-gray-200 rounded-b ">
+        <%= form.submit class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ' %>
         <%= link_to t('lists.edit_delete'), list_path(@list), 
             data: {turbo_method: 'delete', turbo_confirm: t('lists.edit_confirm'), action:"click->turbomodal#close"},
             class: 'ms-3 text-red-500 bg-white hover:bg-red-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-red-700 focus:z-10 border-red-600'%>

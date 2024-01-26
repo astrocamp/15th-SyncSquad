@@ -1,21 +1,21 @@
 <%= form_with model: @company, data: {turbo_method: 'POST'}, class: 'my-5' do |form| %>
   <div class="mb-1">
-    <%= form.label :name, t('main.name'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
-    <%= form.text_field :name, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
+    <%= form.label :name, t('main.name'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 ' %>
+    <%= form.text_field :name, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ' %>
   </div>
   <div class="mb-1">
-    <%= form.label :email, t('main.email'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
-    <%= form.email_field :email, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
+    <%= form.label :email, t('main.email'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 ' %>
+    <%= form.email_field :email, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ' %>
   </div>
   <div class="mb-1">
-    <%= form.label :password, t('main.password'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
-    <%= form.password_field :password, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
+    <%= form.label :password, t('main.password'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 ' %>
+    <%= form.password_field :password, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ' %>
   </div>
   <div class="mb-1">
-    <%= form.label :password_confirmation, t('main.password_confirmation'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 dark:text-white' %>
-    <%= form.password_field :password_confirmation, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
+    <%= form.label :password_confirmation, t('main.password_confirmation'), class: 'text-black md:text-white font-light md:font-thin block mb-1 text-sm font-medium text-gray-900 ' %>
+    <%= form.password_field :password_confirmation, class: 'bg-gray-50 md:bg-gray-300 md:border-gray-520 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ' %>
   </div>
   <div class="mt-10">
-    <%= form.submit t('main.new_company') ,class: 'cursor-pointer tracking-wide w-full py-2.5 px-5 text-sm font-bold text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700' %>
+    <%= form.submit t('main.new_company') ,class: 'cursor-pointer tracking-wide w-full py-2.5 px-5 text-sm font-bold text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 ' %>
   </div>
 <% end %>
