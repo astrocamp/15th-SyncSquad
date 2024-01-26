@@ -397,3 +397,9 @@ tw:
     list: '範例列表'
     task1: '範例任務1'
     task2: '範例任務2'
+
+  chatroom:
+    create: "新增群組"
+    public_room: "公開群組"
+    private_room: "私人群組"
+    room_name: "群組名稱"  
