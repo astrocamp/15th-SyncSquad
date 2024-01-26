@@ -80,17 +80,17 @@ export default class extends Controller {
       eventDidMount: function (info) {
         const list_color = info.event.extendedProps.color
         let userName = info.event.extendedProps.user_nick_name
-        if (userName === null && locale === 'zh-tw') {
-          userName = '無名'
-        } else if (userName === null && locale === 'en-us') {
-          userName = 'No Name'
-        } else if (userName === '' && locale === 'zh-tw') {
+        let user = info.event.extendedProps.email
+        if (user === null && locale === 'zh-tw') {
           userName = '無指派'
-        } else if (userName === '' && locale === 'en-us') {
+        } else if (user === null && locale === 'en-us') {
           userName = 'Unassigned'
+        } else if (userName === '' && locale === 'zh-tw') {
+          userName = '無名'
+        } else if (userName === '' && locale === 'en-us') {
+          userName = 'No Name'
         } else {
         }
-        console.log(info.event.extendedProps.priority)
         tippy(info.el, {
           content: `
             <div class="bg-white rounded-lg shadow-md shadow-gray-400 flex flex-col w-48 overflow-hidden">

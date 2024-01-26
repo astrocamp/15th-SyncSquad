@@ -130,6 +130,7 @@ class ProjectsController < ApplicationController
                                                   when 'medium' then 'bg-lime-400'
                                                   when 'low' then 'bg-gray-300'
                                                   end,
+                              'email' => task.user_id,
                               'localtion' => task.location.nil? ? '' : `<div class="flex items-center"><i class="mr-2 fa-solid fa-location-dot"></i><p>#{task.location}<p></div>`,
                               'user_nick_name' => task.user.nil? ? '' : (task.user.nick_name unless task.user.nick_name.nil?),
                               'list_title' => task.list.title, 'color' => task.list.color } }
