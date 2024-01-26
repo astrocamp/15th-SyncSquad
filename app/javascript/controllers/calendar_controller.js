@@ -80,12 +80,7 @@ export default class extends Controller {
       eventDidMount: function (info) {
         const list_color = info.event.extendedProps.color
         let userName = info.event.extendedProps.user_nick_name
-        let user = info.event.extendedProps.email
-        if (user === null && locale === 'zh-tw') {
-          userName = '無指派'
-        } else if (user === null && locale === 'en-us') {
-          userName = 'Unassigned'
-        } else if (userName === '' && locale === 'zh-tw') {
+        if (userName === '' && locale === 'zh-tw') {
           userName = '無名'
         } else if (userName === '' && locale === 'en-us') {
           userName = 'No Name'
