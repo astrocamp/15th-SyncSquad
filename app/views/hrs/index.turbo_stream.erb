@@ -1,0 +1,41 @@
+<div class="fixed right-0 z-10 px-5 py-2 top-14">
+  <%= render partial: 'shared/alert', locals: { message: flash[:alert]} %>
+  <%= render partial: 'shared/notice', locals: { message: flash[:notice]} %>
+  <%= render partial: 'shared/success', locals: { message: flash[:success]} %>
+  <%= render partial: 'shared/info', locals: { message: flash[:info]} %>
+  <%= render partial: 'shared/mail', locals: { message: flash[:mail]} %>
+</div>
+
+<turbo-stream action="replace" target="users_table">
+  <template>
+    <div id="users_table" class="flex items-center justify-center mx-6">
+      <table class="min-w-full bg-white divide-y divide-gray-300 ">
+        <th class="py-2 text-2xl text-center bg-white rounded-lg text-blue" colspan="5"><%= t('hrs.user_lists') %></th>
+        <tr class="bg-gray-200">
+          <th></th>             
+          <th class=""><%= t('hrs.name') %></th>
+          <th class=""><%= t('hrs.email') %></th>
+          <th class=""><%= t('hrs.role') %></th>    
+          <th class=""><%= t('hrs.update_column') %></th>
+          <th class=""><%= t('hrs.delete_column') %></th>
+        </tr>
+        <div>
+          <% @users.each do |user| %>
+            <%= form_for(user, url: hr_path(user), remote: true, method: :patch) do |f| %>
+              <tr id="create_user">
+                <td></td>
+                <td class="pl-2 pr-2 md:pl-4 md:pr-6"><%= f.text_field :name, class: 'bg-gray-50 border border-gray-300 w-full text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' %></td>
+                <td class="px-2"><%= f.text_field :email, class: 'bg-gray-50 border border-gray-300 w-full text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' %></td>
+                <td class="px-2"><%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w]}, {}, { class: 'bg-gray-50 border border-gray-300 w-full text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 mt-3 mx-1' }) %></td>
+                <td class="flex justify-center px-2">
+                  <%= f.submit t('hrs.update'), class: "cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold rounded px-3 py-1.5 mt-3 mx-1 text-2xl rotate-90" %>
+                </td>
+                <td><%= link_to t('hrs.delete'), hr_path(user), class: "bg-white hover:bg-red-200 hover:border-red-400 text-gray-400 border hover:text-red-600 font-bold rounded inline-block mt-3 mx-1 py-2.5 px-4", data: {turbo_method: 'delete', turbo_confirm: t('hrs.delete_confirm') } %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </div>
+      </table>  
+    </div>
+  </template>
+</turbo-stream>
