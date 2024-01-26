@@ -53,8 +53,8 @@
             </div>
             <% if @task.started_at.present? || @task.ended_at.present? %>
               <div class="<%= 'flex' if @task.all_day_event == true %>">
-                <p class="ml-1"><%= @task.all_day_event == true ? @task.started_at.strftime("%Y-%m-%d") : @task.started_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %> ~ </p>
-                <p class="ml-1"><%= @task.all_day_event == true ? @task.ended_at.strftime("%Y-%m-%d") : @task.ended_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></p>
+                <p class="ml-1"><%= @task.all_day_event == true ? @task.started_at.strftime("%Y-%m-%d") : @task.started_at.strftime('%B %d, %Y, %R') %> ~ </p>
+                <p class="ml-1"><%= @task.all_day_event == true ? @task.ended_at.strftime("%Y-%m-%d") : @task.ended_at.strftime('%B %d, %Y, %R') %></p>
               </div>
             <% end %>
           </div>
@@ -94,7 +94,7 @@
                       </div>
                     <% end %>
                     <div class="flex items-center">
-                      <p class="text-xs text-gray-400"> <%= comment.created_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></p>
+                      <p class="text-xs text-gray-400"> <%= comment.created_at.strftime('%B %d, %Y, %I:%M %p') %></p>
                       <%= link_to comment_path(comment), data:{turbo_method:"delete"},
                           class: " flex items-center p-2 ml-2 hover:bg-gray-300 rounded-lg text-gray-400 hover:text-red-600 transition duration-300 ease-in-out" do %>
                         <i class="fa-regular fa-trash-can"></i>

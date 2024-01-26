@@ -2,11 +2,12 @@
 
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+
   def create
     @task = Task.find(params[:task_id])
-    @project = @task.project
     @comment = @task.comments.new(comment_params)
     @comments = @task.comments
+    @project = @task.project
     
     unless @comment.save
       flash[:alert] = t('comment.context_blank_alert')
@@ -16,8 +17,10 @@ class CommentsController < ApplicationController
 
   def destroy
     comment = Comment.find(params[:id])
-    comment.destroy
-    redirect_to task_path(comment.task_id)
+    if comment.destroy
+      @project = comment.task.project
+      @comments = comment.task.comments
+    end
   end
 
   private

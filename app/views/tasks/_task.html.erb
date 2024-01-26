@@ -21,8 +21,8 @@
           <div class="flex items-center mt-2 overflow-hidden">
             <i class="ml-2 mr-1 fa-regular fa-calendar"></i>
             <div class="<%= 'flex' if task.all_day_event == true %>">
-              <p class="ml-1"><%= task.all_day_event == true ? task.started_at.strftime("%Y-%m-%d") : task.started_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %> ~ </p>
-              <p class="ml-1"><%= task.all_day_event == true ? task.ended_at.strftime("%Y-%m-%d") : task.ended_at.in_time_zone("Taipei").strftime('%B %d, %Y, %I:%M %p') %></p>
+              <p class="ml-1"><%= task.all_day_event == true ? task.started_at.strftime("%Y-%m-%d") : task.started_at.strftime('%B %d, %Y, %R') %> ~ </p>
+              <p class="ml-1"><%= task.all_day_event == true ? task.ended_at.strftime("%Y-%m-%d") : task.ended_at.strftime('%B %d, %Y, %R') %></p>
             </div>
           </div>
         <% end %>
