@@ -40,11 +40,11 @@
               </div>
             </div>
           </div>
-          <div>
-            <%= form.label :priority, t('tasks.edit_priority'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
-            <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, _value| [t("activerecord.attributes.task.priorities.#{key}"), key] }, @task.priority), { prompt: t('tasks.edit_select') }, { class: 'bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none' }) %>
-          </div>
           <div class="flex items-center">
+            <%= form.label :priority, t('tasks.edit_priority'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
+            <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, _value| [t("activerecord.attributes.task.priorities.#{key}"), key] }, @task.priority), { prompt: t('tasks.edit_select') }, { class: 'flex-1 bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none' }) %>
+          </div>
+          <div class="flex items-center mt-4">
           <%= form.label :location, t('tasks.edit_location'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
           <%= form.text_field :location, placeholder: t('tasks.location_placeholder'), data:{ map_target:"field" }, class: 'flex-auto bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none'%>
           <button data-action="click->map#resetLocation" class="flex items-center sm:ml-3 ml-2 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-3 py-2.5 sm:px-5 sm:py-2.5 hover:text-gray-900 focus:z-10">
