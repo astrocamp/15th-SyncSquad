@@ -11,7 +11,7 @@ class User < ApplicationRecord
   belongs_to :company, optional: true
   has_many :project_members, dependent: :destroy
   has_many :affiliated_projects, through: :project_members, source: :project
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   has_many :participants
   # has_many :rooms, through: :participants
 
