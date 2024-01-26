@@ -39,9 +39,9 @@
                 </div>
               </div>
             </div>
-            <div>
+            <div class="flex items-center">
               <%= form.label :priority, t('tasks.edit_priority'), class: 'flex-none mr-2 text-sm font-medium text-gray-900' %>
-              <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, _value| [t("activerecord.attributes.task.priorities.#{key}"), key] }, @task.priority), { prompt: t('tasks.edit_select') }, { class: 'bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none' }) %>
+              <%= form.select(:priority, options_for_select(Task::PRIORITY.map { |key, _value| [t("activerecord.attributes.task.priorities.#{key}"), key] }, @task.priority), { prompt: t('tasks.edit_select') }, data:{controller: "slimselect", search_placeholder: t('search_placeholder') },  class: 'bg-white py-2.5 px-2 text-sm text-gray-500 border-0 border-b-2 border-gray-200 appearance-none rounded-none' ) %>
             </div>
             <div data-controller="map">
               <div class="flex items-center">

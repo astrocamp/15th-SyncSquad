@@ -185,3 +185,11 @@ form .field_with_errors:nth-child(even) {
   gap: 0.5rem;
   height: 100%;
 }
+
+.fc .fc-event-title {
+  @apply text-[8px] md:text-base flex items-center;
+}
+
+.fc .fc-event-time {
+  @apply text-[8px] md:text-base flex items-center;
+}
