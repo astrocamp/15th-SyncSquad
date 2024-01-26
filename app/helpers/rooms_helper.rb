@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 module RoomsHelper
-  def format_user_email(user)
-    user.email.split('@').first.split('-').reverse.map(&:capitalize).join(' ')
+  def format_user_name(user, max_length = 10)
+    truncated_name = user.name.truncate(max_length)
+    truncated_name
   end
 end
