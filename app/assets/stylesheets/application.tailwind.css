@@ -47,7 +47,16 @@ html {
 
 .msg-form {
   z-index: 1000;
-  bottom: 100px;
+  width: 78.45%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .msg-form {
+    width: 93%;
+  }
 }
 
 #messages {
