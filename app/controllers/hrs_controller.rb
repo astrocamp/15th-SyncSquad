@@ -8,6 +8,10 @@ class HrsController < ApplicationController
     authorize current_company, policy_class: HrsPolicy
     @users = User.where(company: current_company).order(id: :desc)
     @user = User.new
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @user, status: :ok }
+    end
   end
 
   def create
@@ -45,7 +49,7 @@ class HrsController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to hrs_path, success: t('hrs.delete_staff')
+    respond_to.html { redirect_to hrs_path, success: t('hrs.update_success') }
   end
 
   private
