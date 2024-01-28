@@ -5,6 +5,7 @@ FactoryBot.define do
     email { 'user@test.company.com' }
     password { '123456' }
     role { 'hr' }
+    name { 'test' }
     association :company
   end
 end
