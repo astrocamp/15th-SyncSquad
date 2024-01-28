@@ -9,7 +9,8 @@ class UsersController < ApplicationController
                          notice: t('import.please_choose_file')
     end
 
-    CsvImportUsersService.new.call(file, current_company.id, current_user&.id)
+    tmp_file_path = save_temp_csv(file).to_s
+    CsvImportWorker.perform_async(tmp_file_path, current_company.id, current_user&.id)
 
     redirect_to users_import_path, notice: t('import.processing')
   end
@@ -32,7 +33,8 @@ class UsersController < ApplicationController
     @room = Room.new
     @rooms = Room.where(room_type: 'public_room', company: current_user.company)
     @room_name = get_name(@user, current_user)
-    @single_room = Room.find_by(name: @room_name) || Room.create_private_room(current_user, [@user, current_user],@room_name)
+    @single_room = Room.find_by(name: @room_name) || Room.create_private_room(current_user, [@user, current_user],
+                                                                              @room_name)
     @unread_count = @single_room.unread_messages_count(current_user)
 
     @private_groups = Room.joins(:participants)
@@ -51,6 +53,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def save_temp_csv(file)
+    tmp_file_path = Rails.root.join('storage', SecureRandom.uuid + File.extname(file.original_filename))
+    File.binwrite(tmp_file_path, file.read)
+    tmp_file_path
+  end
 
   def get_name(user1, user2)
     user = [user1, user2].sort

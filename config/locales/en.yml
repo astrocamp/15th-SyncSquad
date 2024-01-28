@@ -26,138 +26,137 @@ en:
     project_owner: "Project Creator"
     noname: "No Name"
     noproject: "There is no any project for now"
-    project_owner: "Project Creator"
 
   lists:
-    create_success: 'Creation Success!'
-    update_success: 'Update Success!'
-    destroy_success: 'Delete Success!'
-    index_affiliated: 'Affiliated Projects'
-    show_confirm: 'Are you sure you want to delete the list?'
-    form_title: 'Title'
-    form_description: 'Description'
-    form_cancel: 'Cancel'
-    list_delete: 'Delete'
-    main_search: 'Search'
-    main_title_or_email: 'Title/Email'
-    main_clear: 'Clear'
-    main_title: 'Title'
-    main_description: 'Description'
-    main_email: 'Email'
-    main_created_time: 'Created Time'
-    main_updated_time: 'Updated Time'
-    delete_task: 'Deleted Task'
-    kanban: 'Kanban'
-    calendar: 'Calendar'
-    new: 'Create List'
-    new_title: 'Title'
-    new_cancel: 'Cancel'
-    edit_list_title: 'Edit List'
-    edit_title: 'Title'
-    edit_color: 'Color'
-    edit_cancel: 'Cancel'
-    edit_delete: 'Delete'
-    edit_confirm: 'Are you sure you want to delete the list?'
+    create_success: "Creation Success!"
+    update_success: "Update Success!"
+    destroy_success: "Delete Success!"
+    index_affiliated: "Affiliated Projects"
+    show_confirm: "Are you sure you want to delete the list?"
+    form_title: "Title"
+    form_description: "Description"
+    form_cancel: "Cancel"
+    list_delete: "Delete"
+    main_search: "Search"
+    main_title_or_email: "Title/Email"
+    main_clear: "Clear"
+    main_title: "Title"
+    main_description: "Description"
+    main_email: "Email"
+    main_created_time: "Created Time"
+    main_updated_time: "Updated Time"
+    delete_task: "Deleted Task"
+    kanban: "Kanban"
+    calendar: "Calendar"
+    new: "Create List"
+    new_title: "Title"
+    new_cancel: "Cancel"
+    edit_list_title: "Edit List"
+    edit_title: "Title"
+    edit_color: "Color"
+    edit_cancel: "Cancel"
+    edit_delete: "Delete"
+    edit_confirm: "Are you sure you want to delete the list?"
 
   tasks:
-    priority_prompt: 'Select Priority'
-    location_placeholder: 'Enter a location'
-    create_success: 'Creation Success!'
-    create_not_saved: 'Please Fill in Completely.'
-    update_success: 'Update Success!'
-    destroy_success: 'Delete Success!'
-    task_confirm: 'Are You Sure You Want To Delete?'
-    edit: 'Edit Task'
-    edit_title: 'Title'
-    edit_description: 'Description'
-    edit_user_id: 'Member'
-    edit_started_at: 'Start At'
-    edit_ended_at: 'End At'
-    edit_all_day_event: 'All Day'
-    edit_priority: 'Priority'
-    edit_select: 'Select'
-    edit_location: 'Location'
-    edit_location_reset: 'Reset'
-    edit_cancel: 'Cancel'
-    new: 'Create Task'
-    new_title: 'Title'
-    new_list_id: 'List'
-    new_description: 'Description'
-    new_priority: 'Priority'
-    new_started_at: 'Start At'
-    new_ended_at: 'End At'
-    new_all_day_event: 'All Day'
-    new_location: 'Location'
-    new_location_reset: 'Reset'
-    new_cancel: 'Cancel'
-    show: 'Show Task'
-    show_title: 'Title'
-    show_edit: 'Edit'
-    show_description: 'Description'
-    show_user_id: 'Member'
-    show_started_at: 'Start At'
-    show_ended_at: 'End At'
-    show_all_day_event: 'All Day'
-    show_priority: 'Priority'
-    show_select: 'Select'
-    show_location: 'Location'
-    time: 'Time'
+    priority_prompt: "Select Priority"
+    location_placeholder: "Enter a location"
+    create_success: "Creation Success!"
+    create_not_saved: "Please Fill in Completely."
+    update_success: "Update Success!"
+    destroy_success: "Delete Success!"
+    task_confirm: "Are You Sure You Want To Delete?"
+    edit: "Edit Task"
+    edit_title: "Title"
+    edit_description: "Description"
+    edit_user_id: "Member"
+    edit_started_at: "Start At"
+    edit_ended_at: "End At"
+    edit_all_day_event: "All Day"
+    edit_priority: "Priority"
+    edit_select: "Select"
+    edit_location: "Location"
+    edit_location_reset: "Reset"
+    edit_cancel: "Cancel"
+    new: "Create Task"
+    new_title: "Title"
+    new_list_id: "List"
+    new_description: "Description"
+    new_priority: "Priority"
+    new_started_at: "Start At"
+    new_ended_at: "End At"
+    new_all_day_event: "All Day"
+    new_location: "Location"
+    new_location_reset: "Reset"
+    new_cancel: "Cancel"
+    show: "Show Task"
+    show_title: "Title"
+    show_edit: "Edit"
+    show_description: "Description"
+    show_user_id: "Member"
+    show_started_at: "Start At"
+    show_ended_at: "End At"
+    show_all_day_event: "All Day"
+    show_priority: "Priority"
+    show_select: "Select"
+    show_location: "Location"
+    time: "Time"
 
   comments:
-    create_comment: 'Create Comment'
-    comment: 'Comment'
-    destroy_comment: 'Delete Comment'
-    context_blank_alert: 'Please enter context.'
+    create_comment: "Create Comment"
+    comment: "Comment"
+    destroy_comment: "Delete Comment"
+    context_blank_alert: "Please enter context."
 
   main:
-    user_sign_in: 'User Sign In'
-    new_user: 'New Staff'
-    company_sign_in: 'Company Sign In'
-    sign_in: 'Sign In'
-    new_company: 'Company Sign Up'
-    log_out: 'Log Out'
-    edit: 'Edit'
-    home: 'Home'
-    about: 'About'
-    privacy: 'Privacy'
-    feature: 'Feature'
-    name: 'Name'
-    email: 'Email'
-    password: 'Password'
-    password_confirmation: 'Password_confirmation'
-    events: 'Events'
-    overall_intro: 'SyncSquad is designed to make project collaboration easy and efficient for teams and businesses. With a user-friendly design and practical features, our aim is to help you manage projects effortlessly, improve team efficiency, and achieve successful project outcomes.'
-    calendar: 'Calendar'
+    user_sign_in: "User Sign In"
+    new_user: "New Staff"
+    company_sign_in: "Company Sign In"
+    sign_in: "Sign In"
+    new_company: "Company Sign Up"
+    log_out: "Log Out"
+    edit: "Edit"
+    home: "Home"
+    about: "About"
+    privacy: "Privacy"
+    feature: "Feature"
+    name: "Name"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password_confirmation"
+    events: "Events"
+    overall_intro: "SyncSquad is designed to make project collaboration easy and efficient for teams and businesses. With a user-friendly design and practical features, our aim is to help you manage projects effortlessly, improve team efficiency, and achieve successful project outcomes."
+    calendar: "Calendar"
     calendar_intro: "Calendar seamlessly works with your Google Calendar and displays all project tasks clearly. This ensures a quick view of team members' schedules, making it easy for everyone to participate and complete tasks on time. Real-time updates let you track project progress instantly."
-    project: 'Project'
-    project_intro: 'The user-friendly project management tool includes Kanban boards and simple drag-and-drop task cards, making it easy to organize and adjust tasks. Team members can quickly see project status and adjust tasks based on priority, ensuring a smooth workflow.'
-    chatroom: 'Chatroom'
-    chatroom_intro: 'Chat room provides a real-time communication platform for sharing information, discussing tasks, and syncing updates. Uploading files is easy, and you can choose between public or private chats, ensuring convenient and secure communication within the team. This promotes closer collaboration and boosts overall efficiency.'
-    setting: 'Setting'
-    upgrade: 'Upgrade'
-    not_authorized: 'You aren not authorized for the page.'
+    project: "Project"
+    project_intro: "The user-friendly project management tool includes Kanban boards and simple drag-and-drop task cards, making it easy to organize and adjust tasks. Team members can quickly see project status and adjust tasks based on priority, ensuring a smooth workflow."
+    chatroom: "Chatroom"
+    chatroom_intro: "Chat room provides a real-time communication platform for sharing information, discussing tasks, and syncing updates. Uploading files is easy, and you can choose between public or private chats, ensuring convenient and secure communication within the team. This promotes closer collaboration and boosts overall efficiency."
+    setting: "Setting"
+    upgrade: "Upgrade"
+    not_authorized: "You aren not authorized for the page."
 
   calender:
-    event: 'Event'
-    login: 'Please log in'
-    subject: 'Title'
-    description: 'Description'
-    started_at: 'Started At'
-    ended_at: 'Ended At'
-    all_day_event: 'All Day Event'
-    edit_event: 'Edit Event'
-    new_event: 'Create Event'
-    show_event: 'Show Event'
-    show_subject: 'Title'
-    show_description: 'Description'
-    show_started_at: 'Started At'
-    show_ended_at: 'Ended At'
-    show_all_day_event: 'All Day Event'
-    delete: 'Delete Event'
-    delete_confirm: 'Are You Sure You Want To Delete?'
-    create_success: 'Event created'
-    update_success: 'Event updated'
-    deleted: 'Event has been deleted'
+    event: "Event"
+    login: "Please log in"
+    subject: "Title"
+    description: "Description"
+    started_at: "Started At"
+    ended_at: "Ended At"
+    all_day_event: "All Day Event"
+    edit_event: "Edit Event"
+    new_event: "Create Event"
+    show_event: "Show Event"
+    show_subject: "Title"
+    show_description: "Description"
+    show_started_at: "Started At"
+    show_ended_at: "Ended At"
+    show_all_day_event: "All Day Event"
+    delete: "Delete Event"
+    delete_confirm: "Are You Sure You Want To Delete?"
+    create_success: "Event created"
+    update_success: "Event updated"
+    deleted: "Event has been deleted"
 
   company:
     creation_success: "Successfully Registered the Company"
@@ -175,45 +174,45 @@ en:
     login_success: "Login Success"
     login_failed: "Login Failed"
     logout_success: "Logout Success"
-    enter_name: 'Enter Your Company name'
-    enter_email: 'Enter Your Email'
-    enter_password: 'Enter Your Password'
-    enter_password_confirmation: 'Enter The Same Password'
-    your_email: 'Your Email'
-    your_password: 'Your Password'
+    enter_name: "Enter Your Company name"
+    enter_email: "Enter Your Email"
+    enter_password: "Enter Your Password"
+    enter_password_confirmation: "Enter The Same Password"
+    your_email: "Your Email"
+    your_password: "Your Password"
 
   devise:
-    name: 'Name'
-    nick_name: 'Nick Name'
-    gender: 'Gender'
-    role: 'Role'
-    birthday: 'Birthday'
-    phone: 'Phone'
-    time_zone: 'Time_zone'
-    lang: 'Lang'
-    update: 'Update'
-    update_notice: 'Enter password before update'
-    change_password: 'Change Password'
-    change_password_confirmation: 'Change Password Confirmation'
-    current_password: 'Current Password'
-    upload_avatar: 'Upload Avatar'
-    user_sign_in: 'User Sign In'
-    email: 'Email'
-    password: 'Password'
-    remember_me: 'Remember Me'
-    login: 'Login'
+    name: "Name"
+    nick_name: "Nick Name"
+    gender: "Gender"
+    role: "Role"
+    birthday: "Birthday"
+    phone: "Phone"
+    time_zone: "Time_zone"
+    lang: "Lang"
+    update: "Update"
+    update_notice: "Enter password before update"
+    change_password: "Change Password"
+    change_password_confirmation: "Change Password Confirmation"
+    current_password: "Current Password"
+    upload_avatar: "Upload Avatar"
+    user_sign_in: "User Sign In"
+    email: "Email"
+    password: "Password"
+    remember_me: "Remember Me"
+    login: "Login"
     sessions:
-      signed_in: 'Signed in successfully'
-      signed_out: 'Signed out successfully'
+      signed_in: "Signed in successfully"
+      signed_out: "Signed out successfully"
     failure:
-      not_found_in_database: 'This Account Is Not For This Company or Invalid Password'
-      invalid: 'Invalid Password'
+      not_found_in_database: "This Account Is Not For This Company or Invalid Password"
+      invalid: "Invalid Password"
     registrations:
       updated: "Your account has been updated successfully."
-      edit_user_title: 'Edit Profile'
+      edit_user_title: "Edit Profile"
     session_new:
-      your_email: 'Your Email'
-      your_password: 'Your Password'
+      your_email: "Your Email"
+      your_password: "Your Password"
 
   hrs:
     new_user: "Add A Employee"
@@ -222,10 +221,10 @@ en:
     role: "Job Title"
     name: "Name"
     email: "Email"
-    name_label: 'Name'
-    email_label: 'Email'
-    password_label: 'Password'
-    password_confirmation_label: 'Password Confirmation'
+    name_label: "Name"
+    email_label: "Email"
+    password_label: "Password"
+    password_confirmation_label: "Password Confirmation"
     name_placeholder: "Name"
     email_placeholder: "Email Address"
     password_placeholder: "Password"
@@ -243,66 +242,67 @@ en:
     delete_confirm: "Are You Sure You Want To Delete?"
 
   import:
-    import_employee: 'Import Employees'
-    please_choose_file: 'Please choose file'
-    data_import_process: 'Data import process'
-    field: 'Field'
-    instruction: 'Instruction'
-    email: 'Email'
-    password: 'Password'
-    name: 'Name'
-    gender: 'Gender'
-    birthday: 'Birthday'
-    phone: 'Phone'
-    role: 'Role'
-    nick_name: 'Nick Name'
-    time_zone: 'Time Zone'
-    language: 'Language'
-    template_instruction: 'Please download the template file and edit the data to import.'
-    data_import: 'Data import'
-    import: 'Import'
-    import_page: 'import Page'
-    import_records: 'import Records'
-    instruction_for_user_import: 'Instruction for User Import'
+    import_employee: "Import Employees"
+    please_choose_file: "Please choose file"
+    data_import_process: "Data import process"
+    field: "Field"
+    instruction: "Instruction"
+    email: "Email"
+    password: "Password"
+    name: "Name"
+    gender: "Gender"
+    birthday: "Birthday"
+    phone: "Phone"
+    role: "Role"
+    nick_name: "Nick Name"
+    time_zone: "Time Zone"
+    language: "Language"
+    template_instruction: "Please download the template file and edit the data to import."
+    data_import: "Data import"
+    import: "Import"
+    import_page: "import Page"
+    import_records: "import Records"
+    instruction_for_user_import: "Instruction for User Import"
     required: "It's required"
-    user_edit: 'Users can edit by themselves after created'
-    role_for_staff: 'Please fill hr or staff in the file'
-    btn_download: 'Download Template CSV File'
-    id: 'ID'
-    status: 'Status'
-    file: 'File'
-    imported_time: 'Imported Time'
-    all_records: 'All Records'
-    success_records: 'Success Records'
-    failures_details: 'Failures Details'
-    processing: 'Data is processing, please wait and refer to import record page'
+    user_edit: "Users can edit by themselves after created"
+    role_for_staff: "Please fill hr or staff in the file"
+    btn_download: "Download Template CSV File"
+    id: "ID"
+    status: "Status"
+    file: "File"
+    imported_time: "Imported Time"
+    all_records: "All Records"
+    success_records: "Success Records"
+    failures_details: "Failures Details"
+    processing: "Data is processing, please wait and refer to import record page"
 
-  Failures: 'Failures'
-  Success: 'Success'
+  Failures: "Failures"
+  Success: "Success"
 
   csv_import:
-    email_exists_row_number_email: 'Row %{row_number} - Email: %{email} exists in the system'
-    role_row_number_email: 'Row %{row_number} - Please fill hr or staff in the file'
-    Passwordistooshort: 'Row %{row_number} - Password is too short(at least 6 words)'
-    Password太短: 'Row %{row_number} - Password is too short(at least 6 words)'
-    Password密碼太短: 'Row %{row_number} - Password is too short(at least 6 words)'
-    Password密碼長度不足: 'Row %{row_number} - Password is too short(at least 6 words)'
-    Passwordistooshort(minimumis6characters): 'Row %{row_number} - Password is too short(at least 6 words)'
-    Passwordisblank: 'Row %{row_number} - Password is blank'
-    Passwordcan'tbeblank: 'Row %{row_number} - Password is blank'
-    Password為空白: 'Row %{row_number} - Password is blank'
-    Password密碼不能為空: 'Row %{row_number} - Password is blank'
-    Email用戶不能為空: 'Row %{row_number} - Email is blank'
-    Emailisblank: 'Row %{row_number} - Email is blank'
-    Emailcan'tbeblank: 'Row %{row_number} - Email is blank'
-    Email為空白: 'Row %{row_number} - Email is blank'
-    Emailisblank&Passwordisblank: 'Row %{row_number} - Email and Password are blank'
-    Emailisblank&Passwordcan'tbeblank: 'Row %{row_number} - Email and Password are blank'
-    Emailcan'tbeblank&Passwordisblank: 'Row %{row_number} - Email and Password are blank'
-    Emailcan'tbeblank&Passwordcan'tbeblank: 'Row %{row_number} - Email and Password are blank'
-    Email為空白&Password為空白: 'Row %{row_number} - Email and Password are blank'
-    Email用戶不能為空&Password密碼不能為空: 'Row %{row_number} - Email and Password are blank'
-    Email用戶無效: 'Row %{row_number} - Email is invalid'
+    email_exists_row_number_email: "Row %{row_number} - Email: %{email} exists in the system"
+    role_row_number_email: "Row %{row_number} - Please fill hr or staff in the file"
+    Passwordistooshort: "Row %{row_number} - Password is too short(at least 6 words)"
+    Password太短: "Row %{row_number} - Password is too short(at least 6 words)"
+    Password密碼太短: "Row %{row_number} - Password is too short(at least 6 words)"
+    Password密碼長度不足: "Row %{row_number} - Password is too short(at least 6 words)"
+    Passwordistooshort(minimumis6characters): "Row %{row_number} - Password is too short(at least 6 words)"
+    Passwordisblank: "Row %{row_number} - Password is blank"
+    Passwordcan'tbeblank: "Row %{row_number} - Password is blank"
+    Password為空白: "Row %{row_number} - Password is blank"
+    Password密碼不能為空: "Row %{row_number} - Password is blank"
+    Email用戶不能為空: "Row %{row_number} - Email is blank"
+    Emailisblank: "Row %{row_number} - Email is blank"
+    Emailcan'tbeblank: "Row %{row_number} - Email is blank"
+    Email為空白: "Row %{row_number} - Email is blank"
+    Emailisblank&Passwordisblank: "Row %{row_number} - Email and Password are blank"
+    Emailisblank&Passwordcan'tbeblank: "Row %{row_number} - Email and Password are blank"
+    Emailcan'tbeblank&Passwordisblank: "Row %{row_number} - Email and Password are blank"
+    Emailcan'tbeblank&Passwordcan'tbeblank: "Row %{row_number} - Email and Password are blank"
+    Email為空白&Password為空白: "Row %{row_number} - Email and Password are blank"
+    Email用戶不能為空&Password密碼不能為空: "Row %{row_number} - Email and Password are blank"
+    Email用戶無效: "Row %{row_number} - Email is invalid"
+    EmailTheuserdoesnotexist: "Row %{row_number} - Email is invalid"
 
   activerecord:
     errors:
@@ -310,108 +310,108 @@ en:
         user:
           attributes:
             email:
-              invalid: 'The user does not exist.'
+              invalid: "The user does not exist."
             password:
-              blank: 'Please enter password.'
-              too_short: 'Password is too short.'
-          blank: 'Please enter username.'
-          too_short: 'It is too short.'
-          invalid: 'The user does not exist.'
+              blank: "Please enter password."
+              too_short: "Password is too short."
+          blank: "Please enter username."
+          too_short: "It is too short."
+          invalid: "The user does not exist."
         task:
           attributes:
             title:
-              blank: 'Please enter the task title.'
+              blank: "Please enter the task title."
         list:
           attributes:
             title:
-              blank: 'Please enter the list title.'
+              blank: "Please enter the list title."
       messages:
-        blank: 'Please enter information.'
-        invalid: 'Please confirm the information.'
+        blank: "Please enter information."
+        invalid: "Please confirm the information."
     attributes:
       task:
         priorities:
-          critical: 'Critical'
-          high: 'High'
-          medium: 'Medium'
-          low: 'Low'
+          critical: "Critical"
+          high: "High"
+          medium: "Medium"
+          low: "Low"
 
   errors:
     attributes:
       password:
-        blank: 'Please enter password.'
-        too_short: 'Password is too short.'
-        invalid: 'Mailbox format is incorrect.'
+        blank: "Please enter password."
+        too_short: "Password is too short."
+        invalid: "Mailbox format is incorrect."
     messages:
-      blank: 'Please enter information.'
-      too_short: 'The Password is too short.'
-      invalid: 'Please confirm the information.'
+      blank: "Please enter information."
+      too_short: "The Password is too short."
+      invalid: "Please confirm the information."
 
-  search_placeholder: 'Search'
+  search_placeholder: "Search"
 
   rooms:
-    groups: 'Chat Rooms'
-    contacts: 'Contacts'
+    groups: "Chat Rooms"
+    contacts: "Contacts"
 
   layouts:
-    room_submit: '✚'
+    room_submit: "✚"
 
   messages:
-    msg_submit: '➤'
+    msg_submit: "➤"
 
   orders:
-    create_success: 'Thank You For Your Purchase!'
-    plan: 'Upgrade Plan'
-    plan_detail: 'Premium business solutions, can be canceled or changed anytime!'
-    vip_price: 'VIP member price'
-    month: 'mth'
-    price_detail: 'Free refund within the first 14 days'
-    upgrade: 'Upgrade'
-    condition_one: 'Membership without restrictions'
-    condition_two: 'CSV creation of members open for all'
-    basic_price: 'Basic Price'
-    free: 'Free to Use Permanently'
-    join: 'Join'
-    condition_seven: 'Membership Restriction: 5 people'
-    condition_eight: 'Bulk import restriction'
-    login: 'Please log in'
-    refer: 'Please refer payment'
+    create_success: "Thank You For Your Purchase!"
+    plan: "Upgrade Plan"
+    plan_detail: "Premium business solutions, can be canceled or changed anytime!"
+    vip_price: "VIP member price"
+    month: "mth"
+    price_detail: "Free refund within the first 14 days"
+    upgrade: "Upgrade"
+    condition_one: "Membership without restrictions"
+    condition_two: "CSV creation of members open for all"
+    basic_price: "Basic Price"
+    free: "Free to Use Permanently"
+    join: "Join"
+    condition_seven: "Membership Restriction: 5 people"
+    condition_eight: "Bulk import restriction"
+    login: "Please log in"
+    refer: "Please refer payment"
 
   views:
     pagination:
-      next: 'Next'
-      last: 'Last'
-      previous: 'Previous'
-      first: 'First'
-      truncate: '...'
+      next: "Next"
+      last: "Last"
+      previous: "Previous"
+      first: "First"
+      truncate: "..."
 
   template:
-    project: 'Template Project'
-    list: 'Template List'
-    task1: 'Template Task1'
-    task2: 'Template Task2'
+    project: "Template Project"
+    list: "Template List"
+    task1: "Template Task1"
+    task2: "Template Task2"
 
   helpers:
     submit:
       user:
-        create: 'Create'
+        create: "Create"
       company:
-        create: 'Create'
-        update: 'Update'
+        create: "Create"
+        update: "Update"
       project:
-        create: 'Create'
-        update: 'Update'
+        create: "Create"
+        update: "Update"
       list:
-        create: 'Create'
-        update: 'Update'
+        create: "Create"
+        update: "Update"
       task:
-        create: 'Create'
-        update: 'Update'
+        create: "Create"
+        update: "Update"
       task_project:
-        create: 'Create'
+        create: "Create"
 
   chatroom:
     create: "create"
     public_room: "Public Rooms"
     private_room: "Private Rooms"
-    room_name: "Room's name"    
+    room_name: "Room's name"
