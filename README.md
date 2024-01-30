@@ -102,7 +102,7 @@ $ bin/dev
 - Avatar Upload 頭像上傳
 - Payment Integration 金流串接
 
-### 林韋如 (Ryoma Lin)
+### 林韋如 (Ruby Lin)
 
 <img width="18" src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" alt="GitHub Icon"> GitHub：[ryoma510260](https://github.com/ryoma510260)
 
